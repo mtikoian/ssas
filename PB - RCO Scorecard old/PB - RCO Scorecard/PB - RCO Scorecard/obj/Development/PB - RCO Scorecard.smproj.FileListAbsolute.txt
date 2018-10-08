@@ -1,0 +1,14 @@
+U:\RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\bin\Model.asdatabase
+U:\RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\bin\Model.deploymenttargets
+U:\RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\bin\Model.deploymentoptions
+U:\RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\obj\Development\PB - RCO Scorecard.smproj.CoreCompileInputs.cache
+U:\RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\obj\Development\Model.asdatabase
+U:\RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\obj\Development\Model.deploymentoptions
+U:\RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\obj\Development\Model.deploymenttargets
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\bin\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\bin\Model.deploymenttargets
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\bin\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\obj\Development\PB - RCO Scorecard.smproj.CoreCompileInputs.cache
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\obj\Development\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\obj\Development\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB - RCO Scorecard\PB - RCO Scorecard\PB - RCO Scorecard\obj\Development\Model.deploymenttargets

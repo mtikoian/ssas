@@ -1,0 +1,7 @@
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Transactions\ProfBilling Transactions\ProfBilling Transactions\bin\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Transactions\ProfBilling Transactions\ProfBilling Transactions\bin\Model.deploymenttargets
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Transactions\ProfBilling Transactions\ProfBilling Transactions\bin\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Transactions\ProfBilling Transactions\ProfBilling Transactions\obj\Development\ProfBilling Transactions.smproj.CoreCompileInputs.cache
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Transactions\ProfBilling Transactions\ProfBilling Transactions\obj\Development\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Transactions\ProfBilling Transactions\ProfBilling Transactions\obj\Development\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Transactions\ProfBilling Transactions\ProfBilling Transactions\obj\Development\Model.deploymenttargets

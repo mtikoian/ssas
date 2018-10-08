@@ -1,0 +1,7 @@
+U:\Tabular Cubes\PB Transactions\PB Transactions\PB Transactions\bin\Model.asdatabase
+U:\Tabular Cubes\PB Transactions\PB Transactions\PB Transactions\bin\Model.deploymenttargets
+U:\Tabular Cubes\PB Transactions\PB Transactions\PB Transactions\bin\Model.deploymentoptions
+U:\Tabular Cubes\PB Transactions\PB Transactions\PB Transactions\obj\Development\PB Transactions.smproj.CoreCompileInputs.cache
+U:\Tabular Cubes\PB Transactions\PB Transactions\PB Transactions\obj\Development\Model.asdatabase
+U:\Tabular Cubes\PB Transactions\PB Transactions\PB Transactions\obj\Development\Model.deploymentoptions
+U:\Tabular Cubes\PB Transactions\PB Transactions\PB Transactions\obj\Development\Model.deploymenttargets

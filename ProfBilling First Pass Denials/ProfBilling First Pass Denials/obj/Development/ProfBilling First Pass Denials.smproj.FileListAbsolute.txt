@@ -1,0 +1,7 @@
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling First Pass Denials\ProfBilling First Pass Denials\bin\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling First Pass Denials\ProfBilling First Pass Denials\bin\Model.deploymenttargets
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling First Pass Denials\ProfBilling First Pass Denials\bin\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling First Pass Denials\ProfBilling First Pass Denials\obj\Development\ProfBilling First Pass Denials.smproj.CoreCompileInputs.cache
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling First Pass Denials\ProfBilling First Pass Denials\obj\Development\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling First Pass Denials\ProfBilling First Pass Denials\obj\Development\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling First Pass Denials\ProfBilling First Pass Denials\obj\Development\Model.deploymenttargets

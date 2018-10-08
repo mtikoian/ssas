@@ -1,0 +1,7 @@
+U:\Tabular Cubes\Charges, Payments, and Adjustments\Charges, Payments, and Adjustments\bin\Model.asdatabase
+U:\Tabular Cubes\Charges, Payments, and Adjustments\Charges, Payments, and Adjustments\bin\Model.deploymenttargets
+U:\Tabular Cubes\Charges, Payments, and Adjustments\Charges, Payments, and Adjustments\bin\Model.deploymentoptions
+U:\Tabular Cubes\Charges, Payments, and Adjustments\Charges, Payments, and Adjustments\obj\Development\Charges, Payments, and Adjustments.smproj.CoreCompileInputs.cache
+U:\Tabular Cubes\Charges, Payments, and Adjustments\Charges, Payments, and Adjustments\obj\Development\Model.asdatabase
+U:\Tabular Cubes\Charges, Payments, and Adjustments\Charges, Payments, and Adjustments\obj\Development\Model.deploymentoptions
+U:\Tabular Cubes\Charges, Payments, and Adjustments\Charges, Payments, and Adjustments\obj\Development\Model.deploymenttargets

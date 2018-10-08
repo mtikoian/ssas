@@ -1,0 +1,651 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Integrated Security=SSPI;Persist Security Info=false;Data Source=clarityprodpri,60304;Initial Catalog=Clarity",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "First Pass Denials",
+        "columns": [
+          {
+            "name": "Department ID",
+            "dataType": "double",
+            "sourceColumn": "Department ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location ID",
+            "dataType": "double",
+            "sourceColumn": "Location ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "sourceColumn": "Location",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Payment Post Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Payment Post Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "Remit Code Category",
+            "dataType": "string",
+            "sourceColumn": "Remit Code Category",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Amount",
+            "dataType": "double",
+            "sourceColumn": "Remit Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "string",
+            "sourceColumn": "Region ID"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region"
+          },
+          {
+            "type": "calculated",
+            "name": "Rev Cycle",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('First Pass Denials'[Location ID]",
+              "",
+              ",11,   \"REV CYCLE\" ",
+              "",
+              ",11101,\"REV CYCLE\" ",
+              "",
+              ",11102,\"REV CYCLE\" ",
+              "",
+              ",11103,\"REV CYCLE\" ",
+              "",
+              ",11104,\"REV CYCLE\" ",
+              "",
+              ",11105,\"REV CYCLE\" ",
+              "",
+              ",11115,\"REV CYCLE\" ",
+              "",
+              ",11116,\"REV CYCLE\" ",
+              "",
+              ",11122,\"REV CYCLE\" ",
+              "",
+              ",11132,\"REV CYCLE\" ",
+              "",
+              ",11138,\"REV CYCLE\" ",
+              "",
+              ",11139,\"REV CYCLE\" ",
+              "",
+              ",11140,\"REV CYCLE\" ",
+              "",
+              ",11141,\"REV CYCLE\" ",
+              "",
+              ",11142,\"REV CYCLE\" ",
+              "",
+              ",11143,\"REV CYCLE\" ",
+              "",
+              ",11144,\"REV CYCLE\" ",
+              "",
+              ",11146,\"REV CYCLE\" ",
+              "",
+              ",11151,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              ",11106,\"REV CYCLE\" ",
+              "",
+              ",11149,\"REV CYCLE\" ",
+              "",
+              ",11124,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              ",13,   \"REV CYCLE\" ",
+              "",
+              ",13104,\"REV CYCLE\" ",
+              "",
+              ",13105,\"REV CYCLE\" ",
+              "",
+              ",13116,\"REV CYCLE\" ",
+              "",
+              ",19142,\"REV CYCLE\" ",
+              "",
+              ",19143,\"REV CYCLE\" ",
+              "",
+              ",19144,\"REV CYCLE\" ",
+              "",
+              ",19145,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              ",16,   \"REV CYCLE\" ",
+              "",
+              ",16102,\"REV CYCLE\" ",
+              "",
+              ",16103,\"REV CYCLE\" ",
+              "",
+              ",16104,\"REV CYCLE\" ",
+              "",
+              ",19132,\"REV CYCLE\" ",
+              "",
+              ",19133,\"REV CYCLE\" ",
+              "",
+              ",19134,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              ",17,   \"REV CYCLE\" ",
+              "",
+              ",17105,\"REV CYCLE\" ",
+              "",
+              ",17106,\"REV CYCLE\" ",
+              "",
+              ",17107,\"REV CYCLE\" ",
+              "",
+              ",17108,\"REV CYCLE\" ",
+              "",
+              ",17109,\"REV CYCLE\" ",
+              "",
+              ",17110,\"REV CYCLE\" ",
+              "",
+              ",17112,\"REV CYCLE\" ",
+              "",
+              ",17113,\"REV CYCLE\" ",
+              "",
+              ",19135,\"REV CYCLE\" ",
+              "",
+              ",19136,\"REV CYCLE\" ",
+              "",
+              ",19137,\"REV CYCLE\" ",
+              "",
+              ",19138,\"REV CYCLE\" ",
+              "",
+              ",19139,\"REV CYCLE\" ",
+              "",
+              ",19140,\"REV CYCLE\" ",
+              "",
+              ",19141,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              ",18,   \"REV CYCLE\" ",
+              "",
+              ",18101,\"REV CYCLE\" ",
+              "",
+              ",18102,\"REV CYCLE\" ",
+              "",
+              ",18103,\"REV CYCLE\" ",
+              "",
+              ",18104,\"REV CYCLE\" ",
+              "",
+              ",18105,\"REV CYCLE\" ",
+              "",
+              ",18130,\"REV CYCLE\" ",
+              "",
+              ",18131,\"REV CYCLE\" ",
+              "",
+              ",18132,\"REV CYCLE\" ",
+              "",
+              ",18133,\"REV CYCLE\" ",
+              "",
+              ",19119,\"REV CYCLE\" ",
+              "",
+              ",19121,\"REV CYCLE\" ",
+              "",
+              ",19122,\"REV CYCLE\" ",
+              "",
+              ",19123,\"REV CYCLE\" ",
+              "",
+              ",19124,\"REV CYCLE\" ",
+              "",
+              ",19128,\"REV CYCLE\" ",
+              "",
+              ",19129,\"REV CYCLE\" ",
+              "",
+              ",19130,\"REV CYCLE\" ",
+              "",
+              ",19131,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              ",18110,\"REV CYCLE\" ",
+              "",
+              ",19126,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              ",18120,\"REV CYCLE\" ",
+              "",
+              ",18121,\"REV CYCLE\" ",
+              "",
+              ",19120,\"REV CYCLE\" ",
+              "",
+              ",19127,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              ",19,   \"REV CYCLE\" ",
+              "",
+              ",19101,\"REV CYCLE\" ",
+              "",
+              ",19102,\"REV CYCLE\" ",
+              "",
+              ",19106,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              ",19107,\"REV CYCLE\" ",
+              "",
+              ",19108,\"REV CYCLE\" ",
+              "",
+              ",19116,\"REV CYCLE\" ",
+              "",
+              ",19118,\"REV CYCLE\" ",
+              "",
+              "  ",
+              "",
+              "  ",
+              "",
+              ",\"OTHER\" ",
+              "",
+              ") "
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Market",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('First Pass Denials'[Location ID]",
+              "",
+              ",11106,\"SPRINGFIELD\" ",
+              "",
+              ",11149,\"SPRINGFIELD\" ",
+              "",
+              ",11124,\"SPRINGFIELD\" ",
+              "",
+              ",18110,\"MRG\" ",
+              "",
+              ",19126,\"MRG\" ",
+              "",
+              ",18120,\"DEFIANCE\" ",
+              "",
+              ",18121,\"DEFIANCE\" ",
+              "",
+              ",19120,\"DEFIANCE\" ",
+              "",
+              ",19127,\"DEFIANCE\" ",
+              "",
+              ",19107,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19108,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19116,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19118,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",'First Pass Denials'[Region]",
+              "",
+              ") ",
+              "",
+              " ",
+              "",
+              " ",
+              "",
+              " ",
+              "",
+              " "
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "First Pass Denials",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " varc.DEPARTMENT_ID as 'Department ID'",
+                ",dep.DEPARTMENT_NAME as 'Department'",
+                ",varc.LOC_ID as 'Location ID'",
+                ",loc.LOC_NAME as 'Location'",
+                ",sa.RPT_GRP_TEN as 'Region ID'",
+                ",upper(sa.NAME) as 'Region'",
+                ",varc.PAYMENT_POST_DATE as 'Payment Post Date'",
+                ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'Remit Code Category'",
+                ",varc.REMIT_AMOUNT as 'Remit Amount'",
+                "",
+                "from ",
+                "",
+                "clarity.dbo.V_ARPB_REMIT_CODES varc",
+                "--left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+                "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+                "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+                "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = varc.DEPARTMENT_ID",
+                "left join CLARITY_LOC loc on loc.LOC_ID = varc.LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "",
+                "where ",
+                "varc.PAYMENT_POST_DATE >= '12/1/2017'",
+                "and varc.PAYMENT_POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+                "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+                "and varc.REMIT_ACTION in (9,14)",
+                "and varc.REMIT_AMOUNT >= 0"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " varc.DEPARTMENT_ID as 'Department ID'",
+                  ",dep.DEPARTMENT_NAME as 'Department'",
+                  ",varc.LOC_ID as 'Location ID'",
+                  ",loc.LOC_NAME as 'Location'",
+                  ",sa.RPT_GRP_TEN as 'Region ID'",
+                  ",upper(sa.NAME) as 'Region'",
+                  ",varc.PAYMENT_POST_DATE as 'Payment Post Date'",
+                  ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'Remit Code Category'",
+                  ",varc.REMIT_AMOUNT as 'Remit Amount'",
+                  "",
+                  "from ",
+                  "",
+                  "clarity.dbo.V_ARPB_REMIT_CODES varc",
+                  "--left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+                  "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+                  "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+                  "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = varc.DEPARTMENT_ID",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = varc.LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "",
+                  "where ",
+                  "varc.PAYMENT_POST_DATE >= '12/1/2017'",
+                  "and varc.PAYMENT_POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+                  "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+                  "and varc.REMIT_ACTION in (9,14)",
+                  "and varc.REMIT_AMOUNT >= 0</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Remit Amount",
+            "expression": "sum('First Pass Denials'[Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " varc.DEPARTMENT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",varc.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",varc.PAYMENT_POST_DATE as 'Payment Post Date'",
+              ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'Remit Code Category'",
+              ",varc.REMIT_AMOUNT as 'Remit Amount'",
+              "",
+              "from ",
+              "",
+              "clarity.dbo.V_ARPB_REMIT_CODES varc",
+              "--left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+              "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+              "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+              "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = varc.DEPARTMENT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = varc.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "",
+              "where ",
+              "varc.PAYMENT_POST_DATE >= '12/1/2017'",
+              "and varc.PAYMENT_POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+              "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+              "and varc.REMIT_ACTION in (9,14)",
+              "and varc.REMIT_AMOUNT >= 0"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "First Pass Denials"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " varc.DEPARTMENT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",varc.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",varc.PAYMENT_POST_DATE as 'Payment Post Date'",
+              ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'Remit Code Category'",
+              ",varc.REMIT_AMOUNT as 'Remit Amount'",
+              "",
+              "from ",
+              "",
+              "clarity.dbo.V_ARPB_REMIT_CODES varc",
+              "--left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+              "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+              "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+              "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = varc.DEPARTMENT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = varc.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "",
+              "where ",
+              "varc.PAYMENT_POST_DATE >= '12/1/2017'",
+              "and varc.PAYMENT_POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+              "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+              "and varc.REMIT_ACTION in (9,14)",
+              "and varc.REMIT_AMOUNT >= 0</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Date - Payment",
+        "columns": [
+          {
+            "name": "CALENDAR_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "CALENDAR_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "CALENDAR_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NAME",
+            "dataType": "string",
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date - Payment",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " dd.CALENDAR_DT",
+                ",dd.CALENDAR_DT_STR",
+                ",dd.YEAR_MONTH",
+                ",dd.YEAR",
+                ",dd.MONTH_NAME",
+                ",dd.MONTHNAME_YEAR",
+                "",
+                "from CLARITY.dbo.DATE_DIMENSION dd",
+                "",
+                "where dd.CALENDAR_DT >= '1/1/2017'",
+                "and dd.CALENDAR_DT <= getdate()"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " dd.CALENDAR_DT",
+                  ",dd.CALENDAR_DT_STR",
+                  ",dd.YEAR_MONTH",
+                  ",dd.YEAR",
+                  ",dd.MONTH_NAME",
+                  ",dd.MONTHNAME_YEAR",
+                  "",
+                  "from CLARITY.dbo.DATE_DIMENSION dd",
+                  "",
+                  "where dd.CALENDAR_DT >= '1/1/2017'",
+                  "and dd.CALENDAR_DT <= getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " dd.CALENDAR_DT",
+              ",dd.CALENDAR_DT_STR",
+              ",dd.YEAR_MONTH",
+              ",dd.YEAR",
+              ",dd.MONTH_NAME",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from CLARITY.dbo.DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate()"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Date - Payment"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " dd.CALENDAR_DT",
+              ",dd.CALENDAR_DT_STR",
+              ",dd.YEAR_MONTH",
+              ",dd.YEAR",
+              ",dd.MONTH_NAME",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from CLARITY.dbo.DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "1c71f4fd-2f0f-4d9c-9040-c3181161d5cf",
+        "fromTable": "First Pass Denials",
+        "fromColumn": "Payment Post Date",
+        "toTable": "Date - Payment",
+        "toColumn": "CALENDAR_DT"
+      }
+    ],
+    "roles": [
+      {
+        "name": "Role",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          },
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_Reporting_Group",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-141188"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

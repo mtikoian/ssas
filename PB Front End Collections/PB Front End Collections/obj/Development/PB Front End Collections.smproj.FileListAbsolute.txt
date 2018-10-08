@@ -1,0 +1,7 @@
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB Front End Collections\PB Front End Collections\bin\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB Front End Collections\PB Front End Collections\bin\Model.deploymenttargets
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB Front End Collections\PB Front End Collections\bin\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB Front End Collections\PB Front End Collections\obj\Development\PB Front End Collections.smproj.CoreCompileInputs.cache
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB Front End Collections\PB Front End Collections\obj\Development\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB Front End Collections\PB Front End Collections\obj\Development\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\PB Front End Collections\PB Front End Collections\obj\Development\Model.deploymenttargets

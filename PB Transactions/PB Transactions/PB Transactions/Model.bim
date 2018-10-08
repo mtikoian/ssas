@@ -1,0 +1,2322 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "ClarityCHPUtil",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=ClarityCHPUtil;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      },
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "DEPARTMENT",
+        "columns": [
+          {
+            "name": "DEPT_ID",
+            "dataType": "double",
+            "sourceColumn": "DEPT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DEPT_NAME",
+            "dataType": "string",
+            "sourceColumn": "DEPT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DEPT_GL",
+            "dataType": "string",
+            "sourceColumn": "DEPT_GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SPECIALTY",
+            "dataType": "string",
+            "sourceColumn": "SPECIALTY",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "sourceColumn": "LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "LOC_NAME",
+            "dataType": "string",
+            "sourceColumn": "LOC_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "LOC_GL",
+            "dataType": "string",
+            "sourceColumn": "LOC_GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REGION_ID",
+            "dataType": "double",
+            "sourceColumn": "REGION_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "REGION_NAME",
+            "dataType": "string",
+            "sourceColumn": "REGION_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MARKET_NAME",
+            "dataType": "string",
+            "sourceColumn": "MARKET_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TYPE",
+            "dataType": "string",
+            "sourceColumn": "TYPE"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Departments",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select * from ClarityCHPUtil.rpt.V_PB_DEP",
+                "where TYPE = 'MERCY'"
+              ],
+              "dataSource": "ClarityCHPUtil"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select * from ClarityCHPUtil.rpt.V_PB_DEP",
+                  "where TYPE = 'MERCY'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select * from ClarityCHPUtil.rpt.V_PB_DEP",
+              "where TYPE = 'MERCY'"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Departments"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select * from ClarityCHPUtil.rpt.V_PB_DEP",
+              "where TYPE = 'MERCY'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PROCEDURE",
+        "columns": [
+          {
+            "name": "PROC_ID",
+            "dataType": "double",
+            "sourceColumn": "PROC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PROC_NAME",
+            "dataType": "string",
+            "sourceColumn": "PROC_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROC_CODE",
+            "dataType": "string",
+            "sourceColumn": "PROC_CODE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "type": "calculated",
+            "name": "FINAL_DENIAL",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "SWITCH (",
+              "    TRUE (),",
+              "    PROCEDURE[PROC_CODE] = \"4017\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"4018\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"4019\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"4020\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"4021\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"3011\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"3012\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"3013\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"3014\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"3015\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"3018\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"3019\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"3052\", \"Y\",",
+              "    PROCEDURE[PROC_CODE] = \"5036\", \"Y\",",
+              "    \"N\"",
+              ")"
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Procedures",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " PROC_ID",
+                ",PROC_CODE",
+                ",PROC_NAME",
+                " from CLARITY.dbo.CLARITY_EAP"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " PROC_ID",
+                  ",PROC_CODE",
+                  ",PROC_NAME",
+                  " from CLARITY.dbo.CLARITY_EAP</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " PROC_ID",
+              ",PROC_CODE",
+              ",PROC_NAME",
+              " from CLARITY.dbo.CLARITY_EAP"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Procedures"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " PROC_ID",
+              ",PROC_CODE",
+              ",PROC_NAME",
+              " from CLARITY.dbo.CLARITY_EAP</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PROVIDER",
+        "columns": [
+          {
+            "name": "PROV_ID",
+            "dataType": "string",
+            "sourceColumn": "PROV_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROV_NAME",
+            "dataType": "string",
+            "sourceColumn": "PROV_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROV_TYPE",
+            "dataType": "string",
+            "sourceColumn": "PROV_TYPE",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Providers",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " PROV_ID",
+                ",PROV_NAME",
+                ",PROV_TYPE",
+                "from CLARITY.dbo.CLARITY_SER"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " PROV_ID",
+                  ",PROV_NAME",
+                  ",PROV_TYPE",
+                  "from CLARITY.dbo.CLARITY_SER</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " PROV_ID",
+              ",PROV_NAME",
+              ",PROV_TYPE",
+              "from CLARITY.dbo.CLARITY_SER"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Providers"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " PROV_ID",
+              ",PROV_NAME",
+              ",PROV_TYPE",
+              "from CLARITY.dbo.CLARITY_SER</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PAYOR",
+        "columns": [
+          {
+            "name": "PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAYOR_NAME",
+            "dataType": "string",
+            "sourceColumn": "PAYOR_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "FINANCIAL_CLASS",
+            "dataType": "string",
+            "sourceColumn": "FINANCIAL_CLASS",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PAYOR",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                " PAYOR_ID",
+                ",PAYOR_NAME",
+                ",FINANCIAL_CLASS",
+                "from CLARITY.dbo.CLARITY_EPM"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " PAYOR_ID",
+                  ",PAYOR_NAME",
+                  ",FINANCIAL_CLASS",
+                  "from CLARITY.dbo.CLARITY_EPM</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " PAYOR_ID",
+              ",PAYOR_NAME",
+              ",FINANCIAL_CLASS",
+              "from CLARITY.dbo.CLARITY_EPM"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "PAYOR"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " PAYOR_ID",
+              ",PAYOR_NAME",
+              ",FINANCIAL_CLASS",
+              "from CLARITY.dbo.CLARITY_EPM</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PLAN",
+        "columns": [
+          {
+            "name": "BENEFIT_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "BENEFIT_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BENEFIT_PLAN_NAME",
+            "dataType": "string",
+            "sourceColumn": "BENEFIT_PLAN_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PLAN",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                " BENEFIT_PLAN_ID",
+                ",BENEFIT_PLAN_NAME",
+                ",PAYOR_ID",
+                "from CLARITY.dbo.CLARITY_EPP"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " BENEFIT_PLAN_ID",
+                  ",BENEFIT_PLAN_NAME",
+                  ",PAYOR_ID",
+                  "from CLARITY.dbo.CLARITY_EPP</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " BENEFIT_PLAN_ID",
+              ",BENEFIT_PLAN_NAME",
+              ",PAYOR_ID",
+              "from CLARITY.dbo.CLARITY_EPP"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "PLAN"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " BENEFIT_PLAN_ID",
+              ",BENEFIT_PLAN_NAME",
+              ",PAYOR_ID",
+              "from CLARITY.dbo.CLARITY_EPP</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "FIN_CLASS",
+        "columns": [
+          {
+            "name": "FINANCIAL_CLASS",
+            "dataType": "string",
+            "sourceColumn": "FINANCIAL_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "FINANCIAL_CLASS_NAME",
+            "dataType": "string",
+            "sourceColumn": "FINANCIAL_CLASS_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "FIN_CLASS_TITLE",
+            "dataType": "string",
+            "sourceColumn": "FIN_CLASS_TITLE",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FIN_CLASS",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                " FINANCIAL_CLASS",
+                ",FINANCIAL_CLASS_NAME",
+                ",FIN_CLASS_TITLE",
+                "from CLARITY.dbo.CLARITY_FC"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " FINANCIAL_CLASS",
+                  ",FINANCIAL_CLASS_NAME",
+                  ",FIN_CLASS_TITLE",
+                  "from CLARITY.dbo.CLARITY_FC</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " FINANCIAL_CLASS",
+              ",FINANCIAL_CLASS_NAME",
+              ",FIN_CLASS_TITLE",
+              "from CLARITY.dbo.CLARITY_FC"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FIN_CLASS"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " FINANCIAL_CLASS",
+              ",FINANCIAL_CLASS_NAME",
+              ",FIN_CLASS_TITLE",
+              "from CLARITY.dbo.CLARITY_FC</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DATE",
+        "columns": [
+          {
+            "name": "CALENDAR_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "DAY_OF_WEEK",
+            "dataType": "string",
+            "sourceColumn": "DAY_OF_WEEK",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "WEEK_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEK_ENDING_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "WEEK_ENDING_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "LAST_FRIDAY_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "LAST_FRIDAY_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "MONTH_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "MONTH_END_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "DAY_OF_MONTH",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NAME",
+            "dataType": "string",
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "MONTH_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "QUARTER_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "QUARTER_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DAY_OF_YEAR",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DTE",
+            "dataType": "int64",
+            "sourceColumn": "EPIC_DTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DAT",
+            "dataType": "int64",
+            "sourceColumn": "EPIC_DAT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "INSTANT_AT_MIDNIGHT",
+            "dataType": "double",
+            "sourceColumn": "INSTANT_AT_MIDNIGHT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OCCURRENCE_IN_MONTH",
+            "dataType": "int64",
+            "sourceColumn": "OCCURRENCE_IN_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TOMORROW_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "TOMORROW_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEKEND_YN",
+            "dataType": "string",
+            "sourceColumn": "WEEKEND_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "QUARTER_BEGIN_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "QUARTER_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "QUARTER_END_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "SAME_DAY_YEAR_AGO",
+            "dataType": "dateTime",
+            "sourceColumn": "SAME_DAY_YEAR_AGO",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "PREV_DAY_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "PREV_DAY_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "LEAP_YEAR_YN",
+            "dataType": "string",
+            "sourceColumn": "LEAP_YEAR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_THE_WEEK_C",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_THE_WEEK_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_OF_THE_WEEK",
+            "dataType": "int64",
+            "sourceColumn": "YEAR_OF_THE_WEEK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "YEAR_BEGIN_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "MONTH_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "MONTH_BEGIN_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "YEAR_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "YEAR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "MONTH_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CALENDAR_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "CALENDAR_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QTR_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "QTR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "WEEK_BEGIN_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "WEEK_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "WEEK_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_WEEK_INDEX",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_WEEK_INDEX",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "HOLIDAY_YN",
+            "dataType": "string",
+            "sourceColumn": "HOLIDAY_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_QUARTER",
+            "dataType": "string",
+            "sourceColumn": "YEAR_QUARTER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH_STR",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_STR",
+            "dataType": "string",
+            "sourceColumn": "QUARTER_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BUS_DAY_CT",
+            "dataType": "int64",
+            "sourceColumn": "BUS_DAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEKDAY_CT",
+            "dataType": "int64",
+            "sourceColumn": "WEEKDAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "USA_FISCAL_YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "USA_FISCAL_YEAR_BEGIN_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "USA_FISCAL_YEAR_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "USA_FISCAL_YEAR_END_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "YEAR_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "YEAR_END_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "MONTH_END_YN",
+            "dataType": "string",
+            "sourceColumn": "MONTH_END_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WHICH_DAYS_C",
+            "dataType": "int64",
+            "sourceColumn": "WHICH_DAYS_C",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select *",
+                "from DATE_DIMENSION",
+                "where CALENDAR_DT >= '1/1/2018'",
+                "and CALENDAR_DT <= getdate()-1"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+                  "from DATE_DIMENSION",
+                  "where CALENDAR_DT >= '1/1/2018'",
+                  "and CALENDAR_DT <= getdate()-1</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select *",
+              "from DATE_DIMENSION",
+              "where CALENDAR_DT >= '1/1/2018'",
+              "and CALENDAR_DT <= getdate()-1"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Date"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+              "from DATE_DIMENSION",
+              "where CALENDAR_DT >= '1/1/2018'",
+              "and CALENDAR_DT <= getdate()-1</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TRANSACTION",
+        "columns": [
+          {
+            "name": "TDL_ID",
+            "dataType": "double",
+            "sourceColumn": "TDL_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DETAIL_TYPE",
+            "dataType": "int64",
+            "sourceColumn": "DETAIL_TYPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TYPE",
+            "dataType": "int64",
+            "sourceColumn": "TYPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "POST_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "POST_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "ORIG_POST_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "ORIG_POST_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "ORIG_SERVICE_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "ORIG_SERVICE_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "PERIOD",
+            "dataType": "string",
+            "sourceColumn": "PERIOD",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TX_ID",
+            "dataType": "double",
+            "sourceColumn": "TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "TRAN_TYPE",
+            "dataType": "int64",
+            "sourceColumn": "TRAN_TYPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ALLOWED_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "ALLOWED_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CHARGE_SLIP_NUMBER",
+            "dataType": "string",
+            "sourceColumn": "CHARGE_SLIP_NUMBER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TYPE_OF_SERVICE",
+            "dataType": "int64",
+            "sourceColumn": "TYPE_OF_SERVICE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MATCH_TRX_ID",
+            "dataType": "double",
+            "sourceColumn": "MATCH_TRX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MATCH_TX_TYPE",
+            "dataType": "int64",
+            "sourceColumn": "MATCH_TX_TYPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MATCH_PROC_ID",
+            "dataType": "double",
+            "sourceColumn": "MATCH_PROC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MATCH_PROV_ID",
+            "dataType": "string",
+            "sourceColumn": "MATCH_PROV_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MATCH_LOC_ID",
+            "dataType": "double",
+            "sourceColumn": "MATCH_LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACCOUNT_ID",
+            "dataType": "double",
+            "sourceColumn": "ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAT_ID",
+            "dataType": "string",
+            "sourceColumn": "PAT_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PATIENT_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "PATIENT_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "INSURANCE_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "INSURANCE_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RELATIVE_VALUE_UNIT",
+            "dataType": "double",
+            "sourceColumn": "RELATIVE_VALUE_UNIT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_CVG_ID",
+            "dataType": "double",
+            "sourceColumn": "CUR_CVG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "CUR_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "CUR_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_FIN_CLASS",
+            "dataType": "string",
+            "sourceColumn": "CUR_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PERFORMING_PROV_ID",
+            "dataType": "string",
+            "sourceColumn": "PERFORMING_PROV_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BILLING_PROVIDER_ID",
+            "dataType": "string",
+            "sourceColumn": "BILLING_PROVIDER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORIGINAL_CVG_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIGINAL_CVG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIGINAL_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIGINAL_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIGINAL_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIGINAL_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIGINAL_FIN_CLASS",
+            "dataType": "string",
+            "sourceColumn": "ORIGINAL_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROC_ID",
+            "dataType": "double",
+            "sourceColumn": "PROC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PROCEDURE_QUANTITY",
+            "dataType": "double",
+            "sourceColumn": "PROCEDURE_QUANTITY",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CPT_CODE",
+            "dataType": "string",
+            "sourceColumn": "CPT_CODE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MODIFIER_ONE",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_ONE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MODIFIER_TWO",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_TWO",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MODIFIER_THREE",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_THREE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MODIFIER_FOUR",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_FOUR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DX_ONE_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_ONE_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_TWO_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_TWO_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_THREE_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_THREE_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_FOUR_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_FOUR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_FIVE_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_FIVE_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_SIX_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_SIX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "SERV_AREA_ID",
+            "dataType": "double",
+            "sourceColumn": "SERV_AREA_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "sourceColumn": "LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DEPT_ID",
+            "dataType": "double",
+            "sourceColumn": "DEPT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "POS_ID",
+            "dataType": "double",
+            "sourceColumn": "POS_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUSTOMER_ITEM_ONE",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_ONE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CUSTOMER_ITEM_TWO",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_TWO",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CUSTOMER_ITEM_THREE",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_THREE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CUSTOMER_ITEM_FOUR",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_FOUR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CUSTOMER_ITEM_FIVE",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_FIVE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BILL_CLAIM_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "BILL_CLAIM_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "INVOICE_NUMBER",
+            "dataType": "string",
+            "sourceColumn": "INVOICE_NUMBER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ABF_FORM_ID",
+            "dataType": "string",
+            "sourceColumn": "ABF_FORM_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CLM_CLAIM_ID",
+            "dataType": "double",
+            "sourceColumn": "CLM_CLAIM_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BILL_HOLD_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "BILL_HOLD_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAT_AGING_DAYS",
+            "dataType": "int64",
+            "sourceColumn": "PAT_AGING_DAYS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "INS_AGING_DAYS",
+            "dataType": "int64",
+            "sourceColumn": "INS_AGING_DAYS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ACTION_CVG_ID",
+            "dataType": "double",
+            "sourceColumn": "ACTION_CVG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "ACTION_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "ACTION_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_FIN_CLASS",
+            "dataType": "string",
+            "sourceColumn": "ACTION_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DEBIT_GL_NUM",
+            "dataType": "string",
+            "sourceColumn": "DEBIT_GL_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CREDIT_GL_NUM",
+            "dataType": "string",
+            "sourceColumn": "CREDIT_GL_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REASON_CODE_ID",
+            "dataType": "string",
+            "sourceColumn": "REASON_CODE_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "USER_ID",
+            "dataType": "string",
+            "sourceColumn": "USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "COPAY_INDICATOR",
+            "dataType": "int64",
+            "sourceColumn": "COPAY_INDICATOR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TX_NUM",
+            "dataType": "int64",
+            "sourceColumn": "TX_NUM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ORIG_PRICE",
+            "dataType": "double",
+            "sourceColumn": "ORIG_PRICE",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PRICE_CONTRACT_ID",
+            "dataType": "double",
+            "sourceColumn": "PRICE_CONTRACT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CONTRACT_DISCOUNT",
+            "dataType": "double",
+            "sourceColumn": "CONTRACT_DISCOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "INT_PAT_ID",
+            "dataType": "string",
+            "sourceColumn": "INT_PAT_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORIG_AMT",
+            "dataType": "double",
+            "sourceColumn": "ORIG_AMT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAT_TYPE_C",
+            "dataType": "int64",
+            "sourceColumn": "PAT_TYPE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PRIM_CARE_PROV",
+            "dataType": "string",
+            "sourceColumn": "PRIM_CARE_PROV",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REFERRAL_ID",
+            "dataType": "double",
+            "sourceColumn": "REFERRAL_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "REFERRAL_SOURCE_ID",
+            "dataType": "string",
+            "sourceColumn": "REFERRAL_SOURCE_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PRIM_LOCATION",
+            "dataType": "double",
+            "sourceColumn": "PRIM_LOCATION",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RVU_WORK",
+            "dataType": "double",
+            "sourceColumn": "RVU_WORK",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RVU_OVERHEAD",
+            "dataType": "double",
+            "sourceColumn": "RVU_OVERHEAD",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RVU_MALPRACTICE",
+            "dataType": "double",
+            "sourceColumn": "RVU_MALPRACTICE",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "POSTING_BATCH_NUM",
+            "dataType": "string",
+            "sourceColumn": "POSTING_BATCH_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "VOID_USER_ID",
+            "dataType": "string",
+            "sourceColumn": "VOID_USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "R_NEW_CHG_TX_ID",
+            "dataType": "double",
+            "sourceColumn": "R_NEW_CHG_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_CHG_TX_ID",
+            "dataType": "double",
+            "sourceColumn": "R_ORIG_CHG_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_POST_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "R_ORIG_POST_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "R_ORIG_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "R_ORIG_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_PAT_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "R_ORIG_PAT_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_FIN_CLASS",
+            "dataType": "string",
+            "sourceColumn": "R_ORIG_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "R_ORIG_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "R_ORIG_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "R_ORIG_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_CVG_ID",
+            "dataType": "double",
+            "sourceColumn": "R_ORIG_CVG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "REFERENCE_NUMBER",
+            "dataType": "string",
+            "sourceColumn": "REFERENCE_NUMBER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PAYMENT_SOURCE_C",
+            "dataType": "int64",
+            "sourceColumn": "PAYMENT_SOURCE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TX_COMMENT",
+            "dataType": "string",
+            "sourceColumn": "TX_COMMENT",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ANESTHESIA_TYPE_C",
+            "dataType": "string",
+            "sourceColumn": "ANESTHESIA_TYPE_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "EMERGENCY_STATUS_C",
+            "dataType": "int64",
+            "sourceColumn": "EMERGENCY_STATUS_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PHYSICAL_STATUS_C",
+            "dataType": "string",
+            "sourceColumn": "PHYSICAL_STATUS_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CONCURRENCY_CALC",
+            "dataType": "double",
+            "sourceColumn": "CONCURRENCY_CALC",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CONCURRENCY_OVER",
+            "dataType": "double",
+            "sourceColumn": "CONCURRENCY_OVER",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BASE_UNITS",
+            "dataType": "double",
+            "sourceColumn": "BASE_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "TIMED_UNITS",
+            "dataType": "double",
+            "sourceColumn": "TIMED_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PHY_STATUS_UNITS",
+            "dataType": "double",
+            "sourceColumn": "PHY_STATUS_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "EMERGENCY_UNITS",
+            "dataType": "double",
+            "sourceColumn": "EMERGENCY_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "AGE_UNITS",
+            "dataType": "double",
+            "sourceColumn": "AGE_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MED_SUP_MOD_OVER_C",
+            "dataType": "string",
+            "sourceColumn": "MED_SUP_MOD_OVER_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ANESTHESIA_CERT",
+            "dataType": "string",
+            "sourceColumn": "ANESTHESIA_CERT",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TECH_CHARGE_FLAG",
+            "dataType": "string",
+            "sourceColumn": "TECH_CHARGE_FLAG",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "NIA_OUTCOME_CODE_C",
+            "dataType": "int64",
+            "sourceColumn": "NIA_OUTCOME_CODE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PROC_MED_NEC_FLAG",
+            "dataType": "string",
+            "sourceColumn": "PROC_MED_NEC_FLAG",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CRD_CHARGE_SLIP_NO",
+            "dataType": "string",
+            "sourceColumn": "CRD_CHARGE_SLIP_NO",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "VISIT_NUMBER",
+            "dataType": "string",
+            "sourceColumn": "VISIT_NUMBER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CRNA_CHARGE_ID",
+            "dataType": "double",
+            "sourceColumn": "CRNA_CHARGE_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIG_ANES_CHG_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIG_ANES_CHG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CONTESTED_FLAG_YN",
+            "dataType": "string",
+            "sourceColumn": "CONTESTED_FLAG_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PAT_ENC_CSN_ID",
+            "dataType": "double",
+            "sourceColumn": "PAT_ENC_CSN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_USER_ID",
+            "dataType": "string",
+            "sourceColumn": "ACTION_USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TDL_EXTRACT_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "TDL_EXTRACT_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "INSURANCE_ID",
+            "dataType": "string",
+            "sourceColumn": "INSURANCE_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SPECIMEN_ID",
+            "dataType": "string",
+            "sourceColumn": "SPECIMEN_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TEST_ID",
+            "dataType": "string",
+            "sourceColumn": "TEST_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "LAB_ID",
+            "dataType": "string",
+            "sourceColumn": "LAB_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PANEL_ID",
+            "dataType": "string",
+            "sourceColumn": "PANEL_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROV_SPECIALTY_C",
+            "dataType": "string",
+            "sourceColumn": "PROV_SPECIALTY_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DIST_USER_ID",
+            "dataType": "string",
+            "sourceColumn": "DIST_USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "UNDIST_USER_ID",
+            "dataType": "string",
+            "sourceColumn": "UNDIST_USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROC_ALT_IDFR",
+            "dataType": "string",
+            "sourceColumn": "PROC_ALT_IDFR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SERV_PROV_SUFFIX",
+            "dataType": "string",
+            "sourceColumn": "SERV_PROV_SUFFIX",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SERV_PROV_ATTR_1_C",
+            "dataType": "int64",
+            "sourceColumn": "SERV_PROV_ATTR_1_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SERV_PROV_ATTR_2_C",
+            "dataType": "int64",
+            "sourceColumn": "SERV_PROV_ATTR_2_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SERV_PROV_ATTR_3_C",
+            "dataType": "int64",
+            "sourceColumn": "SERV_PROV_ATTR_3_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BILL_PROV_SUFFIX",
+            "dataType": "string",
+            "sourceColumn": "BILL_PROV_SUFFIX",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BILL_PROV_ATTR_1_C",
+            "dataType": "int64",
+            "sourceColumn": "BILL_PROV_ATTR_1_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BILL_PROV_ATTR_2_C",
+            "dataType": "int64",
+            "sourceColumn": "BILL_PROV_ATTR_2_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BILL_PROV_ATTR_3_C",
+            "dataType": "int64",
+            "sourceColumn": "BILL_PROV_ATTR_3_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "VERIFIED",
+            "dataType": "string",
+            "sourceColumn": "VERIFIED",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RVU_PROC_UNITS",
+            "dataType": "double",
+            "sourceColumn": "RVU_PROC_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CASE_STATE_C",
+            "dataType": "int64",
+            "sourceColumn": "CASE_STATE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CASE_RATE_ID",
+            "dataType": "string",
+            "sourceColumn": "CASE_RATE_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CASE_TX_STATE_C",
+            "dataType": "int64",
+            "sourceColumn": "CASE_TX_STATE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MATCH_RFD_TX_ID",
+            "dataType": "double",
+            "sourceColumn": "MATCH_RFD_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MATCH_RFD_TX_AMT",
+            "dataType": "double",
+            "sourceColumn": "MATCH_RFD_TX_AMT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_ACTN_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "CUR_ACTN_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIG_PST_BATCH_NUM",
+            "dataType": "string",
+            "sourceColumn": "ORIG_PST_BATCH_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORIG_REF_NUM",
+            "dataType": "string",
+            "sourceColumn": "ORIG_REF_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORIG_PAY_SOURCE_C",
+            "dataType": "int64",
+            "sourceColumn": "ORIG_PAY_SOURCE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TX_DESC_OVERRIDE",
+            "dataType": "string",
+            "sourceColumn": "TX_DESC_OVERRIDE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TRANSFERRED_TX_ID",
+            "dataType": "double",
+            "sourceColumn": "TRANSFERRED_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "IS_TRANFERED_YN",
+            "dataType": "string",
+            "sourceColumn": "IS_TRANFERED_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_ORIG_DPLY_ID",
+            "dataType": "string",
+            "sourceColumn": "CM_ORIG_DPLY_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_ORIG_ETR_CID",
+            "dataType": "double",
+            "sourceColumn": "CM_ORIG_ETR_CID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CM_ORIG_ACCT_LINE",
+            "dataType": "int64",
+            "sourceColumn": "CM_ORIG_ACCT_LINE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CM_HOME_LINK",
+            "dataType": "double",
+            "sourceColumn": "CM_HOME_LINK",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "HOMED_INDICATOR_YN",
+            "dataType": "string",
+            "sourceColumn": "HOMED_INDICATOR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_PHY_OWNER_ID",
+            "dataType": "string",
+            "sourceColumn": "CM_PHY_OWNER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_LOG_OWNER_ID",
+            "dataType": "string",
+            "sourceColumn": "CM_LOG_OWNER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_ORIG_ACCT_ID",
+            "dataType": "double",
+            "sourceColumn": "CM_ORIG_ACCT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CM_HOMED_INSTANT",
+            "dataType": "dateTime",
+            "sourceColumn": "CM_HOMED_INSTANT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "CH_EDIT_SEQUENCE",
+            "dataType": "int64",
+            "sourceColumn": "CH_EDIT_SEQUENCE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CH_EDIT_CONTEXTS",
+            "dataType": "string",
+            "sourceColumn": "CH_EDIT_CONTEXTS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ACTION_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "ACTION_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "HOM_CLARITY_FLG_YN",
+            "dataType": "string",
+            "sourceColumn": "HOM_CLARITY_FLG_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CSH_ID",
+            "dataType": "double",
+            "sourceColumn": "CSH_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIG_HTR_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIG_HTR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "WORKSTATION_ID",
+            "dataType": "string",
+            "sourceColumn": "WORKSTATION_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "POS_SESSID",
+            "dataType": "string",
+            "sourceColumn": "POS_SESSID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "POS_TXID",
+            "dataType": "string",
+            "sourceColumn": "POS_TXID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "VOID_POS_SESSID",
+            "dataType": "string",
+            "sourceColumn": "VOID_POS_SESSID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "VOID_POS_TXID",
+            "dataType": "string",
+            "sourceColumn": "VOID_POS_TXID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "POS_TX_LINE",
+            "dataType": "int64",
+            "sourceColumn": "POS_TX_LINE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "VOID_POS_TX_LINE",
+            "dataType": "int64",
+            "sourceColumn": "VOID_POS_TX_LINE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "HSP_ACCOUNT_ID",
+            "dataType": "double",
+            "sourceColumn": "HSP_ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MATCH_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "MATCH_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_MATCH_LINE",
+            "dataType": "int64",
+            "sourceColumn": "ACTION_MATCH_LINE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DYNAMIC_ALLOWED_AMT",
+            "dataType": "double",
+            "sourceColumn": "DYNAMIC_ALLOWED_AMT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTIVE_AR_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "ACTIVE_AR_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "EXTERNAL_AR_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "EXTERNAL_AR_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BAD_DEBT_AR_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "BAD_DEBT_AR_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BILL_AREA_ID",
+            "dataType": "double",
+            "sourceColumn": "BILL_AREA_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "FIN_DIV_ID",
+            "dataType": "double",
+            "sourceColumn": "FIN_DIV_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "FIN_SUBDIV_ID",
+            "dataType": "double",
+            "sourceColumn": "FIN_SUBDIV_ID",
+            "sourceProviderType": "Decimal"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TRANSACTION",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select *",
+                "from CLARITY.dbo.CLARITY_TDL_TRAN",
+                "where POST_DATE >= '1/1/2018'",
+                "and DETAIL_TYPE <= 33",
+                "and SERV_AREA_ID in (11,13,16,17,18,19,1312)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+                  "from CLARITY.dbo.CLARITY_TDL_TRAN",
+                  "where POST_DATE >= '1/1/2018'",
+                  "and DETAIL_TYPE <= 33",
+                  "and SERV_AREA_ID in (11,13,16,17,18,19,1312)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "AMOUNTS",
+            "expression": "sum('TRANSACTION'[AMOUNT])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select *",
+              "from CLARITY.dbo.CLARITY_TDL_TRAN",
+              "where POST_DATE >= '1/1/2018'",
+              "and DETAIL_TYPE <= 33",
+              "and SERV_AREA_ID in (11,13,16,17,18,19,1312)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "TRANSACTION"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+              "from CLARITY.dbo.CLARITY_TDL_TRAN",
+              "where POST_DATE >= '1/1/2018'",
+              "and DETAIL_TYPE <= 33",
+              "and SERV_AREA_ID in (11,13,16,17,18,19,1312)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "USER",
+        "columns": [
+          {
+            "name": "USER_ID",
+            "dataType": "string",
+            "sourceColumn": "USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "NAME",
+            "dataType": "string",
+            "sourceColumn": "NAME",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "USER",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " USER_ID",
+                ",NAME",
+                "from CLARITY_EMP"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " USER_ID",
+                  ",NAME",
+                  "from CLARITY_EMP</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " USER_ID",
+              ",NAME",
+              "from CLARITY_EMP"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "USER"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " USER_ID",
+              ",NAME",
+              "from CLARITY_EMP</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "2e98e96a-1af9-4e10-bcb2-54a3e493aac5",
+        "fromTable": "TRANSACTION",
+        "fromColumn": "DEPT_ID",
+        "toTable": "DEPARTMENT",
+        "toColumn": "DEPT_ID"
+      },
+      {
+        "name": "00f7005a-5d7f-4eb7-8188-faa17cd5bc88",
+        "fromTable": "TRANSACTION",
+        "fromColumn": "MATCH_PROC_ID",
+        "toTable": "PROCEDURE",
+        "toColumn": "PROC_ID"
+      },
+      {
+        "name": "accadf6d-d0b8-43f7-b97f-68d027a476a6",
+        "fromTable": "TRANSACTION",
+        "fromColumn": "BILLING_PROVIDER_ID",
+        "toTable": "PROVIDER",
+        "toColumn": "PROV_ID"
+      },
+      {
+        "name": "9e6b4d6b-da32-4817-abb6-588116e5af66",
+        "fromTable": "TRANSACTION",
+        "fromColumn": "CUR_PAYOR_ID",
+        "toTable": "PAYOR",
+        "toColumn": "PAYOR_ID"
+      },
+      {
+        "name": "fde375cc-bd54-47bd-9570-a3a80d18bac8",
+        "fromTable": "TRANSACTION",
+        "fromColumn": "CUR_PLAN_ID",
+        "toTable": "PLAN",
+        "toColumn": "BENEFIT_PLAN_ID"
+      },
+      {
+        "name": "61283b4d-5a0d-4d40-9ac1-ff89789869e6",
+        "fromTable": "TRANSACTION",
+        "fromColumn": "CUR_FIN_CLASS",
+        "toTable": "FIN_CLASS",
+        "toColumn": "FINANCIAL_CLASS"
+      },
+      {
+        "name": "10083a42-5932-4004-aae5-b0d1ed6b52ef",
+        "fromTable": "TRANSACTION",
+        "fromColumn": "POST_DATE",
+        "toTable": "DATE",
+        "toColumn": "CALENDAR_DT"
+      },
+      {
+        "name": "5fa88aa4-af63-452b-8eb0-43bb2a53c014",
+        "fromTable": "TRANSACTION",
+        "fromColumn": "USER_ID",
+        "toTable": "USER",
+        "toColumn": "USER_ID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

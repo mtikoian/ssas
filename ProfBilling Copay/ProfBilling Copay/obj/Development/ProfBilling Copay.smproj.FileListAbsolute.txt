@@ -1,0 +1,7 @@
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Copay\ProfBilling Copay\bin\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Copay\ProfBilling Copay\bin\Model.deploymenttargets
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Copay\ProfBilling Copay\bin\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Copay\ProfBilling Copay\obj\Development\ProfBilling Copay.smproj.CoreCompileInputs.cache
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Copay\ProfBilling Copay\obj\Development\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Copay\ProfBilling Copay\obj\Development\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Copay\ProfBilling Copay\obj\Development\Model.deploymenttargets

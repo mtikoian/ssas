@@ -1,0 +1,2553 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Department",
+        "columns": [
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DEPARTMENT_NAME",
+            "dataType": "string",
+            "sourceColumn": "DEPARTMENT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DEPT_ABBREVIATION",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "DEPT_ABBREVIATION",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SPECIALTY",
+            "dataType": "string",
+            "sourceColumn": "SPECIALTY",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REV_LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "REV_LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DEP_GROUP",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DEP_GROUP",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "GL_PREFIX",
+            "dataType": "string",
+            "sourceColumn": "GL_PREFIX",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_ONE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_ONE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWO",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_THREE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_THREE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_FOUR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_FOUR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_FIVE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_FIVE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_SIX",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_SIX",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_SEVEN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_SEVEN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_EIGHT",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_EIGHT",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_NINE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_NINE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TEN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TEN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ADT_PARENT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ADT_PARENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "SERV_AREA_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SERV_AREA_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "SPECIALTY_DEP_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "SPECIALTY_DEP_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "LICENSED_BEDS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "LICENSED_BEDS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MASTER_POOL_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MASTER_POOL_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MASTER_POOL_NAME",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MASTER_POOL_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "COVERING_POOL_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "COVERING_POOL_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "COVERING_POOL_NAME",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "COVERING_POOL_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "FLASH_CARD_PRT_ROU",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "FLASH_CARD_PRT_ROU",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "NUM_FLASH_CARDS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NUM_FLASH_CARDS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CTRL_SHEET_ROU",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CTRL_SHEET_ROU",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "NUM_CONTROL_SHEETS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NUM_CONTROL_SHEETS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ADT_UNIT_TYPE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ADT_UNIT_TYPE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CM_PHY_OWNER_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CM_PHY_OWNER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_LOG_OWNER_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CM_LOG_OWNER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_ELEVEN_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_ELEVEN_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWELVE_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWELVE_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_THIRTEEN_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_THIRTEEN_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_FOURTEEN_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_FOURTEEN_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_FIFTEEN_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_FIFTEEN_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_SIXTEEN_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_SIXTEEN_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_SEVNTEEN_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_SEVNTEEN_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_EIGHTEEN_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_EIGHTEEN_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_NINETEEN_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_NINETEEN_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTY_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTY_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DFLT_PHARMACY_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DFLT_PHARMACY_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CENTER_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CENTER_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RECORD_STATUS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "RECORD_STATUS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OUTPAT_DUP_INT_STR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "OUTPAT_DUP_INT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "INPAT_DUP_INT_STR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "INPAT_DUP_INT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RX_LOGON_PHR_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "RX_LOGON_PHR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RX_CHARGE_ADMIN_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RX_CHARGE_ADMIN_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MAR_LABEL_PRNTR_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MAR_LABEL_PRNTR_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ALLOW_AUTO_FUT_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ALLOW_AUTO_FUT_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DEF_COE_ORD_MOD_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DEF_COE_ORD_MOD_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ORD_MOD_OP_CAP",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ORD_MOD_OP_CAP",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORD_MOD_IP_CAP",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ORD_MOD_IP_CAP",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "IP_MED_PREF_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "IP_MED_PREF_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MR_HSB_LINK_USER",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MR_HSB_LINK_USER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "COST_CENTER_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "COST_CENTER_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "REQ_ADM_HAR_MCH_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "REQ_ADM_HAR_MCH_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "USE_HAR_REC_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "USE_HAR_REC_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "HAR_DEF_ACT_TYPE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "HAR_DEF_ACT_TYPE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COPAY_WAIVE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "COPAY_WAIVE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IGNOR_DSP_PATXFR_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IGNOR_DSP_PATXFR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROMPT_REDIR_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PROMPT_REDIR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROMPT_DYS_CHK_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PROMPT_DYS_CHK_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PROMPT_MSG_TEXT_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PROMPT_MSG_TEXT_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "NEAREST_PROC_TIME",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NEAREST_PROC_TIME",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NEAREST_PROC_TIME_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NEAREST_PROC_TIME_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DEP_ED_TYPE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DEP_ED_TYPE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SCHD_INTRP_AUTO_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "SCHD_INTRP_AUTO_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTYONE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTYONE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTYTWO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTYTWO",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTYTHREE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTYTHREE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTYFOUR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTYFOUR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTYFIVE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTYFIVE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTYSIX",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTYSIX",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTYSEVEN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTYSEVEN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTYEIGHT",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTYEIGHT",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TWENTYNINE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TWENTYNINE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_THIRTY",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_THIRTY",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_THIRTYONE_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_THIRTYONE_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_THIRTYTWO_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_THIRTYTWO_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TRTYTHREE_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TRTYTHREE_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TRTYFOUR_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TRTYFOUR_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TRTYFIVE_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TRTYFIVE_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_THIRTYSIX_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_THIRTYSIX_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TRTYSEVEN_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TRTYSEVEN_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TRTYEIGHT_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TRTYEIGHT_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_TRTYNINE_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_TRTYNINE_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RPT_GRP_FOURTY_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_FOURTY_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REVERIFY_ORDERS_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "REVERIFY_ORDERS_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PPL_DEPT_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PPL_DEPT_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "EXTERNAL_NAME",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "EXTERNAL_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PHONE_NUMBER",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PHONE_NUMBER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "OR_UNIT_TYPE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "OR_UNIT_TYPE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BED_COLUMN_INFO_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "BED_COLUMN_INFO_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "IS_PERIOP_DEP_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IS_PERIOP_DEP_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TX_PLAN_REL_CATS_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TX_PLAN_REL_CATS_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "FACILITY_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "FACILITY_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "INPATIENT_DEPT_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "INPATIENT_DEPT_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CARE_AREA_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CARE_AREA_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "RESTRICTED_DEPT_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RESTRICTED_DEPT_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PHYSICAL_LOC_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PHYSICAL_LOC_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "LAG_TIME",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "LAG_TIME",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "AUTO_PROMPT_CNTR_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "AUTO_PROMPT_CNTR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CLM_ALT_NAME",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CLM_ALT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CLM_ALT_CITY",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CLM_ALT_CITY",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CLM_ALT_STATE_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CLM_ALT_STATE_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CLM_ALT_ZIP",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CLM_ALT_ZIP",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CLM_ALT_PHONE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CLM_ALT_PHONE",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DEP",
+            "dataView": "full",
+            "source": {
+              "query": "SELECT * FROM CLARITY_DEP",
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM CLARITY_DEP</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT * FROM CLARITY_DEP"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DEP"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM CLARITY_DEP</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
+      },
+      {
+        "name": "CLARITY_TDL_TRAN",
+        "columns": [
+          {
+            "name": "TDL_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TDL_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DETAIL_TYPE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DETAIL_TYPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TYPE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TYPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "POST_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "POST_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "ORIG_POST_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "ORIG_POST_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "ORIG_SERVICE_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "ORIG_SERVICE_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "PERIOD",
+            "dataType": "string",
+            "sourceColumn": "PERIOD",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TX_ID",
+            "dataType": "double",
+            "sourceColumn": "TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "TRAN_TYPE",
+            "dataType": "int64",
+            "sourceColumn": "TRAN_TYPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ALLOWED_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "ALLOWED_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CHARGE_SLIP_NUMBER",
+            "dataType": "string",
+            "sourceColumn": "CHARGE_SLIP_NUMBER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TYPE_OF_SERVICE",
+            "dataType": "int64",
+            "sourceColumn": "TYPE_OF_SERVICE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MATCH_TRX_ID",
+            "dataType": "double",
+            "sourceColumn": "MATCH_TRX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MATCH_TX_TYPE",
+            "dataType": "int64",
+            "sourceColumn": "MATCH_TX_TYPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MATCH_PROC_ID",
+            "dataType": "double",
+            "sourceColumn": "MATCH_PROC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MATCH_PROV_ID",
+            "dataType": "string",
+            "sourceColumn": "MATCH_PROV_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MATCH_LOC_ID",
+            "dataType": "double",
+            "sourceColumn": "MATCH_LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACCOUNT_ID",
+            "dataType": "double",
+            "sourceColumn": "ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAT_ID",
+            "dataType": "string",
+            "sourceColumn": "PAT_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PATIENT_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "PATIENT_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "INSURANCE_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "INSURANCE_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RELATIVE_VALUE_UNIT",
+            "dataType": "double",
+            "sourceColumn": "RELATIVE_VALUE_UNIT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_CVG_ID",
+            "dataType": "double",
+            "sourceColumn": "CUR_CVG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "CUR_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "CUR_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_FIN_CLASS",
+            "dataType": "string",
+            "sourceColumn": "CUR_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PERFORMING_PROV_ID",
+            "dataType": "string",
+            "sourceColumn": "PERFORMING_PROV_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BILLING_PROVIDER_ID",
+            "dataType": "string",
+            "sourceColumn": "BILLING_PROVIDER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORIGINAL_CVG_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIGINAL_CVG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIGINAL_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIGINAL_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIGINAL_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIGINAL_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIGINAL_FIN_CLASS",
+            "dataType": "string",
+            "sourceColumn": "ORIGINAL_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROC_ID",
+            "dataType": "double",
+            "sourceColumn": "PROC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PROCEDURE_QUANTITY",
+            "dataType": "double",
+            "sourceColumn": "PROCEDURE_QUANTITY",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CPT_CODE",
+            "dataType": "string",
+            "sourceColumn": "CPT_CODE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MODIFIER_ONE",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_ONE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MODIFIER_TWO",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_TWO",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MODIFIER_THREE",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_THREE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MODIFIER_FOUR",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_FOUR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DX_ONE_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_ONE_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_TWO_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_TWO_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_THREE_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_THREE_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_FOUR_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_FOUR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_FIVE_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_FIVE_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_SIX_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_SIX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "SERV_AREA_ID",
+            "dataType": "double",
+            "sourceColumn": "SERV_AREA_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "sourceColumn": "LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DEPT_ID",
+            "dataType": "double",
+            "sourceColumn": "DEPT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "POS_ID",
+            "dataType": "double",
+            "sourceColumn": "POS_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUSTOMER_ITEM_ONE",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_ONE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CUSTOMER_ITEM_TWO",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_TWO",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CUSTOMER_ITEM_THREE",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_THREE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CUSTOMER_ITEM_FOUR",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_FOUR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CUSTOMER_ITEM_FIVE",
+            "dataType": "string",
+            "sourceColumn": "CUSTOMER_ITEM_FIVE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BILL_CLAIM_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "BILL_CLAIM_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "INVOICE_NUMBER",
+            "dataType": "string",
+            "sourceColumn": "INVOICE_NUMBER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ABF_FORM_ID",
+            "dataType": "string",
+            "sourceColumn": "ABF_FORM_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CLM_CLAIM_ID",
+            "dataType": "double",
+            "sourceColumn": "CLM_CLAIM_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BILL_HOLD_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "BILL_HOLD_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAT_AGING_DAYS",
+            "dataType": "int64",
+            "sourceColumn": "PAT_AGING_DAYS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "INS_AGING_DAYS",
+            "dataType": "int64",
+            "sourceColumn": "INS_AGING_DAYS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ACTION_CVG_ID",
+            "dataType": "double",
+            "sourceColumn": "ACTION_CVG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "ACTION_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "ACTION_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_FIN_CLASS",
+            "dataType": "string",
+            "sourceColumn": "ACTION_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DEBIT_GL_NUM",
+            "dataType": "string",
+            "sourceColumn": "DEBIT_GL_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CREDIT_GL_NUM",
+            "dataType": "string",
+            "sourceColumn": "CREDIT_GL_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REASON_CODE_ID",
+            "dataType": "string",
+            "sourceColumn": "REASON_CODE_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "USER_ID",
+            "dataType": "string",
+            "sourceColumn": "USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "COPAY_INDICATOR",
+            "dataType": "int64",
+            "sourceColumn": "COPAY_INDICATOR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TX_NUM",
+            "dataType": "int64",
+            "sourceColumn": "TX_NUM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ORIG_PRICE",
+            "dataType": "double",
+            "sourceColumn": "ORIG_PRICE",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PRICE_CONTRACT_ID",
+            "dataType": "double",
+            "sourceColumn": "PRICE_CONTRACT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CONTRACT_DISCOUNT",
+            "dataType": "double",
+            "sourceColumn": "CONTRACT_DISCOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "INT_PAT_ID",
+            "dataType": "string",
+            "sourceColumn": "INT_PAT_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORIG_AMT",
+            "dataType": "double",
+            "sourceColumn": "ORIG_AMT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAT_TYPE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PAT_TYPE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PRIM_CARE_PROV",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PRIM_CARE_PROV",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REFERRAL_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "REFERRAL_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "REFERRAL_SOURCE_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "REFERRAL_SOURCE_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PRIM_LOCATION",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PRIM_LOCATION",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RVU_WORK",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "RVU_WORK",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RVU_OVERHEAD",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "RVU_OVERHEAD",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RVU_MALPRACTICE",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "RVU_MALPRACTICE",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "POSTING_BATCH_NUM",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "POSTING_BATCH_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "VOID_USER_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "VOID_USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "R_NEW_CHG_TX_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "R_NEW_CHG_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_CHG_TX_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "R_ORIG_CHG_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_POST_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "R_ORIG_POST_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "R_ORIG_AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "R_ORIG_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_PAT_AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "R_ORIG_PAT_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_FIN_CLASS",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "R_ORIG_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "R_ORIG_PAYOR_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "R_ORIG_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_PLAN_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "R_ORIG_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "R_ORIG_CVG_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "R_ORIG_CVG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "REFERENCE_NUMBER",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "REFERENCE_NUMBER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PAYMENT_SOURCE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PAYMENT_SOURCE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TX_COMMENT",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TX_COMMENT",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ANESTHESIA_TYPE_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ANESTHESIA_TYPE_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "EMERGENCY_STATUS_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "EMERGENCY_STATUS_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PHYSICAL_STATUS_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PHYSICAL_STATUS_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CONCURRENCY_CALC",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CONCURRENCY_CALC",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CONCURRENCY_OVER",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CONCURRENCY_OVER",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BASE_UNITS",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "BASE_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "TIMED_UNITS",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TIMED_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PHY_STATUS_UNITS",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PHY_STATUS_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "EMERGENCY_UNITS",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "EMERGENCY_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "AGE_UNITS",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "AGE_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MED_SUP_MOD_OVER_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MED_SUP_MOD_OVER_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ANESTHESIA_CERT",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ANESTHESIA_CERT",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TECH_CHARGE_FLAG",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TECH_CHARGE_FLAG",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "NIA_OUTCOME_CODE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NIA_OUTCOME_CODE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PROC_MED_NEC_FLAG",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PROC_MED_NEC_FLAG",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CRD_CHARGE_SLIP_NO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CRD_CHARGE_SLIP_NO",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "VISIT_NUMBER",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "VISIT_NUMBER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CRNA_CHARGE_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CRNA_CHARGE_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIG_ANES_CHG_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ORIG_ANES_CHG_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CONTESTED_FLAG_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CONTESTED_FLAG_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PAT_ENC_CSN_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PAT_ENC_CSN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_USER_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ACTION_USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TDL_EXTRACT_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDL_EXTRACT_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "INSURANCE_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "INSURANCE_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SPECIMEN_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "SPECIMEN_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TEST_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TEST_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "LAB_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "LAB_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PANEL_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PANEL_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROV_SPECIALTY_C",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PROV_SPECIALTY_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DIST_USER_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "DIST_USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "UNDIST_USER_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "UNDIST_USER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PROC_ALT_IDFR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PROC_ALT_IDFR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SERV_PROV_SUFFIX",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "SERV_PROV_SUFFIX",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SERV_PROV_ATTR_1_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SERV_PROV_ATTR_1_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SERV_PROV_ATTR_2_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SERV_PROV_ATTR_2_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SERV_PROV_ATTR_3_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SERV_PROV_ATTR_3_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BILL_PROV_SUFFIX",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "BILL_PROV_SUFFIX",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BILL_PROV_ATTR_1_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "BILL_PROV_ATTR_1_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BILL_PROV_ATTR_2_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "BILL_PROV_ATTR_2_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BILL_PROV_ATTR_3_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "BILL_PROV_ATTR_3_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "VERIFIED",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "VERIFIED",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "RVU_PROC_UNITS",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "RVU_PROC_UNITS",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CASE_STATE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CASE_STATE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CASE_RATE_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CASE_RATE_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CASE_TX_STATE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CASE_TX_STATE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MATCH_RFD_TX_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "MATCH_RFD_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MATCH_RFD_TX_AMT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "MATCH_RFD_TX_AMT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_ACTN_PAYOR_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CUR_ACTN_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIG_PST_BATCH_NUM",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ORIG_PST_BATCH_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORIG_REF_NUM",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ORIG_REF_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORIG_PAY_SOURCE_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ORIG_PAY_SOURCE_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TX_DESC_OVERRIDE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TX_DESC_OVERRIDE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TRANSFERRED_TX_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TRANSFERRED_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "IS_TRANFERED_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IS_TRANFERED_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_ORIG_DPLY_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CM_ORIG_DPLY_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_ORIG_ETR_CID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CM_ORIG_ETR_CID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CM_ORIG_ACCT_LINE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CM_ORIG_ACCT_LINE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CM_HOME_LINK",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CM_HOME_LINK",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "HOMED_INDICATOR_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "HOMED_INDICATOR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_PHY_OWNER_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CM_PHY_OWNER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_LOG_OWNER_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CM_LOG_OWNER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CM_ORIG_ACCT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CM_ORIG_ACCT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CM_HOMED_INSTANT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "CM_HOMED_INSTANT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "CH_EDIT_SEQUENCE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CH_EDIT_SEQUENCE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CH_EDIT_CONTEXTS",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CH_EDIT_CONTEXTS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ACTION_AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ACTION_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "HOM_CLARITY_FLG_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "HOM_CLARITY_FLG_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CSH_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CSH_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIG_HTR_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ORIG_HTR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "WORKSTATION_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "WORKSTATION_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "POS_SESSID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "POS_SESSID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "POS_TXID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "POS_TXID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "VOID_POS_SESSID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "VOID_POS_SESSID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "VOID_POS_TXID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "VOID_POS_TXID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "POS_TX_LINE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "POS_TX_LINE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "VOID_POS_TX_LINE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "VOID_POS_TX_LINE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "HSP_ACCOUNT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "HSP_ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MATCH_PAYOR_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "MATCH_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTION_MATCH_LINE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ACTION_MATCH_LINE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DYNAMIC_ALLOWED_AMT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DYNAMIC_ALLOWED_AMT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACTIVE_AR_AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ACTIVE_AR_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "EXTERNAL_AR_AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "EXTERNAL_AR_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BAD_DEBT_AR_AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "BAD_DEBT_AR_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BILL_AREA_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "BILL_AREA_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "FIN_DIV_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "FIN_DIV_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "FIN_SUBDIV_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "FIN_SUBDIV_ID",
+            "sourceProviderType": "Decimal"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CLARITY_TDL_TRAN",
+            "source": {
+              "query": [
+                "SELECT * FROM CLARITY_TDL_TRAN",
+                "WHERE ORIG_SERVICE_DATE BETWEEN '1/1/2018' and '12/31/2018'",
+                "AND SERV_AREA_ID IN (11,13,16,17,18,19)",
+                "AND DETAIL_TYPE <= 33"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM CLARITY_TDL_TRAN",
+                  "WHERE ORIG_SERVICE_DATE BETWEEN '1/1/2018' and '12/31/2018'",
+                  "AND SERV_AREA_ID IN (11,13,16,17,18,19)",
+                  "AND DETAIL_TYPE <= 33</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2016-2017 CLARITY_TDL_TRAN",
+            "mode": "import",
+            "source": {
+              "query": [
+                "SELECT * FROM CLARITY_TDL_TRAN",
+                "WHERE ORIG_SERVICE_DATE BETWEEN '1/1/2016' and '12/31/2017'",
+                "AND SERV_AREA_ID IN (11,13,16,17,18,19)",
+                "AND DETAIL_TYPE <= 33"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM CLARITY_TDL_TRAN",
+                  "WHERE ORIG_SERVICE_DATE BETWEEN '1/1/2016' and '12/31/2017'",
+                  "AND SERV_AREA_ID IN (11,13,16,17,18,19)",
+                  "AND DETAIL_TYPE <= 33</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Charges",
+            "expression": "CALCULATE(SUM(CLARITY_TDL_TRAN[AMOUNT]),CLARITY_TDL_TRAN[DETAIL_TYPE]=1 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 10)",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Measures",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Payments",
+            "expression": [
+              "CALCULATE(SUM(CLARITY_TDL_TRAN[AMOUNT]),CLARITY_TDL_TRAN[DETAIL_TYPE]= 2 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 5 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 11 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 20 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 22 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 32 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 33)*-1",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Measures",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Patient Payments",
+            "expression": [
+              "CALCULATE(SUM(CLARITY_TDL_TRAN[PATIENT_AMOUNT]),CLARITY_TDL_TRAN[DETAIL_TYPE]= 2 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 5 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 11 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 20 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 22 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 32 || CLARITY_TDL_TRAN[DETAIL_TYPE] = 33)*-1",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Measures",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT * FROM CLARITY_TDL_TRAN",
+              "WHERE ORIG_SERVICE_DATE BETWEEN '1/1/2018' and '12/31/2018'",
+              "AND SERV_AREA_ID IN (11,13,16,17,18,19)",
+              "AND DETAIL_TYPE <= 33"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CLARITY_TDL_TRAN"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM CLARITY_TDL_TRAN",
+              "WHERE ORIG_SERVICE_DATE BETWEEN '1/1/2018' and '12/31/2018'",
+              "AND SERV_AREA_ID IN (11,13,16,17,18,19)",
+              "AND DETAIL_TYPE <= 33</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DATE_DIMENSION",
+        "columns": [
+          {
+            "name": "CALENDAR_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "DAY_OF_WEEK",
+            "dataType": "string",
+            "sourceColumn": "DAY_OF_WEEK",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "WEEK_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEK_ENDING_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "WEEK_ENDING_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "LAST_FRIDAY_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "LAST_FRIDAY_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "MONTH_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "DAY_OF_MONTH",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NAME",
+            "dataType": "string",
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "MONTH_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "QUARTER_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "QUARTER_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DAY_OF_YEAR",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DTE",
+            "dataType": "int64",
+            "sourceColumn": "EPIC_DTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DAT",
+            "dataType": "int64",
+            "sourceColumn": "EPIC_DAT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "INSTANT_AT_MIDNIGHT",
+            "dataType": "double",
+            "sourceColumn": "INSTANT_AT_MIDNIGHT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OCCURRENCE_IN_MONTH",
+            "dataType": "int64",
+            "sourceColumn": "OCCURRENCE_IN_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TOMORROW_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "TOMORROW_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEKEND_YN",
+            "dataType": "string",
+            "sourceColumn": "WEEKEND_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "QUARTER_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "QUARTER_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "QUARTER_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "SAME_DAY_YEAR_AGO",
+            "dataType": "dateTime",
+            "sourceColumn": "SAME_DAY_YEAR_AGO",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "PREV_DAY_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "PREV_DAY_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "LEAP_YEAR_YN",
+            "dataType": "string",
+            "sourceColumn": "LEAP_YEAR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_THE_WEEK_C",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_THE_WEEK_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_OF_THE_WEEK",
+            "dataType": "int64",
+            "sourceColumn": "YEAR_OF_THE_WEEK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "YEAR_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "MONTH_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "YEAR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "MONTH_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CALENDAR_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "CALENDAR_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QTR_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "QTR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "WEEK_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "WEEK_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "WEEK_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_WEEK_INDEX",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_WEEK_INDEX",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "HOLIDAY_YN",
+            "dataType": "string",
+            "sourceColumn": "HOLIDAY_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_QUARTER",
+            "dataType": "string",
+            "sourceColumn": "YEAR_QUARTER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH_STR",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_STR",
+            "dataType": "string",
+            "sourceColumn": "QUARTER_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BUS_DAY_CT",
+            "dataType": "int64",
+            "sourceColumn": "BUS_DAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEKDAY_CT",
+            "dataType": "int64",
+            "sourceColumn": "WEEKDAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "USA_FISCAL_YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "USA_FISCAL_YEAR_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "USA_FISCAL_YEAR_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "USA_FISCAL_YEAR_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "YEAR_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_END_YN",
+            "dataType": "string",
+            "sourceColumn": "MONTH_END_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WHICH_DAYS_C",
+            "dataType": "int64",
+            "sourceColumn": "WHICH_DAYS_C",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DATE_DIMENSION",
+            "dataView": "full",
+            "source": {
+              "query": "SELECT * FROM DATE_DIMENSION",
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM DATE_DIMENSION</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Post Date",
+            "levels": [
+              {
+                "name": "YEAR",
+                "ordinal": 0,
+                "column": "YEAR"
+              },
+              {
+                "name": "YEAR_MONTH",
+                "ordinal": 2,
+                "column": "YEAR_MONTH"
+              },
+              {
+                "name": "YEAR_QUARTER",
+                "ordinal": 1,
+                "column": "YEAR_QUARTER"
+              },
+              {
+                "name": "WEEK_NUMBER",
+                "ordinal": 3,
+                "column": "WEEK_NUMBER"
+              },
+              {
+                "name": "CALENDAR_DT",
+                "ordinal": 4,
+                "column": "CALENDAR_DT"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT * FROM DATE_DIMENSION"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DATE_DIMENSION"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM DATE_DIMENSION</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "7d35a185-af52-491c-ae07-786d82008f88",
+        "fromTable": "CLARITY_TDL_TRAN",
+        "fromColumn": "DEPT_ID",
+        "toTable": "Department",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "e465e3ba-8dcf-47f7-9330-dc90aceaa33d",
+        "fromTable": "CLARITY_TDL_TRAN",
+        "fromColumn": "POST_DATE",
+        "toTable": "DATE_DIMENSION",
+        "toColumn": "CALENDAR_DT"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

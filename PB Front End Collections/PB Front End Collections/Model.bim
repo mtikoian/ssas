@@ -1,0 +1,1246 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Front End Collections",
+        "columns": [
+          {
+            "name": "ACCOUNT_ID",
+            "dataType": "double",
+            "sourceColumn": "ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAT_ENC_CSN_ID",
+            "dataType": "double",
+            "sourceColumn": "PAT_ENC_CSN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CONTACT DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "CONTACT_DATE",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "APPT STATUS",
+            "dataType": "string",
+            "sourceColumn": "APPT_STATUS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ENC TYPE",
+            "dataType": "string",
+            "sourceColumn": "ENC_TYPE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DEPARTMENT",
+            "dataType": "string",
+            "sourceColumn": "DEPARTMENT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SPECIALTY",
+            "dataType": "string",
+            "sourceColumn": "SPECIALTY",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "COPAY_COLLECTED",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "COPAY_COLLECTED",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Decimal",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "COPAY_DUE",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "COPAY_DUE",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Decimal",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "PATIENT_PAYMENT",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "PATIENT_PAYMENT",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Decimal",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "PB_BALANCE",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "PB_BALANCE",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Decimal",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "HB_BALANCE",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "HB_BALANCE",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Decimal",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID"
+          },
+          {
+            "type": "calculated",
+            "name": "MARKET",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('Front End Collections'[LOC_ID]",
+              ",11106,\"SPRINGFIELD\"",
+              ",11149,\"SPRINGFIELD\"",
+              ",11124,\"SPRINGFIELD\"",
+              ",18110,\"MRG\"",
+              ",19126,\"MRG\"",
+              ",18120,\"DEFIANCE\"",
+              ",18121,\"DEFIANCE\"",
+              ",19120,\"DEFIANCE\"",
+              ",19127,\"DEFIANCE\"",
+              ",19107,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19108,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19116,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19118,\"KENTUCKY - OTHER ENTITIES\"",
+              ",'Front End Collections'[REGION]",
+              ")",
+              ""
+            ]
+          },
+          {
+            "name": "REGION",
+            "dataType": "string",
+            "sourceColumn": "REGION"
+          },
+          {
+            "name": "MONTH-YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Front End Collections",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "declare @startdate date  = '8/15/2018' ",
+                "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())-1); ---yesterday",
+                "",
+                "",
+                "with CteCopay as",
+                "(",
+                "select",
+                " ACCOUNT_ID",
+                ",PAT_ENC_CSN_ID",
+                ",MONTHNAME_YEAR",
+                ",YEAR_MONTH",
+                ",cast(CONTACT_DATE as date) as CONTACT_DATE",
+                ",CHECKIN_TIME",
+                ",APPT_STATUS",
+                ",ENC_TYPE",
+                ",REGION",
+                ",LOC_ID",
+                ",DEPARTMENT_NAME",
+                ",SPECIALTY",
+                ",COPAY_COLLECTED",
+                ",COPAY_DUE",
+                ",case when ROW# = 1 then coalesce(PB_BALANCE,0) else 0 end as PB_BALANCE",
+                ",case when ROW# = 1 then coalesce(HB_BALANCE,0) else 0 end as HB_BALANCE",
+                "",
+                "from",
+                "",
+                "(",
+                "select ",
+                " enc.ACCOUNT_ID",
+                ",enc.PAT_ENC_CSN_ID",
+                ",date.YEAR_MONTH",
+                ",date.MONTHNAME_YEAR",
+                ",enc.CONTACT_DATE",
+                ",enc.CHECKIN_TIME",
+                ",appt_status.NAME as APPT_STATUS",
+                ",enc_type.NAME as ENC_TYPE",
+                ",upper(sa.NAME) as REGION",
+                ",loc.LOC_ID",
+                ",dep.DEPARTMENT_NAME",
+                ",dep.SPECIALTY",
+                ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
+                ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
+                ",case when PATIENT_BALANCE < 0 then 0 else PATIENT_BALANCE end as PB_BALANCE",
+                ",case when HB_SELFPAY_BALANCE < 0 then 0 else HB_SELFPAY_BALANCE end as HB_BALANCE",
+                ",ROW_NUMBER() OVER(PARTITION BY enc.ACCOUNT_ID, enc.CONTACT_DATE ORDER BY enc.PAT_ENC_CSN_ID ASC) as ROW#",
+                "",
+                "from PAT_ENC enc",
+                "left join CLARITY_DEP dep on enc.DEPARTMENT_ID= dep.DEPARTMENT_ID ",
+                "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                "left join ClarityCHPUtil.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and bal.UPDATE_DATE = enc.CONTACT_DATE and PATIENT_BALANCE > 0",
+                "left join ZC_DISP_ENC_TYPE enc_type on enc_type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
+                "left join ZC_APPT_STATUS appt_status on appt_status.APPT_STATUS_C = enc.APPT_STATUS_C",
+                "left join CLARITY_PRC prc on prc.PRC_ID = enc.APPT_PRC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "left join DATE_DIMENSION date on date.CALENDAR_DT = enc.CONTACT_DATE",
+                "",
+                "where ",
+                "enc.APPT_STATUS_C in (2,6) -- ARRIVED OR COMPLETED",
+                "and enc.CANCEL_REASON_C is null ",
+                "and enc.CONTACT_DATE between @startdate and @enddate",
+                "and loc.RPT_GRP_TEN in (11,13,16,17,18,19)",
+                "and enc.ACCOUNT_ID is not null",
+                "and enc_type.NAME not in ('Hospital encounter','Community Outreach','Scheduled Telephone Encounter','Erroneous Encounter')",
+                "--and enc.PAT_ENC_CSN_ID in (180128007,180209008,180209381,168099850,100500018)-- TEST DATE",
+                "--and enc.ACCOUNT_ID = 1493493",
+                "",
+                ")a",
+                "),",
+                "",
+                "CtePayment as",
+                "(",
+                "select",
+                " arpb_tx.ACCOUNT_ID",
+                ",cast(arpb_tx.SERVICE_DATE as date) as SERVICE_DATE",
+                ",sum(arpb_tx.AMOUNT)*-1 as PATIENT_PAYMENT",
+                "from ARPB_TRANSACTIONS arpb_tx",
+                "where arpb_tx.TX_TYPE_C = 2",
+                "and arpb_tx.PROC_ID = 7084",
+                "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)",
+                "group by",
+                " arpb_tx.ACCOUNT_ID",
+                ",arpb_tx.SERVICE_DATE",
+                ")",
+                "",
+                "select",
+                " a.ACCOUNT_ID",
+                ",a.PAT_ENC_CSN_ID",
+                ",a.MONTHNAME_YEAR",
+                ",a.YEAR_MONTH",
+                ",a.CONTACT_DATE",
+                ",a.APPT_STATUS",
+                ",a.ENC_TYPE",
+                ",a.REGION",
+                ",a.LOC_ID",
+                ",a.DEPARTMENT_NAME",
+                ",a.SPECIALTY",
+                ",a.COPAY_COLLECTED",
+                ",a.COPAY_DUE",
+                ",case when a.ROW# = 1 then coalesce(PATIENT_PAYMENT,0) else 0 end as PATIENT_PAYMENT",
+                ",a.PB_BALANCE",
+                ",a.HB_BALANCE",
+                "from",
+                "(",
+                "select copay.*",
+                ",pay.PATIENT_PAYMENT",
+                ",ROW_NUMBER() OVER(PARTITION BY copay.ACCOUNT_ID, copay.CONTACT_DATE ORDER BY copay.PAT_ENC_CSN_ID ASC) as ROW#",
+                "from CteCopay copay",
+                "left join CtePayment pay on pay.ACCOUNT_ID = copay.ACCOUNT_ID and pay.SERVICE_DATE = copay.CONTACT_DATE",
+                "",
+                ")a"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @startdate date  = '8/15/2018' ",
+                  "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())-1); ---yesterday",
+                  "",
+                  "",
+                  "with CteCopay as",
+                  "(",
+                  "select",
+                  " ACCOUNT_ID",
+                  ",PAT_ENC_CSN_ID",
+                  ",MONTHNAME_YEAR",
+                  ",YEAR_MONTH",
+                  ",cast(CONTACT_DATE as date) as CONTACT_DATE",
+                  ",CHECKIN_TIME",
+                  ",APPT_STATUS",
+                  ",ENC_TYPE",
+                  ",REGION",
+                  ",LOC_ID",
+                  ",DEPARTMENT_NAME",
+                  ",SPECIALTY",
+                  ",COPAY_COLLECTED",
+                  ",COPAY_DUE",
+                  ",case when ROW# = 1 then coalesce(PB_BALANCE,0) else 0 end as PB_BALANCE",
+                  ",case when ROW# = 1 then coalesce(HB_BALANCE,0) else 0 end as HB_BALANCE",
+                  "",
+                  "from",
+                  "",
+                  "(",
+                  "select ",
+                  " enc.ACCOUNT_ID",
+                  ",enc.PAT_ENC_CSN_ID",
+                  ",date.YEAR_MONTH",
+                  ",date.MONTHNAME_YEAR",
+                  ",enc.CONTACT_DATE",
+                  ",enc.CHECKIN_TIME",
+                  ",appt_status.NAME as APPT_STATUS",
+                  ",enc_type.NAME as ENC_TYPE",
+                  ",upper(sa.NAME) as REGION",
+                  ",loc.LOC_ID",
+                  ",dep.DEPARTMENT_NAME",
+                  ",dep.SPECIALTY",
+                  ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
+                  ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
+                  ",case when PATIENT_BALANCE < 0 then 0 else PATIENT_BALANCE end as PB_BALANCE",
+                  ",case when HB_SELFPAY_BALANCE < 0 then 0 else HB_SELFPAY_BALANCE end as HB_BALANCE",
+                  ",ROW_NUMBER() OVER(PARTITION BY enc.ACCOUNT_ID, enc.CONTACT_DATE ORDER BY enc.PAT_ENC_CSN_ID ASC) as ROW#",
+                  "",
+                  "from PAT_ENC enc",
+                  "left join CLARITY_DEP dep on enc.DEPARTMENT_ID= dep.DEPARTMENT_ID ",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                  "left join ClarityCHPUtil.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and bal.UPDATE_DATE = enc.CONTACT_DATE and PATIENT_BALANCE > 0",
+                  "left join ZC_DISP_ENC_TYPE enc_type on enc_type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
+                  "left join ZC_APPT_STATUS appt_status on appt_status.APPT_STATUS_C = enc.APPT_STATUS_C",
+                  "left join CLARITY_PRC prc on prc.PRC_ID = enc.APPT_PRC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "left join DATE_DIMENSION date on date.CALENDAR_DT = enc.CONTACT_DATE",
+                  "",
+                  "where ",
+                  "enc.APPT_STATUS_C in (2,6) -- ARRIVED OR COMPLETED",
+                  "and enc.CANCEL_REASON_C is null ",
+                  "and enc.CONTACT_DATE between @startdate and @enddate",
+                  "and loc.RPT_GRP_TEN in (11,13,16,17,18,19)",
+                  "and enc.ACCOUNT_ID is not null",
+                  "and enc_type.NAME not in ('Hospital encounter','Community Outreach','Scheduled Telephone Encounter','Erroneous Encounter')",
+                  "--and enc.PAT_ENC_CSN_ID in (180128007,180209008,180209381,168099850,100500018)-- TEST DATE",
+                  "--and enc.ACCOUNT_ID = 1493493",
+                  "",
+                  ")a",
+                  "),",
+                  "",
+                  "CtePayment as",
+                  "(",
+                  "select",
+                  " arpb_tx.ACCOUNT_ID",
+                  ",cast(arpb_tx.SERVICE_DATE as date) as SERVICE_DATE",
+                  ",sum(arpb_tx.AMOUNT)*-1 as PATIENT_PAYMENT",
+                  "from ARPB_TRANSACTIONS arpb_tx",
+                  "where arpb_tx.TX_TYPE_C = 2",
+                  "and arpb_tx.PROC_ID = 7084",
+                  "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)",
+                  "group by",
+                  " arpb_tx.ACCOUNT_ID",
+                  ",arpb_tx.SERVICE_DATE",
+                  ")",
+                  "",
+                  "select",
+                  " a.ACCOUNT_ID",
+                  ",a.PAT_ENC_CSN_ID",
+                  ",a.MONTHNAME_YEAR",
+                  ",a.YEAR_MONTH",
+                  ",a.CONTACT_DATE",
+                  ",a.APPT_STATUS",
+                  ",a.ENC_TYPE",
+                  ",a.REGION",
+                  ",a.LOC_ID",
+                  ",a.DEPARTMENT_NAME",
+                  ",a.SPECIALTY",
+                  ",a.COPAY_COLLECTED",
+                  ",a.COPAY_DUE",
+                  ",case when a.ROW# = 1 then coalesce(PATIENT_PAYMENT,0) else 0 end as PATIENT_PAYMENT",
+                  ",a.PB_BALANCE",
+                  ",a.HB_BALANCE",
+                  "from",
+                  "(",
+                  "select copay.*",
+                  ",pay.PATIENT_PAYMENT",
+                  ",ROW_NUMBER() OVER(PARTITION BY copay.ACCOUNT_ID, copay.CONTACT_DATE ORDER BY copay.PAT_ENC_CSN_ID ASC) as ROW#",
+                  "from CteCopay copay",
+                  "left join CtePayment pay on pay.ACCOUNT_ID = copay.ACCOUNT_ID and pay.SERVICE_DATE = copay.CONTACT_DATE",
+                  "",
+                  ")a</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "TOTAL BALANCE",
+            "expression": "[PB BALANCE]+[HB BALANCE]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "COPAY COLLECTED",
+            "expression": "sum('Front End Collections'[COPAY_COLLECTED])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "COPAY DUE",
+            "expression": "sum('Front End Collections'[COPAY_DUE])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "PB BALANCE",
+            "expression": "sum('Front End Collections'[PB_BALANCE])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "HB BALANCE",
+            "expression": "sum('Front End Collections'[HB_BALANCE])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "OTHER PAYMENTS",
+            "expression": "sum('Front End Collections'[PATIENT_PAYMENT])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "COPAY RATE",
+            "expression": "IFERROR([COPAY COLLECTED]/[COPAY DUE],0)",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "OTHER PAYMENT RATE",
+            "expression": "IFERROR([OTHER PAYMENTS]/[TOTAL BALANCE],0)",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "TOTAL RATE",
+            "expression": "IFERROR(([COPAY COLLECTED] + [OTHER PAYMENTS])/([COPAY DUE]+[TOTAL BALANCE]),0)",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "declare @startdate date  = '8/15/2018' ",
+              "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())-1); ---yesterday",
+              "",
+              "",
+              "with CteCopay as",
+              "(",
+              "select",
+              " ACCOUNT_ID",
+              ",PAT_ENC_CSN_ID",
+              ",MONTHNAME_YEAR",
+              ",YEAR_MONTH",
+              ",cast(CONTACT_DATE as date) as CONTACT_DATE",
+              ",CHECKIN_TIME",
+              ",APPT_STATUS",
+              ",ENC_TYPE",
+              ",REGION",
+              ",LOC_ID",
+              ",DEPARTMENT_NAME",
+              ",SPECIALTY",
+              ",COPAY_COLLECTED",
+              ",COPAY_DUE",
+              ",case when ROW# = 1 then coalesce(PB_BALANCE,0) else 0 end as PB_BALANCE",
+              ",case when ROW# = 1 then coalesce(HB_BALANCE,0) else 0 end as HB_BALANCE",
+              "",
+              "from",
+              "",
+              "(",
+              "select ",
+              " enc.ACCOUNT_ID",
+              ",enc.PAT_ENC_CSN_ID",
+              ",date.YEAR_MONTH",
+              ",date.MONTHNAME_YEAR",
+              ",enc.CONTACT_DATE",
+              ",enc.CHECKIN_TIME",
+              ",appt_status.NAME as APPT_STATUS",
+              ",enc_type.NAME as ENC_TYPE",
+              ",upper(sa.NAME) as REGION",
+              ",loc.LOC_ID",
+              ",dep.DEPARTMENT_NAME",
+              ",dep.SPECIALTY",
+              ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
+              ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
+              ",case when PATIENT_BALANCE < 0 then 0 else PATIENT_BALANCE end as PB_BALANCE",
+              ",case when HB_SELFPAY_BALANCE < 0 then 0 else HB_SELFPAY_BALANCE end as HB_BALANCE",
+              ",ROW_NUMBER() OVER(PARTITION BY enc.ACCOUNT_ID, enc.CONTACT_DATE ORDER BY enc.PAT_ENC_CSN_ID ASC) as ROW#",
+              "",
+              "from PAT_ENC enc",
+              "left join CLARITY_DEP dep on enc.DEPARTMENT_ID= dep.DEPARTMENT_ID ",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "left join ClarityCHPUtil.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and bal.UPDATE_DATE = enc.CONTACT_DATE and PATIENT_BALANCE > 0",
+              "left join ZC_DISP_ENC_TYPE enc_type on enc_type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
+              "left join ZC_APPT_STATUS appt_status on appt_status.APPT_STATUS_C = enc.APPT_STATUS_C",
+              "left join CLARITY_PRC prc on prc.PRC_ID = enc.APPT_PRC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join DATE_DIMENSION date on date.CALENDAR_DT = enc.CONTACT_DATE",
+              "",
+              "where ",
+              "enc.APPT_STATUS_C in (2,6) -- ARRIVED OR COMPLETED",
+              "and enc.CANCEL_REASON_C is null ",
+              "and enc.CONTACT_DATE between @startdate and @enddate",
+              "and loc.RPT_GRP_TEN in (11,13,16,17,18,19)",
+              "and enc.ACCOUNT_ID is not null",
+              "and enc_type.NAME not in ('Hospital encounter','Community Outreach','Scheduled Telephone Encounter','Erroneous Encounter')",
+              "--and enc.PAT_ENC_CSN_ID in (180128007,180209008,180209381,168099850,100500018)-- TEST DATE",
+              "--and enc.ACCOUNT_ID = 1493493",
+              "",
+              ")a",
+              "),",
+              "",
+              "CtePayment as",
+              "(",
+              "select",
+              " arpb_tx.ACCOUNT_ID",
+              ",cast(arpb_tx.SERVICE_DATE as date) as SERVICE_DATE",
+              ",sum(arpb_tx.AMOUNT)*-1 as PATIENT_PAYMENT",
+              "from ARPB_TRANSACTIONS arpb_tx",
+              "where arpb_tx.TX_TYPE_C = 2",
+              "and arpb_tx.PROC_ID = 7084",
+              "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)",
+              "group by",
+              " arpb_tx.ACCOUNT_ID",
+              ",arpb_tx.SERVICE_DATE",
+              ")",
+              "",
+              "select",
+              " a.ACCOUNT_ID",
+              ",a.PAT_ENC_CSN_ID",
+              ",a.MONTHNAME_YEAR",
+              ",a.YEAR_MONTH",
+              ",a.CONTACT_DATE",
+              ",a.APPT_STATUS",
+              ",a.ENC_TYPE",
+              ",a.REGION",
+              ",a.LOC_ID",
+              ",a.DEPARTMENT_NAME",
+              ",a.SPECIALTY",
+              ",a.COPAY_COLLECTED",
+              ",a.COPAY_DUE",
+              ",case when a.ROW# = 1 then coalesce(PATIENT_PAYMENT,0) else 0 end as PATIENT_PAYMENT",
+              ",a.PB_BALANCE",
+              ",a.HB_BALANCE",
+              "from",
+              "(",
+              "select copay.*",
+              ",pay.PATIENT_PAYMENT",
+              ",ROW_NUMBER() OVER(PARTITION BY copay.ACCOUNT_ID, copay.CONTACT_DATE ORDER BY copay.PAT_ENC_CSN_ID ASC) as ROW#",
+              "from CteCopay copay",
+              "left join CtePayment pay on pay.ACCOUNT_ID = copay.ACCOUNT_ID and pay.SERVICE_DATE = copay.CONTACT_DATE",
+              "",
+              ")a"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Front End Collections"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @startdate date  = '8/15/2018' ",
+              "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())-1); ---yesterday",
+              "",
+              "",
+              "with CteCopay as",
+              "(",
+              "select",
+              " ACCOUNT_ID",
+              ",PAT_ENC_CSN_ID",
+              ",MONTHNAME_YEAR",
+              ",YEAR_MONTH",
+              ",cast(CONTACT_DATE as date) as CONTACT_DATE",
+              ",CHECKIN_TIME",
+              ",APPT_STATUS",
+              ",ENC_TYPE",
+              ",REGION",
+              ",LOC_ID",
+              ",DEPARTMENT_NAME",
+              ",SPECIALTY",
+              ",COPAY_COLLECTED",
+              ",COPAY_DUE",
+              ",case when ROW# = 1 then coalesce(PB_BALANCE,0) else 0 end as PB_BALANCE",
+              ",case when ROW# = 1 then coalesce(HB_BALANCE,0) else 0 end as HB_BALANCE",
+              "",
+              "from",
+              "",
+              "(",
+              "select ",
+              " enc.ACCOUNT_ID",
+              ",enc.PAT_ENC_CSN_ID",
+              ",date.YEAR_MONTH",
+              ",date.MONTHNAME_YEAR",
+              ",enc.CONTACT_DATE",
+              ",enc.CHECKIN_TIME",
+              ",appt_status.NAME as APPT_STATUS",
+              ",enc_type.NAME as ENC_TYPE",
+              ",upper(sa.NAME) as REGION",
+              ",loc.LOC_ID",
+              ",dep.DEPARTMENT_NAME",
+              ",dep.SPECIALTY",
+              ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
+              ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
+              ",case when PATIENT_BALANCE < 0 then 0 else PATIENT_BALANCE end as PB_BALANCE",
+              ",case when HB_SELFPAY_BALANCE < 0 then 0 else HB_SELFPAY_BALANCE end as HB_BALANCE",
+              ",ROW_NUMBER() OVER(PARTITION BY enc.ACCOUNT_ID, enc.CONTACT_DATE ORDER BY enc.PAT_ENC_CSN_ID ASC) as ROW#",
+              "",
+              "from PAT_ENC enc",
+              "left join CLARITY_DEP dep on enc.DEPARTMENT_ID= dep.DEPARTMENT_ID ",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "left join ClarityCHPUtil.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and bal.UPDATE_DATE = enc.CONTACT_DATE and PATIENT_BALANCE > 0",
+              "left join ZC_DISP_ENC_TYPE enc_type on enc_type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
+              "left join ZC_APPT_STATUS appt_status on appt_status.APPT_STATUS_C = enc.APPT_STATUS_C",
+              "left join CLARITY_PRC prc on prc.PRC_ID = enc.APPT_PRC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join DATE_DIMENSION date on date.CALENDAR_DT = enc.CONTACT_DATE",
+              "",
+              "where ",
+              "enc.APPT_STATUS_C in (2,6) -- ARRIVED OR COMPLETED",
+              "and enc.CANCEL_REASON_C is null ",
+              "and enc.CONTACT_DATE between @startdate and @enddate",
+              "and loc.RPT_GRP_TEN in (11,13,16,17,18,19)",
+              "and enc.ACCOUNT_ID is not null",
+              "and enc_type.NAME not in ('Hospital encounter','Community Outreach','Scheduled Telephone Encounter','Erroneous Encounter')",
+              "--and enc.PAT_ENC_CSN_ID in (180128007,180209008,180209381,168099850,100500018)-- TEST DATE",
+              "--and enc.ACCOUNT_ID = 1493493",
+              "",
+              ")a",
+              "),",
+              "",
+              "CtePayment as",
+              "(",
+              "select",
+              " arpb_tx.ACCOUNT_ID",
+              ",cast(arpb_tx.SERVICE_DATE as date) as SERVICE_DATE",
+              ",sum(arpb_tx.AMOUNT)*-1 as PATIENT_PAYMENT",
+              "from ARPB_TRANSACTIONS arpb_tx",
+              "where arpb_tx.TX_TYPE_C = 2",
+              "and arpb_tx.PROC_ID = 7084",
+              "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)",
+              "group by",
+              " arpb_tx.ACCOUNT_ID",
+              ",arpb_tx.SERVICE_DATE",
+              ")",
+              "",
+              "select",
+              " a.ACCOUNT_ID",
+              ",a.PAT_ENC_CSN_ID",
+              ",a.MONTHNAME_YEAR",
+              ",a.YEAR_MONTH",
+              ",a.CONTACT_DATE",
+              ",a.APPT_STATUS",
+              ",a.ENC_TYPE",
+              ",a.REGION",
+              ",a.LOC_ID",
+              ",a.DEPARTMENT_NAME",
+              ",a.SPECIALTY",
+              ",a.COPAY_COLLECTED",
+              ",a.COPAY_DUE",
+              ",case when a.ROW# = 1 then coalesce(PATIENT_PAYMENT,0) else 0 end as PATIENT_PAYMENT",
+              ",a.PB_BALANCE",
+              ",a.HB_BALANCE",
+              "from",
+              "(",
+              "select copay.*",
+              ",pay.PATIENT_PAYMENT",
+              ",ROW_NUMBER() OVER(PARTITION BY copay.ACCOUNT_ID, copay.CONTACT_DATE ORDER BY copay.PAT_ENC_CSN_ID ASC) as ROW#",
+              "from CteCopay copay",
+              "left join CtePayment pay on pay.ACCOUNT_ID = copay.ACCOUNT_ID and pay.SERVICE_DATE = copay.CONTACT_DATE",
+              "",
+              ")a</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Daily Balances",
+        "columns": [
+          {
+            "name": "ACCOUNT",
+            "dataType": "double",
+            "sourceColumn": "ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PATIENT_BALANCE",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "PATIENT_BALANCE",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Decimal",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "HB_SELFPAY_BALANCE",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "HB_SELFPAY_BALANCE",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Decimal",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "UPDATE DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "UPDATE_DATE",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "PB NEGATIVE",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "if('Daily Balances'[PATIENT_BALANCE]<0,1,0)"
+          },
+          {
+            "type": "calculated",
+            "name": "HB NEGATIVE",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "if([HB_SELFPAY_BALANCE]<0,1,0)"
+          },
+          {
+            "type": "calculated",
+            "name": "TOTAL_BALANCE",
+            "dataType": "decimal",
+            "isDataTypeInferred": true,
+            "expression": "'Daily Balances'[PATIENT_BALANCE]+'Daily Balances'[HB_SELFPAY_BALANCE]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "TB NEGATIVE",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "if('Daily Balances'[TOTAL_BALANCE]<0,1,0)"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Daily Balances",
+            "dataView": "full",
+            "source": {
+              "query": "select * from ClarityCHPUtil.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE",
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select * from ClarityCHPUtil.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "PB BALANCE (ACCOUNT)",
+            "expression": "sum('Daily Balances'[PATIENT_BALANCE])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "HB BALANCE (ACCOUNT)",
+            "expression": "sum('Daily Balances'[HB_SELFPAY_BALANCE])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "TOTAL BALANCE (ACCOUNT)",
+            "expression": "[PB BALANCE (ACCOUNT)]+[HB BALANCE (ACCOUNT)]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "select * from ClarityCHPUtil.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Daily Balances"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select * from ClarityCHPUtil.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
+      },
+      {
+        "name": "Projection",
+        "columns": [
+          {
+            "name": "CONTACT DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "CONTACT_DATE",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "ACCOUNT",
+            "dataType": "string",
+            "sourceColumn": "ACCOUNT",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REGION",
+            "dataType": "string",
+            "sourceColumn": "REGION",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DEPARTMENT",
+            "dataType": "string",
+            "sourceColumn": "DEPARTMENT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SPECIALTY",
+            "dataType": "string",
+            "sourceColumn": "SPECIALTY",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "APPOINTMENT_STATUS",
+            "dataType": "string",
+            "sourceColumn": "APPOINTMENT_STATUS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ENC TYPE",
+            "dataType": "string",
+            "sourceColumn": "ENCOUNTER TYPE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "COPAY_COLLECTED",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "COPAY_COLLECTED",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "COPAY_DUE",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "COPAY_DUE",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PB_PATIENT_BALANCE",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PB_PATIENT_BALANCE",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "HB_PATIENT_BALANCE",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "HB_PATIENT_BALANCE",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "sourceColumn": "LOC_ID"
+          },
+          {
+            "type": "calculated",
+            "name": "MARKET",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('Projection'[LOC_ID]",
+              ",11106,\"SPRINGFIELD\"",
+              ",11149,\"SPRINGFIELD\"",
+              ",11124,\"SPRINGFIELD\"",
+              ",18110,\"MRG\"",
+              ",19126,\"MRG\"",
+              ",18120,\"DEFIANCE\"",
+              ",18121,\"DEFIANCE\"",
+              ",19120,\"DEFIANCE\"",
+              ",19127,\"DEFIANCE\"",
+              ",19107,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19108,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19116,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19118,\"KENTUCKY - OTHER ENTITIES\"",
+              ",'Projection'[REGION]",
+              ")",
+              ""
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Projection",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "declare @startdate date  = dateadd(d,0,datediff(d,0,getdate())) ---7 days ago",
+                "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7); ---yesterday",
+                "",
+                "select",
+                " enc.CONTACT_DATE",
+                ",coalesce(cast(enc.ACCOUNT_ID as nvarchar),'UKNOWN ACCOUNT') as ACCOUNT",
+                ",upper(sa.NAME) as 'REGION'",
+                ",loc.LOC_ID",
+                ",dep.DEPARTMENT_NAME",
+                ",coalesce(dep.SPECIALTY,'No Specialty') as SPECIALTY",
+                ",stat.NAME as 'APPOINTMENT_STATUS'",
+                ",type.NAME as 'ENCOUNTER TYPE'",
+                ",coalesce(enc.COPAY_COLLECTED,0) as COPAY_COLLECTED",
+                ",coalesce(enc.COPAY_DUE,0) as COPAY_DUE",
+                ",case when bal.PATIENT_BALANCE < 0 then 0 else coalesce(bal.PATIENT_BALANCE,0) end as PB_PATIENT_BALANCE",
+                ",case when bal.HB_SELFPAY_BALANCE <0 then 0 else coalesce(bal.HB_SELFPAY_BALANCE,0) end as HB_PATIENT_BALANCE",
+                "",
+                "from PAT_ENC enc",
+                "left join PAT_ENC_2 enc2 on enc2.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID",
+                "left join ZC_APPT_STATUS stat on stat.APPT_STATUS_C = enc.APPT_STATUS_C",
+                "left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and enc.CONTACT_DATE >= @startdate",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+                "left join ZC_DISP_ENC_TYPE type on type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
+                "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "left join CLARITY_POS pos on pos.POS_ID = enc2.VISIT_POS_ID",
+                "left join CLARITY_EPM epm on epm.PAYOR_ID = enc2.VISIT_PAYOR_ID",
+                "",
+                "where enc.APPT_STATUS_C = 1 -- scheduled",
+                "and enc.SERV_AREA_ID in (11,13,16,17,18,19)",
+                "and enc.CONTACT_DATE >= @startdate ",
+                "and enc.CONTACT_DATE <= @enddate"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @startdate date  = dateadd(d,0,datediff(d,0,getdate())) ---7 days ago",
+                  "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7); ---yesterday",
+                  "",
+                  "select",
+                  " enc.CONTACT_DATE",
+                  ",coalesce(cast(enc.ACCOUNT_ID as nvarchar),'UKNOWN ACCOUNT') as ACCOUNT",
+                  ",upper(sa.NAME) as 'REGION'",
+                  ",loc.LOC_ID",
+                  ",dep.DEPARTMENT_NAME",
+                  ",coalesce(dep.SPECIALTY,'No Specialty') as SPECIALTY",
+                  ",stat.NAME as 'APPOINTMENT_STATUS'",
+                  ",type.NAME as 'ENCOUNTER TYPE'",
+                  ",coalesce(enc.COPAY_COLLECTED,0) as COPAY_COLLECTED",
+                  ",coalesce(enc.COPAY_DUE,0) as COPAY_DUE",
+                  ",case when bal.PATIENT_BALANCE < 0 then 0 else coalesce(bal.PATIENT_BALANCE,0) end as PB_PATIENT_BALANCE",
+                  ",case when bal.HB_SELFPAY_BALANCE <0 then 0 else coalesce(bal.HB_SELFPAY_BALANCE,0) end as HB_PATIENT_BALANCE",
+                  "",
+                  "from PAT_ENC enc",
+                  "left join PAT_ENC_2 enc2 on enc2.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID",
+                  "left join ZC_APPT_STATUS stat on stat.APPT_STATUS_C = enc.APPT_STATUS_C",
+                  "left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and enc.CONTACT_DATE >= @startdate",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+                  "left join ZC_DISP_ENC_TYPE type on type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "left join CLARITY_POS pos on pos.POS_ID = enc2.VISIT_POS_ID",
+                  "left join CLARITY_EPM epm on epm.PAYOR_ID = enc2.VISIT_PAYOR_ID",
+                  "",
+                  "where enc.APPT_STATUS_C = 1 -- scheduled",
+                  "and enc.SERV_AREA_ID in (11,13,16,17,18,19)",
+                  "and enc.CONTACT_DATE >= @startdate ",
+                  "and enc.CONTACT_DATE <= @enddate</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "COPAY DUE (PROJ)",
+            "expression": "sum(Projection[COPAY_DUE])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "PB BALANCE (PROJ)",
+            "expression": "sum(Projection[PB_PATIENT_BALANCE])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "HB BALANCE (PROJ)",
+            "expression": "sum(Projection[HB_PATIENT_BALANCE])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "TOTAL BALANCE (PROJ)",
+            "expression": "[PB BALANCE (PROJ)]+[HB BALANCE (PROJ)]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "declare @startdate date  = dateadd(d,0,datediff(d,0,getdate())) ---7 days ago",
+              "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7); ---yesterday",
+              "",
+              "select",
+              " enc.CONTACT_DATE",
+              ",coalesce(cast(enc.ACCOUNT_ID as nvarchar),'UKNOWN ACCOUNT') as ACCOUNT",
+              ",upper(sa.NAME) as 'REGION'",
+              ",loc.LOC_ID",
+              ",dep.DEPARTMENT_NAME",
+              ",coalesce(dep.SPECIALTY,'No Specialty') as SPECIALTY",
+              ",stat.NAME as 'APPOINTMENT_STATUS'",
+              ",type.NAME as 'ENCOUNTER TYPE'",
+              ",coalesce(enc.COPAY_COLLECTED,0) as COPAY_COLLECTED",
+              ",coalesce(enc.COPAY_DUE,0) as COPAY_DUE",
+              ",case when bal.PATIENT_BALANCE < 0 then 0 else coalesce(bal.PATIENT_BALANCE,0) end as PB_PATIENT_BALANCE",
+              ",case when bal.HB_SELFPAY_BALANCE <0 then 0 else coalesce(bal.HB_SELFPAY_BALANCE,0) end as HB_PATIENT_BALANCE",
+              "",
+              "from PAT_ENC enc",
+              "left join PAT_ENC_2 enc2 on enc2.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID",
+              "left join ZC_APPT_STATUS stat on stat.APPT_STATUS_C = enc.APPT_STATUS_C",
+              "left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and enc.CONTACT_DATE >= @startdate",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+              "left join ZC_DISP_ENC_TYPE type on type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_POS pos on pos.POS_ID = enc2.VISIT_POS_ID",
+              "left join CLARITY_EPM epm on epm.PAYOR_ID = enc2.VISIT_PAYOR_ID",
+              "",
+              "where enc.APPT_STATUS_C = 1 -- scheduled",
+              "and enc.SERV_AREA_ID in (11,13,16,17,18,19)",
+              "and enc.CONTACT_DATE >= @startdate ",
+              "and enc.CONTACT_DATE <= @enddate"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Projection"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @startdate date  = dateadd(d,0,datediff(d,0,getdate())) ---7 days ago",
+              "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7); ---yesterday",
+              "",
+              "select",
+              " enc.CONTACT_DATE",
+              ",coalesce(cast(enc.ACCOUNT_ID as nvarchar),'UKNOWN ACCOUNT') as ACCOUNT",
+              ",upper(sa.NAME) as 'REGION'",
+              ",loc.LOC_ID",
+              ",dep.DEPARTMENT_NAME",
+              ",coalesce(dep.SPECIALTY,'No Specialty') as SPECIALTY",
+              ",stat.NAME as 'APPOINTMENT_STATUS'",
+              ",type.NAME as 'ENCOUNTER TYPE'",
+              ",coalesce(enc.COPAY_COLLECTED,0) as COPAY_COLLECTED",
+              ",coalesce(enc.COPAY_DUE,0) as COPAY_DUE",
+              ",case when bal.PATIENT_BALANCE < 0 then 0 else coalesce(bal.PATIENT_BALANCE,0) end as PB_PATIENT_BALANCE",
+              ",case when bal.HB_SELFPAY_BALANCE <0 then 0 else coalesce(bal.HB_SELFPAY_BALANCE,0) end as HB_PATIENT_BALANCE",
+              "",
+              "from PAT_ENC enc",
+              "left join PAT_ENC_2 enc2 on enc2.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID",
+              "left join ZC_APPT_STATUS stat on stat.APPT_STATUS_C = enc.APPT_STATUS_C",
+              "left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and enc.CONTACT_DATE >= @startdate",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+              "left join ZC_DISP_ENC_TYPE type on type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_POS pos on pos.POS_ID = enc2.VISIT_POS_ID",
+              "left join CLARITY_EPM epm on epm.PAYOR_ID = enc2.VISIT_PAYOR_ID",
+              "",
+              "where enc.APPT_STATUS_C = 1 -- scheduled",
+              "and enc.SERV_AREA_ID in (11,13,16,17,18,19)",
+              "and enc.CONTACT_DATE >= @startdate ",
+              "and enc.CONTACT_DATE <= @enddate</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "name": "PB Users",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          },
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_Reporting_Group",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-141188"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

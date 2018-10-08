@@ -1,0 +1,7 @@
+U:\Tabular Cubes\PB Paid Claims\PB Paid Claims\PB Paid Claims\bin\Model.asdatabase
+U:\Tabular Cubes\PB Paid Claims\PB Paid Claims\PB Paid Claims\bin\Model.deploymenttargets
+U:\Tabular Cubes\PB Paid Claims\PB Paid Claims\PB Paid Claims\bin\Model.deploymentoptions
+U:\Tabular Cubes\PB Paid Claims\PB Paid Claims\PB Paid Claims\obj\Development\PB Paid Claims.smproj.CoreCompileInputs.cache
+U:\Tabular Cubes\PB Paid Claims\PB Paid Claims\PB Paid Claims\obj\Development\Model.asdatabase
+U:\Tabular Cubes\PB Paid Claims\PB Paid Claims\PB Paid Claims\obj\Development\Model.deploymentoptions
+U:\Tabular Cubes\PB Paid Claims\PB Paid Claims\PB Paid Claims\obj\Development\Model.deploymenttargets

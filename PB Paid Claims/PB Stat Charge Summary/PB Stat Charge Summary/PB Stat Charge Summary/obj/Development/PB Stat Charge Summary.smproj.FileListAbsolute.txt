@@ -1,0 +1,7 @@
+U:\Tabular Cubes\PB Paid Claims\PB Stat Charge Summary\PB Stat Charge Summary\PB Stat Charge Summary\bin\Model.asdatabase
+U:\Tabular Cubes\PB Paid Claims\PB Stat Charge Summary\PB Stat Charge Summary\PB Stat Charge Summary\bin\Model.deploymenttargets
+U:\Tabular Cubes\PB Paid Claims\PB Stat Charge Summary\PB Stat Charge Summary\PB Stat Charge Summary\bin\Model.deploymentoptions
+U:\Tabular Cubes\PB Paid Claims\PB Stat Charge Summary\PB Stat Charge Summary\PB Stat Charge Summary\obj\Development\PB Stat Charge Summary.smproj.CoreCompileInputs.cache
+U:\Tabular Cubes\PB Paid Claims\PB Stat Charge Summary\PB Stat Charge Summary\PB Stat Charge Summary\obj\Development\Model.asdatabase
+U:\Tabular Cubes\PB Paid Claims\PB Stat Charge Summary\PB Stat Charge Summary\PB Stat Charge Summary\obj\Development\Model.deploymentoptions
+U:\Tabular Cubes\PB Paid Claims\PB Stat Charge Summary\PB Stat Charge Summary\PB Stat Charge Summary\obj\Development\Model.deploymenttargets

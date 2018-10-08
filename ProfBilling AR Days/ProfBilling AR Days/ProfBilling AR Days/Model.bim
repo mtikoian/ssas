@@ -1,0 +1,588 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "AR Days",
+        "columns": [
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "SERVICE_AREA",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "SERVICE_AREA",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "AR",
+            "dataType": "decimal",
+            "sourceColumn": "ar",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Decimal",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Charges",
+            "dataType": "decimal",
+            "sourceColumn": "charges",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Decimal",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT_ID"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "DEPARTMENT_NAME"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "sourceColumn": "LOC_NAME"
+          },
+          {
+            "name": "REGION",
+            "dataType": "string",
+            "sourceColumn": "REGION"
+          },
+          {
+            "type": "calculated",
+            "name": "Market",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('AR Days'[LOC_ID]",
+              ",11106,\"SPRINGFIELD\"",
+              ",11149,\"SPRINGFIELD\"",
+              ",11124,\"SPRINGFIELD\"",
+              ",18110,\"MRG\"",
+              ",19126,\"MRG\"",
+              ",18120,\"DEFIANCE\"",
+              ",18121,\"DEFIANCE\"",
+              ",19120,\"DEFIANCE\"",
+              ",19127,\"DEFIANCE\"",
+              ",19107,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19108,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19116,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19118,\"KENTUCKY - OTHER ENTITIES\"",
+              ",'AR Days'[REGION]",
+              ")",
+              ""
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Rev Cycle",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('AR Days'[LOC_ID]",
+              ",11,   \"REV CYCLE\"",
+              ",11101,\"REV CYCLE\"",
+              ",11102,\"REV CYCLE\"",
+              ",11103,\"REV CYCLE\"",
+              ",11104,\"REV CYCLE\"",
+              ",11105,\"REV CYCLE\"",
+              ",11115,\"REV CYCLE\"",
+              ",11116,\"REV CYCLE\"",
+              ",11122,\"REV CYCLE\"",
+              ",11132,\"REV CYCLE\"",
+              ",11138,\"REV CYCLE\"",
+              ",11139,\"REV CYCLE\"",
+              ",11140,\"REV CYCLE\"",
+              ",11141,\"REV CYCLE\"",
+              ",11142,\"REV CYCLE\"",
+              ",11143,\"REV CYCLE\"",
+              ",11144,\"REV CYCLE\"",
+              ",11146,\"REV CYCLE\"",
+              ",11151,\"REV CYCLE\"",
+              " ",
+              ",11106,\"REV CYCLE\"",
+              ",11149,\"REV CYCLE\"",
+              ",11124,\"REV CYCLE\"",
+              " ",
+              ",13,   \"REV CYCLE\"",
+              ",13104,\"REV CYCLE\"",
+              ",13105,\"REV CYCLE\"",
+              ",13116,\"REV CYCLE\"",
+              ",19142,\"REV CYCLE\"",
+              ",19143,\"REV CYCLE\"",
+              ",19144,\"REV CYCLE\"",
+              ",19145,\"REV CYCLE\"",
+              " ",
+              ",16,   \"REV CYCLE\"",
+              ",16102,\"REV CYCLE\"",
+              ",16103,\"REV CYCLE\"",
+              ",16104,\"REV CYCLE\"",
+              ",19132,\"REV CYCLE\"",
+              ",19133,\"REV CYCLE\"",
+              ",19134,\"REV CYCLE\"",
+              " ",
+              ",17,   \"REV CYCLE\"",
+              ",17105,\"REV CYCLE\"",
+              ",17106,\"REV CYCLE\"",
+              ",17107,\"REV CYCLE\"",
+              ",17108,\"REV CYCLE\"",
+              ",17109,\"REV CYCLE\"",
+              ",17110,\"REV CYCLE\"",
+              ",17112,\"REV CYCLE\"",
+              ",17113,\"REV CYCLE\"",
+              ",19135,\"REV CYCLE\"",
+              ",19136,\"REV CYCLE\"",
+              ",19137,\"REV CYCLE\"",
+              ",19138,\"REV CYCLE\"",
+              ",19139,\"REV CYCLE\"",
+              ",19140,\"REV CYCLE\"",
+              ",19141,\"REV CYCLE\"",
+              " ",
+              ",18,   \"REV CYCLE\"",
+              ",18101,\"REV CYCLE\"",
+              ",18102,\"REV CYCLE\"",
+              ",18103,\"REV CYCLE\"",
+              ",18104,\"REV CYCLE\"",
+              ",18105,\"REV CYCLE\"",
+              ",18130,\"REV CYCLE\"",
+              ",18131,\"REV CYCLE\"",
+              ",18132,\"REV CYCLE\"",
+              ",18133,\"REV CYCLE\"",
+              ",19119,\"REV CYCLE\"",
+              ",19121,\"REV CYCLE\"",
+              ",19122,\"REV CYCLE\"",
+              ",19123,\"REV CYCLE\"",
+              ",19124,\"REV CYCLE\"",
+              ",19128,\"REV CYCLE\"",
+              ",19129,\"REV CYCLE\"",
+              ",19130,\"REV CYCLE\"",
+              ",19131,\"REV CYCLE\"",
+              " ",
+              ",18110,\"REV CYCLE\"",
+              ",19126,\"REV CYCLE\"",
+              " ",
+              ",18120,\"REV CYCLE\"",
+              ",18121,\"REV CYCLE\"",
+              ",19120,\"REV CYCLE\"",
+              ",19127,\"REV CYCLE\"",
+              " ",
+              ",19,   \"REV CYCLE\"",
+              ",19101,\"REV CYCLE\"",
+              ",19102,\"REV CYCLE\"",
+              ",19106,\"REV CYCLE\"",
+              " ",
+              ",19107,\"REV CYCLE\"",
+              ",19108,\"REV CYCLE\"",
+              ",19116,\"REV CYCLE\"",
+              ",19118,\"REV CYCLE\"",
+              " ",
+              " ",
+              ",\"OTHER\"",
+              ")"
+            ]
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "YEAR_MONTH"
+          },
+          {
+            "name": "Month-Year",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "AR Days",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "declare @end_date as date = EPIC_UTIL.EFN_DIN('me-1');",
+                "",
+                "",
+                "with ar as",
+                "(",
+                "select date.CALENDAR_DT, date.YEAR_MONTH, date.MONTHNAME_YEAR, loc.rpt_grp_ten, upper(sa.NAME) as Region, loc.loc_id, loc.loc_name, dep.department_id, dep.department_name, sum(amount) as ar",
+                "from CLARITY_TDL_AGE age ",
+                "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+                "left join date_dimension date on date.CALENDAR_DT = age.post_date",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "where post_date >= '01/01/2018'",
+                "and loc.rpt_grp_ten in (11,13,16,17,18,19)",
+                "group by date.CALENDAR_DT, date.YEAR_MONTH, date.MONTHNAME_YEAR, loc.rpt_grp_ten, sa.NAME, loc.loc_id, loc.loc_name, dep.department_id, dep.department_name",
+                "),",
+                "",
+                "charges as",
+                "(",
+                "",
+                "select post_date, rpt_grp_ten, dept_id, sum(amount) as charges",
+                "from clarity_tdl_tran tdl",
+                "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+                "where tdl.detail_type in (1,10)",
+                "and tdl.serv_area_id in (11,13,16,17,18,19)",
+                "and post_date >= '1/1/2017'",
+                "and post_date <= @end_date",
+                "group by post_date, rpt_grp_ten, dept_id",
+                ")",
+                "",
+                "select a.CALENDAR_DT, a.YEAR_MONTH, a.MONTHNAME_YEAR, SERVICE_AREA, a.REGION, coalesce(cast(a.DEPARTMENT_ID as nvarchar),'Unknown Department') as DEPARTMENT_ID, a.DEPARTMENT_NAME",
+                ",a.LOC_ID, a.LOC_NAME, a.ar, charges",
+                "",
+                "from",
+                "",
+                "(",
+                "select ",
+                "ar.CALENDAR_DT",
+                ",ar.YEAR_MONTH",
+                ",ar.MONTHNAME_YEAR",
+                ",ar.RPT_GRP_TEN as SERVICE_AREA",
+                ",ar.REGION",
+                ",ar.DEPARTMENT_ID",
+                ",ar.DEPARTMENT_NAME",
+                ",ar.LOC_ID",
+                ",ar.LOC_NAME",
+                ",ar.ar",
+                ",sum(case when charges.charges is null or charges.charges = 0 then 0 else charges.charges end) charges",
+                "",
+                "from ar ",
+                "left join charges on charges.dept_id = ar.department_id and charges.post_date between DATEADD(dd, DATEDIFF(dd, 0, ar.CALENDAR_DT)-91, 0) and ar.CALENDAR_DT",
+                "group by ",
+                "ar.CALENDAR_DT",
+                ",ar.YEAR_MONTH",
+                ",ar.MONTHNAME_YEAR",
+                ",ar.RPT_GRP_TEN",
+                ",ar.REGION",
+                ",ar.DEPARTMENT_ID",
+                ",ar.DEPARTMENT_NAME",
+                ",ar.LOC_ID",
+                ",ar.LOC_NAME",
+                ",ar.ar",
+                ")a",
+                "",
+                "order by a.DEPARTMENT_ID, a.CALENDAR_DT"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @end_date as date = EPIC_UTIL.EFN_DIN('me-1');",
+                  "",
+                  "",
+                  "with ar as",
+                  "(",
+                  "select date.CALENDAR_DT, date.YEAR_MONTH, date.MONTHNAME_YEAR, loc.rpt_grp_ten, upper(sa.NAME) as Region, loc.loc_id, loc.loc_name, dep.department_id, dep.department_name, sum(amount) as ar",
+                  "from CLARITY_TDL_AGE age ",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+                  "left join date_dimension date on date.CALENDAR_DT = age.post_date",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "where post_date >= '01/01/2018'",
+                  "and loc.rpt_grp_ten in (11,13,16,17,18,19)",
+                  "group by date.CALENDAR_DT, date.YEAR_MONTH, date.MONTHNAME_YEAR, loc.rpt_grp_ten, sa.NAME, loc.loc_id, loc.loc_name, dep.department_id, dep.department_name",
+                  "),",
+                  "",
+                  "charges as",
+                  "(",
+                  "",
+                  "select post_date, rpt_grp_ten, dept_id, sum(amount) as charges",
+                  "from clarity_tdl_tran tdl",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+                  "where tdl.detail_type in (1,10)",
+                  "and tdl.serv_area_id in (11,13,16,17,18,19)",
+                  "and post_date >= '1/1/2017'",
+                  "and post_date <= @end_date",
+                  "group by post_date, rpt_grp_ten, dept_id",
+                  ")",
+                  "",
+                  "select a.CALENDAR_DT, a.YEAR_MONTH, a.MONTHNAME_YEAR, SERVICE_AREA, a.REGION, coalesce(cast(a.DEPARTMENT_ID as nvarchar),'Unknown Department') as DEPARTMENT_ID, a.DEPARTMENT_NAME",
+                  ",a.LOC_ID, a.LOC_NAME, a.ar, charges",
+                  "",
+                  "from",
+                  "",
+                  "(",
+                  "select ",
+                  "ar.CALENDAR_DT",
+                  ",ar.YEAR_MONTH",
+                  ",ar.MONTHNAME_YEAR",
+                  ",ar.RPT_GRP_TEN as SERVICE_AREA",
+                  ",ar.REGION",
+                  ",ar.DEPARTMENT_ID",
+                  ",ar.DEPARTMENT_NAME",
+                  ",ar.LOC_ID",
+                  ",ar.LOC_NAME",
+                  ",ar.ar",
+                  ",sum(case when charges.charges is null or charges.charges = 0 then 0 else charges.charges end) charges",
+                  "",
+                  "from ar ",
+                  "left join charges on charges.dept_id = ar.department_id and charges.post_date between DATEADD(dd, DATEDIFF(dd, 0, ar.CALENDAR_DT)-91, 0) and ar.CALENDAR_DT",
+                  "group by ",
+                  "ar.CALENDAR_DT",
+                  ",ar.YEAR_MONTH",
+                  ",ar.MONTHNAME_YEAR",
+                  ",ar.RPT_GRP_TEN",
+                  ",ar.REGION",
+                  ",ar.DEPARTMENT_ID",
+                  ",ar.DEPARTMENT_NAME",
+                  ",ar.LOC_ID",
+                  ",ar.LOC_NAME",
+                  ",ar.ar",
+                  ")a",
+                  "",
+                  "order by a.DEPARTMENT_ID, a.CALENDAR_DT</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Charge",
+            "expression": "sum('AR Days'[Charges])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "AR Aging",
+            "expression": "sum('AR Days'[AR])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "AR Days",
+            "expression": "IFERROR('AR Days'[AR Aging]/[Charge],0)",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "declare @end_date as date = EPIC_UTIL.EFN_DIN('me-1');",
+              "",
+              "",
+              "with ar as",
+              "(",
+              "select date.CALENDAR_DT, date.YEAR_MONTH, date.MONTHNAME_YEAR, loc.rpt_grp_ten, upper(sa.NAME) as Region, loc.loc_id, loc.loc_name, dep.department_id, dep.department_name, sum(amount) as ar",
+              "from CLARITY_TDL_AGE age ",
+              "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+              "left join date_dimension date on date.CALENDAR_DT = age.post_date",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "where post_date >= '01/01/2018'",
+              "and loc.rpt_grp_ten in (11,13,16,17,18,19)",
+              "group by date.CALENDAR_DT, date.YEAR_MONTH, date.MONTHNAME_YEAR, loc.rpt_grp_ten, sa.NAME, loc.loc_id, loc.loc_name, dep.department_id, dep.department_name",
+              "),",
+              "",
+              "charges as",
+              "(",
+              "",
+              "select post_date, rpt_grp_ten, dept_id, sum(amount) as charges",
+              "from clarity_tdl_tran tdl",
+              "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+              "where tdl.detail_type in (1,10)",
+              "and tdl.serv_area_id in (11,13,16,17,18,19)",
+              "and post_date >= '1/1/2017'",
+              "and post_date <= @end_date",
+              "group by post_date, rpt_grp_ten, dept_id",
+              ")",
+              "",
+              "select a.CALENDAR_DT, a.YEAR_MONTH, a.MONTHNAME_YEAR, SERVICE_AREA, a.REGION, coalesce(cast(a.DEPARTMENT_ID as nvarchar),'Unknown Department') as DEPARTMENT_ID, a.DEPARTMENT_NAME",
+              ",a.LOC_ID, a.LOC_NAME, a.ar, charges",
+              "",
+              "from",
+              "",
+              "(",
+              "select ",
+              "ar.CALENDAR_DT",
+              ",ar.YEAR_MONTH",
+              ",ar.MONTHNAME_YEAR",
+              ",ar.RPT_GRP_TEN as SERVICE_AREA",
+              ",ar.REGION",
+              ",ar.DEPARTMENT_ID",
+              ",ar.DEPARTMENT_NAME",
+              ",ar.LOC_ID",
+              ",ar.LOC_NAME",
+              ",ar.ar",
+              ",sum(case when charges.charges is null or charges.charges = 0 then 0 else charges.charges end) charges",
+              "",
+              "from ar ",
+              "left join charges on charges.dept_id = ar.department_id and charges.post_date between DATEADD(dd, DATEDIFF(dd, 0, ar.CALENDAR_DT)-91, 0) and ar.CALENDAR_DT",
+              "group by ",
+              "ar.CALENDAR_DT",
+              ",ar.YEAR_MONTH",
+              ",ar.MONTHNAME_YEAR",
+              ",ar.RPT_GRP_TEN",
+              ",ar.REGION",
+              ",ar.DEPARTMENT_ID",
+              ",ar.DEPARTMENT_NAME",
+              ",ar.LOC_ID",
+              ",ar.LOC_NAME",
+              ",ar.ar",
+              ")a",
+              "",
+              "order by a.DEPARTMENT_ID, a.CALENDAR_DT"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "AR Days"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @end_date as date = EPIC_UTIL.EFN_DIN('me-1');",
+              "",
+              "",
+              "with ar as",
+              "(",
+              "select date.CALENDAR_DT, date.YEAR_MONTH, date.MONTHNAME_YEAR, loc.rpt_grp_ten, upper(sa.NAME) as Region, loc.loc_id, loc.loc_name, dep.department_id, dep.department_name, sum(amount) as ar",
+              "from CLARITY_TDL_AGE age ",
+              "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+              "left join date_dimension date on date.CALENDAR_DT = age.post_date",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "where post_date >= '01/01/2018'",
+              "and loc.rpt_grp_ten in (11,13,16,17,18,19)",
+              "group by date.CALENDAR_DT, date.YEAR_MONTH, date.MONTHNAME_YEAR, loc.rpt_grp_ten, sa.NAME, loc.loc_id, loc.loc_name, dep.department_id, dep.department_name",
+              "),",
+              "",
+              "charges as",
+              "(",
+              "",
+              "select post_date, rpt_grp_ten, dept_id, sum(amount) as charges",
+              "from clarity_tdl_tran tdl",
+              "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+              "where tdl.detail_type in (1,10)",
+              "and tdl.serv_area_id in (11,13,16,17,18,19)",
+              "and post_date >= '1/1/2017'",
+              "and post_date <= @end_date",
+              "group by post_date, rpt_grp_ten, dept_id",
+              ")",
+              "",
+              "select a.CALENDAR_DT, a.YEAR_MONTH, a.MONTHNAME_YEAR, SERVICE_AREA, a.REGION, coalesce(cast(a.DEPARTMENT_ID as nvarchar),'Unknown Department') as DEPARTMENT_ID, a.DEPARTMENT_NAME",
+              ",a.LOC_ID, a.LOC_NAME, a.ar, charges",
+              "",
+              "from",
+              "",
+              "(",
+              "select ",
+              "ar.CALENDAR_DT",
+              ",ar.YEAR_MONTH",
+              ",ar.MONTHNAME_YEAR",
+              ",ar.RPT_GRP_TEN as SERVICE_AREA",
+              ",ar.REGION",
+              ",ar.DEPARTMENT_ID",
+              ",ar.DEPARTMENT_NAME",
+              ",ar.LOC_ID",
+              ",ar.LOC_NAME",
+              ",ar.ar",
+              ",sum(case when charges.charges is null or charges.charges = 0 then 0 else charges.charges end) charges",
+              "",
+              "from ar ",
+              "left join charges on charges.dept_id = ar.department_id and charges.post_date between DATEADD(dd, DATEDIFF(dd, 0, ar.CALENDAR_DT)-91, 0) and ar.CALENDAR_DT",
+              "group by ",
+              "ar.CALENDAR_DT",
+              ",ar.YEAR_MONTH",
+              ",ar.MONTHNAME_YEAR",
+              ",ar.RPT_GRP_TEN",
+              ",ar.REGION",
+              ",ar.DEPARTMENT_ID",
+              ",ar.DEPARTMENT_NAME",
+              ",ar.LOC_ID",
+              ",ar.LOC_NAME",
+              ",ar.ar",
+              ")a",
+              "",
+              "order by a.DEPARTMENT_ID, a.CALENDAR_DT</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "name": "PB Users",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          },
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_Reporting_Group",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-141188"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

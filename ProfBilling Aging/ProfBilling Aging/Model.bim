@@ -1,0 +1,1151 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Aging",
+        "columns": [
+          {
+            "name": "Service Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Service Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "Post Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Post Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "Detail Type ID",
+            "dataType": "int64",
+            "sourceColumn": "Detail Type ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Detail Type",
+            "dataType": "string",
+            "sourceColumn": "Detail Type",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure Code",
+            "dataType": "string",
+            "sourceColumn": "Procedure Code",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure",
+            "dataType": "string",
+            "sourceColumn": "Procedure",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department ID",
+            "dataType": "double",
+            "sourceColumn": "Department ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department Specialty",
+            "dataType": "string",
+            "sourceColumn": "Department Specialty",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department GL",
+            "dataType": "string",
+            "sourceColumn": "Department GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location ID",
+            "dataType": "double",
+            "sourceColumn": "Location ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "sourceColumn": "Location",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location GL",
+            "dataType": "string",
+            "sourceColumn": "Location GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "string",
+            "sourceColumn": "Region ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Billing Provider ID",
+            "dataType": "string",
+            "sourceColumn": "Billing Provider ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Billing Provider",
+            "dataType": "string",
+            "sourceColumn": "Billing Provider",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Service Provider ID",
+            "dataType": "string",
+            "sourceColumn": "Service Provider ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Service Provider",
+            "dataType": "string",
+            "sourceColumn": "Service Provider",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Original FC",
+            "dataType": "string",
+            "sourceColumn": "Original FC",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Current FC",
+            "dataType": "string",
+            "sourceColumn": "Current FC",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Patient Amount",
+            "dataType": "double",
+            "sourceColumn": "Patient Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Insurance Amount",
+            "dataType": "double",
+            "sourceColumn": "Insurance Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Amount",
+            "dataType": "double",
+            "sourceColumn": "Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "type": "calculated",
+            "name": "Market",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('Aging'[Location ID]",
+              "",
+              ",11106,\"SPRINGFIELD\" ",
+              "",
+              ",11149,\"SPRINGFIELD\" ",
+              "",
+              ",11124,\"SPRINGFIELD\" ",
+              "",
+              ",18110,\"MRG\" ",
+              "",
+              ",19126,\"MRG\" ",
+              "",
+              ",18120,\"DEFIANCE\" ",
+              "",
+              ",18121,\"DEFIANCE\" ",
+              "",
+              ",19120,\"DEFIANCE\" ",
+              "",
+              ",19127,\"DEFIANCE\" ",
+              "",
+              ",19107,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19108,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19116,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19118,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",'Aging'[Region] ",
+              "",
+              ") "
+            ]
+          },
+          {
+            "name": "FIRST_STM_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "FIRST_STM_DATE"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Aging",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                " age.ORIG_SERVICE_DATE as 'Service Date'",
+                ",age.POST_DATE as 'Post Date'",
+                ",csd.FIRST_STM_DATE",
+                ",det.DETAIL_TYPE as 'Detail Type ID'",
+                ",det.NAME as 'Detail Type'",
+                ",eap.PROC_CODE as 'Procedure Code'",
+                ",eap.PROC_NAME as 'Procedure'",
+                ",age.DEPT_ID as 'Department ID'",
+                ",dep.DEPARTMENT_NAME as 'Department'",
+                ",dep.SPECIALTY as 'Department Specialty'",
+                ",dep.GL_PREFIX as 'Department GL'",
+                ",age.LOC_ID as 'Location ID'",
+                ",loc.LOC_NAME as 'Location'",
+                ",loc.GL_PREFIX as 'Location GL'",
+                ",sa.RPT_GRP_TEN as 'Region ID'",
+                ",upper(sa.NAME) as 'Region'",
+                ",ser_bill.PROV_ID as 'Billing Provider ID'",
+                ",ser_bill.PROV_NAME as 'Billing Provider'",
+                ",ser_perf.PROV_ID as 'Service Provider ID'",
+                ",ser_perf.PROV_NAME as 'Service Provider'",
+                ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+                ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+                ",age.PATIENT_AMOUNT as 'Patient Amount'",
+                ",age.INSURANCE_AMOUNT as 'Insurance Amount'",
+                ",age.AMOUNT as 'Amount'",
+                "",
+                "from CLARITY.dbo.CLARITY_TDL_AGE age",
+                "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = age.DETAIL_TYPE",
+                "left join CLARITY_EAP eap on eap.PROC_ID = age.PROC_ID",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+                "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = age.BILLING_PROVIDER_ID",
+                "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = age.PERFORMING_PROV_ID",
+                "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = age.ORIGINAL_FIN_CLASS",
+                "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = age.CUR_FIN_CLASS",
+                "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+                "",
+                "where age.POST_DATE >= '12/1/2017'",
+                "and age.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101) ",
+                "and age.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " age.ORIG_SERVICE_DATE as 'Service Date'",
+                  ",age.POST_DATE as 'Post Date'",
+                  ",csd.FIRST_STM_DATE",
+                  ",det.DETAIL_TYPE as 'Detail Type ID'",
+                  ",det.NAME as 'Detail Type'",
+                  ",eap.PROC_CODE as 'Procedure Code'",
+                  ",eap.PROC_NAME as 'Procedure'",
+                  ",age.DEPT_ID as 'Department ID'",
+                  ",dep.DEPARTMENT_NAME as 'Department'",
+                  ",dep.SPECIALTY as 'Department Specialty'",
+                  ",dep.GL_PREFIX as 'Department GL'",
+                  ",age.LOC_ID as 'Location ID'",
+                  ",loc.LOC_NAME as 'Location'",
+                  ",loc.GL_PREFIX as 'Location GL'",
+                  ",sa.RPT_GRP_TEN as 'Region ID'",
+                  ",upper(sa.NAME) as 'Region'",
+                  ",ser_bill.PROV_ID as 'Billing Provider ID'",
+                  ",ser_bill.PROV_NAME as 'Billing Provider'",
+                  ",ser_perf.PROV_ID as 'Service Provider ID'",
+                  ",ser_perf.PROV_NAME as 'Service Provider'",
+                  ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+                  ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+                  ",age.PATIENT_AMOUNT as 'Patient Amount'",
+                  ",age.INSURANCE_AMOUNT as 'Insurance Amount'",
+                  ",age.AMOUNT as 'Amount'",
+                  "",
+                  "from CLARITY.dbo.CLARITY_TDL_AGE age",
+                  "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = age.DETAIL_TYPE",
+                  "left join CLARITY_EAP eap on eap.PROC_ID = age.PROC_ID",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = age.BILLING_PROVIDER_ID",
+                  "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = age.PERFORMING_PROV_ID",
+                  "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = age.ORIGINAL_FIN_CLASS",
+                  "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = age.CUR_FIN_CLASS",
+                  "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+                  "",
+                  "where age.POST_DATE >= '12/1/2017'",
+                  "and age.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101) ",
+                  "and age.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Aging",
+            "expression": "sum('Aging'[Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Debit Aging",
+            "expression": [
+              " var Debit = FILTER('Aging','Aging'[Detail Type ID] = 60)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],Debit)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Credit Aging",
+            "expression": [
+              " var Credit = FILTER('Aging','Aging'[Detail Type ID] = 61)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],Credit)",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "0-30",
+            "description": "Aging",
+            "expression": [
+              " var AR30 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] <= 30)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR30)",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "31-60",
+            "description": "Aging",
+            "expression": [
+              " var AR31 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] >= 31)",
+              "",
+              "var AR60 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] <= 60)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR31,AR60)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "61-90",
+            "description": "Aging",
+            "expression": [
+              " var AR61 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] >= 61)",
+              "",
+              "var AR90 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] <= 90)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR61,AR90)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "91-120",
+            "expression": [
+              " ",
+              "",
+              "var AR91 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] >= 91)",
+              "",
+              "var AR120 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] <= 120)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR91,AR120)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "121-180",
+            "expression": [
+              " var AR121 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] >= 121)",
+              "",
+              "var AR180 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] <= 180)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR121,AR180)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "181-270",
+            "expression": [
+              " var AR181 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] >= 181)",
+              "",
+              "var AR270 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] <= 270)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR181,AR270)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "271-365",
+            "expression": [
+              " var AR271 = FILTER('Aging','Aging'[Post Date]- 'Aging'[Service Date] >= 271)",
+              "",
+              "var AR365 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] <= 365)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR271,AR365)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "365+",
+            "expression": [
+              " var AR365 = FILTER('Aging','Aging'[Post Date]- 'Aging'[Service Date] > 365)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR365)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "< 90",
+            "expression": [
+              " var AR90 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] < 90)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR90)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "0-30 %",
+            "expression": "Aging[0-30]/Aging[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "31-60 %",
+            "expression": "Aging[31-60]/Aging[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "61-90 %",
+            "expression": "Aging[61-90]/Aging[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "91-120 %",
+            "expression": "Aging[91-120]/Aging[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "121-180 %",
+            "expression": "Aging[121-180]/Aging[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "181-270 %",
+            "expression": "Aging[181-270]/Aging[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "271-365 %",
+            "expression": "Aging[271-365]/Aging[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "365+ %",
+            "expression": "Aging[365+]/Aging[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "Aging %",
+            "description": "Aging",
+            "expression": "Aging[Aging]/Aging[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP 0-30",
+            "expression": [
+              " var AR30 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] <= 30)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Patient],AR30)",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Aging - Patient",
+            "expression": "sum('Aging'[Patient Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 31-60",
+            "expression": [
+              " var AR31 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] >= 31)",
+              "",
+              "var AR60 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] <= 60)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Patient],AR31,AR60)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 0-30 %",
+            "expression": "[SP 0-30]/Aging[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "SP 31-60 %",
+            "expression": "[SP 31-60]/Aging[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "SP > 90",
+            "expression": [
+              " var AR90 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] > 90)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Patient],AR90)",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "INS > 90",
+            "expression": [
+              " var AR90 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] > 90)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Insurance],AR90)",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Aging - Insurance",
+            "expression": "sum('Aging'[Insurance Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 61-90",
+            "expression": [
+              " var AR61 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] >= 61)",
+              "",
+              "var AR90 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] <= 90)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Patient],AR61,AR90)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 91-120",
+            "expression": [
+              " var AR91 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] >= 91)",
+              "",
+              "var AR120 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] <= 120)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Patient],AR91,AR120)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 121-180",
+            "expression": [
+              " var AR121 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] >= 121)",
+              "",
+              "var AR180 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] <= 180)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Patient],AR121,AR180)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 181-270",
+            "expression": [
+              " var AR181 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] >= 181)",
+              "",
+              "var AR270 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] <= 270)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Patient],AR181,AR270)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 271-365",
+            "expression": [
+              " var AR271 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] >= 271)",
+              "",
+              "var AR365 = FILTER('Aging','Aging'[Post Date] - 'Aging'[FIRST_STM_DATE] <= 365)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Patient],AR271,AR365)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 365+",
+            "expression": [
+              " var AR365 = FILTER('Aging','Aging'[Post Date]- 'Aging'[FIRST_STM_DATE] > 365)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging - Patient],AR365)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP ON HOLD",
+            "expression": [
+              "",
+              "var onhold = filter('Aging',(isblank('Aging'[FIRST_STM_DATE])))",
+              "",
+              "return calculate('Aging'[Aging - Patient],onhold)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 61-90 %",
+            "expression": "[SP 61-90]/'Aging'[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "SP 91-120 %",
+            "expression": "'Aging'[SP 91-120]/Aging[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "SP 121-180 %",
+            "expression": "'Aging'[SP 121-180]/'Aging'[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "SP 181-270 %",
+            "expression": "'Aging'[SP 181-270]/'Aging'[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "SP 271-365 %",
+            "expression": "'Aging'[SP 271-365]/'Aging'[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "SP 365+ %",
+            "expression": "'Aging'[SP 365+]/'Aging'[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "SP ON HOLD %",
+            "expression": "'Aging'[SP ON HOLD]/'Aging'[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "SP > 90 %",
+            "expression": "[SP > 90]/'Aging'[Aging - Patient]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "INS > 90 %",
+            "expression": "'Aging'[INS > 90]/'Aging'[Aging - Insurance]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          },
+          {
+            "name": "AR > 90",
+            "expression": [
+              " var AR90 = FILTER('Aging','Aging'[Post Date] - 'Aging'[Service Date] > 90)",
+              "",
+              "RETURN CALCULATE('Aging'[Aging],AR90)",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Aging",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "AR > 90 %",
+            "expression": "'Aging'[AR > 90]/'Aging'[Aging]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Aging"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " age.ORIG_SERVICE_DATE as 'Service Date'",
+              ",age.POST_DATE as 'Post Date'",
+              ",csd.FIRST_STM_DATE",
+              ",det.DETAIL_TYPE as 'Detail Type ID'",
+              ",det.NAME as 'Detail Type'",
+              ",eap.PROC_CODE as 'Procedure Code'",
+              ",eap.PROC_NAME as 'Procedure'",
+              ",age.DEPT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.SPECIALTY as 'Department Specialty'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",age.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",ser_bill.PROV_ID as 'Billing Provider ID'",
+              ",ser_bill.PROV_NAME as 'Billing Provider'",
+              ",ser_perf.PROV_ID as 'Service Provider ID'",
+              ",ser_perf.PROV_NAME as 'Service Provider'",
+              ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+              ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+              ",age.PATIENT_AMOUNT as 'Patient Amount'",
+              ",age.INSURANCE_AMOUNT as 'Insurance Amount'",
+              ",age.AMOUNT as 'Amount'",
+              "",
+              "from CLARITY.dbo.CLARITY_TDL_AGE age",
+              "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = age.DETAIL_TYPE",
+              "left join CLARITY_EAP eap on eap.PROC_ID = age.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = age.BILLING_PROVIDER_ID",
+              "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = age.PERFORMING_PROV_ID",
+              "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = age.ORIGINAL_FIN_CLASS",
+              "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = age.CUR_FIN_CLASS",
+              "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+              "",
+              "where age.POST_DATE >= '12/1/2017'",
+              "and age.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101) ",
+              "and age.SERV_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Aging"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " age.ORIG_SERVICE_DATE as 'Service Date'",
+              ",age.POST_DATE as 'Post Date'",
+              ",csd.FIRST_STM_DATE",
+              ",det.DETAIL_TYPE as 'Detail Type ID'",
+              ",det.NAME as 'Detail Type'",
+              ",eap.PROC_CODE as 'Procedure Code'",
+              ",eap.PROC_NAME as 'Procedure'",
+              ",age.DEPT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.SPECIALTY as 'Department Specialty'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",age.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",ser_bill.PROV_ID as 'Billing Provider ID'",
+              ",ser_bill.PROV_NAME as 'Billing Provider'",
+              ",ser_perf.PROV_ID as 'Service Provider ID'",
+              ",ser_perf.PROV_NAME as 'Service Provider'",
+              ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+              ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+              ",age.PATIENT_AMOUNT as 'Patient Amount'",
+              ",age.INSURANCE_AMOUNT as 'Insurance Amount'",
+              ",age.AMOUNT as 'Amount'",
+              "",
+              "from CLARITY.dbo.CLARITY_TDL_AGE age",
+              "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = age.DETAIL_TYPE",
+              "left join CLARITY_EAP eap on eap.PROC_ID = age.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = age.BILLING_PROVIDER_ID",
+              "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = age.PERFORMING_PROV_ID",
+              "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = age.ORIGINAL_FIN_CLASS",
+              "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = age.CUR_FIN_CLASS",
+              "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+              "",
+              "where age.POST_DATE >= '12/1/2017'",
+              "and age.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101) ",
+              "and age.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dates - Post",
+        "columns": [
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "CALENDAR_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "CALENDAR_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NAME",
+            "dataType": "string",
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "Reverse Date",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "type": "calculated",
+            "name": "Reverse Date",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "rankx('Dates - Post','Dates - Post'[YEAR_MONTH],,DESC)"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dates - Post",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " dd.CALENDAR_DT",
+                ",dd.CALENDAR_DT_STR",
+                ",dd.YEAR_MONTH",
+                ",dd.YEAR",
+                ",dd.MONTH_NAME",
+                ",dd.MONTHNAME_YEAR",
+                "",
+                "from CLARITY.dbo.DATE_DIMENSION dd",
+                "",
+                "where dd.CALENDAR_DT >= '1/1/2017'",
+                "and dd.CALENDAR_DT <= getdate()"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " dd.CALENDAR_DT",
+                  ",dd.CALENDAR_DT_STR",
+                  ",dd.YEAR_MONTH",
+                  ",dd.YEAR",
+                  ",dd.MONTH_NAME",
+                  ",dd.MONTHNAME_YEAR",
+                  "",
+                  "from CLARITY.dbo.DATE_DIMENSION dd",
+                  "",
+                  "where dd.CALENDAR_DT >= '1/1/2017'",
+                  "and dd.CALENDAR_DT <= getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " dd.CALENDAR_DT",
+              ",dd.CALENDAR_DT_STR",
+              ",dd.YEAR_MONTH",
+              ",dd.YEAR",
+              ",dd.MONTH_NAME",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from CLARITY.dbo.DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate()"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dates - Post"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " dd.CALENDAR_DT",
+              ",dd.CALENDAR_DT_STR",
+              ",dd.YEAR_MONTH",
+              ",dd.YEAR",
+              ",dd.MONTH_NAME",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from CLARITY.dbo.DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "c4de10a2-4ee5-40cd-b166-d77525f6bb41",
+        "fromTable": "Aging",
+        "fromColumn": "Post Date",
+        "toTable": "Dates - Post",
+        "toColumn": "Date"
+      }
+    ],
+    "roles": [
+      {
+        "name": "Role",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          },
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_Reporting_Group",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-141188"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

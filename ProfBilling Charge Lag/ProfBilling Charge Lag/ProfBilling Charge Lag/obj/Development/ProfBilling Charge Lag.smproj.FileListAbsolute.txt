@@ -1,0 +1,6 @@
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Lag\ProfBilling Charge Lag\ProfBilling Charge Lag\bin\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Lag\ProfBilling Charge Lag\ProfBilling Charge Lag\bin\Model.deploymenttargets
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Lag\ProfBilling Charge Lag\ProfBilling Charge Lag\bin\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Lag\ProfBilling Charge Lag\ProfBilling Charge Lag\obj\Development\Model.asdatabase
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Lag\ProfBilling Charge Lag\ProfBilling Charge Lag\obj\Development\Model.deploymentoptions
+C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Lag\ProfBilling Charge Lag\ProfBilling Charge Lag\obj\Development\Model.deploymenttargets

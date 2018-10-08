@@ -1,0 +1,476 @@
+{
+  "name": "ProfBilling Charge Lag",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Charge Lag",
+        "columns": [
+          {
+            "name": "Department ID",
+            "dataType": "double",
+            "sourceColumn": "Department ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department Specialty",
+            "dataType": "string",
+            "sourceColumn": "Department Specialty",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department GL",
+            "dataType": "string",
+            "sourceColumn": "Department GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location ID",
+            "dataType": "double",
+            "sourceColumn": "Location ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "sourceColumn": "Location",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location GL",
+            "dataType": "string",
+            "sourceColumn": "Location GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "string",
+            "sourceColumn": "Region ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Service Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Service Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "Post Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Post Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "TX ID",
+            "dataType": "double",
+            "sourceColumn": "TX ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Lag Days",
+            "dataType": "int64",
+            "sourceColumn": "Lag Days",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Lag Count",
+            "dataType": "int64",
+            "sourceColumn": "Lag Count",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "type": "calculated",
+            "name": "Market",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('Charge Lag'[Location ID]",
+              ",11106,\"SPRINGFIELD\" ",
+              "",
+              ",11149,\"SPRINGFIELD\" ",
+              "",
+              ",11124,\"SPRINGFIELD\" ",
+              "",
+              ",18110,\"MRG\" ",
+              "",
+              ",19126,\"MRG\" ",
+              "",
+              ",18120,\"DEFIANCE\" ",
+              "",
+              ",18121,\"DEFIANCE\" ",
+              "",
+              ",19120,\"DEFIANCE\" ",
+              "",
+              ",19127,\"DEFIANCE\" ",
+              "",
+              ",19107,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19108,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19116,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19118,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",'Charge Lag'[Region]",
+              "",
+              ") "
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Charge Lag",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " arpb_tx.DEPARTMENT_ID as 'Department ID'",
+                ",dep.DEPARTMENT_NAME as 'Department'",
+                ",dep.SPECIALTY as 'Department Specialty'",
+                ",dep.GL_PREFIX as 'Department GL'",
+                ",arpb_tx.LOC_ID as 'Location ID'",
+                ",loc.LOC_NAME as 'Location'",
+                ",loc.GL_PREFIX as 'Location GL'",
+                ",sa.RPT_GRP_TEN as 'Region ID'",
+                ",upper(sa.NAME) as 'Region'",
+                ",arpb_tx.SERVICE_DATE as 'Service Date'",
+                ",arpb_tx.POST_DATE as 'Post Date'",
+                ",arpb_tx.TX_ID as 'TX ID'",
+                ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'Lag Days'",
+                ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'Lag Count'",
+                "",
+                "from ARPB_TRANSACTIONS arpb_tx ",
+                "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+                "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "",
+                "where arpb_tx.POST_DATE >= '12/1/2017'",
+                "and arpb_tx.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+                "and arpb_tx.TX_TYPE_C = 1",
+                "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+                "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+                "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " arpb_tx.DEPARTMENT_ID as 'Department ID'",
+                  ",dep.DEPARTMENT_NAME as 'Department'",
+                  ",dep.SPECIALTY as 'Department Specialty'",
+                  ",dep.GL_PREFIX as 'Department GL'",
+                  ",arpb_tx.LOC_ID as 'Location ID'",
+                  ",loc.LOC_NAME as 'Location'",
+                  ",loc.GL_PREFIX as 'Location GL'",
+                  ",sa.RPT_GRP_TEN as 'Region ID'",
+                  ",upper(sa.NAME) as 'Region'",
+                  ",arpb_tx.SERVICE_DATE as 'Service Date'",
+                  ",arpb_tx.POST_DATE as 'Post Date'",
+                  ",arpb_tx.TX_ID as 'TX ID'",
+                  ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'Lag Days'",
+                  ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'Lag Count'",
+                  "",
+                  "from ARPB_TRANSACTIONS arpb_tx ",
+                  "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "",
+                  "where arpb_tx.POST_DATE >= '12/1/2017'",
+                  "and arpb_tx.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+                  "and arpb_tx.TX_TYPE_C = 1",
+                  "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+                  "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+                  "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "TOTAL LAG COUNT",
+            "description": "Charge Lag",
+            "expression": "sum('Charge Lag'[Lag Count])",
+            "formatString": "#,0",
+            "displayFolder": "Charge Lag"
+          },
+          {
+            "name": "AVG LAG DAYS",
+            "expression": "[TOTAL LAG DAYS]/[TOTAL LAG COUNT]",
+            "formatString": "0.00",
+            "displayFolder": "Charge Lag"
+          },
+          {
+            "name": "TOTAL LAG DAYS",
+            "description": "Charge Lag",
+            "expression": "sum('Charge Lag'[LAG DAYS])",
+            "formatString": "#,0",
+            "displayFolder": "Charge Lag"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " arpb_tx.DEPARTMENT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.SPECIALTY as 'Department Specialty'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",arpb_tx.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",arpb_tx.SERVICE_DATE as 'Service Date'",
+              ",arpb_tx.POST_DATE as 'Post Date'",
+              ",arpb_tx.TX_ID as 'TX ID'",
+              ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'Lag Days'",
+              ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'Lag Count'",
+              "",
+              "from ARPB_TRANSACTIONS arpb_tx ",
+              "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "",
+              "where arpb_tx.POST_DATE >= '12/1/2017'",
+              "and arpb_tx.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+              "and arpb_tx.TX_TYPE_C = 1",
+              "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+              "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+              "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Charge Lag"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " arpb_tx.DEPARTMENT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.SPECIALTY as 'Department Specialty'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",arpb_tx.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",arpb_tx.SERVICE_DATE as 'Service Date'",
+              ",arpb_tx.POST_DATE as 'Post Date'",
+              ",arpb_tx.TX_ID as 'TX ID'",
+              ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'Lag Days'",
+              ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'Lag Count'",
+              "",
+              "from ARPB_TRANSACTIONS arpb_tx ",
+              "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "",
+              "where arpb_tx.POST_DATE >= '12/1/2017'",
+              "and arpb_tx.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+              "and arpb_tx.TX_TYPE_C = 1",
+              "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+              "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+              "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dates",
+        "columns": [
+          {
+            "name": "CALENDAR_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "CALENDAR_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "CALENDAR_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NAME",
+            "dataType": "string",
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dates",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " dd.CALENDAR_DT",
+                ",dd.CALENDAR_DT_STR",
+                ",dd.YEAR_MONTH",
+                ",dd.YEAR",
+                ",dd.MONTH_NAME",
+                ",dd.MONTHNAME_YEAR",
+                "",
+                "from CLARITY.dbo.DATE_DIMENSION dd",
+                "",
+                "where dd.CALENDAR_DT >= '1/1/2017'",
+                "and dd.CALENDAR_DT <= getdate()"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " dd.CALENDAR_DT",
+                  ",dd.CALENDAR_DT_STR",
+                  ",dd.YEAR_MONTH",
+                  ",dd.YEAR",
+                  ",dd.MONTH_NAME",
+                  ",dd.MONTHNAME_YEAR",
+                  "",
+                  "from CLARITY.dbo.DATE_DIMENSION dd",
+                  "",
+                  "where dd.CALENDAR_DT >= '1/1/2017'",
+                  "and dd.CALENDAR_DT <= getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " dd.CALENDAR_DT",
+              ",dd.CALENDAR_DT_STR",
+              ",dd.YEAR_MONTH",
+              ",dd.YEAR",
+              ",dd.MONTH_NAME",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from CLARITY.dbo.DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate()"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dates"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " dd.CALENDAR_DT",
+              ",dd.CALENDAR_DT_STR",
+              ",dd.YEAR_MONTH",
+              ",dd.YEAR",
+              ",dd.MONTH_NAME",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from CLARITY.dbo.DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "628edec4-ba05-4438-a288-cb5080a49bea",
+        "fromTable": "Charge Lag",
+        "fromColumn": "Post Date",
+        "toTable": "Dates",
+        "toColumn": "CALENDAR_DT"
+      }
+    ],
+    "roles": [
+      {
+        "name": "Role",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          },
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_Reporting_Group",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-141188"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  }
+}

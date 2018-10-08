@@ -1,0 +1,3445 @@
+{
+  "name": "PB - RCO Scorecard",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      },
+      {
+        "name": "ClarityCHPUtil",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=ClarityCHPUtil;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Transactions",
+        "columns": [
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID"
+          },
+          {
+            "name": "CHG",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CHG"
+          },
+          {
+            "name": "NET_REV",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "NET_REV"
+          },
+          {
+            "name": "PYMNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PYMNT"
+          },
+          {
+            "name": "BAD_DEBT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "BAD_DEBT"
+          },
+          {
+            "name": "CHRTY",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "CHRTY"
+          },
+          {
+            "name": "POST_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "POST_DATE",
+            "formatString": "Short Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "DEPT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPT_ID"
+          },
+          {
+            "name": "FINAL_DENIAL",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "FINAL_DENIAL"
+          },
+          {
+            "name": "MEDICARE CHARGES",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "MEDICARE CHARGES"
+          },
+          {
+            "name": "MEDICAID CHARGES",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "MEDICAID CHARGES"
+          },
+          {
+            "name": "COMMERCIAL CHARGES",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "COMMERCIAL CHARGES"
+          },
+          {
+            "name": "OTHER CHARGES",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "OTHER CHARGES"
+          },
+          {
+            "name": "SELF PAY CHARGES",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF PAY CHARGES"
+          },
+          {
+            "name": "BLUE CROSS CHARGES",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "BLUE CROSS CHARGES"
+          },
+          {
+            "name": "MATCHED PROCEDURE",
+            "dataType": "string",
+            "sourceColumn": "MATCHED PROCEDURE"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "2017 Gross Revenue",
+            "source": {
+              "query": [
+                "select",
+                " tdl.LOC_ID",
+                ",tdl. DEPT_ID",
+                ",tdl.POST_DATE",
+                ",eap_match.PROC_NAME as 'MATCHED PROCEDURE'",
+                ",case when tdl.DETAIL_TYPE in (1,10) then tdl.AMOUNT end as 'CHG'",
+                ",case when tdl.DETAIL_TYPE in (1,10,3,12,4,6,13,21,23,30,31) then tdl.AMOUNT end as 'NET_REV'",
+                ",case when tdl.DETAIL_TYPE in (2,5,11,20,22,32,33) then tdl.AMOUNT end *-1 as 'PYMNT'",
+                ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('bad','badrecovery') or eap.GL_NUM_CREDIT in ('bad','badrecovery')) then tdl.AMOUNT end *-1 as 'BAD_DEBT'",
+                ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('charity') or eap.GL_NUM_CREDIT in ('charity')) then tdl.AMOUNT end *-1 as 'CHRTY'",
+                ",case when eap_match.PROC_CODE in ('4017','4018','4019','4020','4021','3011','3012','3013','3014','3015','3018','3019','3052','5036') then tdl.AMOUNT end *-1 as 'FINAL_DENIAL'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICARE','MEDICARE MANAGED') then tdl.AMOUNT end as 'MEDICARE CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICAID','MEDICAID MANAGED') then tdl.AMOUNT end as 'MEDICAID CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('COMMERCIAL','MANAGED CARE') then tdl.AMOUNT end as 'COMMERCIAL CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then tdl.AMOUNT end as 'BLUE CROSS CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'OTHER' then tdl.AMOUNT end as 'OTHER CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'SELF-PAY' then tdl.AMOUNT end as 'SELF PAY CHARGES'",
+                "--net collection is total payments/3 month net revenue average",
+                "",
+                "from CLARITY_TDL_TRAN tdl",
+                "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+                "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+                "left join CLARITY_FC fc on fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+                "",
+                "where tdl.POST_DATE >= '1/1/2017'",
+                "and tdl.POST_DATE <= '12/31/2017'",
+                "and tdl.DETAIL_TYPE <= 33",
+                "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " tdl.LOC_ID",
+                  ",tdl. DEPT_ID",
+                  ",tdl.POST_DATE",
+                  ",eap_match.PROC_NAME as 'MATCHED PROCEDURE'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) then tdl.AMOUNT end as 'CHG'",
+                  ",case when tdl.DETAIL_TYPE in (1,10,3,12,4,6,13,21,23,30,31) then tdl.AMOUNT end as 'NET_REV'",
+                  ",case when tdl.DETAIL_TYPE in (2,5,11,20,22,32,33) then tdl.AMOUNT end *-1 as 'PYMNT'",
+                  ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('bad','badrecovery') or eap.GL_NUM_CREDIT in ('bad','badrecovery')) then tdl.AMOUNT end *-1 as 'BAD_DEBT'",
+                  ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('charity') or eap.GL_NUM_CREDIT in ('charity')) then tdl.AMOUNT end *-1 as 'CHRTY'",
+                  ",case when eap_match.PROC_CODE in ('4017','4018','4019','4020','4021','3011','3012','3013','3014','3015','3018','3019','3052','5036') then tdl.AMOUNT end *-1 as 'FINAL_DENIAL'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICARE','MEDICARE MANAGED') then tdl.AMOUNT end as 'MEDICARE CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICAID','MEDICAID MANAGED') then tdl.AMOUNT end as 'MEDICAID CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('COMMERCIAL','MANAGED CARE') then tdl.AMOUNT end as 'COMMERCIAL CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then tdl.AMOUNT end as 'BLUE CROSS CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'OTHER' then tdl.AMOUNT end as 'OTHER CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'SELF-PAY' then tdl.AMOUNT end as 'SELF PAY CHARGES'",
+                  "--net collection is total payments/3 month net revenue average",
+                  "",
+                  "from CLARITY_TDL_TRAN tdl",
+                  "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+                  "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+                  "left join CLARITY_FC fc on fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+                  "",
+                  "where tdl.POST_DATE >= '1/1/2017'",
+                  "and tdl.POST_DATE <= '12/31/2017'",
+                  "and tdl.DETAIL_TYPE <= 33",
+                  "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2018 Gross Revenue",
+            "mode": "import",
+            "source": {
+              "query": [
+                "select",
+                " tdl.LOC_ID",
+                ",tdl. DEPT_ID",
+                ",tdl.POST_DATE",
+                ",eap_match.PROC_NAME as 'MATCHED PROCEDURE'",
+                ",case when tdl.DETAIL_TYPE in (1,10) then tdl.AMOUNT end as 'CHG'",
+                ",case when tdl.DETAIL_TYPE in (1,10,3,12,4,6,13,21,23,30,31) then tdl.AMOUNT end as 'NET_REV'",
+                ",case when tdl.DETAIL_TYPE in (2,5,11,20,22,32,33) then tdl.AMOUNT end *-1 as 'PYMNT'",
+                ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('bad','badrecovery') or eap.GL_NUM_CREDIT in ('bad','badrecovery')) then tdl.AMOUNT end *-1 as 'BAD_DEBT'",
+                ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('charity') or eap.GL_NUM_CREDIT in ('charity')) then tdl.AMOUNT end *-1 as 'CHRTY'",
+                ",case when eap_match.PROC_CODE in ('4017','4018','4019','4020','4021','3011','3012','3013','3014','3015','3018','3019','3052','5036') then tdl.AMOUNT end *-1 as 'FINAL_DENIAL'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICARE','MEDICARE MANAGED') then tdl.AMOUNT end as 'MEDICARE CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICAID','MEDICAID MANAGED') then tdl.AMOUNT end as 'MEDICAID CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('COMMERCIAL','MANAGED CARE') then tdl.AMOUNT end as 'COMMERCIAL CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then tdl.AMOUNT end as 'BLUE CROSS CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'OTHER' then tdl.AMOUNT end as 'OTHER CHARGES'",
+                ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'SELF-PAY' then tdl.AMOUNT end as 'SELF PAY CHARGES'",
+                "--net collection is total payments/3 month net revenue average",
+                "",
+                "from CLARITY_TDL_TRAN tdl",
+                "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+                "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+                "left join CLARITY_FC fc on fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+                "",
+                "where tdl.POST_DATE >= '1/1/2018'",
+                "and tdl.POST_DATE <= '12/31/2018'",
+                "and tdl.DETAIL_TYPE <= 33",
+                "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " tdl.LOC_ID",
+                  ",tdl. DEPT_ID",
+                  ",tdl.POST_DATE",
+                  ",eap_match.PROC_NAME as 'MATCHED PROCEDURE'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) then tdl.AMOUNT end as 'CHG'",
+                  ",case when tdl.DETAIL_TYPE in (1,10,3,12,4,6,13,21,23,30,31) then tdl.AMOUNT end as 'NET_REV'",
+                  ",case when tdl.DETAIL_TYPE in (2,5,11,20,22,32,33) then tdl.AMOUNT end *-1 as 'PYMNT'",
+                  ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('bad','badrecovery') or eap.GL_NUM_CREDIT in ('bad','badrecovery')) then tdl.AMOUNT end *-1 as 'BAD_DEBT'",
+                  ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('charity') or eap.GL_NUM_CREDIT in ('charity')) then tdl.AMOUNT end *-1 as 'CHRTY'",
+                  ",case when eap_match.PROC_CODE in ('4017','4018','4019','4020','4021','3011','3012','3013','3014','3015','3018','3019','3052','5036') then tdl.AMOUNT end *-1 as 'FINAL_DENIAL'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICARE','MEDICARE MANAGED') then tdl.AMOUNT end as 'MEDICARE CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICAID','MEDICAID MANAGED') then tdl.AMOUNT end as 'MEDICAID CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('COMMERCIAL','MANAGED CARE') then tdl.AMOUNT end as 'COMMERCIAL CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then tdl.AMOUNT end as 'BLUE CROSS CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'OTHER' then tdl.AMOUNT end as 'OTHER CHARGES'",
+                  ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'SELF-PAY' then tdl.AMOUNT end as 'SELF PAY CHARGES'",
+                  "--net collection is total payments/3 month net revenue average",
+                  "",
+                  "from CLARITY_TDL_TRAN tdl",
+                  "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+                  "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+                  "left join CLARITY_FC fc on fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+                  "",
+                  "where tdl.POST_DATE >= '1/1/2018'",
+                  "and tdl.POST_DATE <= '12/31/2018'",
+                  "and tdl.DETAIL_TYPE <= 33",
+                  "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "CHARGE",
+            "expression": "sum('Transactions'[CHG])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "PAYMENT",
+            "expression": "sum('Transactions'[PYMNT])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "NET REVENUE",
+            "expression": "sum('Transactions'[NET_REV])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "BAD DEBT",
+            "expression": "sum('Transactions'[BAD_DEBT])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "CHARITY",
+            "expression": "sum('Transactions'[CHRTY])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "NETREV3M",
+            "expression": [
+              " ([NET REVENUE] (DATESBETWEEN('Date'[DATE],",
+              "STARTOFMONTH(DATEADD(Transactions[POST_DATE],-3,MONTH)),",
+              "ENDOFMONTH(DATEADD(Transactions[POST_DATE],-1,MONTH))))/3)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "NET COLLECTION %",
+            "expression": "[PAYMENT]/[NETREV3M]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "BAD DEBT %",
+            "expression": "[BAD DEBT]/[CHARGE]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "CHARITY %",
+            "expression": "[CHARITY]/[CHARGE]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "FINAL DENIAL",
+            "expression": "sum(Transactions[FINAL_DENIAL])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "FINAL DENIAL %",
+            "expression": "[FINAL DENIAL]/[CHARGE]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "MEDICARE",
+            "expression": "sum(Transactions[MEDICARE CHARGES])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "MEDICAID",
+            "expression": "sum(Transactions[MEDICAID CHARGES])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "COMMERCIAL",
+            "expression": "sum(Transactions[COMMERCIAL CHARGES])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "OTHER",
+            "expression": "sum(Transactions[OTHER CHARGES])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SELF-PAY",
+            "expression": "sum(Transactions[SELF PAY CHARGES])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "BLUE CROSS",
+            "expression": "sum(Transactions[BLUE CROSS CHARGES])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "MEDICARE %",
+            "expression": "[MEDICARE]/[CHARGE]",
+            "formatString": "0 %;-0 %;0 %"
+          },
+          {
+            "name": "MEDICAID %",
+            "expression": "[MEDICAID]/[CHARGE]",
+            "formatString": "0 %;-0 %;0 %"
+          },
+          {
+            "name": "COMMERCIAL %",
+            "expression": "[COMMERCIAL]/[CHARGE]",
+            "formatString": "0 %;-0 %;0 %"
+          },
+          {
+            "name": "OTHER %",
+            "expression": "[OTHER]/[CHARGE]",
+            "formatString": "0 %;-0 %;0 %"
+          },
+          {
+            "name": "SELF-PAY %",
+            "expression": "[SELF-PAY]/[CHARGE]",
+            "formatString": "0 %;-0 %;0 %"
+          },
+          {
+            "name": "BLUE CROSS %",
+            "expression": "[BLUE CROSS]/[CHARGE]",
+            "formatString": "0 %;-0 %;0 %"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " tdl.LOC_ID",
+              ",tdl. DEPT_ID",
+              ",tdl.POST_DATE",
+              ",eap_match.PROC_NAME as 'MATCHED PROCEDURE'",
+              ",case when tdl.DETAIL_TYPE in (1,10) then tdl.AMOUNT end as 'CHG'",
+              ",case when tdl.DETAIL_TYPE in (1,10,3,12,4,6,13,21,23,30,31) then tdl.AMOUNT end as 'NET_REV'",
+              ",case when tdl.DETAIL_TYPE in (2,5,11,20,22,32,33) then tdl.AMOUNT end *-1 as 'PYMNT'",
+              ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('bad','badrecovery') or eap.GL_NUM_CREDIT in ('bad','badrecovery')) then tdl.AMOUNT end *-1 as 'BAD_DEBT'",
+              ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('charity') or eap.GL_NUM_CREDIT in ('charity')) then tdl.AMOUNT end *-1 as 'CHRTY'",
+              ",case when eap_match.PROC_CODE in ('4017','4018','4019','4020','4021','3011','3012','3013','3014','3015','3018','3019','3052','5036') then tdl.AMOUNT end *-1 as 'FINAL_DENIAL'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICARE','MEDICARE MANAGED') then tdl.AMOUNT end as 'MEDICARE CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICAID','MEDICAID MANAGED') then tdl.AMOUNT end as 'MEDICAID CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('COMMERCIAL','MANAGED CARE') then tdl.AMOUNT end as 'COMMERCIAL CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then tdl.AMOUNT end as 'BLUE CROSS CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'OTHER' then tdl.AMOUNT end as 'OTHER CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'SELF-PAY' then tdl.AMOUNT end as 'SELF PAY CHARGES'",
+              "--net collection is total payments/3 month net revenue average",
+              "",
+              "from CLARITY_TDL_TRAN tdl",
+              "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+              "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+              "left join CLARITY_FC fc on fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+              "",
+              "where tdl.POST_DATE >= '1/1/2017'",
+              "and tdl.POST_DATE <= '12/31/2017'",
+              "and tdl.DETAIL_TYPE <= 33",
+              "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Gross Revenue"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " tdl.LOC_ID",
+              ",tdl. DEPT_ID",
+              ",tdl.POST_DATE",
+              ",eap_match.PROC_NAME as 'MATCHED PROCEDURE'",
+              ",case when tdl.DETAIL_TYPE in (1,10) then tdl.AMOUNT end as 'CHG'",
+              ",case when tdl.DETAIL_TYPE in (1,10,3,12,4,6,13,21,23,30,31) then tdl.AMOUNT end as 'NET_REV'",
+              ",case when tdl.DETAIL_TYPE in (2,5,11,20,22,32,33) then tdl.AMOUNT end *-1 as 'PYMNT'",
+              ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('bad','badrecovery') or eap.GL_NUM_CREDIT in ('bad','badrecovery')) then tdl.AMOUNT end *-1 as 'BAD_DEBT'",
+              ",case when tdl.DETAIL_TYPE <= 13 and (eap.GL_NUM_DEBIT in ('charity') or eap.GL_NUM_CREDIT in ('charity')) then tdl.AMOUNT end *-1 as 'CHRTY'",
+              ",case when eap_match.PROC_CODE in ('4017','4018','4019','4020','4021','3011','3012','3013','3014','3015','3018','3019','3052','5036') then tdl.AMOUNT end *-1 as 'FINAL_DENIAL'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICARE','MEDICARE MANAGED') then tdl.AMOUNT end as 'MEDICARE CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('MEDICAID','MEDICAID MANAGED') then tdl.AMOUNT end as 'MEDICAID CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('COMMERCIAL','MANAGED CARE') then tdl.AMOUNT end as 'COMMERCIAL CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then tdl.AMOUNT end as 'BLUE CROSS CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'OTHER' then tdl.AMOUNT end as 'OTHER CHARGES'",
+              ",case when tdl.DETAIL_TYPE in (1,10) and fc.FINANCIAL_CLASS_NAME = 'SELF-PAY' then tdl.AMOUNT end as 'SELF PAY CHARGES'",
+              "--net collection is total payments/3 month net revenue average",
+              "",
+              "from CLARITY_TDL_TRAN tdl",
+              "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+              "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+              "left join CLARITY_FC fc on fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+              "",
+              "where tdl.POST_DATE >= '1/1/2017'",
+              "and tdl.POST_DATE <= '12/31/2017'",
+              "and tdl.DETAIL_TYPE <= 33",
+              "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "columns": [
+          {
+            "name": "DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "DAY_OF_WEEK",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "DAY_OF_WEEK",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_NUMBER",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "WEEK_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEK_ENDING_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "WEEK_ENDING_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "LAST_FRIDAY_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "LAST_FRIDAY_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_END_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "MONTH_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "DAY_OF_MONTH",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DAY_OF_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NAME",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_NUMBER",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "MONTH_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "QUARTER_NUMBER",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "QUARTER_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DAY_OF_YEAR",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DAY_OF_YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "EPIC_DTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DAT",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "EPIC_DAT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "INSTANT_AT_MIDNIGHT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "INSTANT_AT_MIDNIGHT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OCCURRENCE_IN_MONTH",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "OCCURRENCE_IN_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TOMORROW_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TOMORROW_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEKEND_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "WEEKEND_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_BEGIN_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "QUARTER_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "QUARTER_END_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "QUARTER_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "SAME_DAY_YEAR_AGO",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "SAME_DAY_YEAR_AGO",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "PREV_DAY_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "PREV_DAY_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "LEAP_YEAR_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "LEAP_YEAR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_THE_WEEK_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DAY_OF_THE_WEEK_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_OF_THE_WEEK",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "YEAR_OF_THE_WEEK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "YEAR_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_BEGIN_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "MONTH_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_BEGIN_DT_STR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "YEAR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_BEGIN_DT_STR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MONTH_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CALENDAR_DT_STR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CALENDAR_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QTR_BEGIN_DT_STR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "QTR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_BEGIN_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "WEEK_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "WEEK_BEGIN_DT_STR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "WEEK_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_WEEK_INDEX",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DAY_OF_WEEK_INDEX",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "HOLIDAY_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "HOLIDAY_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_QUARTER",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "YEAR_QUARTER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH_STR",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_STR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "QUARTER_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BUS_DAY_CT",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "BUS_DAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEKDAY_CT",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "WEEKDAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "USA_FISCAL_YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "USA_FISCAL_YEAR_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "USA_FISCAL_YEAR_END_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "USA_FISCAL_YEAR_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_END_DT",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "YEAR_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_END_YN",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MONTH_END_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WHICH_DAYS_C",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "WHICH_DAYS_C",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DATE",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                "*",
+                "from DATE_DIMENSION dd",
+                "where dd.CALENDAR_DT >= '1/1/2017'",
+                "and dd.CALENDAR_DT <= getdate() -1"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  "*",
+                  "from DATE_DIMENSION dd",
+                  "where dd.CALENDAR_DT >= '1/1/2017'",
+                  "and dd.CALENDAR_DT <= getdate() -1</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              "*",
+              "from DATE_DIMENSION dd",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate() -1"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DATE"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              "*",
+              "from DATE_DIMENSION dd",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate() -1</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Copay",
+        "columns": [
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CONTACT_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "CONTACT_DATE",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "REV_LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "REV_LOC_ID"
+          },
+          {
+            "name": "PAT_ENC_CSN_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PAT_ENC_CSN_ID"
+          },
+          {
+            "name": "COPAY_COLLECTED",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "COPAY_COLLECTED"
+          },
+          {
+            "name": "COPAY_DUE",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "COPAY_DUE"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "2017 Copay",
+            "source": {
+              "query": [
+                "select ",
+                " dep.DEPARTMENT_ID",
+                ",dep.REV_LOC_ID",
+                ",enc.PAT_ENC_CSN_ID",
+                ",enc.CONTACT_DATE",
+                ",tdl.AMOUNT as 'COPAY_COLLECTED'",
+                ",enc.COPAY_DUE",
+                "",
+                "from pat_enc enc",
+                "left join clarity_prc prc on prc.prc_id = enc.appt_prc_id",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+                "left join CLARITY_TDL_TRAN tdl on tdl.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID and tdl.PROC_ID = 7108 and tdl.DETAIL_TYPE = 2 and enc.CONTACT_DATE = tdl.POST_DATE",
+                "",
+                "",
+                "where appt_status_c in (2,6) -- Arrived or Completed",
+                "and  enc.contact_date >= '1/1/2017'",
+                "and enc.contact_date <= '12/31/2017'",
+                "and prc.benefit_group in ('Office Visit','PB Copay','Copay')",
+                "and enc.copay_due > 0",
+                "and enc.pat_enc_csn_id <> 131850458",
+                "and dep.department_id not in (",
+                " 19290028",
+                ",19290022",
+                ",11101323",
+                ",11101447",
+                ",11101321",
+                ",11101501",
+                ",11101448",
+                ",11101322",
+                ",11106145",
+                ",11106141",
+                ",18101244",
+                ",19390123",
+                ")",
+                "and enc.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " dep.DEPARTMENT_ID",
+                  ",dep.REV_LOC_ID",
+                  ",enc.PAT_ENC_CSN_ID",
+                  ",enc.CONTACT_DATE",
+                  ",tdl.AMOUNT as 'COPAY_COLLECTED'",
+                  ",enc.COPAY_DUE",
+                  "",
+                  "from pat_enc enc",
+                  "left join clarity_prc prc on prc.prc_id = enc.appt_prc_id",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+                  "left join CLARITY_TDL_TRAN tdl on tdl.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID and tdl.PROC_ID = 7108 and tdl.DETAIL_TYPE = 2 and enc.CONTACT_DATE = tdl.POST_DATE",
+                  "",
+                  "",
+                  "where appt_status_c in (2,6) -- Arrived or Completed",
+                  "and  enc.contact_date >= '1/1/2017'",
+                  "and enc.contact_date <= '12/31/2017'",
+                  "and prc.benefit_group in ('Office Visit','PB Copay','Copay')",
+                  "and enc.copay_due > 0",
+                  "and enc.pat_enc_csn_id <> 131850458",
+                  "and dep.department_id not in (",
+                  " 19290028",
+                  ",19290022",
+                  ",11101323",
+                  ",11101447",
+                  ",11101321",
+                  ",11101501",
+                  ",11101448",
+                  ",11101322",
+                  ",11106145",
+                  ",11106141",
+                  ",18101244",
+                  ",19390123",
+                  ")",
+                  "and enc.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2018 Copay",
+            "mode": "import",
+            "source": {
+              "query": [
+                "select ",
+                " dep.DEPARTMENT_ID",
+                ",dep.REV_LOC_ID",
+                ",enc.PAT_ENC_CSN_ID",
+                ",enc.CONTACT_DATE",
+                ",tdl.AMOUNT as 'COPAY_COLLECTED'",
+                ",enc.COPAY_DUE",
+                "",
+                "from pat_enc enc",
+                "left join clarity_prc prc on prc.prc_id = enc.appt_prc_id",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+                "left join CLARITY_TDL_TRAN tdl on tdl.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID and tdl.PROC_ID = 7108 and tdl.DETAIL_TYPE = 2 and enc.CONTACT_DATE = tdl.POST_DATE",
+                "",
+                "",
+                "where appt_status_c in (2,6) -- Arrived or Completed",
+                "and  enc.contact_date >= '1/1/2018'",
+                "and enc.contact_date <= '12/31/2018'",
+                "and prc.benefit_group in ('Office Visit','PB Copay','Copay')",
+                "and enc.copay_due > 0",
+                "and enc.pat_enc_csn_id <> 131850458",
+                "and dep.department_id not in (",
+                " 19290028",
+                ",19290022",
+                ",11101323",
+                ",11101447",
+                ",11101321",
+                ",11101501",
+                ",11101448",
+                ",11101322",
+                ",11106145",
+                ",11106141",
+                ",18101244",
+                ",19390123",
+                ")",
+                "and enc.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " dep.DEPARTMENT_ID",
+                  ",dep.REV_LOC_ID",
+                  ",enc.PAT_ENC_CSN_ID",
+                  ",enc.CONTACT_DATE",
+                  ",tdl.AMOUNT as 'COPAY_COLLECTED'",
+                  ",enc.COPAY_DUE",
+                  "",
+                  "from pat_enc enc",
+                  "left join clarity_prc prc on prc.prc_id = enc.appt_prc_id",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+                  "left join CLARITY_TDL_TRAN tdl on tdl.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID and tdl.PROC_ID = 7108 and tdl.DETAIL_TYPE = 2 and enc.CONTACT_DATE = tdl.POST_DATE",
+                  "",
+                  "",
+                  "where appt_status_c in (2,6) -- Arrived or Completed",
+                  "and  enc.contact_date >= '1/1/2018'",
+                  "and enc.contact_date <= '12/31/2018'",
+                  "and prc.benefit_group in ('Office Visit','PB Copay','Copay')",
+                  "and enc.copay_due > 0",
+                  "and enc.pat_enc_csn_id <> 131850458",
+                  "and dep.department_id not in (",
+                  " 19290028",
+                  ",19290022",
+                  ",11101323",
+                  ",11101447",
+                  ",11101321",
+                  ",11101501",
+                  ",11101448",
+                  ",11101322",
+                  ",11106145",
+                  ",11106141",
+                  ",18101244",
+                  ",19390123",
+                  ")",
+                  "and enc.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "COPAY COLLECTION %",
+            "expression": "sum(Copay[COPAY_COLLECTED])*-1/sum(Copay[COPAY_DUE])",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " dep.DEPARTMENT_ID",
+              ",dep.REV_LOC_ID",
+              ",enc.PAT_ENC_CSN_ID",
+              ",enc.CONTACT_DATE",
+              ",tdl.AMOUNT as 'COPAY_COLLECTED'",
+              ",enc.COPAY_DUE",
+              "",
+              "from pat_enc enc",
+              "left join clarity_prc prc on prc.prc_id = enc.appt_prc_id",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+              "left join CLARITY_TDL_TRAN tdl on tdl.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID and tdl.PROC_ID = 7108 and tdl.DETAIL_TYPE = 2 and enc.CONTACT_DATE = tdl.POST_DATE",
+              "",
+              "",
+              "where appt_status_c in (2,6) -- Arrived or Completed",
+              "and  enc.contact_date >= '1/1/2017'",
+              "and enc.contact_date <= '12/31/2017'",
+              "and prc.benefit_group in ('Office Visit','PB Copay','Copay')",
+              "and enc.copay_due > 0",
+              "and enc.pat_enc_csn_id <> 131850458",
+              "and dep.department_id not in (",
+              " 19290028",
+              ",19290022",
+              ",11101323",
+              ",11101447",
+              ",11101321",
+              ",11101501",
+              ",11101448",
+              ",11101322",
+              ",11106145",
+              ",11106141",
+              ",18101244",
+              ",19390123",
+              ")",
+              "and enc.SERV_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Copay"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " dep.DEPARTMENT_ID",
+              ",dep.REV_LOC_ID",
+              ",enc.PAT_ENC_CSN_ID",
+              ",enc.CONTACT_DATE",
+              ",tdl.AMOUNT as 'COPAY_COLLECTED'",
+              ",enc.COPAY_DUE",
+              "",
+              "from pat_enc enc",
+              "left join clarity_prc prc on prc.prc_id = enc.appt_prc_id",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+              "left join CLARITY_TDL_TRAN tdl on tdl.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID and tdl.PROC_ID = 7108 and tdl.DETAIL_TYPE = 2 and enc.CONTACT_DATE = tdl.POST_DATE",
+              "",
+              "",
+              "where appt_status_c in (2,6) -- Arrived or Completed",
+              "and  enc.contact_date >= '1/1/2017'",
+              "and enc.contact_date <= '12/31/2017'",
+              "and prc.benefit_group in ('Office Visit','PB Copay','Copay')",
+              "and enc.copay_due > 0",
+              "and enc.pat_enc_csn_id <> 131850458",
+              "and dep.department_id not in (",
+              " 19290028",
+              ",19290022",
+              ",11101323",
+              ",11101447",
+              ",11101321",
+              ",11101501",
+              ",11101448",
+              ",11101322",
+              ",11106145",
+              ",11106141",
+              ",18101244",
+              ",19390123",
+              ")",
+              "and enc.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Aging",
+        "columns": [
+          {
+            "name": "POST_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "POST_DATE",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "TX_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TX_ID"
+          },
+          {
+            "name": "SELF-PAY 0 - 30",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF-PAY 0 - 30",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SELF-PAY 31 - 60",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF-PAY 31 - 60",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SELF-PAY 61 - 90",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF-PAY 61 - 90",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SELF-PAY 91 - 120",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF-PAY 91 - 120",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SELF-PAY 121 - 180",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF-PAY 121 - 180",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SELF-PAY 181 - 270",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF-PAY 181 - 270",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SELF-PAY 271 - 365",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF-PAY 271 - 365",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SELF-PAY + 365",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF-PAY + 365",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "CURRENT FC",
+            "dataType": "string",
+            "sourceColumn": "CURRENT FC"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID"
+          },
+          {
+            "name": "DEPT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPT_ID"
+          },
+          {
+            "name": "ORIG_SERVICE_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "ORIG_SERVICE_DATE"
+          },
+          {
+            "name": "FIRST_STM_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "FIRST_STM_DATE"
+          },
+          {
+            "name": "PATIENT_AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PATIENT_AMOUNT"
+          },
+          {
+            "name": "AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "AMOUNT"
+          },
+          {
+            "name": "SELF-PAY ON HOLD",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SELF-PAY ON HOLD"
+          },
+          {
+            "name": "0 - 30",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "0 - 30"
+          },
+          {
+            "name": "31 - 60",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "31 - 60"
+          },
+          {
+            "name": "61 - 90",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "61 - 90"
+          },
+          {
+            "name": "91 - 120",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "91 - 120"
+          },
+          {
+            "name": "121 - 180",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "121 - 180"
+          },
+          {
+            "name": "181 - 270",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "181 - 270"
+          },
+          {
+            "name": "271 - 365",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "271 - 365"
+          },
+          {
+            "name": "+ 365",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "+ 365"
+          },
+          {
+            "name": "INSURANCE_AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "INSURANCE_AMOUNT"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "2017 Aging",
+            "source": {
+              "query": [
+                "select",
+                " age.TX_ID",
+                ",age.LOC_ID",
+                ",age.DEPT_ID",
+                ",fc.NAME as 'CURRENT FC'",
+                ",age.POST_DATE",
+                ",age.ORIG_SERVICE_DATE",
+                ",csd.FIRST_STM_DATE",
+                ",age.PATIENT_AMOUNT",
+                ",age.INSURANCE_AMOUNT",
+                ",age.AMOUNT",
+                "",
+                ",case when age.post_date - csd.FIRST_STM_DATE <= 30 then patient_amount else 0 end as 'SELF-PAY 0 - 30'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 31 and age.post_date - csd.FIRST_STM_DATE <= 60 then patient_amount else 0 end as 'SELF-PAY 31 - 60'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 61 and age.post_date - csd.FIRST_STM_DATE <= 90 then patient_amount else 0 end as 'SELF-PAY 61 - 90'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 91 and age.post_date - csd.FIRST_STM_DATE <= 120 then patient_amount else 0 end as 'SELF-PAY 91 - 120'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 121 and age.post_date - csd.FIRST_STM_DATE <= 180 then patient_amount else 0 end as 'SELF-PAY 121 - 180'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 181 and age.post_date - csd.FIRST_STM_DATE <= 270 then patient_amount else 0 end as 'SELF-PAY 181 - 270'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 271 and age.post_date - csd.FIRST_STM_DATE <= 365 then patient_amount else 0 end as 'SELF-PAY 271 - 365'",
+                ",case when age.post_date - csd.FIRST_STM_DATE > 365 then patient_amount else 0 end as 'SELF-PAY + 365'",
+                ",case when csd.FIRST_STM_DATE is null then patient_amount else 0 end as 'SELF-PAY ON HOLD'",
+                "",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE <= 30 then age.AMOUNT else 0 end as '0 - 30'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 31 and age.post_date - age.ORIG_SERVICE_DATE <= 60 then age.AMOUNT else 0 end as '31 - 60'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 61 and age.post_date - age.ORIG_SERVICE_DATE <= 90 then age.AMOUNT else 0 end as '61 - 90'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 91 and age.post_date - age.ORIG_SERVICE_DATE <= 120 then age.AMOUNT else 0 end as '91 - 120'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 121 and age.post_date - age.ORIG_SERVICE_DATE <= 180 then age.AMOUNT else 0 end as '121 - 180'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 181 and age.post_date - age.ORIG_SERVICE_DATE <= 270 then age.AMOUNT else 0 end as '181 - 270'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 271 and age.post_date - age.ORIG_SERVICE_DATE <= 365 then age.AMOUNT else 0 end as '271 - 365'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE > 365 then age.AMOUNT else 0 end as '+ 365'",
+                "",
+                "from CLARITY_TDL_AGE age",
+                "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+                "left join ZC_FIN_CLASS fc on fc.FIN_CLASS_C = age.CUR_FIN_CLASS",
+                "",
+                "where ",
+                "age.post_date >= '1/1/2017'",
+                "and age.post_date <='12/31/2017'",
+                "and age.DETAIL_TYPE in  (60,61) -- Debit and Credit Aging",
+                "and age.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " age.TX_ID",
+                  ",age.LOC_ID",
+                  ",age.DEPT_ID",
+                  ",fc.NAME as 'CURRENT FC'",
+                  ",age.POST_DATE",
+                  ",age.ORIG_SERVICE_DATE",
+                  ",csd.FIRST_STM_DATE",
+                  ",age.PATIENT_AMOUNT",
+                  ",age.INSURANCE_AMOUNT",
+                  ",age.AMOUNT",
+                  "",
+                  ",case when age.post_date - csd.FIRST_STM_DATE <= 30 then patient_amount else 0 end as 'SELF-PAY 0 - 30'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 31 and age.post_date - csd.FIRST_STM_DATE <= 60 then patient_amount else 0 end as 'SELF-PAY 31 - 60'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 61 and age.post_date - csd.FIRST_STM_DATE <= 90 then patient_amount else 0 end as 'SELF-PAY 61 - 90'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 91 and age.post_date - csd.FIRST_STM_DATE <= 120 then patient_amount else 0 end as 'SELF-PAY 91 - 120'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 121 and age.post_date - csd.FIRST_STM_DATE <= 180 then patient_amount else 0 end as 'SELF-PAY 121 - 180'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 181 and age.post_date - csd.FIRST_STM_DATE <= 270 then patient_amount else 0 end as 'SELF-PAY 181 - 270'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 271 and age.post_date - csd.FIRST_STM_DATE <= 365 then patient_amount else 0 end as 'SELF-PAY 271 - 365'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE > 365 then patient_amount else 0 end as 'SELF-PAY + 365'",
+                  ",case when csd.FIRST_STM_DATE is null then patient_amount else 0 end as 'SELF-PAY ON HOLD'",
+                  "",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE <= 30 then age.AMOUNT else 0 end as '0 - 30'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 31 and age.post_date - age.ORIG_SERVICE_DATE <= 60 then age.AMOUNT else 0 end as '31 - 60'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 61 and age.post_date - age.ORIG_SERVICE_DATE <= 90 then age.AMOUNT else 0 end as '61 - 90'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 91 and age.post_date - age.ORIG_SERVICE_DATE <= 120 then age.AMOUNT else 0 end as '91 - 120'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 121 and age.post_date - age.ORIG_SERVICE_DATE <= 180 then age.AMOUNT else 0 end as '121 - 180'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 181 and age.post_date - age.ORIG_SERVICE_DATE <= 270 then age.AMOUNT else 0 end as '181 - 270'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 271 and age.post_date - age.ORIG_SERVICE_DATE <= 365 then age.AMOUNT else 0 end as '271 - 365'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE > 365 then age.AMOUNT else 0 end as '+ 365'",
+                  "",
+                  "from CLARITY_TDL_AGE age",
+                  "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+                  "left join ZC_FIN_CLASS fc on fc.FIN_CLASS_C = age.CUR_FIN_CLASS",
+                  "",
+                  "where ",
+                  "age.post_date >= '1/1/2017'",
+                  "and age.post_date <='12/31/2017'",
+                  "and age.DETAIL_TYPE in  (60,61) -- Debit and Credit Aging",
+                  "and age.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2018 Aging",
+            "mode": "import",
+            "source": {
+              "query": [
+                "select",
+                " age.TX_ID",
+                ",age.LOC_ID",
+                ",age.DEPT_ID",
+                ",fc.NAME as 'CURRENT FC'",
+                ",age.POST_DATE",
+                ",age.ORIG_SERVICE_DATE",
+                ",csd.FIRST_STM_DATE",
+                ",age.PATIENT_AMOUNT",
+                ",age.INSURANCE_AMOUNT",
+                ",age.AMOUNT",
+                "",
+                ",case when age.post_date - csd.FIRST_STM_DATE <= 30 then patient_amount else 0 end as 'SELF-PAY 0 - 30'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 31 and age.post_date - csd.FIRST_STM_DATE <= 60 then patient_amount else 0 end as 'SELF-PAY 31 - 60'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 61 and age.post_date - csd.FIRST_STM_DATE <= 90 then patient_amount else 0 end as 'SELF-PAY 61 - 90'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 91 and age.post_date - csd.FIRST_STM_DATE <= 120 then patient_amount else 0 end as 'SELF-PAY 91 - 120'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 121 and age.post_date - csd.FIRST_STM_DATE <= 180 then patient_amount else 0 end as 'SELF-PAY 121 - 180'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 181 and age.post_date - csd.FIRST_STM_DATE <= 270 then patient_amount else 0 end as 'SELF-PAY 181 - 270'",
+                ",case when age.post_date - csd.FIRST_STM_DATE >= 271 and age.post_date - csd.FIRST_STM_DATE <= 365 then patient_amount else 0 end as 'SELF-PAY 271 - 365'",
+                ",case when age.post_date - csd.FIRST_STM_DATE > 365 then patient_amount else 0 end as 'SELF-PAY + 365'",
+                ",case when csd.FIRST_STM_DATE is null then patient_amount else 0 end as 'SELF-PAY ON HOLD'",
+                "",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE <= 30 then age.AMOUNT else 0 end as '0 - 30'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 31 and age.post_date - age.ORIG_SERVICE_DATE <= 60 then age.AMOUNT else 0 end as '31 - 60'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 61 and age.post_date - age.ORIG_SERVICE_DATE <= 90 then age.AMOUNT else 0 end as '61 - 90'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 91 and age.post_date - age.ORIG_SERVICE_DATE <= 120 then age.AMOUNT else 0 end as '91 - 120'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 121 and age.post_date - age.ORIG_SERVICE_DATE <= 180 then age.AMOUNT else 0 end as '121 - 180'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 181 and age.post_date - age.ORIG_SERVICE_DATE <= 270 then age.AMOUNT else 0 end as '181 - 270'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE >= 271 and age.post_date - age.ORIG_SERVICE_DATE <= 365 then age.AMOUNT else 0 end as '271 - 365'",
+                ",case when age.post_date - age.ORIG_SERVICE_DATE > 365 then age.AMOUNT else 0 end as '+ 365'",
+                "",
+                "from CLARITY_TDL_AGE age",
+                "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+                "left join ZC_FIN_CLASS fc on fc.FIN_CLASS_C = age.CUR_FIN_CLASS",
+                "",
+                "where ",
+                "age.post_date >= '1/1/2018'",
+                "and age.post_date <='12/31/2018'",
+                "and age.DETAIL_TYPE in  (60,61) -- Debit and Credit Aging",
+                "and age.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " age.TX_ID",
+                  ",age.LOC_ID",
+                  ",age.DEPT_ID",
+                  ",fc.NAME as 'CURRENT FC'",
+                  ",age.POST_DATE",
+                  ",age.ORIG_SERVICE_DATE",
+                  ",csd.FIRST_STM_DATE",
+                  ",age.PATIENT_AMOUNT",
+                  ",age.INSURANCE_AMOUNT",
+                  ",age.AMOUNT",
+                  "",
+                  ",case when age.post_date - csd.FIRST_STM_DATE <= 30 then patient_amount else 0 end as 'SELF-PAY 0 - 30'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 31 and age.post_date - csd.FIRST_STM_DATE <= 60 then patient_amount else 0 end as 'SELF-PAY 31 - 60'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 61 and age.post_date - csd.FIRST_STM_DATE <= 90 then patient_amount else 0 end as 'SELF-PAY 61 - 90'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 91 and age.post_date - csd.FIRST_STM_DATE <= 120 then patient_amount else 0 end as 'SELF-PAY 91 - 120'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 121 and age.post_date - csd.FIRST_STM_DATE <= 180 then patient_amount else 0 end as 'SELF-PAY 121 - 180'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 181 and age.post_date - csd.FIRST_STM_DATE <= 270 then patient_amount else 0 end as 'SELF-PAY 181 - 270'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE >= 271 and age.post_date - csd.FIRST_STM_DATE <= 365 then patient_amount else 0 end as 'SELF-PAY 271 - 365'",
+                  ",case when age.post_date - csd.FIRST_STM_DATE > 365 then patient_amount else 0 end as 'SELF-PAY + 365'",
+                  ",case when csd.FIRST_STM_DATE is null then patient_amount else 0 end as 'SELF-PAY ON HOLD'",
+                  "",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE <= 30 then age.AMOUNT else 0 end as '0 - 30'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 31 and age.post_date - age.ORIG_SERVICE_DATE <= 60 then age.AMOUNT else 0 end as '31 - 60'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 61 and age.post_date - age.ORIG_SERVICE_DATE <= 90 then age.AMOUNT else 0 end as '61 - 90'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 91 and age.post_date - age.ORIG_SERVICE_DATE <= 120 then age.AMOUNT else 0 end as '91 - 120'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 121 and age.post_date - age.ORIG_SERVICE_DATE <= 180 then age.AMOUNT else 0 end as '121 - 180'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 181 and age.post_date - age.ORIG_SERVICE_DATE <= 270 then age.AMOUNT else 0 end as '181 - 270'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE >= 271 and age.post_date - age.ORIG_SERVICE_DATE <= 365 then age.AMOUNT else 0 end as '271 - 365'",
+                  ",case when age.post_date - age.ORIG_SERVICE_DATE > 365 then age.AMOUNT else 0 end as '+ 365'",
+                  "",
+                  "from CLARITY_TDL_AGE age",
+                  "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+                  "left join ZC_FIN_CLASS fc on fc.FIN_CLASS_C = age.CUR_FIN_CLASS",
+                  "",
+                  "where ",
+                  "age.post_date >= '1/1/2018'",
+                  "and age.post_date <='12/31/2018'",
+                  "and age.DETAIL_TYPE in  (60,61) -- Debit and Credit Aging",
+                  "and age.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "SELF-PAY AR",
+            "expression": "sum(Aging[PATIENT_AMOUNT])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "INSURANCE AR",
+            "expression": "sum(Aging[INSURANCE_AMOUNT])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 0-30",
+            "expression": "sum(Aging[SELF-PAY 0 - 30])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "0-30",
+            "expression": "sum(Aging[0 - 30])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 31-60",
+            "expression": "sum(Aging[SELF-PAY 31 - 60])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 61-90",
+            "expression": "sum(Aging[SELF-PAY 61 - 90])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 91-120",
+            "expression": "sum(Aging[SELF-PAY 91 - 120])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 121-180",
+            "expression": "sum(Aging[SELF-PAY 121 - 180])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 181-270",
+            "expression": "sum(Aging[SELF-PAY 181 - 270])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP 271-365",
+            "expression": "sum(Aging[SELF-PAY 271 - 365])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP +365",
+            "expression": "sum(Aging[SELF-PAY + 365])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "31-60",
+            "expression": "sum(Aging[31 - 60])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "61-90",
+            "expression": "sum(Aging[61 - 90])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "91-120",
+            "expression": "sum(Aging[91 - 120])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "121-180",
+            "expression": "sum(Aging[121 - 180])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "181-270",
+            "expression": "sum(Aging[181 - 270])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "271-365",
+            "expression": "sum(Aging[271 - 365])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "+365",
+            "expression": "sum(Aging[+ 365])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total AR",
+            "expression": "[SELF-PAY AR]+[INSURANCE AR]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SP ON HOLD",
+            "expression": "sum(Aging[SELF-PAY ON HOLD])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "AR3M",
+            "expression": [
+              " ('Transactions'[CHARGE] (DATESBETWEEN('Date'[DATE],",
+              "STARTOFMONTH(DATEADD('Transactions'[POST_DATE],-2,MONTH)),",
+              "ENDOFMONTH(DATEADD(Transactions[POST_DATE],0,MONTH)))))"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "AR3MCOUNT",
+            "expression": [
+              "datediff(STARTOFMONTH(DATEADD('Date'[DATE],-2,MONTH)),",
+              "ENDOFMONTH(DATEADD('Date'[DATE],0,MONTH)),day)+1"
+            ]
+          },
+          {
+            "name": "ARDAYS",
+            "expression": "[Total AR]/([AR3M]/[AR3MCOUNT])",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "0-30%",
+            "expression": "[0-30]/[Total AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "31-60%",
+            "expression": "Aging[31-60]/[Total AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "61-90%",
+            "expression": "Aging[61-90]/[Total AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "91-120%",
+            "expression": "Aging[91-120]/[Total AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "121-180%",
+            "expression": "Aging[121-180]/[Total AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "181-270%",
+            "expression": "Aging[181-270]/[Total AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "271-365%",
+            "expression": "Aging[271-365]/[Total AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "+365%",
+            "expression": "Aging[+365]/[Total AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP 0-30%",
+            "expression": "Aging[SP 0-30]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP 31-60%",
+            "expression": "Aging[SP 31-60]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP 61-90%",
+            "expression": "Aging[SP 61-90]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP 91-120%",
+            "expression": "Aging[SP 91-120]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP 121-180%",
+            "expression": "Aging[SP 121-180]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP 181-270%",
+            "expression": "Aging[SP 181-270]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP 271-365%",
+            "expression": "Aging[SP 271-365]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP +365%",
+            "expression": "Aging[SP +365]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP ON HOLD%",
+            "expression": "Aging[SP ON HOLD]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "TOTAL %",
+            "expression": "[Total AR]/[Total AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "SP TOTAL %",
+            "expression": "[SELF-PAY AR]/[SELF-PAY AR]",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " age.TX_ID",
+              ",age.LOC_ID",
+              ",age.DEPT_ID",
+              ",fc.NAME as 'CURRENT FC'",
+              ",age.POST_DATE",
+              ",age.ORIG_SERVICE_DATE",
+              ",csd.FIRST_STM_DATE",
+              ",age.PATIENT_AMOUNT",
+              ",age.INSURANCE_AMOUNT",
+              ",age.AMOUNT",
+              "",
+              ",case when age.post_date - csd.FIRST_STM_DATE <= 30 then patient_amount else 0 end as 'SELF-PAY 0 - 30'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 31 and age.post_date - csd.FIRST_STM_DATE <= 60 then patient_amount else 0 end as 'SELF-PAY 31 - 60'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 61 and age.post_date - csd.FIRST_STM_DATE <= 90 then patient_amount else 0 end as 'SELF-PAY 61 - 90'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 91 and age.post_date - csd.FIRST_STM_DATE <= 120 then patient_amount else 0 end as 'SELF-PAY 91 - 120'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 121 and age.post_date - csd.FIRST_STM_DATE <= 180 then patient_amount else 0 end as 'SELF-PAY 121 - 180'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 181 and age.post_date - csd.FIRST_STM_DATE <= 270 then patient_amount else 0 end as 'SELF-PAY 181 - 270'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 271 and age.post_date - csd.FIRST_STM_DATE <= 365 then patient_amount else 0 end as 'SELF-PAY 271 - 365'",
+              ",case when age.post_date - csd.FIRST_STM_DATE > 365 then patient_amount else 0 end as 'SELF-PAY + 365'",
+              ",case when csd.FIRST_STM_DATE is null then patient_amount else 0 end as 'SELF-PAY ON HOLD'",
+              "",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE <= 30 then age.AMOUNT else 0 end as '0 - 30'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 31 and age.post_date - age.ORIG_SERVICE_DATE <= 60 then age.AMOUNT else 0 end as '31 - 60'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 61 and age.post_date - age.ORIG_SERVICE_DATE <= 90 then age.AMOUNT else 0 end as '61 - 90'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 91 and age.post_date - age.ORIG_SERVICE_DATE <= 120 then age.AMOUNT else 0 end as '91 - 120'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 121 and age.post_date - age.ORIG_SERVICE_DATE <= 180 then age.AMOUNT else 0 end as '121 - 180'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 181 and age.post_date - age.ORIG_SERVICE_DATE <= 270 then age.AMOUNT else 0 end as '181 - 270'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 271 and age.post_date - age.ORIG_SERVICE_DATE <= 365 then age.AMOUNT else 0 end as '271 - 365'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE > 365 then age.AMOUNT else 0 end as '+ 365'",
+              "",
+              "from CLARITY_TDL_AGE age",
+              "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+              "left join ZC_FIN_CLASS fc on fc.FIN_CLASS_C = age.CUR_FIN_CLASS",
+              "",
+              "where ",
+              "age.post_date >= '1/1/2017'",
+              "and age.post_date <='12/31/2017'",
+              "and age.DETAIL_TYPE in  (60,61) -- Debit and Credit Aging",
+              "and age.SERV_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Aging"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " age.TX_ID",
+              ",age.LOC_ID",
+              ",age.DEPT_ID",
+              ",fc.NAME as 'CURRENT FC'",
+              ",age.POST_DATE",
+              ",age.ORIG_SERVICE_DATE",
+              ",csd.FIRST_STM_DATE",
+              ",age.PATIENT_AMOUNT",
+              ",age.INSURANCE_AMOUNT",
+              ",age.AMOUNT",
+              "",
+              ",case when age.post_date - csd.FIRST_STM_DATE <= 30 then patient_amount else 0 end as 'SELF-PAY 0 - 30'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 31 and age.post_date - csd.FIRST_STM_DATE <= 60 then patient_amount else 0 end as 'SELF-PAY 31 - 60'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 61 and age.post_date - csd.FIRST_STM_DATE <= 90 then patient_amount else 0 end as 'SELF-PAY 61 - 90'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 91 and age.post_date - csd.FIRST_STM_DATE <= 120 then patient_amount else 0 end as 'SELF-PAY 91 - 120'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 121 and age.post_date - csd.FIRST_STM_DATE <= 180 then patient_amount else 0 end as 'SELF-PAY 121 - 180'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 181 and age.post_date - csd.FIRST_STM_DATE <= 270 then patient_amount else 0 end as 'SELF-PAY 181 - 270'",
+              ",case when age.post_date - csd.FIRST_STM_DATE >= 271 and age.post_date - csd.FIRST_STM_DATE <= 365 then patient_amount else 0 end as 'SELF-PAY 271 - 365'",
+              ",case when age.post_date - csd.FIRST_STM_DATE > 365 then patient_amount else 0 end as 'SELF-PAY + 365'",
+              ",case when csd.FIRST_STM_DATE is null then patient_amount else 0 end as 'SELF-PAY ON HOLD'",
+              "",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE <= 30 then age.AMOUNT else 0 end as '0 - 30'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 31 and age.post_date - age.ORIG_SERVICE_DATE <= 60 then age.AMOUNT else 0 end as '31 - 60'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 61 and age.post_date - age.ORIG_SERVICE_DATE <= 90 then age.AMOUNT else 0 end as '61 - 90'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 91 and age.post_date - age.ORIG_SERVICE_DATE <= 120 then age.AMOUNT else 0 end as '91 - 120'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 121 and age.post_date - age.ORIG_SERVICE_DATE <= 180 then age.AMOUNT else 0 end as '121 - 180'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 181 and age.post_date - age.ORIG_SERVICE_DATE <= 270 then age.AMOUNT else 0 end as '181 - 270'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE >= 271 and age.post_date - age.ORIG_SERVICE_DATE <= 365 then age.AMOUNT else 0 end as '271 - 365'",
+              ",case when age.post_date - age.ORIG_SERVICE_DATE > 365 then age.AMOUNT else 0 end as '+ 365'",
+              "",
+              "from CLARITY_TDL_AGE age",
+              "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+              "left join ZC_FIN_CLASS fc on fc.FIN_CLASS_C = age.CUR_FIN_CLASS",
+              "",
+              "where ",
+              "age.post_date >= '1/1/2017'",
+              "and age.post_date <='12/31/2017'",
+              "and age.DETAIL_TYPE in  (60,61) -- Debit and Credit Aging",
+              "and age.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Charge Lag",
+        "columns": [
+          {
+            "name": "LAG DAYS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "LAG DAYS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "LAG COUNT",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "LAG COUNT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TX_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "POST_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "POST_DATE"
+          },
+          {
+            "name": "SERVICE_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "SERVICE_DATE"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID"
+          },
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT_ID"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "2017 Charge Lag",
+            "source": {
+              "query": [
+                "select ",
+                " arpb_tx.LOC_ID",
+                ",arpb_tx.DEPARTMENT_ID",
+                ",arpb_tx.POST_DATE",
+                ",arpb_tx.SERVICE_DATE",
+                ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'LAG DAYS'",
+                ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'LAG COUNT'",
+                ",arpb_tx.TX_ID ",
+                "",
+                "from ARPB_TRANSACTIONS arpb_tx ",
+                "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+                "",
+                "where arpb_tx.POST_DATE >= '1/1/2017'",
+                "and arpb_tx.POST_DATE <= '12/31/2017'",
+                "and arpb_tx.TX_TYPE_C = 1",
+                "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+                "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+                "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " arpb_tx.LOC_ID",
+                  ",arpb_tx.DEPARTMENT_ID",
+                  ",arpb_tx.POST_DATE",
+                  ",arpb_tx.SERVICE_DATE",
+                  ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'LAG DAYS'",
+                  ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'LAG COUNT'",
+                  ",arpb_tx.TX_ID ",
+                  "",
+                  "from ARPB_TRANSACTIONS arpb_tx ",
+                  "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+                  "",
+                  "where arpb_tx.POST_DATE >= '1/1/2017'",
+                  "and arpb_tx.POST_DATE <= '12/31/2017'",
+                  "and arpb_tx.TX_TYPE_C = 1",
+                  "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+                  "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+                  "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2018 Charge Lag",
+            "mode": "import",
+            "source": {
+              "query": [
+                "select ",
+                " arpb_tx.LOC_ID",
+                ",arpb_tx.DEPARTMENT_ID",
+                ",arpb_tx.POST_DATE",
+                ",arpb_tx.SERVICE_DATE",
+                ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'LAG DAYS'",
+                ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'LAG COUNT'",
+                ",arpb_tx.TX_ID ",
+                "",
+                "from ARPB_TRANSACTIONS arpb_tx ",
+                "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+                "",
+                "where arpb_tx.POST_DATE >= '1/1/2018'",
+                "and arpb_tx.POST_DATE <= '12/31/2018'",
+                "and arpb_tx.TX_TYPE_C = 1",
+                "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+                "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+                "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " arpb_tx.LOC_ID",
+                  ",arpb_tx.DEPARTMENT_ID",
+                  ",arpb_tx.POST_DATE",
+                  ",arpb_tx.SERVICE_DATE",
+                  ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'LAG DAYS'",
+                  ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'LAG COUNT'",
+                  ",arpb_tx.TX_ID ",
+                  "",
+                  "from ARPB_TRANSACTIONS arpb_tx ",
+                  "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+                  "",
+                  "where arpb_tx.POST_DATE >= '1/1/2018'",
+                  "and arpb_tx.POST_DATE <= '12/31/2018'",
+                  "and arpb_tx.TX_TYPE_C = 1",
+                  "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+                  "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+                  "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "TOTAL LAG DAYS",
+            "expression": "sum('Charge Lag'[LAG DAYS])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "TOTAL LAG COUNT",
+            "expression": "sum('Charge Lag'[LAG COUNT])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "DISTINCT COUNT",
+            "expression": "count('Charge Lag'[TX_ID])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "AVG LAG DAYS",
+            "expression": "[TOTAL LAG DAYS]/[DISTINCT COUNT]",
+            "formatString": "#,0.00"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " arpb_tx.LOC_ID",
+              ",arpb_tx.DEPARTMENT_ID",
+              ",arpb_tx.POST_DATE",
+              ",arpb_tx.SERVICE_DATE",
+              ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'LAG DAYS'",
+              ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'LAG COUNT'",
+              ",arpb_tx.TX_ID ",
+              "",
+              "from ARPB_TRANSACTIONS arpb_tx ",
+              "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+              "",
+              "where arpb_tx.POST_DATE >= '1/1/2017'",
+              "and arpb_tx.POST_DATE <= '12/31/2017'",
+              "and arpb_tx.TX_TYPE_C = 1",
+              "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+              "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+              "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Charge Lag"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " arpb_tx.LOC_ID",
+              ",arpb_tx.DEPARTMENT_ID",
+              ",arpb_tx.POST_DATE",
+              ",arpb_tx.SERVICE_DATE",
+              ",case when arpb_tx.SERVICE_DATE > arpb_tx.POST_DATE then 0 else datediff(DD, arpb_tx.SERVICE_DATE, arpb_tx.POST_DATE) end as 'LAG DAYS'",
+              ",case when arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE then 0 else 1 end as 'LAG COUNT'",
+              ",arpb_tx.TX_ID ",
+              "",
+              "from ARPB_TRANSACTIONS arpb_tx ",
+              "left join ARPB_TX_VOID void on void.TX_ID = arpb_tx.TX_ID",
+              "",
+              "where arpb_tx.POST_DATE >= '1/1/2017'",
+              "and arpb_tx.POST_DATE <= '12/31/2017'",
+              "and arpb_tx.TX_TYPE_C = 1",
+              "and (void.OLD_ETR_ID is null and void.REPOSTED_ETR_ID is null and void.REPOST_TYPE_C is null and void.RETRO_CHARGE_ID is null)",
+              "and (arpb_tx.SERVICE_DATE = arpb_tx.POST_DATE or arpb_tx.POST_DATE = arpb_tx.POST_DATE)",
+              "and arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Open Encounters",
+        "columns": [
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "< 8",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "< 8"
+          },
+          {
+            "name": "8 - 30",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "8 - 30"
+          },
+          {
+            "name": "31 - 90",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "31 - 90"
+          },
+          {
+            "name": "91 - 365",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "91 - 365"
+          },
+          {
+            "name": "CONTACT_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "CONTACT_DATE"
+          },
+          {
+            "name": "REV_LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "REV_LOC_ID"
+          },
+          {
+            "name": "RUN_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "RUN_DATE"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Open Encounters",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "declare @end_date as date = EPIC_UTIL.EFN_DIN('me-1') ",
+                "declare @12month as date = EPIC_UTIL.EFN_DIN('mb-13') ;",
+                "",
+                "select ",
+                " dep.DEPARTMENT_ID",
+                ",dep. REV_LOC_ID",
+                ",enc.CONTACT_DATE",
+                ",@end_date as 'RUN_DATE'",
+                ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date, enc_close_date) < 8 then 1",
+                "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date, @end_date) < 8 then 1 end as '< 8'",
+                ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 7 and datediff(day,enc.contact_date,enc_close_Date) < 31 then 1",
+                "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 7 and datediff(day,enc.contact_date,@end_date) < 31 then 1 end as '8 - 30'",
+                ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 30 and datediff(day,enc.contact_date,enc_close_Date) < 91 then 1",
+                "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 30 and datediff(day,enc.contact_date,@end_date) < 91 then 1 end as '31 - 90'",
+                ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 90 and datediff(day,enc.contact_date,enc_close_Date) < 366 then 1",
+                "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 90 and datediff(day,enc.contact_date,@end_date) < 366 then 1 end as '91 - 365'",
+                "from pat_enc enc",
+                "left join clarity_ser ser on ser.prov_id = enc.visit_prov_id",
+                "left join zc_disp_enc_type zdet on zdet.disp_enc_type_c = enc.enc_type_c",
+                "left join patient pat on pat.pat_id = enc.pat_id",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+                "",
+                "where (enc_closed_yn = 'n' or (enc_closed_yn = 'y' and enc_close_date > @end_date))",
+                "--enc.enc_closed_yn = 'n'",
+                "and ser.prov_type in ('Physician','Nurse Practitioner','Physician Assistant','Certified Nurse Midwife','Podiatrist')",
+                "and disp_enc_type_c in ('1000','1003','101','1200','1201','1214','2502','62','72','210177','2')",
+                "and enc.contact_date >= @12month",
+                "and enc.contact_date <= @end_date",
+                "and enc.appt_status_c in (2,6)",
+                "and enc.department_id not in (11104101)",
+                "and enc.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @end_date as date = EPIC_UTIL.EFN_DIN('me-1') ",
+                  "declare @12month as date = EPIC_UTIL.EFN_DIN('mb-13') ;",
+                  "",
+                  "select ",
+                  " dep.DEPARTMENT_ID",
+                  ",dep. REV_LOC_ID",
+                  ",enc.CONTACT_DATE",
+                  ",@end_date as 'RUN_DATE'",
+                  ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date, enc_close_date) < 8 then 1",
+                  "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date, @end_date) < 8 then 1 end as '< 8'",
+                  ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 7 and datediff(day,enc.contact_date,enc_close_Date) < 31 then 1",
+                  "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 7 and datediff(day,enc.contact_date,@end_date) < 31 then 1 end as '8 - 30'",
+                  ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 30 and datediff(day,enc.contact_date,enc_close_Date) < 91 then 1",
+                  "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 30 and datediff(day,enc.contact_date,@end_date) < 91 then 1 end as '31 - 90'",
+                  ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 90 and datediff(day,enc.contact_date,enc_close_Date) < 366 then 1",
+                  "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 90 and datediff(day,enc.contact_date,@end_date) < 366 then 1 end as '91 - 365'",
+                  "from pat_enc enc",
+                  "left join clarity_ser ser on ser.prov_id = enc.visit_prov_id",
+                  "left join zc_disp_enc_type zdet on zdet.disp_enc_type_c = enc.enc_type_c",
+                  "left join patient pat on pat.pat_id = enc.pat_id",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+                  "",
+                  "where (enc_closed_yn = 'n' or (enc_closed_yn = 'y' and enc_close_date > @end_date))",
+                  "--enc.enc_closed_yn = 'n'",
+                  "and ser.prov_type in ('Physician','Nurse Practitioner','Physician Assistant','Certified Nurse Midwife','Podiatrist')",
+                  "and disp_enc_type_c in ('1000','1003','101','1200','1201','1214','2502','62','72','210177','2')",
+                  "and enc.contact_date >= @12month",
+                  "and enc.contact_date <= @end_date",
+                  "and enc.appt_status_c in (2,6)",
+                  "and enc.department_id not in (11104101)",
+                  "and enc.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "< 8 Days",
+            "expression": "sum('Open Encounters'[< 8])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "8 - 30 Days",
+            "expression": "sum('Open Encounters'[8 - 30])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "31 - 90 Days",
+            "expression": "sum('Open Encounters'[31 - 90])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "91 - 365 Days",
+            "expression": "sum('Open Encounters'[91 - 365])",
+            "formatString": "#,0"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "declare @end_date as date = EPIC_UTIL.EFN_DIN('me-1') ",
+              "declare @12month as date = EPIC_UTIL.EFN_DIN('mb-13') ;",
+              "",
+              "select ",
+              " dep.DEPARTMENT_ID",
+              ",dep. REV_LOC_ID",
+              ",enc.CONTACT_DATE",
+              ",@end_date as 'RUN_DATE'",
+              ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date, enc_close_date) < 8 then 1",
+              "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date, @end_date) < 8 then 1 end as '< 8'",
+              ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 7 and datediff(day,enc.contact_date,enc_close_Date) < 31 then 1",
+              "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 7 and datediff(day,enc.contact_date,@end_date) < 31 then 1 end as '8 - 30'",
+              ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 30 and datediff(day,enc.contact_date,enc_close_Date) < 91 then 1",
+              "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 30 and datediff(day,enc.contact_date,@end_date) < 91 then 1 end as '31 - 90'",
+              ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 90 and datediff(day,enc.contact_date,enc_close_Date) < 366 then 1",
+              "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 90 and datediff(day,enc.contact_date,@end_date) < 366 then 1 end as '91 - 365'",
+              "from pat_enc enc",
+              "left join clarity_ser ser on ser.prov_id = enc.visit_prov_id",
+              "left join zc_disp_enc_type zdet on zdet.disp_enc_type_c = enc.enc_type_c",
+              "left join patient pat on pat.pat_id = enc.pat_id",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+              "",
+              "where (enc_closed_yn = 'n' or (enc_closed_yn = 'y' and enc_close_date > @end_date))",
+              "--enc.enc_closed_yn = 'n'",
+              "and ser.prov_type in ('Physician','Nurse Practitioner','Physician Assistant','Certified Nurse Midwife','Podiatrist')",
+              "and disp_enc_type_c in ('1000','1003','101','1200','1201','1214','2502','62','72','210177','2')",
+              "and enc.contact_date >= @12month",
+              "and enc.contact_date <= @end_date",
+              "and enc.appt_status_c in (2,6)",
+              "and enc.department_id not in (11104101)",
+              "and enc.SERV_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Open Encounters"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @end_date as date = EPIC_UTIL.EFN_DIN('me-1') ",
+              "declare @12month as date = EPIC_UTIL.EFN_DIN('mb-13') ;",
+              "",
+              "select ",
+              " dep.DEPARTMENT_ID",
+              ",dep. REV_LOC_ID",
+              ",enc.CONTACT_DATE",
+              ",@end_date as 'RUN_DATE'",
+              ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date, enc_close_date) < 8 then 1",
+              "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date, @end_date) < 8 then 1 end as '< 8'",
+              ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 7 and datediff(day,enc.contact_date,enc_close_Date) < 31 then 1",
+              "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 7 and datediff(day,enc.contact_date,@end_date) < 31 then 1 end as '8 - 30'",
+              ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 30 and datediff(day,enc.contact_date,enc_close_Date) < 91 then 1",
+              "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 30 and datediff(day,enc.contact_date,@end_date) < 91 then 1 end as '31 - 90'",
+              ",case when enc_closed_yn = 'y' and datediff(day,enc.contact_date,enc_close_date) > 90 and datediff(day,enc.contact_date,enc_close_Date) < 366 then 1",
+              "\t\t  when enc_closed_yn = 'n' and datediff(day,enc.contact_date,@end_date) > 90 and datediff(day,enc.contact_date,@end_date) < 366 then 1 end as '91 - 365'",
+              "from pat_enc enc",
+              "left join clarity_ser ser on ser.prov_id = enc.visit_prov_id",
+              "left join zc_disp_enc_type zdet on zdet.disp_enc_type_c = enc.enc_type_c",
+              "left join patient pat on pat.pat_id = enc.pat_id",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
+              "",
+              "where (enc_closed_yn = 'n' or (enc_closed_yn = 'y' and enc_close_date > @end_date))",
+              "--enc.enc_closed_yn = 'n'",
+              "and ser.prov_type in ('Physician','Nurse Practitioner','Physician Assistant','Certified Nurse Midwife','Podiatrist')",
+              "and disp_enc_type_c in ('1000','1003','101','1200','1201','1214','2502','62','72','210177','2')",
+              "and enc.contact_date >= @12month",
+              "and enc.contact_date <= @end_date",
+              "and enc.appt_status_c in (2,6)",
+              "and enc.department_id not in (11104101)",
+              "and enc.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Location",
+        "columns": [
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "LOCATION",
+            "dataType": "string",
+            "sourceColumn": "LOC_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REGION",
+            "dataType": "string",
+            "sourceColumn": "REGION",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Location",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " loc.LOC_ID",
+                ",upper(loc.LOC_NAME) as LOC_NAME",
+                ",case when loc.LOC_ID in (11106,11124,11149)  then 'SPRINGFIELD'",
+                "\t when loc.RPT_GRP_TEN = 11 then 'CINCINNATI'",
+                "\t when loc.RPT_GRP_TEN = 13 then 'YOUNGSTOWN'",
+                "\t when loc.RPT_GRP_TEN = 16 then 'LIMA'",
+                "\t when loc.RPT_GRP_TEN = 17 then 'LORAIN'",
+                "\t when loc.LOC_ID in (18120,18121,19120,19127) then 'DEFIANCE'",
+                "\t when loc.LOC_ID in (18110,19126) then 'MRG'",
+                "\t when loc.RPT_GRP_TEN = 18 then 'TOLEDO'",
+                "\t when loc.LOC_ID in (19107,19108,19116,19118) then 'KENTUCKY - OTHER' ",
+                "\t when loc.LOC_ID in (19000) then 'MERCY BILLING OFFICE'",
+                "\t when loc.RPT_GRP_TEN = 19 then 'KENTUCKY'",
+                "\t end as REGION",
+                "",
+                "from CLARITY_LOC loc",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "where loc.RPT_GRP_TEN in (1,11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " loc.LOC_ID",
+                  ",upper(loc.LOC_NAME) as LOC_NAME",
+                  ",case when loc.LOC_ID in (11106,11124,11149)  then 'SPRINGFIELD'",
+                  "\t when loc.RPT_GRP_TEN = 11 then 'CINCINNATI'",
+                  "\t when loc.RPT_GRP_TEN = 13 then 'YOUNGSTOWN'",
+                  "\t when loc.RPT_GRP_TEN = 16 then 'LIMA'",
+                  "\t when loc.RPT_GRP_TEN = 17 then 'LORAIN'",
+                  "\t when loc.LOC_ID in (18120,18121,19120,19127) then 'DEFIANCE'",
+                  "\t when loc.LOC_ID in (18110,19126) then 'MRG'",
+                  "\t when loc.RPT_GRP_TEN = 18 then 'TOLEDO'",
+                  "\t when loc.LOC_ID in (19107,19108,19116,19118) then 'KENTUCKY - OTHER' ",
+                  "\t when loc.LOC_ID in (19000) then 'MERCY BILLING OFFICE'",
+                  "\t when loc.RPT_GRP_TEN = 19 then 'KENTUCKY'",
+                  "\t end as REGION",
+                  "",
+                  "from CLARITY_LOC loc",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "where loc.RPT_GRP_TEN in (1,11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " loc.LOC_ID",
+              ",upper(loc.LOC_NAME) as LOC_NAME",
+              ",case when loc.LOC_ID in (11106,11124,11149)  then 'SPRINGFIELD'",
+              "\t when loc.RPT_GRP_TEN = 11 then 'CINCINNATI'",
+              "\t when loc.RPT_GRP_TEN = 13 then 'YOUNGSTOWN'",
+              "\t when loc.RPT_GRP_TEN = 16 then 'LIMA'",
+              "\t when loc.RPT_GRP_TEN = 17 then 'LORAIN'",
+              "\t when loc.LOC_ID in (18120,18121,19120,19127) then 'DEFIANCE'",
+              "\t when loc.LOC_ID in (18110,19126) then 'MRG'",
+              "\t when loc.RPT_GRP_TEN = 18 then 'TOLEDO'",
+              "\t when loc.LOC_ID in (19107,19108,19116,19118) then 'KENTUCKY - OTHER' ",
+              "\t when loc.LOC_ID in (19000) then 'MERCY BILLING OFFICE'",
+              "\t when loc.RPT_GRP_TEN = 19 then 'KENTUCKY'",
+              "\t end as REGION",
+              "",
+              "from CLARITY_LOC loc",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "where loc.RPT_GRP_TEN in (1,11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Location"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " loc.LOC_ID",
+              ",upper(loc.LOC_NAME) as LOC_NAME",
+              ",case when loc.LOC_ID in (11106,11124,11149)  then 'SPRINGFIELD'",
+              "\t when loc.RPT_GRP_TEN = 11 then 'CINCINNATI'",
+              "\t when loc.RPT_GRP_TEN = 13 then 'YOUNGSTOWN'",
+              "\t when loc.RPT_GRP_TEN = 16 then 'LIMA'",
+              "\t when loc.RPT_GRP_TEN = 17 then 'LORAIN'",
+              "\t when loc.LOC_ID in (18120,18121,19120,19127) then 'DEFIANCE'",
+              "\t when loc.LOC_ID in (18110,19126) then 'MRG'",
+              "\t when loc.RPT_GRP_TEN = 18 then 'TOLEDO'",
+              "\t when loc.LOC_ID in (19107,19108,19116,19118) then 'KENTUCKY - OTHER' ",
+              "\t when loc.LOC_ID in (19000) then 'MERCY BILLING OFFICE'",
+              "\t when loc.RPT_GRP_TEN = 19 then 'KENTUCKY'",
+              "\t end as REGION",
+              "",
+              "from CLARITY_LOC loc",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "where loc.RPT_GRP_TEN in (1,11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Department",
+        "columns": [
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DEPARTMENT",
+            "dataType": "string",
+            "sourceColumn": "DEPARTMENT_NAME",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Department",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                " dep.DEPARTMENT_ID",
+                ",upper(dep.DEPARTMENT_NAME) as DEPARTMENT_NAME",
+                "from CLARITY_DEP dep",
+                "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                "where loc.RPT_GRP_TEN in (1,11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " dep.DEPARTMENT_ID",
+                  ",upper(dep.DEPARTMENT_NAME) as DEPARTMENT_NAME",
+                  "from CLARITY_DEP dep",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                  "where loc.RPT_GRP_TEN in (1,11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " dep.DEPARTMENT_ID",
+              ",upper(dep.DEPARTMENT_NAME) as DEPARTMENT_NAME",
+              "from CLARITY_DEP dep",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "where loc.RPT_GRP_TEN in (1,11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Department"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " dep.DEPARTMENT_ID",
+              ",upper(dep.DEPARTMENT_NAME) as DEPARTMENT_NAME",
+              "from CLARITY_DEP dep",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "where loc.RPT_GRP_TEN in (1,11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Charge Review",
+        "columns": [
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ENTRY_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "ENTRY_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "EXIT_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "EXIT_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "CHARGE REVIEW DAYS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CHARGE REVIEW DAYS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ACCOUNT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "SERVICE_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "SERVICE_DATE"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "2017 Charge Review",
+            "source": {
+              "query": [
+                "SELECT ",
+                " arpb_tx.DEPARTMENT_ID",
+                ",arpb_tx.LOC_ID",
+                ",arpb_tx.SERVICE_DATE",
+                ",crw.ENTRY_DATE",
+                ",crw.EXIT_DATE",
+                ",datediff(day, crw.ENTRY_DATE, crw.EXIT_DATE) as 'CHARGE REVIEW DAYS'",
+                ",arpb_tx.ACCOUNT_ID",
+                "",
+                "FROM ARPB_TRANSACTIONS arpb_tx",
+                "left join ARPB_TX_MODERATE atm on atm.TX_ID = arpb_tx.TX_ID",
+                "left join ARPB_TX_VOID atv on atv.TX_ID = arpb_tx.TX_ID",
+                "left join V_ARPB_CHG_REVIEW_WQ crw on crw.TAR_ID = atm.SOURCE_TAR_ID",
+                "       ",
+                "WHERE  arpb_tx.TX_TYPE_C=1 ",
+                "and (atv.OLD_ETR_ID IS NULL and atv.REPOSTED_ETR_ID IS NULL and atv.REPOST_TYPE_C IS NULL and atv.RETRO_CHARGE_ID IS NULL)",
+                "and arpb_tx.SERVICE_AREA_ID in  (11,13,16,17,18,19)",
+                "and arpb_tx.SERVICE_DATE >= '1/1/2017'",
+                "and arpb_tx.SERVICE_DATE <= '12/31/2017'"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT ",
+                  " arpb_tx.DEPARTMENT_ID",
+                  ",arpb_tx.LOC_ID",
+                  ",arpb_tx.SERVICE_DATE",
+                  ",crw.ENTRY_DATE",
+                  ",crw.EXIT_DATE",
+                  ",datediff(day, crw.ENTRY_DATE, crw.EXIT_DATE) as 'CHARGE REVIEW DAYS'",
+                  ",arpb_tx.ACCOUNT_ID",
+                  "",
+                  "FROM ARPB_TRANSACTIONS arpb_tx",
+                  "left join ARPB_TX_MODERATE atm on atm.TX_ID = arpb_tx.TX_ID",
+                  "left join ARPB_TX_VOID atv on atv.TX_ID = arpb_tx.TX_ID",
+                  "left join V_ARPB_CHG_REVIEW_WQ crw on crw.TAR_ID = atm.SOURCE_TAR_ID",
+                  "       ",
+                  "WHERE  arpb_tx.TX_TYPE_C=1 ",
+                  "and (atv.OLD_ETR_ID IS NULL and atv.REPOSTED_ETR_ID IS NULL and atv.REPOST_TYPE_C IS NULL and atv.RETRO_CHARGE_ID IS NULL)",
+                  "and arpb_tx.SERVICE_AREA_ID in  (11,13,16,17,18,19)",
+                  "and arpb_tx.SERVICE_DATE >= '1/1/2017'",
+                  "and arpb_tx.SERVICE_DATE <= '12/31/2017'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2018 Charge Review",
+            "mode": "import",
+            "source": {
+              "query": [
+                "SELECT ",
+                " arpb_tx.DEPARTMENT_ID",
+                ",arpb_tx.LOC_ID",
+                ",arpb_tx.SERVICE_DATE",
+                ",crw.ENTRY_DATE",
+                ",crw.EXIT_DATE",
+                ",datediff(day, crw.ENTRY_DATE, crw.EXIT_DATE) as 'CHARGE REVIEW DAYS'",
+                ",arpb_tx.ACCOUNT_ID",
+                "",
+                "FROM ARPB_TRANSACTIONS arpb_tx",
+                "left join ARPB_TX_MODERATE atm on atm.TX_ID = arpb_tx.TX_ID",
+                "left join ARPB_TX_VOID atv on atv.TX_ID = arpb_tx.TX_ID",
+                "left join V_ARPB_CHG_REVIEW_WQ crw on crw.TAR_ID = atm.SOURCE_TAR_ID",
+                "       ",
+                "WHERE  arpb_tx.TX_TYPE_C=1 ",
+                "and (atv.OLD_ETR_ID IS NULL and atv.REPOSTED_ETR_ID IS NULL and atv.REPOST_TYPE_C IS NULL and atv.RETRO_CHARGE_ID IS NULL)",
+                "and arpb_tx.SERVICE_AREA_ID in  (11,13,16,17,18,19)",
+                "and arpb_tx.SERVICE_DATE >= '1/1/2018'",
+                "and arpb_tx.SERVICE_DATE <= '12/31/2018'"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT ",
+                  " arpb_tx.DEPARTMENT_ID",
+                  ",arpb_tx.LOC_ID",
+                  ",arpb_tx.SERVICE_DATE",
+                  ",crw.ENTRY_DATE",
+                  ",crw.EXIT_DATE",
+                  ",datediff(day, crw.ENTRY_DATE, crw.EXIT_DATE) as 'CHARGE REVIEW DAYS'",
+                  ",arpb_tx.ACCOUNT_ID",
+                  "",
+                  "FROM ARPB_TRANSACTIONS arpb_tx",
+                  "left join ARPB_TX_MODERATE atm on atm.TX_ID = arpb_tx.TX_ID",
+                  "left join ARPB_TX_VOID atv on atv.TX_ID = arpb_tx.TX_ID",
+                  "left join V_ARPB_CHG_REVIEW_WQ crw on crw.TAR_ID = atm.SOURCE_TAR_ID",
+                  "       ",
+                  "WHERE  arpb_tx.TX_TYPE_C=1 ",
+                  "and (atv.OLD_ETR_ID IS NULL and atv.REPOSTED_ETR_ID IS NULL and atv.REPOST_TYPE_C IS NULL and atv.RETRO_CHARGE_ID IS NULL)",
+                  "and arpb_tx.SERVICE_AREA_ID in  (11,13,16,17,18,19)",
+                  "and arpb_tx.SERVICE_DATE >= '1/1/2018'",
+                  "and arpb_tx.SERVICE_DATE <= '12/31/2018'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "CHG REVIEW DAYS",
+            "expression": " sum('Charge Review'[CHARGE REVIEW DAYS])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "CHG COUNT",
+            "expression": "count('Charge Review'[ACCOUNT_ID])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "AVG CHG REVIEW DAYS",
+            "expression": "[CHG REVIEW DAYS]/[CHG COUNT]",
+            "formatString": "0.00"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT ",
+              " arpb_tx.DEPARTMENT_ID",
+              ",arpb_tx.LOC_ID",
+              ",arpb_tx.SERVICE_DATE",
+              ",crw.ENTRY_DATE",
+              ",crw.EXIT_DATE",
+              ",datediff(day, crw.ENTRY_DATE, crw.EXIT_DATE) as 'CHARGE REVIEW DAYS'",
+              ",arpb_tx.ACCOUNT_ID",
+              "",
+              "FROM ARPB_TRANSACTIONS arpb_tx",
+              "left join ARPB_TX_MODERATE atm on atm.TX_ID = arpb_tx.TX_ID",
+              "left join ARPB_TX_VOID atv on atv.TX_ID = arpb_tx.TX_ID",
+              "left join V_ARPB_CHG_REVIEW_WQ crw on crw.TAR_ID = atm.SOURCE_TAR_ID",
+              "       ",
+              "WHERE  arpb_tx.TX_TYPE_C=1 ",
+              "and (atv.OLD_ETR_ID IS NULL and atv.REPOSTED_ETR_ID IS NULL and atv.REPOST_TYPE_C IS NULL and atv.RETRO_CHARGE_ID IS NULL)",
+              "and arpb_tx.SERVICE_AREA_ID in  (11,13,16,17,18,19)",
+              "and arpb_tx.SERVICE_DATE >= '1/1/2017'",
+              "and arpb_tx.SERVICE_DATE <= '12/31/2017'"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Charge Review"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT ",
+              " arpb_tx.DEPARTMENT_ID",
+              ",arpb_tx.LOC_ID",
+              ",arpb_tx.SERVICE_DATE",
+              ",crw.ENTRY_DATE",
+              ",crw.EXIT_DATE",
+              ",datediff(day, crw.ENTRY_DATE, crw.EXIT_DATE) as 'CHARGE REVIEW DAYS'",
+              ",arpb_tx.ACCOUNT_ID",
+              "",
+              "FROM ARPB_TRANSACTIONS arpb_tx",
+              "left join ARPB_TX_MODERATE atm on atm.TX_ID = arpb_tx.TX_ID",
+              "left join ARPB_TX_VOID atv on atv.TX_ID = arpb_tx.TX_ID",
+              "left join V_ARPB_CHG_REVIEW_WQ crw on crw.TAR_ID = atm.SOURCE_TAR_ID",
+              "       ",
+              "WHERE  arpb_tx.TX_TYPE_C=1 ",
+              "and (atv.OLD_ETR_ID IS NULL and atv.REPOSTED_ETR_ID IS NULL and atv.REPOST_TYPE_C IS NULL and atv.RETRO_CHARGE_ID IS NULL)",
+              "and arpb_tx.SERVICE_AREA_ID in  (11,13,16,17,18,19)",
+              "and arpb_tx.SERVICE_DATE >= '1/1/2017'",
+              "and arpb_tx.SERVICE_DATE <= '12/31/2017'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "First Pass Denials",
+        "columns": [
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAYMENT_POST_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "PAYMENT_POST_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "REMIT CATEGORY",
+            "dataType": "string",
+            "sourceColumn": "REMIT_CODE_CAT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REMIT_AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "REMIT_AMOUNT",
+            "sourceProviderType": "Decimal"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "2017 First Pass Denials",
+            "source": {
+              "query": [
+                "select ",
+                " varc.DEPARTMENT_ID",
+                ",varc.LOC_ID",
+                ",varc.PAYMENT_POST_DATE",
+                ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'REMIT_CODE_CAT_NAME'",
+                ",varc.REMIT_AMOUNT",
+                "",
+                "from ",
+                "",
+                "clarity.dbo.V_ARPB_REMIT_CODES varc",
+                "left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+                "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+                "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+                "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+                "",
+                "where ",
+                "varc.PAYMENT_POST_DATE >= '01/1/2017'",
+                "and varc.PAYMENT_POST_DATE <= '12/31/2017'",
+                "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+                "and varc.REMIT_ACTION in (9,14)",
+                "and varc.REMIT_AMOUNT >= 0"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " varc.DEPARTMENT_ID",
+                  ",varc.LOC_ID",
+                  ",varc.PAYMENT_POST_DATE",
+                  ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'REMIT_CODE_CAT_NAME'",
+                  ",varc.REMIT_AMOUNT",
+                  "",
+                  "from ",
+                  "",
+                  "clarity.dbo.V_ARPB_REMIT_CODES varc",
+                  "left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+                  "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+                  "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+                  "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+                  "",
+                  "where ",
+                  "varc.PAYMENT_POST_DATE >= '01/1/2017'",
+                  "and varc.PAYMENT_POST_DATE <= '12/31/2017'",
+                  "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+                  "and varc.REMIT_ACTION in (9,14)",
+                  "and varc.REMIT_AMOUNT >= 0</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2018 First Pass Denials",
+            "mode": "import",
+            "source": {
+              "query": [
+                "select ",
+                " varc.DEPARTMENT_ID",
+                ",varc.LOC_ID",
+                ",varc.PAYMENT_POST_DATE",
+                ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'REMIT_CODE_CAT_NAME'",
+                ",varc.REMIT_AMOUNT",
+                "",
+                "from ",
+                "",
+                "clarity.dbo.V_ARPB_REMIT_CODES varc",
+                "left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+                "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+                "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+                "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+                "",
+                "where ",
+                "varc.PAYMENT_POST_DATE >= '01/1/2018'",
+                "and varc.PAYMENT_POST_DATE <= '12/31/2018'",
+                "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+                "and varc.REMIT_ACTION in (9,14)",
+                "and varc.REMIT_AMOUNT >= 0"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " varc.DEPARTMENT_ID",
+                  ",varc.LOC_ID",
+                  ",varc.PAYMENT_POST_DATE",
+                  ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'REMIT_CODE_CAT_NAME'",
+                  ",varc.REMIT_AMOUNT",
+                  "",
+                  "from ",
+                  "",
+                  "clarity.dbo.V_ARPB_REMIT_CODES varc",
+                  "left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+                  "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+                  "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+                  "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+                  "",
+                  "where ",
+                  "varc.PAYMENT_POST_DATE >= '01/1/2018'",
+                  "and varc.PAYMENT_POST_DATE <= '12/31/2018'",
+                  "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+                  "and varc.REMIT_ACTION in (9,14)",
+                  "and varc.REMIT_AMOUNT >= 0</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "REMIT AMOUNT",
+            "expression": "sum('First Pass Denials'[REMIT_AMOUNT])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " varc.DEPARTMENT_ID",
+              ",varc.LOC_ID",
+              ",varc.PAYMENT_POST_DATE",
+              ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'REMIT_CODE_CAT_NAME'",
+              ",varc.REMIT_AMOUNT",
+              "",
+              "from ",
+              "",
+              "clarity.dbo.V_ARPB_REMIT_CODES varc",
+              "left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+              "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+              "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+              "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+              "",
+              "where ",
+              "varc.PAYMENT_POST_DATE >= '01/1/2017'",
+              "and varc.PAYMENT_POST_DATE <= '12/31/2017'",
+              "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+              "and varc.REMIT_ACTION in (9,14)",
+              "and varc.REMIT_AMOUNT >= 0"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "First Pass Denials"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " varc.DEPARTMENT_ID",
+              ",varc.LOC_ID",
+              ",varc.PAYMENT_POST_DATE",
+              ",case when rmc1.remit_code_name is not null then upper(zrcc.name) else upper(remit_code_cat_name) end as 'REMIT_CODE_CAT_NAME'",
+              ",varc.REMIT_AMOUNT",
+              "",
+              "from ",
+              "",
+              "clarity.dbo.V_ARPB_REMIT_CODES varc",
+              "left join clarity.dbo.PMT_EOB_INFO_I eob on eob.TX_ID = varc.PAYMENT_TX_ID and eob.LINE = varc.EOB_LINE",
+              "left join clarity.dbo.CLARITY_RMC rmc on rmc.REMIT_CODE_ID = varc.REMIT_CODE_ID",
+              "left join clarity.dbo.CLARITY_RMC rmc1 on rmc1.REMIT_CODE_ID = varc.REMARK_CODE_1_ID",
+              "left join clarity.dbo.ZC_RMC_CODE_CAT zrcc on zrcc.RMC_CODE_CAT_C = rmc1.CODE_CAT_C",
+              "",
+              "where ",
+              "varc.PAYMENT_POST_DATE >= '01/1/2017'",
+              "and varc.PAYMENT_POST_DATE <= '12/31/2017'",
+              "and varc.SERV_AREA_ID in (11,13,16,17,18,19)",
+              "and varc.REMIT_ACTION in (9,14)",
+              "and varc.REMIT_AMOUNT >= 0</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "8997b49a-50e0-4666-b443-1944b2192109",
+        "fromTable": "Transactions",
+        "fromColumn": "POST_DATE",
+        "toTable": "Date",
+        "toColumn": "DATE"
+      },
+      {
+        "name": "b298987d-7746-4b64-ab55-f1fd1d123287",
+        "fromTable": "Copay",
+        "fromColumn": "CONTACT_DATE",
+        "toTable": "Date",
+        "toColumn": "DATE"
+      },
+      {
+        "name": "b7237ae6-7c17-4038-bda0-99f11adca3d6",
+        "fromTable": "Aging",
+        "fromColumn": "POST_DATE",
+        "toTable": "Date",
+        "toColumn": "DATE"
+      },
+      {
+        "name": "eb080a03-48a2-41e6-835f-c5f419cde9b0",
+        "fromTable": "Charge Lag",
+        "fromColumn": "POST_DATE",
+        "toTable": "Date",
+        "toColumn": "DATE"
+      },
+      {
+        "name": "57901ea1-f4b5-43cc-80d6-2e0be7fb5e29",
+        "fromTable": "Transactions",
+        "fromColumn": "LOC_ID",
+        "toTable": "Location",
+        "toColumn": "LOC_ID"
+      },
+      {
+        "name": "7248d7a1-39cc-463a-846d-7f51764ad4be",
+        "fromTable": "Transactions",
+        "fromColumn": "DEPT_ID",
+        "toTable": "Department",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "cd1fb5bc-2545-4b06-b581-ef58d68d7d68",
+        "fromTable": "Aging",
+        "fromColumn": "LOC_ID",
+        "toTable": "Location",
+        "toColumn": "LOC_ID"
+      },
+      {
+        "name": "bdb5cee1-ea21-41fd-abea-15ed81054e29",
+        "fromTable": "Aging",
+        "fromColumn": "DEPT_ID",
+        "toTable": "Department",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "c2f58287-92b3-4d89-bc56-49ac31b620b9",
+        "fromTable": "Charge Lag",
+        "fromColumn": "LOC_ID",
+        "toTable": "Location",
+        "toColumn": "LOC_ID"
+      },
+      {
+        "name": "f8fa83df-b6bb-4c3c-b2dc-f524c3b8a494",
+        "fromTable": "Copay",
+        "fromColumn": "DEPARTMENT_ID",
+        "toTable": "Department",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "ebd8ffa7-d1a5-4da8-9fd4-6c5de9a524f8",
+        "fromTable": "Copay",
+        "fromColumn": "REV_LOC_ID",
+        "toTable": "Location",
+        "toColumn": "LOC_ID"
+      },
+      {
+        "name": "5943d1ed-edce-4bac-ac34-857fbb1fbc30",
+        "fromTable": "Open Encounters",
+        "fromColumn": "DEPARTMENT_ID",
+        "toTable": "Department",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "d47b1454-057c-43af-b222-44cf4fd0274d",
+        "fromTable": "Open Encounters",
+        "fromColumn": "REV_LOC_ID",
+        "toTable": "Location",
+        "toColumn": "LOC_ID"
+      },
+      {
+        "name": "c7e63306-b494-47bb-9109-050a20219e11",
+        "fromTable": "Charge Review",
+        "fromColumn": "DEPARTMENT_ID",
+        "toTable": "Department",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "5ad5ec0f-598a-443a-bea2-e8d4f9afae70",
+        "fromTable": "Charge Review",
+        "fromColumn": "LOC_ID",
+        "toTable": "Location",
+        "toColumn": "LOC_ID"
+      },
+      {
+        "name": "e2bf6d30-fd5d-4ed8-b4bd-a1a8168bbf3d",
+        "fromTable": "First Pass Denials",
+        "fromColumn": "DEPARTMENT_ID",
+        "toTable": "Department",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "bd6e5b47-b795-4ef3-85c7-baaad1ddbd5c",
+        "fromTable": "First Pass Denials",
+        "fromColumn": "LOC_ID",
+        "toTable": "Location",
+        "toColumn": "LOC_ID"
+      },
+      {
+        "name": "254ed355-6811-46af-9cd5-94ccb4072f72",
+        "fromTable": "First Pass Denials",
+        "fromColumn": "PAYMENT_POST_DATE",
+        "toTable": "Date",
+        "toColumn": "DATE"
+      },
+      {
+        "name": "68a4e10d-a068-42e3-a33c-fd66bf777513",
+        "fromTable": "Open Encounters",
+        "fromColumn": "RUN_DATE",
+        "toTable": "Date",
+        "toColumn": "DATE"
+      },
+      {
+        "name": "2b90f1ea-be2e-4ba4-882f-076f7f0543fe",
+        "fromTable": "Charge Lag",
+        "fromColumn": "DEPARTMENT_ID",
+        "toTable": "Department",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "9edee8e9-cad5-4187-b4be-0f316633f2bb",
+        "fromTable": "Charge Review",
+        "fromColumn": "EXIT_DATE",
+        "toTable": "Date",
+        "toColumn": "DATE"
+      }
+    ],
+    "roles": [
+      {
+        "name": "PB Users",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          },
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_Reporting_Group",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-141188"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  }
+}
