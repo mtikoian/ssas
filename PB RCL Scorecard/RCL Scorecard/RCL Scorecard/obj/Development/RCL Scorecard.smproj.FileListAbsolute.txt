@@ -1,0 +1,6 @@
+U:\Professional Billing\Tabular Cubes\PB RCL Scorecard\RCL Scorecard\RCL Scorecard\bin\Model.asdatabase
+U:\Professional Billing\Tabular Cubes\PB RCL Scorecard\RCL Scorecard\RCL Scorecard\bin\Model.deploymenttargets
+U:\Professional Billing\Tabular Cubes\PB RCL Scorecard\RCL Scorecard\RCL Scorecard\bin\Model.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB RCL Scorecard\RCL Scorecard\RCL Scorecard\obj\Development\Model.asdatabase
+U:\Professional Billing\Tabular Cubes\PB RCL Scorecard\RCL Scorecard\RCL Scorecard\obj\Development\Model.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB RCL Scorecard\RCL Scorecard\RCL Scorecard\obj\Development\Model.deploymenttargets

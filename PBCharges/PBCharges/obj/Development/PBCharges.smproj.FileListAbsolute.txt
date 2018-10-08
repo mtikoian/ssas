@@ -1,0 +1,6 @@
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBCharges\PBCharges\bin\Model.asdatabase
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBCharges\PBCharges\bin\Model.deploymenttargets
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBCharges\PBCharges\bin\Model.deploymentoptions
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBCharges\PBCharges\obj\Development\Model.asdatabase
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBCharges\PBCharges\obj\Development\Model.deploymentoptions
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBCharges\PBCharges\obj\Development\Model.deploymenttargets

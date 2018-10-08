@@ -1,0 +1,6 @@
+U:\Professional Billing\Tabular Cubes\PB Reimbursement\PB Reimbursement\bin\Model.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Reimbursement\PB Reimbursement\bin\Model.deploymenttargets
+U:\Professional Billing\Tabular Cubes\PB Reimbursement\PB Reimbursement\bin\Model.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Reimbursement\PB Reimbursement\obj\Development\Model.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Reimbursement\PB Reimbursement\obj\Development\Model.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Reimbursement\PB Reimbursement\obj\Development\Model.deploymenttargets

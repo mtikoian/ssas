@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Adjustments", "Adjustments\Adjustments.rptproj", "{132C3D5E-5459-4501-8698-28F497B3E022}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{132C3D5E-5459-4501-8698-28F497B3E022}.Debug|Default.ActiveCfg = Debug
+		{132C3D5E-5459-4501-8698-28F497B3E022}.Debug|Default.Build.0 = Debug
+		{132C3D5E-5459-4501-8698-28F497B3E022}.Debug|Default.Deploy.0 = Debug
+		{132C3D5E-5459-4501-8698-28F497B3E022}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{132C3D5E-5459-4501-8698-28F497B3E022}.DebugLocal|Default.Build.0 = DebugLocal
+		{132C3D5E-5459-4501-8698-28F497B3E022}.Release|Default.ActiveCfg = Release
+		{132C3D5E-5459-4501-8698-28F497B3E022}.Release|Default.Build.0 = Release
+		{132C3D5E-5459-4501-8698-28F497B3E022}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

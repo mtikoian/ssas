@@ -1,0 +1,1857 @@
+<Alter AllowCreate="true" ObjectExpansion="ExpandFull" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <Object>
+    <DatabaseID>SemanticModel</DatabaseID>
+  </Object>
+  <ObjectDefinition>
+    <Database xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400">
+      <ID>SemanticModel</ID>
+      <Name>SemanticModel</Name>
+      <Annotations>
+        <Annotation>
+          <Name>ClientCompatibilityLevel</Name>
+          <Value>300</Value>
+        </Annotation>
+      </Annotations>
+      <ddl200:CompatibilityLevel>1103</ddl200:CompatibilityLevel>
+      <ddl200_200:StorageEngineUsed>InMemory</ddl200_200:StorageEngineUsed>
+      <Language>1033</Language>
+      <DataSourceImpersonationInfo>
+        <ImpersonationMode>Default</ImpersonationMode>
+      </DataSourceImpersonationInfo>
+      <Dimensions>
+        <Dimension>
+          <ID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</ID>
+          <Name>PB_Cash_Reconciliation</Name>
+          <Annotations>
+            <Annotation>
+              <Name>IsQueryEditorUsed</Name>
+              <Value>True</Value>
+            </Annotation>
+            <Annotation>
+              <Name>QueryEditorSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>TableWidgetSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>DataMarketWebBaseUrl</Name>
+            </Annotation>
+            <Annotation>
+              <Name>DataMarketWebQueryUrl</Name>
+            </Annotation>
+          </Annotations>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+          <ErrorConfiguration>
+            <KeyNotFound>IgnoreError</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <Language>1033</Language>
+          <UnknownMemberName>Unknown</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>RowNumber</ID>
+              <Name>RowNumber</Name>
+              <Type valuens="ddl200_200">RowNumber</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Error</NullProcessing>
+                  <DataType>Integer</DataType>
+                  <DataSize>4</DataSize>
+                  <Source xsi:type="ddl200_200:RowNumberBinding" />
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <Source xsi:type="ddl200_200:RowNumberBinding" />
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>SERVICE AREA</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>SERVICE AREA</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>LOCATION</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>LOCATION</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DEPARTMENT</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DEPARTMENT</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>TRANSACTION ID</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>TRANSACTION ID</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>TRAN TYPE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>TRAN TYPE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROCEDURE CODE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROCEDURE CODE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>POSTING_TYPE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>POSTING_TYPE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>POST DATE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>POST DATE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>SOURCE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>SOURCE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>POSTING MODULE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>POSTING MODULE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PAYMENT AMOUNT</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PAYMENT AMOUNT</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>ACCOUNT</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>ACCOUNT</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>ACCOUNT NAME</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>ACCOUNT NAME</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>TRANSACTION #</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>TRANSACTION #</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>REFERENCE #</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>REFERENCE #</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>POSTING BATCH #</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>POSTING BATCH #</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>RECONCILIATION #</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>RECONCILIATION #</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>CASH DRAWER</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>CASH DRAWER</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>FULL GL #</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>FULL GL #</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DISPLAY NAME</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DISPLAY NAME</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PAYMENT ROUTING CODE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PAYMENT ROUTING CODE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PAYMENT ROUTING #</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PAYMENT ROUTING #</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>INVOICE #</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>INVOICE #</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>START DATE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>START DATE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>END DATE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>END DATE</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>SERVICE AREA</ID>
+              <Name>SERVICE AREA</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>SERVICE_x0020_AREA</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>SERVICE_x0020_AREA</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>LOCATION</ID>
+              <Name>LOCATION</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>LOCATION</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>LOCATION</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>DEPARTMENT</ID>
+              <Name>DEPARTMENT</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>DEPARTMENT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>DEPARTMENT</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>TRANSACTION ID</ID>
+              <Name>TRANSACTION ID</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>TRANSACTION_x0020_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>TRANSACTION_x0020_ID</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>TRAN TYPE</ID>
+              <Name>TRAN TYPE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>TRAN_x0020_TYPE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>TRAN_x0020_TYPE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PROCEDURE CODE</ID>
+              <Name>PROCEDURE CODE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>PROCEDURE_x0020_CODE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>PROCEDURE_x0020_CODE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>POSTING_TYPE</ID>
+              <Name>POSTING_TYPE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>POSTING_TYPE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>POSTING_TYPE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="DateTimeGeneral" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>POST DATE</ID>
+              <Name>POST DATE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>Date</DataType>
+                  <DataSize>-1</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>POST_x0020_DATE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>POST_x0020_DATE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>General Date</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>SOURCE</ID>
+              <Name>SOURCE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>SOURCE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>SOURCE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>POSTING MODULE</ID>
+              <Name>POSTING MODULE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>POSTING_x0020_MODULE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>POSTING_x0020_MODULE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PAYMENT AMOUNT</ID>
+              <Name>PAYMENT AMOUNT</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>PAYMENT_x0020_AMOUNT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>PAYMENT_x0020_AMOUNT</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>ACCOUNT</ID>
+              <Name>ACCOUNT</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>ACCOUNT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>ACCOUNT</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>ACCOUNT NAME</ID>
+              <Name>ACCOUNT NAME</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>ACCOUNT_x0020_NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>ACCOUNT_x0020_NAME</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>TRANSACTION #</ID>
+              <Name>TRANSACTION #</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>Integer</DataType>
+                  <DataSize>-1</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>TRANSACTION_x0020__x0023_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>TRANSACTION_x0020__x0023_</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>REFERENCE #</ID>
+              <Name>REFERENCE #</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>REFERENCE_x0020__x0023_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>REFERENCE_x0020__x0023_</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>POSTING BATCH #</ID>
+              <Name>POSTING BATCH #</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>POSTING_x0020_BATCH_x0020__x0023_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>POSTING_x0020_BATCH_x0020__x0023_</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>RECONCILIATION #</ID>
+              <Name>RECONCILIATION #</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>RECONCILIATION_x0020__x0023_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>RECONCILIATION_x0020__x0023_</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>CASH DRAWER</ID>
+              <Name>CASH DRAWER</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>CASH_x0020_DRAWER</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>CASH_x0020_DRAWER</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>FULL GL #</ID>
+              <Name>FULL GL #</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>FULL_x0020_GL_x0020__x0023_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>FULL_x0020_GL_x0020__x0023_</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>DISPLAY NAME</ID>
+              <Name>DISPLAY NAME</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>DISPLAY_x0020_NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>DISPLAY_x0020_NAME</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PAYMENT ROUTING CODE</ID>
+              <Name>PAYMENT ROUTING CODE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>Integer</DataType>
+                  <DataSize>-1</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>PAYMENT_x0020_ROUTING_x0020_CODE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>PAYMENT_x0020_ROUTING_x0020_CODE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PAYMENT ROUTING #</ID>
+              <Name>PAYMENT ROUTING #</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>PAYMENT_x0020_ROUTING_x0020__x0023_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>PAYMENT_x0020_ROUTING_x0020__x0023_</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>INVOICE #</ID>
+              <Name>INVOICE #</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>INVOICE_x0020__x0023_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>INVOICE_x0020__x0023_</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="DateTimeGeneral" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>START DATE</ID>
+              <Name>START DATE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>Date</DataType>
+                  <DataSize>-1</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>START_x0020_DATE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>START_x0020_DATE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>General Date</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="DateTimeGeneral" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>END DATE</ID>
+              <Name>END DATE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <DataType>Date</DataType>
+                  <DataSize>-1</DataSize>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    <ColumnID>END_x0020_DATE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                  <ColumnID>END_x0020_DATE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>General Date</ddl300_300:FormatString>
+            </Attribute>
+          </Attributes>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+      </Dimensions>
+      <Cubes>
+        <Cube>
+          <ID>Model</ID>
+          <Name>Model</Name>
+          <Annotations>
+            <Annotation>
+              <Name>DefaultMeasure</Name>
+              <Value>__No measures defined</Value>
+            </Annotation>
+          </Annotations>
+          <Language>1033</Language>
+          <Dimensions>
+            <Dimension>
+              <ID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</ID>
+              <Name>PB_Cash_Reconciliation</Name>
+              <DimensionID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>RowNumber</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SERVICE AREA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>LOCATION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DEPARTMENT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>TRANSACTION ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>TRAN TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROCEDURE CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>POSTING_TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>POST DATE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SOURCE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>POSTING MODULE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PAYMENT AMOUNT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ACCOUNT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ACCOUNT NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>TRANSACTION #</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>REFERENCE #</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>POSTING BATCH #</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>RECONCILIATION #</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CASH DRAWER</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FULL GL #</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DISPLAY NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PAYMENT ROUTING CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PAYMENT ROUTING #</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>INVOICE #</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>START DATE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>END DATE</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <MeasureGroups>
+            <MeasureGroup>
+              <ID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</ID>
+              <Name>PB_Cash_Reconciliation</Name>
+              <Measures>
+                <Measure>
+                  <ID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</ID>
+                  <Name>_Count PB_Cash_Reconciliation</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <DataSize>8</DataSize>
+                    <Source xsi:type="RowBinding">
+                      <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                </Measure>
+              </Measures>
+              <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+              <ErrorConfiguration>
+                <KeyNotFound>IgnoreError</KeyNotFound>
+                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+              </ErrorConfiguration>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                  <CubeDimensionID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>RowNumber</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation</TableID>
+                            <ColumnID>RowNumber</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>SERVICE AREA</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>SERVICE_x0020_AREA</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>LOCATION</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>LOCATION</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DEPARTMENT</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>DEPARTMENT</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>TRANSACTION ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>TRANSACTION_x0020_ID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>TRAN TYPE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>TRAN_x0020_TYPE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROCEDURE CODE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>PROCEDURE_x0020_CODE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>POSTING_TYPE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>POSTING_TYPE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>POST DATE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>Date</DataType>
+                          <DataSize>-1</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>POST_x0020_DATE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>SOURCE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>SOURCE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>POSTING MODULE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>POSTING_x0020_MODULE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PAYMENT AMOUNT</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>PAYMENT_x0020_AMOUNT</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>ACCOUNT</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>ACCOUNT</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>ACCOUNT NAME</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>ACCOUNT_x0020_NAME</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>TRANSACTION #</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>TRANSACTION_x0020__x0023_</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>REFERENCE #</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>REFERENCE_x0020__x0023_</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>POSTING BATCH #</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>POSTING_x0020_BATCH_x0020__x0023_</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>RECONCILIATION #</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>RECONCILIATION_x0020__x0023_</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>CASH DRAWER</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>CASH_x0020_DRAWER</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>FULL GL #</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>FULL_x0020_GL_x0020__x0023_</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DISPLAY NAME</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>DISPLAY_x0020_NAME</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PAYMENT ROUTING CODE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>PAYMENT_x0020_ROUTING_x0020_CODE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PAYMENT ROUTING #</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>PAYMENT_x0020_ROUTING_x0020__x0023_</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>INVOICE #</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>INVOICE_x0020__x0023_</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>START DATE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>Date</DataType>
+                          <DataSize>-1</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>START_x0020_DATE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>END DATE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <DataType>Date</DataType>
+                          <DataSize>-1</DataSize>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</TableID>
+                            <ColumnID>END_x0020_DATE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                  <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9</ID>
+                  <Name>PB_Cash_Reconciliation</Name>
+                  <Annotations>
+                    <Annotation>
+                      <Name>IsQueryEditorUsed</Name>
+                      <Value>True</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>QueryEditorSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TableWidgetSerialization</Name>
+                    </Annotation>
+                  </Annotations>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>b2867811-6520-49a7-a00c-a887915acfbc</DataSourceID>
+                    <QueryDefinition>exec ClarityCHPUtil.rpt.sp_PB_Cash_Reconciliation</QueryDefinition>
+                  </Source>
+                  <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ErrorConfiguration>
+                    <KeyNotFound>IgnoreError</KeyNotFound>
+                    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                  </ErrorConfiguration>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+          </MeasureGroups>
+          <Source>
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <MdxScripts>
+            <MdxScript>
+              <ID>MdxScript</ID>
+              <Name>MdxScript</Name>
+              <Commands>
+                <Command>
+                  <Text>CALCULATE; 
+CREATE MEMBER CURRENTCUBE.Measures.[__No measures defined] AS 1; 
+ALTER CUBE CURRENTCUBE UPDATE DIMENSION Measures, Default_Member = [__No measures defined]; </Text>
+                </Command>
+              </Commands>
+            </MdxScript>
+          </MdxScripts>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Cube>
+      </Cubes>
+      <DataSources>
+        <DataSource xsi:type="RelationalDataSource">
+          <ID>b2867811-6520-49a7-a00c-a887915acfbc</ID>
+          <Name>ClarityCHPUtil</Name>
+          <Annotations>
+            <Annotation>
+              <Name>ConnectionEditUISource</Name>
+              <Value>SqlServer</Value>
+            </Annotation>
+          </Annotations>
+          <ConnectionString>Provider=SQLNCLI11;Data Source=mdcoap100715\sql2014;Initial Catalog=ClarityCHPUtil;Integrated Security=SSPI;Persist Security Info=false</ConnectionString>
+          <ImpersonationInfo>
+            <ImpersonationMode>ImpersonateAccount</ImpersonationMode>
+            <Account>mdco\epic777</Account>
+          </ImpersonationInfo>
+          <Timeout>PT0S</Timeout>
+        </DataSource>
+      </DataSources>
+      <DataSourceViews>
+        <DataSourceView>
+          <ID>Sandbox</ID>
+          <Name>Sandbox</Name>
+          <DataSourceID>b2867811-6520-49a7-a00c-a887915acfbc</DataSourceID>
+          <Schema>
+            <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+              <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:Locale="en-US">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="PB_Cash_Reconciliation_5418fbce-7c48-4010-b26f-812879cf84c9" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="PB_Cash_Reconciliation" msprop:DbTableName="PB_Cash_Reconciliation" msprop:TableType="View" msprop:Description="PB_Cash_Reconciliation" msprop:QueryDefinition="exec ClarityCHPUtil.rpt.sp_PB_Cash_Reconciliation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SERVICE_x0020_AREA" msprop:DbColumnName="SERVICE AREA" msprop:FriendlyName="SERVICE AREA" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LOCATION" msprop:DbColumnName="LOCATION" msprop:FriendlyName="LOCATION" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DEPARTMENT" msprop:DbColumnName="DEPARTMENT" msprop:FriendlyName="DEPARTMENT" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TRANSACTION_x0020_ID" msprop:DbColumnName="TRANSACTION ID" msprop:FriendlyName="TRANSACTION ID" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="TRAN_x0020_TYPE" msprop:DbColumnName="TRAN TYPE" msprop:FriendlyName="TRAN TYPE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PROCEDURE_x0020_CODE" msprop:DbColumnName="PROCEDURE CODE" msprop:FriendlyName="PROCEDURE CODE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="POSTING_TYPE" msprop:DbColumnName="POSTING_TYPE" msprop:FriendlyName="POSTING_TYPE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="POST_x0020_DATE" msprop:DbColumnName="POST DATE" msprop:FriendlyName="POST DATE" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="SOURCE" msprop:DbColumnName="SOURCE" msprop:FriendlyName="SOURCE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="POSTING_x0020_MODULE" msprop:DbColumnName="POSTING MODULE" msprop:FriendlyName="POSTING MODULE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PAYMENT_x0020_AMOUNT" msprop:DbColumnName="PAYMENT AMOUNT" msprop:FriendlyName="PAYMENT AMOUNT" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ACCOUNT" msprop:DbColumnName="ACCOUNT" msprop:FriendlyName="ACCOUNT" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ACCOUNT_x0020_NAME" msprop:DbColumnName="ACCOUNT NAME" msprop:FriendlyName="ACCOUNT NAME" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TRANSACTION_x0020__x0023_" msprop:DbColumnName="TRANSACTION #" msprop:FriendlyName="TRANSACTION #" type="xs:int" minOccurs="0" />
+                          <xs:element name="REFERENCE_x0020__x0023_" msprop:DbColumnName="REFERENCE #" msprop:FriendlyName="REFERENCE #" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="POSTING_x0020_BATCH_x0020__x0023_" msprop:DbColumnName="POSTING BATCH #" msprop:FriendlyName="POSTING BATCH #" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="RECONCILIATION_x0020__x0023_" msprop:DbColumnName="RECONCILIATION #" msprop:FriendlyName="RECONCILIATION #" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CASH_x0020_DRAWER" msprop:DbColumnName="CASH DRAWER" msprop:FriendlyName="CASH DRAWER" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="FULL_x0020_GL_x0020__x0023_" msprop:DbColumnName="FULL GL #" msprop:FriendlyName="FULL GL #" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DISPLAY_x0020_NAME" msprop:DbColumnName="DISPLAY NAME" msprop:FriendlyName="DISPLAY NAME" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PAYMENT_x0020_ROUTING_x0020_CODE" msprop:DbColumnName="PAYMENT ROUTING CODE" msprop:FriendlyName="PAYMENT ROUTING CODE" type="xs:int" minOccurs="0" />
+                          <xs:element name="PAYMENT_x0020_ROUTING_x0020__x0023_" msprop:DbColumnName="PAYMENT ROUTING #" msprop:FriendlyName="PAYMENT ROUTING #" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="INVOICE_x0020__x0023_" msprop:DbColumnName="INVOICE #" msprop:FriendlyName="INVOICE #" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="START_x0020_DATE" msprop:DbColumnName="START DATE" msprop:FriendlyName="START DATE" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="END_x0020_DATE" msprop:DbColumnName="END DATE" msprop:FriendlyName="END DATE" type="xs:dateTime" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:schema>
+            <NewDataSet xmlns="" />
+          </Schema>
+        </DataSourceView>
+      </DataSourceViews>
+    </Database>
+  </ObjectDefinition>
+</Alter>

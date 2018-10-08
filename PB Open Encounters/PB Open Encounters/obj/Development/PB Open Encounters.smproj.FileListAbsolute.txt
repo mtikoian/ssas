@@ -1,0 +1,6 @@
+U:\Professional Billing\Tabular Cubes\PB Open Encounters\PB Open Encounters\bin\Open Encounters.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Open Encounters\PB Open Encounters\bin\Open Encounters.deploymenttargets
+U:\Professional Billing\Tabular Cubes\PB Open Encounters\PB Open Encounters\bin\Open Encounters.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Open Encounters\PB Open Encounters\obj\Development\Open Encounters.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Open Encounters\PB Open Encounters\obj\Development\Open Encounters.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Open Encounters\PB Open Encounters\obj\Development\Open Encounters.deploymenttargets

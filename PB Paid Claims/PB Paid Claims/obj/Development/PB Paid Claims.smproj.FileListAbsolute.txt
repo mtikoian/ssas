@@ -1,0 +1,6 @@
+U:\Professional Billing\Tabular Cubes\PB Paid Claims\PB Paid Claims\bin\PB Paid Claims.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Paid Claims\PB Paid Claims\bin\PB Paid Claims.deploymenttargets
+U:\Professional Billing\Tabular Cubes\PB Paid Claims\PB Paid Claims\bin\PB Paid Claims.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Paid Claims\PB Paid Claims\obj\Development\PB Paid Claims.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Paid Claims\PB Paid Claims\obj\Development\PB Paid Claims.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Paid Claims\PB Paid Claims\obj\Development\PB Paid Claims.deploymenttargets

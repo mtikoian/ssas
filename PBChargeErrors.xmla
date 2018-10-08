@@ -1,0 +1,2250 @@
+<Create xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+    <ObjectDefinition>
+        <Database xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400">
+            <ID>PBChargeErrors</ID>
+            <Name>PBChargeErrors</Name>
+            <Annotations>
+                <Annotation>
+                    <Name>ClientCompatibilityLevel</Name>
+                    <Value>300</Value>
+                </Annotation>
+            </Annotations>
+            <ddl200:CompatibilityLevel>1103</ddl200:CompatibilityLevel>
+            <ddl200_200:StorageEngineUsed>InMemory</ddl200_200:StorageEngineUsed>
+            <Language>1033</Language>
+            <DataSourceImpersonationInfo>
+                <ImpersonationMode>Default</ImpersonationMode>
+            </DataSourceImpersonationInfo>
+            <Dimensions>
+                <Dimension>
+                    <ID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</ID>
+                    <Name>PBChargeErrors</Name>
+                    <Annotations>
+                        <Annotation>
+                            <Name>IsQueryEditorUsed</Name>
+                            <Value>True</Value>
+                        </Annotation>
+                        <Annotation>
+                            <Name>QueryEditorSerialization</Name>
+                        </Annotation>
+                        <Annotation>
+                            <Name>TableWidgetSerialization</Name>
+                        </Annotation>
+                        <Annotation>
+                            <Name>DataMarketWebBaseUrl</Name>
+                        </Annotation>
+                        <Annotation>
+                            <Name>DataMarketWebQueryUrl</Name>
+                        </Annotation>
+                    </Annotations>
+                    <Source xsi:type="DataSourceViewBinding">
+                        <DataSourceViewID>Sandbox</DataSourceViewID>
+                    </Source>
+                    <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+                    <ErrorConfiguration>
+                        <KeyNotFound>IgnoreError</KeyNotFound>
+                        <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                        <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                    </ErrorConfiguration>
+                    <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                    <Language>1033</Language>
+                    <UnknownMemberName>Unknown</UnknownMemberName>
+                    <Attributes>
+                        <Attribute>
+                            <ID>RowNumber</ID>
+                            <Name>RowNumber</Name>
+                            <Type valuens="ddl200_200">RowNumber</Type>
+                            <Usage>Key</Usage>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>4</DataSize>
+                                    <NullProcessing>Error</NullProcessing>
+                                    <Source xsi:type="ddl200_200:RowNumberBinding" />
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>4</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <Source xsi:type="ddl200_200:RowNumberBinding" />
+                            </NameColumn>
+                            <AttributeRelationships>
+                                <AttributeRelationship>
+                                    <AttributeID>TAR_ID</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>TAR_ID</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>RULE_NM_WID</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>RULE_NM_WID</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>VIOLATE_DATE</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>VIOLATE_DATE</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>AMOUNT</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>AMOUNT</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>DEPT_ID</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>DEPT_ID</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>DEPT_NAME</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>DEPT_NAME</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>BILLING_PROV_NM_WID</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>BILLING_PROV_NM_WID</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>SERV_PROV_NM_ID</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>SERV_PROV_NM_ID</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>FINANCIAL_CLASS</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>FINANCIAL_CLASS</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>PAYOR_NM_WID</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>PAYOR_NM_WID</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>BENEFIT_PLAN_NM_WID</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>BENEFIT_PLAN_NM_WID</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>SERV_AREA_ID</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>SERV_AREA_ID</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>PROC_CODE</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>PROC_CODE</Name>
+                                </AttributeRelationship>
+                            </AttributeRelationships>
+                            <OrderBy>Key</OrderBy>
+                            <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="General" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>TAR_ID</ID>
+                            <Name>TAR_ID</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Double</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>TAR_ID</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>TAR_ID</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>RULE_NM_WID</ID>
+                            <Name>RULE_NM_WID</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>RULE_NM_WID</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>RULE_NM_WID</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="DateTimeGeneral" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>VIOLATE_DATE</ID>
+                            <Name>VIOLATE_DATE</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Date</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>VIOLATE_DATE</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>VIOLATE_DATE</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                            <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                            <ddl300_300:FormatString>General Date</ddl300_300:FormatString>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="General" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>AMOUNT</ID>
+                            <Name>AMOUNT</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Double</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>AMOUNT</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>AMOUNT</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                            <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="General" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>DEPT_ID</ID>
+                            <Name>DEPT_ID</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Double</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>DEPT_ID</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>DEPT_ID</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>DEPT_NAME</ID>
+                            <Name>DEPT_NAME</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>DEPT_NAME</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>DEPT_NAME</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>BILLING_PROV_NM_WID</ID>
+                            <Name>BILLING_PROV_NM_WID</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>BILLING_PROV_NM_WID</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>BILLING_PROV_NM_WID</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>SERV_PROV_NM_ID</ID>
+                            <Name>SERV_PROV_NM_ID</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>SERV_PROV_NM_ID</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>SERV_PROV_NM_ID</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>FINANCIAL_CLASS</ID>
+                            <Name>FINANCIAL_CLASS</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>FINANCIAL_CLASS</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>FINANCIAL_CLASS</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>PAYOR_NM_WID</ID>
+                            <Name>PAYOR_NM_WID</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>PAYOR_NM_WID</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>PAYOR_NM_WID</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>BENEFIT_PLAN_NM_WID</ID>
+                            <Name>BENEFIT_PLAN_NM_WID</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>BENEFIT_PLAN_NM_WID</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>BENEFIT_PLAN_NM_WID</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="General" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>SERV_AREA_ID</ID>
+                            <Name>SERV_AREA_ID</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Double</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>SERV_AREA_ID</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>SERV_AREA_ID</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                            <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>PROC_CODE</ID>
+                            <Name>PROC_CODE</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        <ColumnID>PROC_CODE</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                    <ColumnID>PROC_CODE</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                    </Attributes>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                    <ddl300_300:Relationships>
+                        <ddl300_300:Relationship>
+                            <ID>b4407ff8-77a4-4a53-a659-96b786381830</ID>
+                            <ddl300_300:FromRelationshipEnd>
+                                <ddl300_300:Multiplicity>Many</ddl300_300:Multiplicity>
+                                <ddl300:VisualizationProperties />
+                                <DimensionID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</DimensionID>
+                                <Attributes>
+                                    <Attribute>
+                                        <AttributeID>VIOLATE_DATE</AttributeID>
+                                    </Attribute>
+                                </Attributes>
+                            </ddl300_300:FromRelationshipEnd>
+                            <ddl300_300:ToRelationshipEnd>
+                                <ddl300_300:Multiplicity>One</ddl300_300:Multiplicity>
+                                <ddl300:VisualizationProperties />
+                                <DimensionID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</DimensionID>
+                                <Attributes>
+                                    <Attribute>
+                                        <AttributeID>CalendarDate</AttributeID>
+                                    </Attribute>
+                                </Attributes>
+                            </ddl300_300:ToRelationshipEnd>
+                        </ddl300_300:Relationship>
+                    </ddl300_300:Relationships>
+                </Dimension>
+                <Dimension>
+                    <ID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</ID>
+                    <Name>ERROR_DATE</Name>
+                    <Annotations>
+                        <Annotation>
+                            <Name>IsQueryEditorUsed</Name>
+                            <Value>True</Value>
+                        </Annotation>
+                        <Annotation>
+                            <Name>QueryEditorSerialization</Name>
+                        </Annotation>
+                        <Annotation>
+                            <Name>TableWidgetSerialization</Name>
+                        </Annotation>
+                        <Annotation>
+                            <Name>DataMarketWebBaseUrl</Name>
+                        </Annotation>
+                        <Annotation>
+                            <Name>DataMarketWebQueryUrl</Name>
+                        </Annotation>
+                    </Annotations>
+                    <Source xsi:type="DataSourceViewBinding">
+                        <DataSourceViewID>Sandbox</DataSourceViewID>
+                    </Source>
+                    <Type>Time</Type>
+                    <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+                    <ErrorConfiguration>
+                        <KeyNotFound>IgnoreError</KeyNotFound>
+                        <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                        <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                    </ErrorConfiguration>
+                    <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                    <Language>1033</Language>
+                    <UnknownMemberName>Unknown</UnknownMemberName>
+                    <Attributes>
+                        <Attribute>
+                            <ID>RowNumber</ID>
+                            <Name>RowNumber</Name>
+                            <Type valuens="ddl200_200">RowNumber</Type>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>4</DataSize>
+                                    <NullProcessing>Error</NullProcessing>
+                                    <Source xsi:type="ddl200_200:RowNumberBinding" />
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>4</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <Source xsi:type="ddl200_200:RowNumberBinding" />
+                            </NameColumn>
+                            <AttributeRelationships>
+                                <AttributeRelationship>
+                                    <AttributeID>MonthNum</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>MonthNum</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>Month</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>Month</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>Yr</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>Yr</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>YrMo</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>YrMo</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>Qtr</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>Qtr</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>YrQtr</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>YrQtr</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>WeekNum</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>WeekNum</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>DayOfWeek</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>DayOfWeek</Name>
+                                </AttributeRelationship>
+                                <AttributeRelationship>
+                                    <AttributeID>DayOfWeekNum</AttributeID>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>DayOfWeekNum</Name>
+                                </AttributeRelationship>
+                            </AttributeRelationships>
+                            <OrderBy>Key</OrderBy>
+                            <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="DateTimeShortDatePattern" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>CalendarDate</ID>
+                            <Name>ERROR_DATE</Name>
+                            <Usage>Key</Usage>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Date</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Error</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>CalendarDate</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>CalendarDate</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <AttributeRelationships>
+                                <AttributeRelationship>
+                                    <AttributeID>RowNumber</AttributeID>
+                                    <Cardinality>One</Cardinality>
+                                    <OverrideBehavior>None</OverrideBehavior>
+                                    <Name>RowNumber</Name>
+                                </AttributeRelationship>
+                            </AttributeRelationships>
+                            <OrderBy>Key</OrderBy>
+                            <ddl300_300:FormatString>Short Date</ddl300_300:FormatString>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="General" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>MonthNum</ID>
+                            <Name>MonthNum</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>MonthNum</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>MonthNum</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                            <ddl300:VisualizationProperties>
+                                <ddl300:DefaultAggregateFunction>None</ddl300:DefaultAggregateFunction>
+                            </ddl300:VisualizationProperties>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>Month</ID>
+                            <Name>Month</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>Month</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>Month</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>AttributeKey</OrderBy>
+                            <OrderByAttributeID>MonthNum</OrderByAttributeID>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="General" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>Yr</ID>
+                            <Name>Yr</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>Yr</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>Yr</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                            <ddl300:VisualizationProperties>
+                                <ddl300:DefaultAggregateFunction>None</ddl300:DefaultAggregateFunction>
+                            </ddl300:VisualizationProperties>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>YrMo</ID>
+                            <Name>YrMo</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>YrMo</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>YrMo</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>Qtr</ID>
+                            <Name>Qtr</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>Qtr</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>Qtr</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>YrQtr</ID>
+                            <Name>YrQtr</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>YrQtr</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>YrQtr</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="General" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>WeekNum</ID>
+                            <Name>WeekNum</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>WeekNum</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>WeekNum</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                            <ddl300:VisualizationProperties>
+                                <ddl300:DefaultAggregateFunction>None</ddl300:DefaultAggregateFunction>
+                            </ddl300:VisualizationProperties>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="Text" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>DayOfWeek</ID>
+                            <Name>DayOfWeek</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>32768</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>DayOfWeek</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>32768</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>DayOfWeek</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>AttributeKey</OrderBy>
+                            <OrderByAttributeID>DayOfWeekNum</OrderByAttributeID>
+                        </Attribute>
+                        <Attribute>
+                            <Annotations>
+                                <Annotation>
+                                    <Name>Format</Name>
+                                    <Value>
+                                        <Format Format="General" xmlns="" />
+                                    </Value>
+                                </Annotation>
+                            </Annotations>
+                            <ID>DayOfWeekNum</ID>
+                            <Name>DayOfWeekNum</Name>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <NullProcessing>Preserve</NullProcessing>
+                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        <ColumnID>DayOfWeekNum</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <NameColumn>
+                                <DataType>WChar</DataType>
+                                <DataSize>-1</DataSize>
+                                <NullProcessing>ZeroOrBlank</NullProcessing>
+                                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                <Source xsi:type="ColumnBinding">
+                                    <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                    <ColumnID>DayOfWeekNum</ColumnID>
+                                </Source>
+                            </NameColumn>
+                            <OrderBy>Key</OrderBy>
+                            <ddl300:VisualizationProperties>
+                                <ddl300:DefaultAggregateFunction>None</ddl300:DefaultAggregateFunction>
+                            </ddl300:VisualizationProperties>
+                        </Attribute>
+                    </Attributes>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Dimension>
+            </Dimensions>
+            <Cubes>
+                <Cube>
+                    <ID>Model</ID>
+                    <Name>Model</Name>
+                    <Annotations>
+                        <Annotation>
+                            <Name>DefaultMeasure</Name>
+                            <Value>__No measures defined</Value>
+                        </Annotation>
+                    </Annotations>
+                    <Language>1033</Language>
+                    <Dimensions>
+                        <Dimension>
+                            <ID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</ID>
+                            <Name>PBChargeErrors</Name>
+                            <DimensionID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</DimensionID>
+                            <Attributes>
+                                <Attribute>
+                                    <AttributeID>RowNumber</AttributeID>
+                                    <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>TAR_ID</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>RULE_NM_WID</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>VIOLATE_DATE</AttributeID>
+                                    <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>AMOUNT</AttributeID>
+                                    <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>DEPT_ID</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>DEPT_NAME</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>BILLING_PROV_NM_WID</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>SERV_PROV_NM_ID</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>FINANCIAL_CLASS</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>PAYOR_NM_WID</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>BENEFIT_PLAN_NM_WID</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>SERV_AREA_ID</AttributeID>
+                                    <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>PROC_CODE</AttributeID>
+                                </Attribute>
+                            </Attributes>
+                        </Dimension>
+                        <Dimension>
+                            <ID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</ID>
+                            <Name>ERROR_DATE</Name>
+                            <DimensionID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</DimensionID>
+                            <Attributes>
+                                <Attribute>
+                                    <AttributeID>RowNumber</AttributeID>
+                                    <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>CalendarDate</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>MonthNum</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Month</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Yr</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>YrMo</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Qtr</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>YrQtr</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>WeekNum</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>DayOfWeek</AttributeID>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>DayOfWeekNum</AttributeID>
+                                </Attribute>
+                            </Attributes>
+                        </Dimension>
+                    </Dimensions>
+                    <CubePermissions>
+                        <CubePermission>
+                            <ID>CubePermission</ID>
+                            <Name>CubePermission</Name>
+                            <RoleID>Role</RoleID>
+                            <Read>Allowed</Read>
+                            <ReadSourceData>None</ReadSourceData>
+                        </CubePermission>
+                    </CubePermissions>
+                    <MeasureGroups>
+                        <MeasureGroup>
+                            <ID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</ID>
+                            <Name>PBChargeErrors</Name>
+                            <Measures>
+                                <Measure>
+                                    <ID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</ID>
+                                    <Name>_Count PBChargeErrors</Name>
+                                    <AggregateFunction>Count</AggregateFunction>
+                                    <DataType>BigInt</DataType>
+                                    <Source>
+                                        <DataType>BigInt</DataType>
+                                        <DataSize>8</DataSize>
+                                        <Source xsi:type="RowBinding">
+                                            <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                        </Source>
+                                    </Source>
+                                    <Visible>false</Visible>
+                                </Measure>
+                            </Measures>
+                            <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                            <ErrorConfiguration>
+                                <KeyNotFound>IgnoreError</KeyNotFound>
+                                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                            </ErrorConfiguration>
+                            <ProcessingMode>Regular</ProcessingMode>
+                            <Dimensions>
+                                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                                    <CubeDimensionID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</CubeDimensionID>
+                                    <Attributes>
+                                        <Attribute>
+                                            <AttributeID>RowNumber</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors</TableID>
+                                                        <ColumnID>RowNumber</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                            <Type>Granularity</Type>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>TAR_ID</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Double</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>TAR_ID</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>RULE_NM_WID</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>RULE_NM_WID</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>VIOLATE_DATE</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Date</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>VIOLATE_DATE</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>AMOUNT</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Double</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>AMOUNT</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>DEPT_ID</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Double</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>DEPT_ID</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>DEPT_NAME</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>DEPT_NAME</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>BILLING_PROV_NM_WID</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>BILLING_PROV_NM_WID</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>SERV_PROV_NM_ID</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>SERV_PROV_NM_ID</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>FINANCIAL_CLASS</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>FINANCIAL_CLASS</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>PAYOR_NM_WID</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>PAYOR_NM_WID</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>BENEFIT_PLAN_NM_WID</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>BENEFIT_PLAN_NM_WID</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>SERV_AREA_ID</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Double</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>SERV_AREA_ID</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>PROC_CODE</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</TableID>
+                                                        <ColumnID>PROC_CODE</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                    </Attributes>
+                                    <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                                </Dimension>
+                                <Dimension xsi:type="ReferenceMeasureGroupDimension">
+                                    <CubeDimensionID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</CubeDimensionID>
+                                    <Attributes>
+                                        <Attribute>
+                                            <AttributeID>RowNumber</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <DataSize>4</DataSize>
+                                                    <NullProcessing>Error</NullProcessing>
+                                                    <Source xsi:type="ddl200_200:RowNumberBinding" />
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>CalendarDate</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Date</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Error</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>CalendarDate</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                            <Type>Granularity</Type>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>MonthNum</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>MonthNum</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>Month</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>Month</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>Yr</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>Yr</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>YrMo</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>YrMo</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>Qtr</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>Qtr</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>YrQtr</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>YrQtr</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>WeekNum</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>WeekNum</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>DayOfWeek</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>DayOfWeek</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>DayOfWeekNum</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>DayOfWeekNum</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                    </Attributes>
+                                    <IntermediateCubeDimensionID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</IntermediateCubeDimensionID>
+                                    <IntermediateGranularityAttributeID>VIOLATE_DATE</IntermediateGranularityAttributeID>
+                                    <Materialization>Regular</Materialization>
+                                    <ddl300:RelationshipID>b4407ff8-77a4-4a53-a659-96b786381830</ddl300:RelationshipID>
+                                </Dimension>
+                            </Dimensions>
+                            <Partitions>
+                                <Partition>
+                                    <ID>PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb</ID>
+                                    <Name>PBChargeErrors</Name>
+                                    <Annotations>
+                                        <Annotation>
+                                            <Name>IsQueryEditorUsed</Name>
+                                            <Value>True</Value>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>QueryEditorSerialization</Name>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>TableWidgetSerialization</Name>
+                                        </Annotation>
+                                    </Annotations>
+                                    <Source xsi:type="QueryBinding">
+                                        <DataSourceID>3e673c95-10eb-4f3c-96f7-aa5d8236589d</DataSourceID>
+                                        <QueryDefinition>SELECT  "V_ARPB_CHG_REVIEW_RULES"."TAR_ID",
+"V_ARPB_CHG_REVIEW_RULES"."RULE_NM_WID", 
+"V_ARPB_CHG_REVIEW_RULES"."VIOLATE_DATE", 
+"PRE_AR_CHG"."AMOUNT", 
+"V_ARPB_CHG_REVIEW_RULES"."DEPT_ID", 
+"V_ARPB_CHG_REVIEW_RULES"."DEPT_NAME",
+"V_ARPB_CHG_REVIEW_RULES"."BILLING_PROV_NM_WID", 
+"V_ARPB_CHG_REVIEW_RULES"."SERV_PROV_NM_ID", 
+"V_ARPB_CHG_REVIEW_RULES"."FINANCIAL_CLASS", 
+"V_ARPB_CHG_REVIEW_RULES"."PAYOR_NM_WID", 
+"V_ARPB_CHG_REVIEW_RULES"."BENEFIT_PLAN_NM_WID",
+"V_ARPB_CHG_REVIEW_RULES"."SERV_AREA_ID",
+"CLARITY_EAP"."PROC_CODE"
+FROM   "Clarity"."dbo"."V_ARPB_CHG_REVIEW_RULES" "V_ARPB_CHG_REVIEW_RULES" 
+LEFT OUTER JOIN "Clarity"."dbo"."PRE_AR_CHG" "PRE_AR_CHG" ON "V_ARPB_CHG_REVIEW_RULES"."TAR_ID"="PRE_AR_CHG"."TAR_ID"
+LEFT OUTER JOIN "Clarity"."dbo"."CLARITY_EAP" "CLARITY_EAP" ON "PRE_AR_CHG"."PROC_ID"="CLARITY_EAP"."PROC_ID"
+WHERE  "V_ARPB_CHG_REVIEW_RULES"."SERV_AREA_ID"=10 AND "V_ARPB_CHG_REVIEW_RULES"."VIOLATE_DATE"&gt;={ts '2015-01-01 00:00:00'}</QueryDefinition>
+                                    </Source>
+                                    <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                                    <ProcessingMode>Regular</ProcessingMode>
+                                    <ErrorConfiguration>
+                                        <KeyNotFound>IgnoreError</KeyNotFound>
+                                        <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                                        <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                                    </ErrorConfiguration>
+                                    <ProactiveCaching>
+                                        <SilenceInterval>-PT1S</SilenceInterval>
+                                        <Latency>-PT1S</Latency>
+                                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                                    </ProactiveCaching>
+                                </Partition>
+                            </Partitions>
+                            <ProactiveCaching>
+                                <SilenceInterval>-PT1S</SilenceInterval>
+                                <Latency>-PT1S</Latency>
+                                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                                <Source xsi:type="ProactiveCachingInheritedBinding" />
+                            </ProactiveCaching>
+                        </MeasureGroup>
+                        <MeasureGroup>
+                            <ID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</ID>
+                            <Name>ERROR_DATE</Name>
+                            <Measures>
+                                <Measure>
+                                    <ID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</ID>
+                                    <Name>_Count ERROR_DATE</Name>
+                                    <AggregateFunction>Count</AggregateFunction>
+                                    <DataType>BigInt</DataType>
+                                    <Source>
+                                        <DataType>BigInt</DataType>
+                                        <DataSize>8</DataSize>
+                                        <Source xsi:type="RowBinding">
+                                            <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                        </Source>
+                                    </Source>
+                                    <Visible>false</Visible>
+                                </Measure>
+                            </Measures>
+                            <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                            <ErrorConfiguration>
+                                <KeyNotFound>IgnoreError</KeyNotFound>
+                                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                            </ErrorConfiguration>
+                            <ProcessingMode>Regular</ProcessingMode>
+                            <Dimensions>
+                                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                                    <CubeDimensionID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</CubeDimensionID>
+                                    <Attributes>
+                                        <Attribute>
+                                            <AttributeID>RowNumber</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE</TableID>
+                                                        <ColumnID>RowNumber</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                            <Type>Granularity</Type>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>CalendarDate</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Date</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Error</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>CalendarDate</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>MonthNum</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>MonthNum</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>Month</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>Month</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>Yr</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>Yr</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>YrMo</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>YrMo</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>Qtr</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>Qtr</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>YrQtr</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>YrQtr</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>WeekNum</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>WeekNum</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>DayOfWeek</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>WChar</DataType>
+                                                    <DataSize>32768</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>DayOfWeek</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>DayOfWeekNum</AttributeID>
+                                            <KeyColumns>
+                                                <KeyColumn>
+                                                    <DataType>Integer</DataType>
+                                                    <DataSize>-1</DataSize>
+                                                    <NullProcessing>Preserve</NullProcessing>
+                                                    <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                                                    <Source xsi:type="ColumnBinding">
+                                                        <TableID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</TableID>
+                                                        <ColumnID>DayOfWeekNum</ColumnID>
+                                                    </Source>
+                                                </KeyColumn>
+                                            </KeyColumns>
+                                        </Attribute>
+                                    </Attributes>
+                                    <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                                </Dimension>
+                            </Dimensions>
+                            <Partitions>
+                                <Partition>
+                                    <ID>ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7</ID>
+                                    <Name>ERROR_DATE</Name>
+                                    <Annotations>
+                                        <Annotation>
+                                            <Name>IsQueryEditorUsed</Name>
+                                            <Value>True</Value>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>QueryEditorSerialization</Name>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>TableWidgetSerialization</Name>
+                                        </Annotation>
+                                    </Annotations>
+                                    <Source xsi:type="QueryBinding">
+                                        <DataSourceID>3e673c95-10eb-4f3c-96f7-aa5d8236589d</DataSourceID>
+                                        <QueryDefinition>SELECT CALENDAR_DT as CalendarDate
+, MONTH_NUMBER as MonthNum
+, LEFT(MONTH_NAME,3) AS Month
+, YEAR as Yr
+, YEAR_MONTH as YrMo
+, QUARTER_STR AS Qtr
+, YEAR_QUARTER as YrQtr
+, WEEK_NUMBER as WeekNum
+, DAY_OF_WEEK as DayOfWeek
+, DAY_OF_WEEK_INDEX + 1 AS DayOfWeekNum
+FROM DATE_DIMENSION
+WHERE [CALENDAR_DT] &gt; '12/31/2014' AND [CALENDAR_DT] &lt; CURRENT_TIMESTAMP</QueryDefinition>
+                                    </Source>
+                                    <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                                    <ProcessingMode>Regular</ProcessingMode>
+                                    <ErrorConfiguration>
+                                        <KeyNotFound>IgnoreError</KeyNotFound>
+                                        <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                                        <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                                    </ErrorConfiguration>
+                                    <ProactiveCaching>
+                                        <SilenceInterval>-PT1S</SilenceInterval>
+                                        <Latency>-PT1S</Latency>
+                                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                                    </ProactiveCaching>
+                                </Partition>
+                            </Partitions>
+                            <ProactiveCaching>
+                                <SilenceInterval>-PT1S</SilenceInterval>
+                                <Latency>-PT1S</Latency>
+                                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                                <Source xsi:type="ProactiveCachingInheritedBinding" />
+                            </ProactiveCaching>
+                        </MeasureGroup>
+                    </MeasureGroups>
+                    <Source>
+                        <DataSourceViewID>Sandbox</DataSourceViewID>
+                    </Source>
+                    <MdxScripts>
+                        <MdxScript>
+                            <ID>MdxScript</ID>
+                            <Name>MdxScript</Name>
+                            <Commands>
+                                <Command>
+                                    <Text>CALCULATE; 
+CREATE MEMBER CURRENTCUBE.Measures.[__No measures defined] AS 1; 
+ALTER CUBE CURRENTCUBE UPDATE DIMENSION Measures, Default_Member = [__No measures defined]; </Text>
+                                </Command>
+                                <Command>
+                                    <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PBChargeErrors'[Charge Error Amt]=SUM([AMOUNT]);
+</Text>
+                                    <Annotations>
+                                        <Annotation>
+                                            <Name>FullName</Name>
+                                            <Value>Charge Error Amt</Value>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>Table</Name>
+                                            <Value>PBChargeErrors</Value>
+                                        </Annotation>
+                                    </Annotations>
+                                </Command>
+                                <Command>
+                                    <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PBChargeErrors'[Charge Error Cnt]=COUNTA([TAR_ID]);
+</Text>
+                                    <Annotations>
+                                        <Annotation>
+                                            <Name>FullName</Name>
+                                            <Value>Charge Error Cnt</Value>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>Table</Name>
+                                            <Value>PBChargeErrors</Value>
+                                        </Annotation>
+                                    </Annotations>
+                                </Command>
+                            </Commands>
+                            <CalculationProperties>
+                                <CalculationProperty>
+                                    <Annotations>
+                                        <Annotation>
+                                            <Name>Type</Name>
+                                            <Value>User</Value>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>IsPrivate</Name>
+                                            <Value>False</Value>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>Format</Name>
+                                            <Value>
+                                                <Format Format="NumberWhole" ThousandSeparator="True" xmlns="" />
+                                            </Value>
+                                        </Annotation>
+                                    </Annotations>
+                                    <CalculationReference>[Charge Error Amt]</CalculationReference>
+                                    <CalculationType>Member</CalculationType>
+                                    <FormatString>'#,0'</FormatString>
+                                </CalculationProperty>
+                                <CalculationProperty>
+                                    <Annotations>
+                                        <Annotation>
+                                            <Name>Type</Name>
+                                            <Value>User</Value>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>IsPrivate</Name>
+                                            <Value>False</Value>
+                                        </Annotation>
+                                        <Annotation>
+                                            <Name>Format</Name>
+                                            <Value>
+                                                <Format Format="NumberWhole" ThousandSeparator="True" xmlns="" />
+                                            </Value>
+                                        </Annotation>
+                                    </Annotations>
+                                    <CalculationReference>[Charge Error Cnt]</CalculationReference>
+                                    <CalculationType>Member</CalculationType>
+                                    <FormatString>'#,0'</FormatString>
+                                </CalculationProperty>
+                                <CalculationProperty>
+                                    <CalculationReference>Measures.[__No measures defined]</CalculationReference>
+                                    <CalculationType>Member</CalculationType>
+                                    <Visible>false</Visible>
+                                </CalculationProperty>
+                            </CalculationProperties>
+                        </MdxScript>
+                    </MdxScripts>
+                    <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Cube>
+            </Cubes>
+            <DataSources>
+                <DataSource xsi:type="RelationalDataSource">
+                    <ID>3e673c95-10eb-4f3c-96f7-aa5d8236589d</ID>
+                    <Name>SqlServer khepw001 Clarity</Name>
+                    <Annotations>
+                        <Annotation>
+                            <Name>ConnectionEditUISource</Name>
+                            <Value>SqlServer</Value>
+                        </Annotation>
+                    </Annotations>
+                    <ConnectionString>Provider=SQLNCLI11;Data Source=khepw001;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false</ConnectionString>
+                    <ImpersonationInfo>
+                        <ImpersonationMode>ImpersonateAccount</ImpersonationMode>
+                        <Account>KMC_NT\k50424</Account>
+                    </ImpersonationInfo>
+                    <Timeout>PT0S</Timeout>
+                </DataSource>
+            </DataSources>
+            <DataSourceViews>
+                <DataSourceView>
+                    <ID>Sandbox</ID>
+                    <Name>Sandbox</Name>
+                    <DataSourceID>3e673c95-10eb-4f3c-96f7-aa5d8236589d</DataSourceID>
+                    <Schema>
+                        <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+                            <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:Locale="en-US">
+                                <xs:complexType>
+                                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                        <xs:element name="PBChargeErrors_3c321aaa-6fad-45bc-8614-1d64f8353bbb" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="PBChargeErrors" msprop:DbTableName="PBChargeErrors" msprop:TableType="View" msprop:Description="PBChargeErrors" msprop:QueryDefinition="SELECT  &quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;TAR_ID&quot;,&#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;RULE_NM_WID&quot;, &#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;VIOLATE_DATE&quot;, &#xD;&#xA;&quot;PRE_AR_CHG&quot;.&quot;AMOUNT&quot;, &#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;DEPT_ID&quot;, &#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;DEPT_NAME&quot;,&#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;BILLING_PROV_NM_WID&quot;, &#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;SERV_PROV_NM_ID&quot;, &#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;FINANCIAL_CLASS&quot;, &#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;PAYOR_NM_WID&quot;, &#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;BENEFIT_PLAN_NM_WID&quot;,&#xD;&#xA;&quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;SERV_AREA_ID&quot;,&#xD;&#xA;&quot;CLARITY_EAP&quot;.&quot;PROC_CODE&quot;&#xD;&#xA;FROM   &quot;Clarity&quot;.&quot;dbo&quot;.&quot;V_ARPB_CHG_REVIEW_RULES&quot; &quot;V_ARPB_CHG_REVIEW_RULES&quot; &#xD;&#xA;LEFT OUTER JOIN &quot;Clarity&quot;.&quot;dbo&quot;.&quot;PRE_AR_CHG&quot; &quot;PRE_AR_CHG&quot; ON &quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;TAR_ID&quot;=&quot;PRE_AR_CHG&quot;.&quot;TAR_ID&quot;&#xD;&#xA;LEFT OUTER JOIN &quot;Clarity&quot;.&quot;dbo&quot;.&quot;CLARITY_EAP&quot; &quot;CLARITY_EAP&quot; ON &quot;PRE_AR_CHG&quot;.&quot;PROC_ID&quot;=&quot;CLARITY_EAP&quot;.&quot;PROC_ID&quot;&#xD;&#xA;WHERE  &quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;SERV_AREA_ID&quot;=10 AND &quot;V_ARPB_CHG_REVIEW_RULES&quot;.&quot;VIOLATE_DATE&quot;&gt;={ts '2015-01-01 00:00:00'}">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="TAR_ID" msprop:DbColumnName="TAR_ID" msprop:FriendlyName="TAR_ID" type="xs:decimal" minOccurs="0" />
+                                                    <xs:element name="RULE_NM_WID" msprop:DbColumnName="RULE_NM_WID" msprop:FriendlyName="RULE_NM_WID" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="VIOLATE_DATE" msprop:DbColumnName="VIOLATE_DATE" msprop:FriendlyName="VIOLATE_DATE" type="xs:dateTime" minOccurs="0" />
+                                                    <xs:element name="AMOUNT" msprop:DbColumnName="AMOUNT" msprop:FriendlyName="AMOUNT" type="xs:decimal" minOccurs="0" />
+                                                    <xs:element name="DEPT_ID" msprop:DbColumnName="DEPT_ID" msprop:FriendlyName="DEPT_ID" type="xs:decimal" minOccurs="0" />
+                                                    <xs:element name="DEPT_NAME" msprop:DbColumnName="DEPT_NAME" msprop:FriendlyName="DEPT_NAME" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="BILLING_PROV_NM_WID" msprop:DbColumnName="BILLING_PROV_NM_WID" msprop:FriendlyName="BILLING_PROV_NM_WID" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="SERV_PROV_NM_ID" msprop:DbColumnName="SERV_PROV_NM_ID" msprop:FriendlyName="SERV_PROV_NM_ID" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="FINANCIAL_CLASS" msprop:DbColumnName="FINANCIAL_CLASS" msprop:FriendlyName="FINANCIAL_CLASS" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="PAYOR_NM_WID" msprop:DbColumnName="PAYOR_NM_WID" msprop:FriendlyName="PAYOR_NM_WID" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="BENEFIT_PLAN_NM_WID" msprop:DbColumnName="BENEFIT_PLAN_NM_WID" msprop:FriendlyName="BENEFIT_PLAN_NM_WID" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="SERV_AREA_ID" msprop:DbColumnName="SERV_AREA_ID" msprop:FriendlyName="SERV_AREA_ID" type="xs:decimal" minOccurs="0" />
+                                                    <xs:element name="PROC_CODE" msprop:DbColumnName="PROC_CODE" msprop:FriendlyName="PROC_CODE" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ERROR_DATE_f865ef9e-1475-4fe4-a79c-ef34ec6ee0b7" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="ERROR_DATE" msprop:DbTableName="ERROR_DATE" msprop:TableType="View" msprop:Description="ERROR_DATE" msprop:QueryDefinition="SELECT CALENDAR_DT as CalendarDate&#xD;&#xA;, MONTH_NUMBER as MonthNum&#xD;&#xA;, LEFT(MONTH_NAME,3) AS Month&#xD;&#xA;, YEAR as Yr&#xD;&#xA;, YEAR_MONTH as YrMo&#xD;&#xA;, QUARTER_STR AS Qtr&#xD;&#xA;, YEAR_QUARTER as YrQtr&#xD;&#xA;, WEEK_NUMBER as WeekNum&#xD;&#xA;, DAY_OF_WEEK as DayOfWeek&#xD;&#xA;, DAY_OF_WEEK_INDEX + 1 AS DayOfWeekNum&#xD;&#xA;FROM DATE_DIMENSION&#xD;&#xA;WHERE [CALENDAR_DT] &gt; '12/31/2014' AND [CALENDAR_DT] &lt; CURRENT_TIMESTAMP">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="CalendarDate" msprop:DbColumnName="CalendarDate" msprop:FriendlyName="CalendarDate" type="xs:dateTime" minOccurs="0" />
+                                                    <xs:element name="MonthNum" msprop:DbColumnName="MonthNum" msprop:FriendlyName="MonthNum" type="xs:int" minOccurs="0" />
+                                                    <xs:element name="Month" msprop:DbColumnName="Month" msprop:FriendlyName="Month" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Yr" msprop:DbColumnName="Yr" msprop:FriendlyName="Yr" type="xs:int" minOccurs="0" />
+                                                    <xs:element name="YrMo" msprop:DbColumnName="YrMo" msprop:FriendlyName="YrMo" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Qtr" msprop:DbColumnName="Qtr" msprop:FriendlyName="Qtr" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="YrQtr" msprop:DbColumnName="YrQtr" msprop:FriendlyName="YrQtr" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="WeekNum" msprop:DbColumnName="WeekNum" msprop:FriendlyName="WeekNum" type="xs:int" minOccurs="0" />
+                                                    <xs:element name="DayOfWeek" msprop:DbColumnName="DayOfWeek" msprop:FriendlyName="DayOfWeek" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="32768" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="DayOfWeekNum" msprop:DbColumnName="DayOfWeekNum" msprop:FriendlyName="DayOfWeekNum" type="xs:int" minOccurs="0" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:schema>
+                        <NewDataSet xmlns="" />
+                    </Schema>
+                </DataSourceView>
+            </DataSourceViews>
+            <Roles>
+                <Role>
+                    <ID>Role</ID>
+                    <Name>Read Only</Name>
+                    <Members>
+                        <Member>
+                            <Name>KHWTAPP002\FDS_BI_Group</Name>
+                            <Sid>S-1-5-21-1730014741-3224348318-1446879774-1010</Sid>
+                        </Member>
+                    </Members>
+                </Role>
+            </Roles>
+            <DatabasePermissions>
+                <DatabasePermission>
+                    <ID>DatabasePermission</ID>
+                    <Name>DatabasePermission</Name>
+                    <RoleID>Role</RoleID>
+                    <Read>Allowed</Read>
+                </DatabasePermission>
+            </DatabasePermissions>
+        </Database>
+    </ObjectDefinition>
+</Create>
+

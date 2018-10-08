@@ -1,0 +1,6 @@
+U:\Professional Billing\Tabular Cubes\Charge Reconciliation\Charge Reconciliation\bin\Charge Reconciliation.asdatabase
+U:\Professional Billing\Tabular Cubes\Charge Reconciliation\Charge Reconciliation\bin\Charge Reconciliation.deploymenttargets
+U:\Professional Billing\Tabular Cubes\Charge Reconciliation\Charge Reconciliation\bin\Charge Reconciliation.deploymentoptions
+U:\Professional Billing\Tabular Cubes\Charge Reconciliation\Charge Reconciliation\obj\Development\Charge Reconciliation.asdatabase
+U:\Professional Billing\Tabular Cubes\Charge Reconciliation\Charge Reconciliation\obj\Development\Charge Reconciliation.deploymentoptions
+U:\Professional Billing\Tabular Cubes\Charge Reconciliation\Charge Reconciliation\obj\Development\Charge Reconciliation.deploymenttargets

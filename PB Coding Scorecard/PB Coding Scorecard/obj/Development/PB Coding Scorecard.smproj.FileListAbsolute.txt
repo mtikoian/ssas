@@ -1,0 +1,6 @@
+U:\Reports\Mercy Health\Coding Scorecard\PB Coding Scorecard\PB Coding Scorecard\bin\Model.asdatabase
+U:\Reports\Mercy Health\Coding Scorecard\PB Coding Scorecard\PB Coding Scorecard\bin\Model.deploymenttargets
+U:\Reports\Mercy Health\Coding Scorecard\PB Coding Scorecard\PB Coding Scorecard\bin\Model.deploymentoptions
+U:\Reports\Mercy Health\Coding Scorecard\PB Coding Scorecard\PB Coding Scorecard\obj\Development\Model.asdatabase
+U:\Reports\Mercy Health\Coding Scorecard\PB Coding Scorecard\PB Coding Scorecard\obj\Development\Model.deploymentoptions
+U:\Reports\Mercy Health\Coding Scorecard\PB Coding Scorecard\PB Coding Scorecard\obj\Development\Model.deploymenttargets

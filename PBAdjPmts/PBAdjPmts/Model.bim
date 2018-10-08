@@ -1,0 +1,2468 @@
+<Alter AllowCreate="true" ObjectExpansion="ExpandFull" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <Object>
+    <DatabaseID>SemanticModel</DatabaseID>
+  </Object>
+  <ObjectDefinition>
+    <Database xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400">
+      <ID>SemanticModel</ID>
+      <Name>SemanticModel</Name>
+      <Annotations>
+        <Annotation>
+          <Name>ClientCompatibilityLevel</Name>
+          <Value>300</Value>
+        </Annotation>
+      </Annotations>
+      <ddl200:CompatibilityLevel>1103</ddl200:CompatibilityLevel>
+      <ddl200_200:StorageEngineUsed>InMemory</ddl200_200:StorageEngineUsed>
+      <Language>1033</Language>
+      <DataSourceImpersonationInfo>
+        <ImpersonationMode>Default</ImpersonationMode>
+      </DataSourceImpersonationInfo>
+      <Dimensions>
+        <Dimension>
+          <ID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</ID>
+          <Name>PBAdjsPmts</Name>
+          <Annotations>
+            <Annotation>
+              <Name>TableWidgetSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>QueryEditorSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>IsQueryEditorUsed</Name>
+              <Value>True</Value>
+            </Annotation>
+          </Annotations>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+          <ErrorConfiguration>
+            <KeyNotFound>IgnoreError</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <Language>1033</Language>
+          <UnknownMemberName>Unknown</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>RowNumber</ID>
+              <Name>RowNumber</Name>
+              <Type valuens="ddl200_200">RowNumber</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>4</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ddl200_200:RowNumberBinding" />
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ddl200_200:RowNumberBinding" />
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>PYMTADJ</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PYMTADJ</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>AMOUNT</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>AMOUNT</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROC_CODE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROC_CODE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROC_NAME</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROC_NAME</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>ADJUSTMENT CAT</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>ADJUSTMENT CAT</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>FINANCIAL_CLASS_NAME</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>FINANCIAL_CLASS_NAME</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PAYOR NAME</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PAYOR NAME</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>POST_DATE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>POST_DATE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PAYMENT SOURCE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PAYMENT SOURCE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>TX_NUM</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>TX_NUM</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>ACCOUNT_ID</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>ACCOUNT_ID</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROC_NAME_WID</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROC_NAME_WID</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>USER_ID</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>USER_ID</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>NAME</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>USER NAME 1</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DEPARTMENT_ID</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DEPARTMENT_ID</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DEPARTMENT_NAME</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DEPARTMENT_NAME</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DEPT_NM_ID</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DEPT_NM_ID</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PYMTADJ</ID>
+              <Name>PYMTADJ</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>PYMT_x002F_ADJ</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>PYMT_x002F_ADJ</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>AMOUNT</ID>
+              <Name>AMOUNT</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>AMOUNT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>AMOUNT</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PROC_CODE</ID>
+              <Name>PROC_CODE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>PROC_CODE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>PROC_CODE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PROC_NAME</ID>
+              <Name>PROC_NAME</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>PROC_NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>PROC_NAME</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>ADJUSTMENT CAT</ID>
+              <Name>ADJUSTMENT CAT</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>ADJUSTMENT_x0020_CAT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>ADJUSTMENT_x0020_CAT</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>FINANCIAL_CLASS_NAME</ID>
+              <Name>FINANCIAL_CLASS_NAME</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>FINANCIAL_CLASS_NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>FINANCIAL_CLASS_NAME</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PAYOR NAME</ID>
+              <Name>PAYOR NAME</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>PAYOR_x0020_NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>PAYOR_x0020_NAME</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="DateTimeGeneral" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>POST_DATE</ID>
+              <Name>POST_DATE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Date</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>POST_DATE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>POST_DATE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+              <ddl300_300:FormatString>General Date</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PAYMENT SOURCE</ID>
+              <Name>PAYMENT SOURCE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>PAYMENT_x0020_SOURCE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>PAYMENT_x0020_SOURCE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>TX_NUM</ID>
+              <Name>TX_NUM</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>TX_NUM</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>TX_NUM</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="NumberWhole" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>ACCOUNT_ID</ID>
+              <Name>ACCOUNT_ID</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>ACCOUNT_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>ACCOUNT_ID</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>0</ddl300_300:FormatString>
+              <ddl300:VisualizationProperties>
+                <ddl300:DefaultAggregateFunction>None</ddl300:DefaultAggregateFunction>
+              </ddl300:VisualizationProperties>
+            </Attribute>
+            <Attribute>
+              <ID>PROC_NAME_WID</ID>
+              <Name>PROC_NAME_WID</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>PROC_NAME_WID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>PROC_NAME_WID</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>USER_ID</ID>
+              <Name>USER_ID</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>USER_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>USER_ID</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>NAME</ID>
+              <Name>USER NAME</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>NAME</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>DEPARTMENT_ID</ID>
+              <Name>DEPARTMENT_ID</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>DEPARTMENT_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>DEPARTMENT_ID</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>DEPARTMENT_NAME</ID>
+              <Name>DEPARTMENT_NAME</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>DEPARTMENT_NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>DEPARTMENT_NAME</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>DEPT_NM_ID</ID>
+              <Name>DEPT_NM_ID</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    <ColumnID>DEPT_NM_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                  <ColumnID>DEPT_NM_ID</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+          <ddl300_300:Relationships>
+            <ddl300_300:Relationship>
+              <ID>78108634-944a-4d4b-8701-c5c93d766c7d</ID>
+              <ddl300_300:FromRelationshipEnd>
+                <ddl300_300:Multiplicity>Many</ddl300_300:Multiplicity>
+                <ddl300:VisualizationProperties />
+                <DimensionID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</DimensionID>
+                <Attributes>
+                  <Attribute>
+                    <AttributeID>POST_DATE</AttributeID>
+                  </Attribute>
+                </Attributes>
+              </ddl300_300:FromRelationshipEnd>
+              <ddl300_300:ToRelationshipEnd>
+                <ddl300_300:Multiplicity>One</ddl300_300:Multiplicity>
+                <ddl300:VisualizationProperties />
+                <DimensionID>Post Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</DimensionID>
+                <Attributes>
+                  <Attribute>
+                    <AttributeID>CalendarDate</AttributeID>
+                  </Attribute>
+                </Attributes>
+              </ddl300_300:ToRelationshipEnd>
+            </ddl300_300:Relationship>
+          </ddl300_300:Relationships>
+        </Dimension>
+        <Dimension>
+          <ID>Post Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</ID>
+          <Name>Post Date</Name>
+          <Annotations>
+            <Annotation>
+              <Name>IsQueryEditorUsed</Name>
+              <Value>True</Value>
+            </Annotation>
+            <Annotation>
+              <Name>QueryEditorSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>TableWidgetSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>DataMarketWebBaseUrl</Name>
+            </Annotation>
+            <Annotation>
+              <Name>DataMarketWebQueryUrl</Name>
+            </Annotation>
+          </Annotations>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <Type>Time</Type>
+          <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+          <ErrorConfiguration>
+            <KeyNotFound>IgnoreError</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <Language>1033</Language>
+          <UnknownMemberName>Unknown</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>RowNumber</ID>
+              <Name>RowNumber</Name>
+              <Type valuens="ddl200_200">RowNumber</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>4</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ddl200_200:RowNumberBinding" />
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ddl200_200:RowNumberBinding" />
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>MonthNum</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>MonthNum</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Month</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Month</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Yr</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Yr</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>YrMo</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>YrMo</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Qtr</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Qtr</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>YrQtr</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>YrQtr</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>WeekNum</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>WeekNum</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DayOfWeek</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DayOfWeek</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DayOfWeekNum</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DayOfWeekNum</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="DateTimeShortDatePattern" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>CalendarDate</ID>
+              <Name>POST_DATE</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Date</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>CalendarDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>CalendarDate</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>RowNumber</AttributeID>
+                  <Cardinality>One</Cardinality>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>RowNumber</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>Short Date</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>MonthNum</ID>
+              <Name>MonthNum</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>MonthNum</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>MonthNum</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300:VisualizationProperties>
+                <ddl300:DefaultAggregateFunction>None</ddl300:DefaultAggregateFunction>
+              </ddl300:VisualizationProperties>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Month</ID>
+              <Name>Month</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>Month</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>Month</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>AttributeKey</OrderBy>
+              <OrderByAttributeID>MonthNum</OrderByAttributeID>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Yr</ID>
+              <Name>Yr</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>Yr</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>Yr</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300:VisualizationProperties>
+                <ddl300:DefaultAggregateFunction>None</ddl300:DefaultAggregateFunction>
+              </ddl300:VisualizationProperties>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>YrMo</ID>
+              <Name>YrMo</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>YrMo</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>YrMo</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Qtr</ID>
+              <Name>Qtr</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>Qtr</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>Qtr</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>YrQtr</ID>
+              <Name>YrQtr</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>YrQtr</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>YrQtr</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>WeekNum</ID>
+              <Name>WeekNum</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>WeekNum</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>WeekNum</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300:VisualizationProperties>
+                <ddl300:DefaultAggregateFunction>None</ddl300:DefaultAggregateFunction>
+              </ddl300:VisualizationProperties>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>DayOfWeek</ID>
+              <Name>DayOfWeek</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>DayOfWeek</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>DayOfWeek</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>AttributeKey</OrderBy>
+              <OrderByAttributeID>DayOfWeekNum</OrderByAttributeID>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>DayOfWeekNum</ID>
+              <Name>DayOfWeekNum</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    <ColumnID>DayOfWeekNum</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                  <ColumnID>DayOfWeekNum</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300:VisualizationProperties>
+                <ddl300:DefaultAggregateFunction>None</ddl300:DefaultAggregateFunction>
+              </ddl300:VisualizationProperties>
+            </Attribute>
+          </Attributes>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+      </Dimensions>
+      <Cubes>
+        <Cube>
+          <ID>Model</ID>
+          <Name>Model</Name>
+          <Annotations>
+            <Annotation>
+              <Name>DefaultMeasure</Name>
+              <Value>__No measures defined</Value>
+            </Annotation>
+          </Annotations>
+          <Language>1033</Language>
+          <Dimensions>
+            <Dimension>
+              <ID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</ID>
+              <Name>PBAdjsPmts</Name>
+              <DimensionID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>RowNumber</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PYMTADJ</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>AMOUNT</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROC_CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROC_NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ADJUSTMENT CAT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FINANCIAL_CLASS_NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PAYOR NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>POST_DATE</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PAYMENT SOURCE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>TX_NUM</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ACCOUNT_ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROC_NAME_WID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>USER_ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DEPARTMENT_ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DEPARTMENT_NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DEPT_NM_ID</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>Post Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</ID>
+              <Name>Post Date</Name>
+              <DimensionID>Post Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>RowNumber</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CalendarDate</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MonthNum</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Yr</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>YrMo</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Qtr</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>YrQtr</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>WeekNum</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DayOfWeek</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DayOfWeekNum</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <CubePermissions>
+            <CubePermission>
+              <ID>CubePermission</ID>
+              <Name>CubePermission</Name>
+              <RoleID>Role</RoleID>
+              <Read>Allowed</Read>
+              <ReadSourceData>None</ReadSourceData>
+            </CubePermission>
+          </CubePermissions>
+          <MeasureGroups>
+            <MeasureGroup>
+              <ID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</ID>
+              <Name>PBAdjsPmts</Name>
+              <Measures>
+                <Measure>
+                  <ID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</ID>
+                  <Name>_Count PBAdjsPmts</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <DataSize>8</DataSize>
+                    <Source xsi:type="RowBinding">
+                      <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                </Measure>
+              </Measures>
+              <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+              <ErrorConfiguration>
+                <KeyNotFound>IgnoreError</KeyNotFound>
+                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+              </ErrorConfiguration>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                  <CubeDimensionID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>RowNumber</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts</TableID>
+                            <ColumnID>RowNumber</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PYMTADJ</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>PYMT_x002F_ADJ</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>AMOUNT</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>AMOUNT</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROC_CODE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>PROC_CODE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROC_NAME</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>PROC_NAME</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>ADJUSTMENT CAT</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>ADJUSTMENT_x0020_CAT</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>FINANCIAL_CLASS_NAME</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>FINANCIAL_CLASS_NAME</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PAYOR NAME</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>PAYOR_x0020_NAME</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>POST_DATE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Date</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>POST_DATE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PAYMENT SOURCE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>PAYMENT_x0020_SOURCE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>TX_NUM</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>TX_NUM</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>ACCOUNT_ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>ACCOUNT_ID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROC_NAME_WID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>PROC_NAME_WID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>USER_ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>USER_ID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>NAME</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>NAME</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DEPARTMENT_ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>DEPARTMENT_ID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DEPARTMENT_NAME</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>DEPARTMENT_NAME</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DEPT_NM_ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</TableID>
+                            <ColumnID>DEPT_NM_ID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                  <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                </Dimension>
+                <Dimension xsi:type="ReferenceMeasureGroupDimension">
+                  <CubeDimensionID>Post Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>RowNumber</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>4</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ddl200_200:RowNumberBinding" />
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>CalendarDate</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Date</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>CalendarDate</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>MonthNum</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>MonthNum</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Month</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>Month</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Yr</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>Yr</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>YrMo</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>YrMo</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Qtr</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>Qtr</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>YrQtr</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>YrQtr</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>WeekNum</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>WeekNum</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DayOfWeek</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>DayOfWeek</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DayOfWeekNum</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>DayOfWeekNum</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                  <IntermediateCubeDimensionID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</IntermediateCubeDimensionID>
+                  <IntermediateGranularityAttributeID>POST_DATE</IntermediateGranularityAttributeID>
+                  <Materialization>Regular</Materialization>
+                  <ddl300:RelationshipID>78108634-944a-4d4b-8701-c5c93d766c7d</ddl300:RelationshipID>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156</ID>
+                  <Name>PBAdjsPmts</Name>
+                  <Annotations>
+                    <Annotation>
+                      <Name>TableWidgetSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TableWidgetSourceTable</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>QueryEditorSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsQueryEditorUsed</Name>
+                      <Value>True</Value>
+                    </Annotation>
+                  </Annotations>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>2a009f5a-8514-4032-b2d4-8766d828e127</DataSourceID>
+                    <QueryDefinition>SELECT
+											CASE WHEN C_TDL_TRAN.DETAIL_TYPE IN (2,5,11) THEN 'PAYMENT'
+											WHEN C_TDL_TRAN.DETAIL_TYPE IN (3,4,6,11,12,13) THEN 'ADJUSTMENT' END AS 'PYMT/ADJ',
+											C_TDL_TRAN.AMOUNT,
+											C_EAP.PROC_CODE,
+											C_EAP.PROC_NAME,
+											C_EAP.PROC_CODE+' - '+C_EAP.PROC_NAME as PROC_NAME_WID,
+											ZC_ADJ_CAT.NAME AS 'ADJUSTMENT CAT',
+											C_FC.FINANCIAL_CLASS_NAME,
+											CASE WHEN C_TDL_TRAN.ORIGINAL_FIN_CLASS IN (4) THEN 'SELF-PAY' ELSE
+											C_EPM.PAYOR_NAME END AS 'PAYOR NAME',
+											C_TDL_TRAN.POST_DATE,
+											--C_TDL_TRAN.DETAIL_TYPE,
+											ZC_PAYMENT_SOURCE.NAME AS 'PAYMENT SOURCE',
+											C_TDL_TRAN.TX_NUM,
+											C_TDL_TRAN.ACCOUNT_ID,
+											C_EMP.USER_ID,
+											C_EMP.NAME,
+											C_DEP.DEPARTMENT_ID,
+											C_DEP.DEPARTMENT_NAME,
+											C_DEP.DEPARTMENT_NAME + ' - ' + cast(C_DEP.DEPARTMENT_ID as varchar) as 'DEPT_NM_ID'
+											FROM    Clarity.dbo.CLARITY_TDL_TRAN C_TDL_TRAN
+											LEFT OUTER JOIN Clarity.dbo.CLARITY_EAP C_EAP ON C_TDL_TRAN.PROC_ID=C_EAP.PROC_ID
+											LEFT OUTER JOIN Clarity.dbo.CLARITY_FC C_FC ON C_TDL_TRAN.ORIGINAL_FIN_CLASS=C_FC.FINANCIAL_CLASS
+											LEFT OUTER JOIN Clarity.dbo.CLARITY_EPM C_EPM ON C_TDL_TRAN.ORIGINAL_PAYOR_ID=C_EPM.PAYOR_ID
+											LEFT OUTER JOIN Clarity.dbo.ZC_PAYMENT_SOURCE ZC_PAYMENT_SOURCE ON C_TDL_TRAN.ORIG_PAY_SOURCE_C=ZC_PAYMENT_SOURCE.PAYMENT_SOURCE_C
+											LEFT OUTER JOIN Clarity.dbo.CLARITY_EAP_2 C_EAP_2 ON C_EAP.PROC_ID=C_EAP_2.PROC_ID
+											LEFT OUTER JOIN Clarity.dbo.ZC_ADJUSTMENT_CAT ZC_ADJ_CAT ON C_EAP_2.ADJUSTMENT_CAT_C=ZC_ADJ_CAT.ADJUSTMENT_CAT_C
+											LEFT OUTER JOIN Clarity.dbo.CLARITY_EMP C_EMP on C_TDL_TRAN.USER_ID=C_EMP.USER_ID
+											LEFT OUTER JOIN Clarity.dbo.CLARITY_DEP C_DEP on C_TDL_TRAN.DEPT_ID = C_DEP.DEPARTMENT_ID
+											WHERE
+											CAST(C_TDL_TRAN.POST_DATE AS DATE) BETWEEN '01/01/2015' AND getdate()-1
+											AND C_TDL_TRAN.DETAIL_TYPE IN (2,3,4,5,6,11,12,13)
+											AND C_TDL_TRAN.SERV_AREA_ID=10</QueryDefinition>
+                  </Source>
+                  <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ErrorConfiguration>
+                    <KeyNotFound>IgnoreError</KeyNotFound>
+                    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                  </ErrorConfiguration>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+            <MeasureGroup>
+              <ID>Post Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</ID>
+              <Name>Post Date</Name>
+              <Measures>
+                <Measure>
+                  <ID>Post Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</ID>
+                  <Name>_Count Post Date</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <DataSize>8</DataSize>
+                    <Source xsi:type="RowBinding">
+                      <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                </Measure>
+              </Measures>
+              <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+              <ErrorConfiguration>
+                <KeyNotFound>IgnoreError</KeyNotFound>
+                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+              </ErrorConfiguration>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                  <CubeDimensionID>Post Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>RowNumber</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date</TableID>
+                            <ColumnID>RowNumber</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>CalendarDate</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Date</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>CalendarDate</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>MonthNum</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>MonthNum</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Month</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>Month</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Yr</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>Yr</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>YrMo</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>YrMo</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Qtr</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>Qtr</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>YrQtr</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>YrQtr</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>WeekNum</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>WeekNum</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DayOfWeek</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>DayOfWeek</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DayOfWeekNum</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</TableID>
+                            <ColumnID>DayOfWeekNum</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                  <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>Post Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc</ID>
+                  <Name>Post Date</Name>
+                  <Annotations>
+                    <Annotation>
+                      <Name>IsQueryEditorUsed</Name>
+                      <Value>True</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>QueryEditorSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TableWidgetSerialization</Name>
+                    </Annotation>
+                  </Annotations>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>2a009f5a-8514-4032-b2d4-8766d828e127</DataSourceID>
+                    <QueryDefinition>SELECT CALENDAR_DT as CalendarDate
+											, MONTH_NUMBER as MonthNum
+											, LEFT(MONTH_NAME,3) AS Month
+											, YEAR as Yr
+											, YEAR_MONTH as YrMo
+											, QUARTER_STR AS Qtr
+											, YEAR_QUARTER as YrQtr
+											, WEEK_NUMBER as WeekNum
+											, DAY_OF_WEEK as DayOfWeek
+											, DAY_OF_WEEK_INDEX + 1 AS DayOfWeekNum
+											FROM DATE_DIMENSION
+											WHERE [CALENDAR_DT] &gt; '12/31/2014' AND [CALENDAR_DT] &lt; CURRENT_TIMESTAMP</QueryDefinition>
+                  </Source>
+                  <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ErrorConfiguration>
+                    <KeyNotFound>IgnoreError</KeyNotFound>
+                    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                  </ErrorConfiguration>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+          </MeasureGroups>
+          <Source>
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <MdxScripts>
+            <MdxScript>
+              <ID>MdxScript</ID>
+              <Name>MdxScript</Name>
+              <Commands>
+                <Command>
+                  <Text>
+										CALCULATE;
+										CREATE MEMBER CURRENTCUBE.Measures.[__No measures defined] AS 1;
+										ALTER CUBE CURRENTCUBE UPDATE DIMENSION Measures, Default_Member = [__No measures defined];
+									</Text>
+                </Command>
+                <Command>
+                  <Text>
+										----------------------------------------------------------
+										-- PowerPivot measures command (do not modify manually) --
+										----------------------------------------------------------
+
+
+										CREATE MEASURE 'PBAdjsPmts'[TxAmount]=-sum([AMOUNT]);
+									</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>TxAmount</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PBAdjsPmts</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>
+										----------------------------------------------------------
+										-- PowerPivot measures command (do not modify manually) --
+										----------------------------------------------------------
+
+
+										CREATE MEASURE 'PBAdjsPmts'[Qty]=COUNT([TX_NUM]);
+									</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Qty</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PBAdjsPmts</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+              </Commands>
+              <CalculationProperties>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="NumberWhole" ThousandSeparator="True" xmlns="" />
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[TxAmount]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'#,0'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="NumberWhole" ThousandSeparator="True" xmlns="" />
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Qty]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'#,0'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <CalculationReference>Measures.[__No measures defined]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+              </CalculationProperties>
+            </MdxScript>
+          </MdxScripts>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Cube>
+      </Cubes>
+      <DataSources>
+        <DataSource xsi:type="RelationalDataSource">
+          <ID>2a009f5a-8514-4032-b2d4-8766d828e127</ID>
+          <Name>Clarity</Name>
+          <Annotations>
+            <Annotation>
+              <Name>ConnectionEditUISource</Name>
+              <Value>SqlServer</Value>
+            </Annotation>
+          </Annotations>
+          <ConnectionString>Provider=SQLNCLI11;Data Source=mdcoap100634\sql2014;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false</ConnectionString>
+          <ImpersonationInfo>
+            <ImpersonationMode>ImpersonateAccount</ImpersonationMode>
+            <Account>mdco\plow004</Account>
+          </ImpersonationInfo>
+          <Timeout>PT0S</Timeout>
+        </DataSource>
+      </DataSources>
+      <DataSourceViews>
+        <DataSourceView>
+          <ID>Sandbox</ID>
+          <Name>Sandbox</Name>
+          <DataSourceID>2a009f5a-8514-4032-b2d4-8766d828e127</DataSourceID>
+          <Schema>
+            <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+              <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:Locale="en-US">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="PBAdjsPmts_d4a4838d-a62e-4f23-ad37-c6cbf1e33156" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="PBAdjsPmts" msprop:DbTableName="PBAdjsPmts" msprop:TableType="View" msprop:Description="PBAdjsPmts" msprop:QueryDefinition="SELECT &#xD;&#xA; CASE WHEN C_TDL_TRAN.DETAIL_TYPE IN (2,5,11) THEN 'PAYMENT' &#xD;&#xA;      WHEN C_TDL_TRAN.DETAIL_TYPE IN (3,4,6,11,12,13) THEN 'ADJUSTMENT' END AS 'PYMT/ADJ', &#xD;&#xA; C_TDL_TRAN.AMOUNT,&#xD;&#xA;C_EAP.PROC_CODE, &#xD;&#xA; C_EAP.PROC_NAME, &#xD;&#xA; C_EAP.PROC_CODE+' - '+C_EAP.PROC_NAME as PROC_NAME_WID, &#xD;&#xA; ZC_ADJ_CAT.NAME AS 'ADJUSTMENT CAT', &#xD;&#xA; C_FC.FINANCIAL_CLASS_NAME, &#xD;&#xA; CASE WHEN C_TDL_TRAN.ORIGINAL_FIN_CLASS IN (4) THEN 'SELF-PAY' ELSE&#xD;&#xA;C_EPM.PAYOR_NAME END AS 'PAYOR NAME', &#xD;&#xA; C_TDL_TRAN.POST_DATE,&#xD;&#xA;--C_TDL_TRAN.DETAIL_TYPE, &#xD;&#xA; ZC_PAYMENT_SOURCE.NAME AS 'PAYMENT SOURCE', &#xD;&#xA; C_TDL_TRAN.TX_NUM, &#xD;&#xA; C_TDL_TRAN.ACCOUNT_ID,&#xD;&#xA; C_EMP.USER_ID,&#xD;&#xA; C_EMP.NAME,&#xD;&#xA;C_DEP.DEPARTMENT_ID,&#xD;&#xA;C_DEP.DEPARTMENT_NAME,&#xD;&#xA;C_DEP.DEPARTMENT_NAME + ' - ' + cast(C_DEP.DEPARTMENT_ID as varchar) as 'DEPT_NM_ID'&#xD;&#xA; FROM    Clarity.dbo.CLARITY_TDL_TRAN C_TDL_TRAN&#xD;&#xA;LEFT OUTER JOIN Clarity.dbo.CLARITY_EAP C_EAP ON C_TDL_TRAN.PROC_ID=C_EAP.PROC_ID &#xD;&#xA; LEFT OUTER JOIN Clarity.dbo.CLARITY_FC C_FC ON C_TDL_TRAN.ORIGINAL_FIN_CLASS=C_FC.FINANCIAL_CLASS&#xD;&#xA;LEFT OUTER JOIN Clarity.dbo.CLARITY_EPM C_EPM ON C_TDL_TRAN.ORIGINAL_PAYOR_ID=C_EPM.PAYOR_ID &#xD;&#xA; LEFT OUTER JOIN Clarity.dbo.ZC_PAYMENT_SOURCE ZC_PAYMENT_SOURCE ON C_TDL_TRAN.ORIG_PAY_SOURCE_C=ZC_PAYMENT_SOURCE.PAYMENT_SOURCE_C &#xD;&#xA; LEFT OUTER JOIN Clarity.dbo.CLARITY_EAP_2 C_EAP_2 ON C_EAP.PROC_ID=C_EAP_2.PROC_ID &#xD;&#xA; LEFT OUTER JOIN Clarity.dbo.ZC_ADJUSTMENT_CAT ZC_ADJ_CAT ON C_EAP_2.ADJUSTMENT_CAT_C=ZC_ADJ_CAT.ADJUSTMENT_CAT_C&#xD;&#xA; LEFT OUTER JOIN Clarity.dbo.CLARITY_EMP C_EMP on C_TDL_TRAN.USER_ID=C_EMP.USER_ID&#xD;&#xA;LEFT OUTER JOIN Clarity.dbo.CLARITY_DEP C_DEP on C_TDL_TRAN.DEPT_ID = C_DEP.DEPARTMENT_ID&#xD;&#xA; WHERE  &#xD;&#xA; CAST(C_TDL_TRAN.POST_DATE AS DATE) BETWEEN '01/01/2015' AND getdate()-1&#xD;&#xA; AND C_TDL_TRAN.DETAIL_TYPE IN (2,3,4,5,6,11,12,13) &#xD;&#xA; AND C_TDL_TRAN.SERV_AREA_ID=10">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="PYMT_x002F_ADJ" msprop:DbColumnName="PYMT/ADJ" msprop:FriendlyName="PYMTADJ" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="AMOUNT" msprop:DbColumnName="AMOUNT" msprop:FriendlyName="AMOUNT" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="PROC_CODE" msprop:DbColumnName="PROC_CODE" msprop:FriendlyName="PROC_CODE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PROC_NAME" msprop:DbColumnName="PROC_NAME" msprop:FriendlyName="PROC_NAME" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="ADJUSTMENT_x0020_CAT" msprop:DbColumnName="ADJUSTMENT CAT" msprop:FriendlyName="ADJUSTMENT CAT" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="FINANCIAL_CLASS_NAME" msprop:DbColumnName="FINANCIAL_CLASS_NAME" msprop:FriendlyName="FINANCIAL_CLASS_NAME" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PAYOR_x0020_NAME" msprop:DbColumnName="PAYOR NAME" msprop:FriendlyName="PAYOR NAME" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="POST_DATE" msprop:DbColumnName="POST_DATE" msprop:FriendlyName="POST_DATE" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="PAYMENT_x0020_SOURCE" msprop:DbColumnName="PAYMENT SOURCE" msprop:FriendlyName="PAYMENT SOURCE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TX_NUM" msprop:DbColumnName="TX_NUM" msprop:FriendlyName="TX_NUM" type="xs:int" minOccurs="0" />
+                          <xs:element name="ACCOUNT_ID" msprop:DbColumnName="ACCOUNT_ID" msprop:FriendlyName="ACCOUNT_ID" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="PROC_NAME_WID" msprop:DbColumnName="PROC_NAME_WID" msprop:FriendlyName="PROC_NAME_WID" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="USER_ID" msprop:DbColumnName="USER_ID" msprop:FriendlyName="USER_ID" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="NAME" msprop:DbColumnName="NAME" msprop:FriendlyName="NAME" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DEPARTMENT_ID" msprop:DbColumnName="DEPARTMENT_ID" msprop:FriendlyName="DEPARTMENT_ID" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="DEPARTMENT_NAME" msprop:DbColumnName="DEPARTMENT_NAME" msprop:FriendlyName="DEPARTMENT_NAME" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DEPT_NM_ID" msprop:DbColumnName="DEPT_NM_ID" msprop:FriendlyName="DEPT_NM_ID" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Post_x0020_Date_fd82dfd2-b6db-47ed-9c0a-0e3e5767decc" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="Post Date" msprop:DbTableName="Post Date" msprop:TableType="View" msprop:Description="Post Date" msprop:QueryDefinition="SELECT CALENDAR_DT as CalendarDate&#xD;&#xA;, MONTH_NUMBER as MonthNum&#xD;&#xA;, LEFT(MONTH_NAME,3) AS Month&#xD;&#xA;, YEAR as Yr&#xD;&#xA;, YEAR_MONTH as YrMo&#xD;&#xA;, QUARTER_STR AS Qtr&#xD;&#xA;, YEAR_QUARTER as YrQtr&#xD;&#xA;, WEEK_NUMBER as WeekNum&#xD;&#xA;, DAY_OF_WEEK as DayOfWeek&#xD;&#xA;, DAY_OF_WEEK_INDEX + 1 AS DayOfWeekNum&#xD;&#xA;FROM DATE_DIMENSION&#xD;&#xA;WHERE [CALENDAR_DT] &gt; '12/31/2014' AND [CALENDAR_DT] &lt; CURRENT_TIMESTAMP">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="CalendarDate" msprop:DbColumnName="CalendarDate" msprop:FriendlyName="CalendarDate" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="MonthNum" msprop:DbColumnName="MonthNum" msprop:FriendlyName="MonthNum" type="xs:int" minOccurs="0" />
+                          <xs:element name="Month" msprop:DbColumnName="Month" msprop:FriendlyName="Month" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Yr" msprop:DbColumnName="Yr" msprop:FriendlyName="Yr" type="xs:int" minOccurs="0" />
+                          <xs:element name="YrMo" msprop:DbColumnName="YrMo" msprop:FriendlyName="YrMo" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Qtr" msprop:DbColumnName="Qtr" msprop:FriendlyName="Qtr" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="YrQtr" msprop:DbColumnName="YrQtr" msprop:FriendlyName="YrQtr" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="WeekNum" msprop:DbColumnName="WeekNum" msprop:FriendlyName="WeekNum" type="xs:int" minOccurs="0" />
+                          <xs:element name="DayOfWeek" msprop:DbColumnName="DayOfWeek" msprop:FriendlyName="DayOfWeek" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DayOfWeekNum" msprop:DbColumnName="DayOfWeekNum" msprop:FriendlyName="DayOfWeekNum" type="xs:int" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:schema>
+            <NewDataSet xmlns="" />
+          </Schema>
+        </DataSourceView>
+      </DataSourceViews>
+      <Roles>
+        <Role>
+          <ID>Role</ID>
+          <Name>Read Only</Name>
+          <Members>
+            <Member>
+              <Name>S-1-5-21-1730014741-3224348318-1446879774-1010</Name>
+              <Sid>S-1-5-21-1730014741-3224348318-1446879774-1010</Sid>
+            </Member>
+          </Members>
+        </Role>
+      </Roles>
+      <DatabasePermissions>
+        <DatabasePermission>
+          <ID>DatabasePermission</ID>
+          <Name>DatabasePermission</Name>
+          <RoleID>Role</RoleID>
+          <Read>Allowed</Read>
+        </DatabasePermission>
+      </DatabasePermissions>
+    </Database>
+  </ObjectDefinition>
+</Alter>

@@ -1,0 +1,1577 @@
+<Alter AllowCreate="true" ObjectExpansion="ExpandFull" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <Object>
+    <DatabaseID>SemanticModel</DatabaseID>
+  </Object>
+  <ObjectDefinition>
+    <Database xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400">
+      <ID>SemanticModel</ID>
+      <Name>SemanticModel</Name>
+      <Annotations>
+        <Annotation>
+          <Name>ClientCompatibilityLevel</Name>
+          <Value>300</Value>
+        </Annotation>
+      </Annotations>
+      <ddl200:CompatibilityLevel>1103</ddl200:CompatibilityLevel>
+      <ddl200_200:StorageEngineUsed>InMemory</ddl200_200:StorageEngineUsed>
+      <Language>1033</Language>
+      <DataSourceImpersonationInfo>
+        <ImpersonationMode>Default</ImpersonationMode>
+      </DataSourceImpersonationInfo>
+      <Dimensions>
+        <Dimension>
+          <ID>PB Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</ID>
+          <Name>PB Adjustments</Name>
+          <Annotations>
+            <Annotation>
+              <Name>TableWidgetSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>QueryEditorSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>IsQueryEditorUsed</Name>
+              <Value>True</Value>
+            </Annotation>
+          </Annotations>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+          <ErrorConfiguration>
+            <KeyNotFound>IgnoreError</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <DimensionPermissions>
+            <DimensionPermission>
+              <ID>DimensionPermission</ID>
+              <Name>DimensionPermission</Name>
+              <RoleID>Role</RoleID>
+              <Read>Allowed</Read>
+            </DimensionPermission>
+          </DimensionPermissions>
+          <Language>1033</Language>
+          <UnknownMemberName>Unknown</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>RowNumber</ID>
+              <Name>RowNumber</Name>
+              <Type valuens="ddl200_200">RowNumber</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>4</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ddl200_200:RowNumberBinding" />
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ddl200_200:RowNumberBinding" />
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>TRANSACTION ID</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>TRANSACTION ID</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>SERVICE DATE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>SERVICE DATE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>POST DATE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>POST DATE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>YEAR-MONTH</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>YEAR-MONTH</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>REGION</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>REGION</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>LOCATION</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>LOCATION</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DEPARTMENT</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DEPARTMENT</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>SPECIALTY</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>SPECIALTY</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PAYOR</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PAYOR</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>BILLING PROVIDER</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>BILLING PROVIDER</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>USER</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>USER</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>MODULE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>MODULE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>AMOUNT</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>AMOUNT</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>ACCOUNT</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>ACCOUNT</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROCEDURE CODE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROCEDURE CODE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROCEDURE DESC</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROCEDURE DESC</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>MODIFIER ONE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>MODIFIER ONE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>MODIFIER TWO</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>MODIFIER TWO</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>ADjUSTMENT CODE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>ADjUSTMENT CODE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>ADjUSTMENT DESC</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>ADjUSTMENT DESC</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>TRANSACTION ID</ID>
+              <Name>TRANSACTION ID</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>TRANSACTION_x0020_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>TRANSACTION_x0020_ID</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>SERVICE DATE</ID>
+              <Name>SERVICE DATE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>SERVICE_x0020_DATE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>SERVICE_x0020_DATE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>POST DATE</ID>
+              <Name>POST DATE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>POST_x0020_DATE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>POST_x0020_DATE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>YEAR-MONTH</ID>
+              <Name>YEAR-MONTH</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>YEAR-MONTH</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>YEAR-MONTH</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>REGION</ID>
+              <Name>REGION</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>REGION</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>REGION</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>LOCATION</ID>
+              <Name>LOCATION</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>LOCATION</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>LOCATION</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>DEPARTMENT</ID>
+              <Name>DEPARTMENT</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>DEPARTMENT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>DEPARTMENT</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>SPECIALTY</ID>
+              <Name>SPECIALTY</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>SPECIALTY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>SPECIALTY</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PAYOR</ID>
+              <Name>PAYOR</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>PAYOR</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>PAYOR</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>BILLING PROVIDER</ID>
+              <Name>BILLING PROVIDER</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>BILLING_x0020_PROVIDER</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>BILLING_x0020_PROVIDER</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>USER</ID>
+              <Name>USER</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>USER</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>USER</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>MODULE</ID>
+              <Name>MODULE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>MODULE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>MODULE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>AMOUNT</ID>
+              <Name>AMOUNT</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>AMOUNT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>AMOUNT</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <ID>ACCOUNT</ID>
+              <Name>ACCOUNT</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>ACCOUNT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>ACCOUNT</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>PROCEDURE CODE</ID>
+              <Name>PROCEDURE CODE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>PROCEDURE_x0020_CODE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>PROCEDURE_x0020_CODE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>PROCEDURE DESC</ID>
+              <Name>PROCEDURE DESC</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>PROCEDURE_x0020_DESC</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>PROCEDURE_x0020_DESC</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>MODIFIER ONE</ID>
+              <Name>MODIFIER ONE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>MODIFIER_x0020_ONE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>MODIFIER_x0020_ONE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>MODIFIER TWO</ID>
+              <Name>MODIFIER TWO</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>MODIFIER_x0020_TWO</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>MODIFIER_x0020_TWO</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>ADjUSTMENT CODE</ID>
+              <Name>ADjUSTMENT CODE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>ADjUSTMENT_x0020_CODE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>ADjUSTMENT_x0020_CODE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>ADjUSTMENT DESC</ID>
+              <Name>ADjUSTMENT DESC</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    <ColumnID>ADjUSTMENT_x0020_DESC</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                  <ColumnID>ADjUSTMENT_x0020_DESC</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+      </Dimensions>
+      <Cubes>
+        <Cube>
+          <ID>Model</ID>
+          <Name>Model</Name>
+          <Annotations>
+            <Annotation>
+              <Name>DefaultMeasure</Name>
+              <Value>__No measures defined</Value>
+            </Annotation>
+          </Annotations>
+          <Language>1033</Language>
+          <Dimensions>
+            <Dimension>
+              <ID>PB Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</ID>
+              <Name>PB Adjustments</Name>
+              <DimensionID>PB Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>RowNumber</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>TRANSACTION ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SERVICE DATE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>POST DATE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>YEAR-MONTH</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>REGION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>LOCATION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DEPARTMENT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SPECIALTY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PAYOR</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>BILLING PROVIDER</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>USER</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MODULE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>AMOUNT</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ACCOUNT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROCEDURE CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROCEDURE DESC</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MODIFIER ONE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MODIFIER TWO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ADjUSTMENT CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ADjUSTMENT DESC</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <CubePermissions>
+            <CubePermission>
+              <ID>CubePermission</ID>
+              <Name>CubePermission</Name>
+              <RoleID>Role</RoleID>
+              <Read>Allowed</Read>
+              <ReadSourceData>None</ReadSourceData>
+            </CubePermission>
+          </CubePermissions>
+          <MeasureGroups>
+            <MeasureGroup>
+              <ID>PB Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</ID>
+              <Name>PB Adjustments</Name>
+              <Measures>
+                <Measure>
+                  <ID>PB Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</ID>
+                  <Name>_Count PB Adjustments</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <DataSize>8</DataSize>
+                    <Source xsi:type="RowBinding">
+                      <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                </Measure>
+              </Measures>
+              <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+              <ErrorConfiguration>
+                <KeyNotFound>IgnoreError</KeyNotFound>
+                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+              </ErrorConfiguration>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                  <CubeDimensionID>PB Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>RowNumber</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments</TableID>
+                            <ColumnID>RowNumber</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>TRANSACTION ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>TRANSACTION_x0020_ID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>SERVICE DATE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>SERVICE_x0020_DATE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>POST DATE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>POST_x0020_DATE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>YEAR-MONTH</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>YEAR-MONTH</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>REGION</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>REGION</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>LOCATION</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>LOCATION</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DEPARTMENT</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>DEPARTMENT</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>SPECIALTY</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>SPECIALTY</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PAYOR</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>PAYOR</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>BILLING PROVIDER</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>BILLING_x0020_PROVIDER</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>USER</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>USER</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>MODULE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>MODULE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>AMOUNT</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>AMOUNT</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>ACCOUNT</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>ACCOUNT</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROCEDURE CODE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>PROCEDURE_x0020_CODE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROCEDURE DESC</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>PROCEDURE_x0020_DESC</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>MODIFIER ONE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>MODIFIER_x0020_ONE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>MODIFIER TWO</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>MODIFIER_x0020_TWO</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>ADjUSTMENT CODE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>ADjUSTMENT_x0020_CODE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>ADjUSTMENT DESC</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</TableID>
+                            <ColumnID>ADjUSTMENT_x0020_DESC</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                  <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>PB Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926</ID>
+                  <Name>PB Adjustments</Name>
+                  <Annotations>
+                    <Annotation>
+                      <Name>TableWidgetSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TableWidgetSourceTable</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>QueryEditorSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsQueryEditorUsed</Name>
+                      <Value>True</Value>
+                    </Annotation>
+                  </Annotations>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>51eec46b-fb19-4a69-9910-d38e5a301c4f</DataSourceID>
+                    <QueryDefinition>exec ClarityCHPUtil.rpt.sp_PB_Adjustments</QueryDefinition>
+                  </Source>
+                  <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ErrorConfiguration>
+                    <KeyNotFound>IgnoreError</KeyNotFound>
+                    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                  </ErrorConfiguration>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+          </MeasureGroups>
+          <Source>
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <MdxScripts>
+            <MdxScript>
+              <ID>MdxScript</ID>
+              <Name>MdxScript</Name>
+              <Commands>
+                <Command>
+                  <Text>CALCULATE; 
+CREATE MEMBER CURRENTCUBE.Measures.[__No measures defined] AS 1; 
+ALTER CUBE CURRENTCUBE UPDATE DIMENSION Measures, Default_Member = [__No measures defined]; </Text>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB Adjustments'[Adjustment Amount]=sum([AMOUNT]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Adjustment Amount</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB Adjustments</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+              </Commands>
+              <CalculationProperties>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Adjustment Amount]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <CalculationReference>Measures.[__No measures defined]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+              </CalculationProperties>
+            </MdxScript>
+          </MdxScripts>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Cube>
+      </Cubes>
+      <DataSources>
+        <DataSource xsi:type="RelationalDataSource">
+          <ID>51eec46b-fb19-4a69-9910-d38e5a301c4f</ID>
+          <Name>ClarityCHPUtil</Name>
+          <Annotations>
+            <Annotation>
+              <Name>ConnectionEditUISource</Name>
+              <Value>SqlServer</Value>
+            </Annotation>
+          </Annotations>
+          <ConnectionString>Provider=SQLNCLI11;Data Source=mdcoap100715\sql2014;Persist Security Info=false;Integrated Security=SSPI;Initial Catalog=ClarityCHPUtil</ConnectionString>
+          <ImpersonationInfo>
+            <ImpersonationMode>ImpersonateAccount</ImpersonationMode>
+            <Account>mdco\epic777</Account>
+          </ImpersonationInfo>
+          <Timeout>PT0S</Timeout>
+        </DataSource>
+      </DataSources>
+      <DataSourceViews>
+        <DataSourceView>
+          <ID>Sandbox</ID>
+          <Name>Sandbox</Name>
+          <DataSourceID>51eec46b-fb19-4a69-9910-d38e5a301c4f</DataSourceID>
+          <Schema>
+            <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+              <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:Locale="en-US">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="PB_x0020_Adjustments_953a06a8-ad00-4df5-a141-7d7cb5f08926" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="PB Adjustments" msprop:DbTableName="PB Adjustments" msprop:TableType="View" msprop:Description="PB Adjustments" msprop:QueryDefinition="exec ClarityCHPUtil.rpt.sp_PB_Adjustments">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="TRANSACTION_x0020_ID" msprop:DbColumnName="TRANSACTION ID" msprop:FriendlyName="TRANSACTION ID" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="SERVICE_x0020_DATE" msprop:DbColumnName="SERVICE DATE" msprop:FriendlyName="SERVICE DATE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="POST_x0020_DATE" msprop:DbColumnName="POST DATE" msprop:FriendlyName="POST DATE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="YEAR-MONTH" msprop:DbColumnName="YEAR-MONTH" msprop:FriendlyName="YEAR-MONTH" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="REGION" msprop:DbColumnName="REGION" msprop:FriendlyName="REGION" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LOCATION" msprop:DbColumnName="LOCATION" msprop:FriendlyName="LOCATION" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DEPARTMENT" msprop:DbColumnName="DEPARTMENT" msprop:FriendlyName="DEPARTMENT" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SPECIALTY" msprop:DbColumnName="SPECIALTY" msprop:FriendlyName="SPECIALTY" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PAYOR" msprop:DbColumnName="PAYOR" msprop:FriendlyName="PAYOR" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="BILLING_x0020_PROVIDER" msprop:DbColumnName="BILLING PROVIDER" msprop:FriendlyName="BILLING PROVIDER" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="USER" msprop:DbColumnName="USER" msprop:FriendlyName="USER" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MODULE" msprop:DbColumnName="MODULE" msprop:FriendlyName="MODULE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="AMOUNT" msprop:DbColumnName="AMOUNT" msprop:FriendlyName="AMOUNT" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ACCOUNT" msprop:DbColumnName="ACCOUNT" msprop:FriendlyName="ACCOUNT" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PROCEDURE_x0020_CODE" msprop:DbColumnName="PROCEDURE CODE" msprop:FriendlyName="PROCEDURE CODE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PROCEDURE_x0020_DESC" msprop:DbColumnName="PROCEDURE DESC" msprop:FriendlyName="PROCEDURE DESC" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MODIFIER_x0020_ONE" msprop:DbColumnName="MODIFIER ONE" msprop:FriendlyName="MODIFIER ONE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MODIFIER_x0020_TWO" msprop:DbColumnName="MODIFIER TWO" msprop:FriendlyName="MODIFIER TWO" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="ADjUSTMENT_x0020_CODE" msprop:DbColumnName="ADjUSTMENT CODE" msprop:FriendlyName="ADjUSTMENT CODE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="ADjUSTMENT_x0020_DESC" msprop:DbColumnName="ADjUSTMENT DESC" msprop:FriendlyName="ADjUSTMENT DESC" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:schema>
+            <NewDataSet xmlns="" />
+          </Schema>
+        </DataSourceView>
+      </DataSourceViews>
+      <Roles>
+        <Role>
+          <ID>Role</ID>
+          <Name>Users</Name>
+          <Members>
+            <Member>
+              <Name>MDCO\Corp-EPIC_Clarity_PBUsers</Name>
+              <Sid>S-1-5-21-448539723-1085031214-725345543-311518</Sid>
+            </Member>
+            <Member>
+              <Name>MDCO\Corp-EPIC_Clarity_Reporting_Group</Name>
+              <Sid>S-1-5-21-448539723-1085031214-725345543-141188</Sid>
+            </Member>
+          </Members>
+        </Role>
+      </Roles>
+      <DatabasePermissions>
+        <DatabasePermission>
+          <ID>DatabasePermission</ID>
+          <Name>DatabasePermission</Name>
+          <RoleID>Role</RoleID>
+          <Read>Allowed</Read>
+        </DatabasePermission>
+      </DatabasePermissions>
+    </Database>
+  </ObjectDefinition>
+</Alter>

@@ -1,0 +1,3262 @@
+<Alter AllowCreate="true" ObjectExpansion="ExpandFull" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <Object>
+    <DatabaseID>SemanticModel</DatabaseID>
+  </Object>
+  <ObjectDefinition>
+    <Database xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400">
+      <ID>SemanticModel</ID>
+      <Name>SemanticModel</Name>
+      <Annotations>
+        <Annotation>
+          <Name>ClientCompatibilityLevel</Name>
+          <Value>300</Value>
+        </Annotation>
+      </Annotations>
+      <ddl200:CompatibilityLevel>1103</ddl200:CompatibilityLevel>
+      <ddl200_200:StorageEngineUsed>InMemory</ddl200_200:StorageEngineUsed>
+      <Language>1033</Language>
+      <DataSourceImpersonationInfo>
+        <ImpersonationMode>ImpersonateAccount</ImpersonationMode>
+        <Account>mdco\epic777</Account>
+      </DataSourceImpersonationInfo>
+      <Dimensions>
+        <Dimension>
+          <ID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</ID>
+          <Name>PB_RCL_Scorecard_Update_Metrics</Name>
+          <Annotations>
+            <Annotation>
+              <Name>TableWidgetSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>QueryEditorSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>IsQueryEditorUsed</Name>
+              <Value>True</Value>
+            </Annotation>
+          </Annotations>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+          <ErrorConfiguration>
+            <KeyNotFound>IgnoreError</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <Language>1033</Language>
+          <UnknownMemberName>Unknown</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>RowNumber</ID>
+              <Name>RowNumber</Name>
+              <Type valuens="ddl200_200">RowNumber</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>4</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ddl200_200:RowNumberBinding" />
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ddl200_200:RowNumberBinding" />
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Month_Number</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Month_Number</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Month_Name</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Month_Name</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Region</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Region</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Co-Pay Collections</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>CPC</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Past Time Filing Denials</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PTF</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>EligibilityRegistration Denials</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>E/R</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Open Encounters 31-90 Days</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Open Encounters 31-90 Days</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Open Encounters 91-365 Days</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Open Encounters 91-365 Days</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>No Show</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>NS</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>CalculatedColumn1</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>CPC Rank</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>CalculatedColumn1 1</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PTF Rank</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Eligibility Rank</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>E/R Rank</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>No Show Rank</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>NS Rank</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Month_Number</ID>
+              <Name>Month_Number</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>BigInt</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    <ColumnID>Month_Number</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                  <ColumnID>Month_Number</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Month_Name</ID>
+              <Name>Month_Name</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    <ColumnID>Month_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                  <ColumnID>Month_Name</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Region</ID>
+              <Name>Region</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    <ColumnID>Region</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                  <ColumnID>Region</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Percentage" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Co-Pay Collections</ID>
+              <Name>CPC</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    <ColumnID>Co-Pay_x0020_Collections_x0020__x0025_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                  <ColumnID>Co-Pay_x0020_Collections_x0020__x0025_</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>0 %;-0 %;0 %</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Percentage" Accuracy="2" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Past Time Filing Denials</ID>
+              <Name>PTF</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    <ColumnID>Past_x0020_Time_x0020_Filing_x0020_Denials</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                  <ColumnID>Past_x0020_Time_x0020_Filing_x0020_Denials</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>0.00 %;-0.00 %;0.00 %</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Percentage" Accuracy="2" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>EligibilityRegistration Denials</ID>
+              <Name>E/R</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    <ColumnID>Eligibility_x002F_Registration_x0020_Denials</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                  <ColumnID>Eligibility_x002F_Registration_x0020_Denials</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>0.00 %;-0.00 %;0.00 %</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Open Encounters 31-90 Days</ID>
+              <Name>Open Encounters 31-90 Days</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    <ColumnID>Open_x0020_Encounters_x0020_31-90_x0020_Days</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                  <ColumnID>Open_x0020_Encounters_x0020_31-90_x0020_Days</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Open Encounters 91-365 Days</ID>
+              <Name>Open Encounters 91-365 Days</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    <ColumnID>Open_x0020_Encounters_x0020_91-365_x0020_Days</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                  <ColumnID>Open_x0020_Encounters_x0020_91-365_x0020_Days</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Percentage" Accuracy="2" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>No Show</ID>
+              <Name>NS</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    <ColumnID>No_x0020_Show_x0020__x0025_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                  <ColumnID>No_x0020_Show_x0020__x0025_</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>0.00 %;-0.00 %;0.00 %</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>CalculatedColumn1</ID>
+              <Name>CPC Rank</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Empty</DataType>
+                  <Source xsi:type="ddl200_200:ExpressionBinding">
+                    <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[CPC]),[CPC],,,dense)</Expression>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ddl200_200:ExpressionBinding">
+                  <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[CPC]),[CPC],,,dense)</Expression>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>CalculatedColumn1 1</ID>
+              <Name>PTF Rank</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Empty</DataType>
+                  <Source xsi:type="ddl200_200:ExpressionBinding">
+                    <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[PTF]),[PTF],,asc,dense)</Expression>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ddl200_200:ExpressionBinding">
+                  <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[PTF]),[PTF],,asc,dense)</Expression>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Eligibility Rank</ID>
+              <Name>E/R Rank</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Empty</DataType>
+                  <Source xsi:type="ddl200_200:ExpressionBinding">
+                    <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[E/R]),[E/R],,asc,dense)</Expression>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ddl200_200:ExpressionBinding">
+                  <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[E/R]),[E/R],,asc,dense)</Expression>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>No Show Rank</ID>
+              <Name>NS Rank</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Empty</DataType>
+                  <Source xsi:type="ddl200_200:ExpressionBinding">
+                    <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[NS]),[NS],,asc,dense)</Expression>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ddl200_200:ExpressionBinding">
+                  <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[NS]),[NS],,asc,dense)</Expression>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+        <Dimension>
+          <ID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</ID>
+          <Name>PB_RCL_Scorecard_ECC</Name>
+          <Annotations>
+            <Annotation>
+              <Name>IsQueryEditorUsed</Name>
+              <Value>True</Value>
+            </Annotation>
+            <Annotation>
+              <Name>QueryEditorSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>TableWidgetSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>DataMarketWebBaseUrl</Name>
+            </Annotation>
+            <Annotation>
+              <Name>DataMarketWebQueryUrl</Name>
+            </Annotation>
+          </Annotations>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+          <ErrorConfiguration>
+            <KeyNotFound>IgnoreError</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <Language>1033</Language>
+          <UnknownMemberName>Unknown</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>RowNumber</ID>
+              <Name>RowNumber</Name>
+              <Type valuens="ddl200_200">RowNumber</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>4</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ddl200_200:RowNumberBinding" />
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ddl200_200:RowNumberBinding" />
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Utilizing</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Utilizing</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Not Utilizing</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Not Utilizing</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Total</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Total</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Add Column2</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Add Column2</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Utilizing</ID>
+              <Name>Utilizing</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</TableID>
+                    <ColumnID>Utilizing</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</TableID>
+                  <ColumnID>Utilizing</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Not Utilizing</ID>
+              <Name>Not Utilizing</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</TableID>
+                    <ColumnID>Not_x0020_Utilizing</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</TableID>
+                  <ColumnID>Not_x0020_Utilizing</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Total</ID>
+              <Name>Total</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Empty</DataType>
+                  <Source xsi:type="ddl200_200:ExpressionBinding">
+                    <Expression>[Utilizing]+[Not Utilizing]</Expression>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ddl200_200:ExpressionBinding">
+                  <Expression>[Utilizing]+[Not Utilizing]</Expression>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Add Column2</ID>
+              <Name>Add Column2</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Empty</DataType>
+                  <Source xsi:type="ddl200_200:ExpressionBinding">
+                    <Expression></Expression>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ddl200_200:ExpressionBinding">
+                  <Expression></Expression>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+        <Dimension>
+          <ID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</ID>
+          <Name>PB_RCL_Scorecard_Initiatives</Name>
+          <Annotations>
+            <Annotation>
+              <Name>IsQueryEditorUsed</Name>
+              <Value>True</Value>
+            </Annotation>
+            <Annotation>
+              <Name>QueryEditorSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>TableWidgetSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>DataMarketWebBaseUrl</Name>
+            </Annotation>
+            <Annotation>
+              <Name>DataMarketWebQueryUrl</Name>
+            </Annotation>
+          </Annotations>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+          <ErrorConfiguration>
+            <KeyNotFound>IgnoreError</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <Language>1033</Language>
+          <UnknownMemberName>Unknown</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>RowNumber</ID>
+              <Name>RowNumber</Name>
+              <Type valuens="ddl200_200">RowNumber</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>4</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ddl200_200:RowNumberBinding" />
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ddl200_200:RowNumberBinding" />
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Region</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Region</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Denial Avoidance</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Denial Avoidance</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Bad Debt Avoidance</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Bad Debt Avoidance</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Clinical Doc Improvement</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Clinical Doc Improvement</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Charge Capture</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Charge Capture</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>Payment Variance</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Payment Variance</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>CalculatedColumn1</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>Total</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Region</ID>
+              <Name>Region</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                    <ColumnID>Region</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                  <ColumnID>Region</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Currency" Accuracy="2" xmlns="">
+                      <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                    </Format>
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Denial Avoidance</ID>
+              <Name>Denial Avoidance</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>BigInt</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                    <ColumnID>Denial_x0020_Avoidance</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                  <ColumnID>Denial_x0020_Avoidance</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>\$#,0.00;(\$#,0.00);\$#,0.00</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Currency" Accuracy="2" xmlns="">
+                      <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                    </Format>
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Bad Debt Avoidance</ID>
+              <Name>Bad Debt Avoidance</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>BigInt</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                    <ColumnID>Bad_x0020_Debt_x0020_Avoidance</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                  <ColumnID>Bad_x0020_Debt_x0020_Avoidance</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>\$#,0.00;(\$#,0.00);\$#,0.00</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Currency" Accuracy="2" xmlns="">
+                      <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                    </Format>
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Clinical Doc Improvement</ID>
+              <Name>Clinical Doc Improvement</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>BigInt</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                    <ColumnID>Clinical_x0020_Doc_x0020_Improvement</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                  <ColumnID>Clinical_x0020_Doc_x0020_Improvement</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>\$#,0.00;(\$#,0.00);\$#,0.00</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Currency" Accuracy="2" xmlns="">
+                      <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                    </Format>
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Charge Capture</ID>
+              <Name>Charge Capture</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>BigInt</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                    <ColumnID>Charge_x0020_Capture</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                  <ColumnID>Charge_x0020_Capture</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>\$#,0.00;(\$#,0.00);\$#,0.00</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Currency" Accuracy="2" xmlns="">
+                      <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                    </Format>
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>Payment Variance</ID>
+              <Name>Payment Variance</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>BigInt</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                    <ColumnID>Payment_x0020_Variance</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                  <ColumnID>Payment_x0020_Variance</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>\$#,0.00;(\$#,0.00);\$#,0.00</ddl300_300:FormatString>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Currency" Accuracy="2" xmlns="">
+                      <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                    </Format>
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>CalculatedColumn1</ID>
+              <Name>Total</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ddl200_200:ExpressionBinding">
+                    <Expression>([Denial Avoidance])+([Bad Debt Avoidance])+([Clinical Doc Improvement])+([Charge Capture])+([Payment Variance])</Expression>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <Source xsi:type="ddl200_200:ExpressionBinding">
+                  <Expression>([Denial Avoidance])+([Bad Debt Avoidance])+([Clinical Doc Improvement])+([Charge Capture])+([Payment Variance])</Expression>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>\$#,0.00;(\$#,0.00);\$#,0.00</ddl300_300:FormatString>
+            </Attribute>
+          </Attributes>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+      </Dimensions>
+      <Cubes>
+        <Cube>
+          <ID>Model</ID>
+          <Name>Model</Name>
+          <Annotations>
+            <Annotation>
+              <Name>DefaultMeasure</Name>
+              <Value>__No measures defined</Value>
+            </Annotation>
+          </Annotations>
+          <Language>1033</Language>
+          <Dimensions>
+            <Dimension>
+              <ID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</ID>
+              <Name>PB_RCL_Scorecard_Update_Metrics</Name>
+              <DimensionID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>RowNumber</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month_Number</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month_Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Region</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Co-Pay Collections</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Past Time Filing Denials</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>EligibilityRegistration Denials</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Open Encounters 31-90 Days</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Open Encounters 91-365 Days</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>No Show</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CalculatedColumn1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CalculatedColumn1 1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Eligibility Rank</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>No Show Rank</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</ID>
+              <Name>PB_RCL_Scorecard_ECC</Name>
+              <DimensionID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>RowNumber</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Utilizing</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Not Utilizing</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Total</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Add Column2</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</ID>
+              <Name>PB_RCL_Scorecard_Initiatives</Name>
+              <DimensionID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>RowNumber</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Region</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Denial Avoidance</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Bad Debt Avoidance</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Clinical Doc Improvement</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Charge Capture</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Payment Variance</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CalculatedColumn1</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <CubePermissions>
+            <CubePermission>
+              <ID>CubePermission</ID>
+              <Name>CubePermission</Name>
+              <RoleID>Role</RoleID>
+              <Read>Allowed</Read>
+              <ReadSourceData>None</ReadSourceData>
+            </CubePermission>
+          </CubePermissions>
+          <MeasureGroups>
+            <MeasureGroup>
+              <ID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</ID>
+              <Name>PB_RCL_Scorecard_Update_Metrics</Name>
+              <Measures>
+                <Measure>
+                  <ID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</ID>
+                  <Name>_Count PB_RCL_Scorecard_Update_Metrics</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <DataSize>8</DataSize>
+                    <Source xsi:type="RowBinding">
+                      <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                </Measure>
+              </Measures>
+              <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+              <ErrorConfiguration>
+                <KeyNotFound>IgnoreError</KeyNotFound>
+                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+              </ErrorConfiguration>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                  <CubeDimensionID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>RowNumber</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics</TableID>
+                            <ColumnID>RowNumber</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Month_Number</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>BigInt</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                            <ColumnID>Month_Number</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Month_Name</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                            <ColumnID>Month_Name</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Region</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                            <ColumnID>Region</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Co-Pay Collections</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                            <ColumnID>Co-Pay_x0020_Collections_x0020__x0025_</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Past Time Filing Denials</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                            <ColumnID>Past_x0020_Time_x0020_Filing_x0020_Denials</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>EligibilityRegistration Denials</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                            <ColumnID>Eligibility_x002F_Registration_x0020_Denials</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Open Encounters 31-90 Days</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                            <ColumnID>Open_x0020_Encounters_x0020_31-90_x0020_Days</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Open Encounters 91-365 Days</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                            <ColumnID>Open_x0020_Encounters_x0020_91-365_x0020_Days</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>No Show</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</TableID>
+                            <ColumnID>No_x0020_Show_x0020__x0025_</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>CalculatedColumn1</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Empty</DataType>
+                          <Source xsi:type="ddl200_200:ExpressionBinding">
+                            <Expression>RANKX(ALL('PB_RCL_Scorecard_Update_Metrics', [Region] = EARLIER([Region])), PB_RCL_Scorecard_Update_Metrics[Co-Pay Collections])</Expression>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>CalculatedColumn1 1</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Empty</DataType>
+                          <Source xsi:type="ddl200_200:ExpressionBinding">
+                            <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[Past Time Filing Denials]),[Past Time Filing Denials])</Expression>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Eligibility Rank</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Empty</DataType>
+                          <Source xsi:type="ddl200_200:ExpressionBinding">
+                            <Expression>RANKX(FILTER(ALL(PB_RCL_Scorecard_Update_Metrics[EligibilityRegistration Denials]),[EligibilityRegistration Denials]),[Month_Number],,1)</Expression>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>No Show Rank</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Empty</DataType>
+                          <Source xsi:type="ddl200_200:ExpressionBinding">
+                            <Expression>RANKX(ALL(PB_RCL_Scorecard_Update_Metrics[No Show]),[No Show],,asc,dense)</Expression>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                  <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714</ID>
+                  <Name>PB_RCL_Scorecard_Update_Metrics</Name>
+                  <Annotations>
+                    <Annotation>
+                      <Name>TableWidgetSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TableWidgetSourceTable</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>QueryEditorSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsQueryEditorUsed</Name>
+                      <Value>True</Value>
+                    </Annotation>
+                  </Annotations>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>7ce5541d-8422-4678-8d69-819b2d99348d</DataSourceID>
+                    <QueryDefinition>select * from PB_RCL_Scorecard_Update_Metrics</QueryDefinition>
+                  </Source>
+                  <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ErrorConfiguration>
+                    <KeyNotFound>IgnoreError</KeyNotFound>
+                    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                  </ErrorConfiguration>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+            <MeasureGroup>
+              <ID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</ID>
+              <Name>PB_RCL_Scorecard_ECC</Name>
+              <Measures>
+                <Measure>
+                  <ID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</ID>
+                  <Name>_Count PB_RCL_Scorecard_ECC</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <DataSize>8</DataSize>
+                    <Source xsi:type="RowBinding">
+                      <TableID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</TableID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                </Measure>
+              </Measures>
+              <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+              <ErrorConfiguration>
+                <KeyNotFound>IgnoreError</KeyNotFound>
+                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+              </ErrorConfiguration>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                  <CubeDimensionID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>RowNumber</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_ECC</TableID>
+                            <ColumnID>RowNumber</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Utilizing</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</TableID>
+                            <ColumnID>Utilizing</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Not Utilizing</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</TableID>
+                            <ColumnID>Not_x0020_Utilizing</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Total</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Empty</DataType>
+                          <Source xsi:type="ddl200_200:ExpressionBinding">
+                            <Expression>[Utilizing]+[Not Utilizing]</Expression>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Add Column2</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Empty</DataType>
+                          <Source xsi:type="ddl200_200:ExpressionBinding">
+                            <Expression></Expression>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                  <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f</ID>
+                  <Name>PB_RCL_Scorecard_ECC</Name>
+                  <Annotations>
+                    <Annotation>
+                      <Name>IsQueryEditorUsed</Name>
+                      <Value>True</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>QueryEditorSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TableWidgetSerialization</Name>
+                    </Annotation>
+                  </Annotations>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>7ce5541d-8422-4678-8d69-819b2d99348d</DataSourceID>
+                    <QueryDefinition>select * from claritychputil.rpt.pb_rcl_scorecard_ecc</QueryDefinition>
+                  </Source>
+                  <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ErrorConfiguration>
+                    <KeyNotFound>IgnoreError</KeyNotFound>
+                    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                  </ErrorConfiguration>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+            <MeasureGroup>
+              <ID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</ID>
+              <Name>PB_RCL_Scorecard_Initiatives</Name>
+              <Measures>
+                <Measure>
+                  <ID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</ID>
+                  <Name>_Count PB_RCL_Scorecard_Initiatives</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <DataSize>8</DataSize>
+                    <Source xsi:type="RowBinding">
+                      <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                </Measure>
+              </Measures>
+              <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+              <ErrorConfiguration>
+                <KeyNotFound>IgnoreError</KeyNotFound>
+                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+              </ErrorConfiguration>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                  <CubeDimensionID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>RowNumber</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Initiatives</TableID>
+                            <ColumnID>RowNumber</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Region</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                            <ColumnID>Region</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Denial Avoidance</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>BigInt</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                            <ColumnID>Denial_x0020_Avoidance</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Bad Debt Avoidance</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>BigInt</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                            <ColumnID>Bad_x0020_Debt_x0020_Avoidance</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Clinical Doc Improvement</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>BigInt</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                            <ColumnID>Clinical_x0020_Doc_x0020_Improvement</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Charge Capture</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>BigInt</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                            <ColumnID>Charge_x0020_Capture</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>Payment Variance</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>BigInt</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</TableID>
+                            <ColumnID>Payment_x0020_Variance</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>CalculatedColumn1</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>BigInt</DataType>
+                          <Source xsi:type="ddl200_200:ExpressionBinding">
+                            <Expression>([Denial Avoidance])+([Bad Debt Avoidance])+([Clinical Doc Improvement])+([Charge Capture])+([Payment Variance])</Expression>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                  <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015</ID>
+                  <Name>PB_RCL_Scorecard_Initiatives</Name>
+                  <Annotations>
+                    <Annotation>
+                      <Name>IsQueryEditorUsed</Name>
+                      <Value>True</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>QueryEditorSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TableWidgetSerialization</Name>
+                    </Annotation>
+                  </Annotations>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>7ce5541d-8422-4678-8d69-819b2d99348d</DataSourceID>
+                    <QueryDefinition>select * from claritychputil.rpt.PB_RCL_Scorecard_Initiatives</QueryDefinition>
+                  </Source>
+                  <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ErrorConfiguration>
+                    <KeyNotFound>IgnoreError</KeyNotFound>
+                    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                  </ErrorConfiguration>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+          </MeasureGroups>
+          <Source>
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <MdxScripts>
+            <MdxScript>
+              <ID>MdxScript</ID>
+              <Name>MdxScript</Name>
+              <Commands>
+                <Command>
+                  <Text>CALCULATE; 
+CREATE MEMBER CURRENTCUBE.Measures.[__No measures defined] AS 1; 
+ALTER CUBE CURRENTCUBE UPDATE DIMENSION Measures, Default_Member = [__No measures defined]; </Text>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[Copay Goal]=.95;
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Copay Goal</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[Past Time Goal]=.01;
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Past Time Goal</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[Elig/Reg Denial Goal]=.02;
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Elig/Reg Denial Goal</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[No Show Goal]=.04;
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>No Show Goal</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_ECC'[Utilzation %]=sum([Utilizing])/sum([total]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Utilzation %</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_ECC</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Denial Avoidance Target]=185955;
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Denial Avoidance Target</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Bad Debt Avoidance Target]=31734;
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Bad Debt Avoidance Target</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Clin Doc Target]=87852;
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Clin Doc Target</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Charge Capture Target]=62933;
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Charge Capture Target</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Payment Variance Target]=0;
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Payment Variance Target</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Denial Avoidance YTD]=CALCULATE(sum([Denial Avoidance]),FILTER(PB_RCL_Scorecard_Initiatives,PB_RCL_Scorecard_Initiatives[Region]&lt;&gt;"Defiance"));
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Denial Avoidance YTD</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Bad Debt Avoidance YTD]=CALCULATE(sum([Bad Debt Avoidance]),FILTER(PB_RCL_Scorecard_Initiatives,PB_RCL_Scorecard_Initiatives[Region]&lt;&gt;"Defiance"));
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Bad Debt Avoidance YTD</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Clin Doc YTD]=CALCULATE(sum([Clinical Doc Improvement]),FILTER(PB_RCL_Scorecard_Initiatives,PB_RCL_Scorecard_Initiatives[Region]&lt;&gt;"Defiance"));
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Clin Doc YTD</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Charge Capture YTD]=CALCULATE(sum([Charge Capture]),FILTER(PB_RCL_Scorecard_Initiatives,PB_RCL_Scorecard_Initiatives[Region]&lt;&gt;"Defiance"));
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Charge Capture YTD</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Initiatives'[Payment Variance YTD]=CALCULATE(sum([Payment Variance]),FILTER(PB_RCL_Scorecard_Initiatives,PB_RCL_Scorecard_Initiatives[Region]&lt;&gt;"Defiance"));
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>Payment Variance YTD</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Initiatives</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[PTF %]=AVERAGE(PB_RCL_Scorecard_Update_Metrics[PTF]);
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[_PTF % Goal] = 'PB_RCL_Scorecard_Update_Metrics'[Past Time Goal]; 
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[_PTF % Status] = if(ISBLANK('PB_RCL_Scorecard_Update_Metrics'[PTF %]/'PB_RCL_Scorecard_Update_Metrics'[_PTF % Goal]),BLANK(),
+        If('PB_RCL_Scorecard_Update_Metrics'[PTF %]/'PB_RCL_Scorecard_Update_Metrics'[_PTF % Goal]&lt;1,1,
+	    If('PB_RCL_Scorecard_Update_Metrics'[PTF %]/'PB_RCL_Scorecard_Update_Metrics'[_PTF % Goal]&lt;1.001,0,-1)
+    )
+)
+; 
+CREATE KPI CURRENTCUBE.[PTF %] AS Measures.[PTF %], ASSOCIATED_MEASURE_GROUP = 'PB_RCL_Scorecard_Update_Metrics', GOAL = Measures.[_PTF % Goal], STATUS = Measures.[_PTF % Status], STATUS_GRAPHIC = 'Three Symbols UnCircled Colored';
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>PTF %</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[E/R %]=AVERAGE([E/R]);
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[_E/R % Goal] = 'PB_RCL_Scorecard_Update_Metrics'[Elig/Reg Denial Goal]; 
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[_E/R % Status] = if(ISBLANK('PB_RCL_Scorecard_Update_Metrics'[E/R %]/'PB_RCL_Scorecard_Update_Metrics'[_E/R % Goal]),BLANK(),
+        If('PB_RCL_Scorecard_Update_Metrics'[E/R %]/'PB_RCL_Scorecard_Update_Metrics'[_E/R % Goal]&lt;1,1,
+	    If('PB_RCL_Scorecard_Update_Metrics'[E/R %]/'PB_RCL_Scorecard_Update_Metrics'[_E/R % Goal]&lt;1.001,0,-1)
+    )
+)
+; 
+CREATE KPI CURRENTCUBE.[E/R %] AS Measures.[E/R %], ASSOCIATED_MEASURE_GROUP = 'PB_RCL_Scorecard_Update_Metrics', GOAL = Measures.[_E/R % Goal], STATUS = Measures.[_E/R % Status], STATUS_GRAPHIC = 'Three Symbols UnCircled Colored';
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>E/R %</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[NS %]=average([NS]);
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[_NS % Goal] = 'PB_RCL_Scorecard_Update_Metrics'[No Show Goal]; 
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[_NS % Status] = if(ISBLANK('PB_RCL_Scorecard_Update_Metrics'[NS %]/'PB_RCL_Scorecard_Update_Metrics'[_NS % Goal]),BLANK(),
+        If('PB_RCL_Scorecard_Update_Metrics'[NS %]/'PB_RCL_Scorecard_Update_Metrics'[_NS % Goal]&lt;1,1,
+	    If('PB_RCL_Scorecard_Update_Metrics'[NS %]/'PB_RCL_Scorecard_Update_Metrics'[_NS % Goal]&lt;1.001,0,-1)
+    )
+)
+; 
+CREATE KPI CURRENTCUBE.[NS %] AS Measures.[NS %], ASSOCIATED_MEASURE_GROUP = 'PB_RCL_Scorecard_Update_Metrics', GOAL = Measures.[_NS % Goal], STATUS = Measures.[_NS % Status], STATUS_GRAPHIC = 'Three Symbols UnCircled Colored';
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>NS %</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[CPC %]=AVERAGE(PB_RCL_Scorecard_Update_Metrics[CPC]);
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[_CPC % Goal] = 'PB_RCL_Scorecard_Update_Metrics'[Copay Goal]; 
+CREATE MEASURE 'PB_RCL_Scorecard_Update_Metrics'[_CPC % Status] = if(ISBLANK('PB_RCL_Scorecard_Update_Metrics'[CPC %]/'PB_RCL_Scorecard_Update_Metrics'[_CPC % Goal]),BLANK(),
+        If('PB_RCL_Scorecard_Update_Metrics'[CPC %]/'PB_RCL_Scorecard_Update_Metrics'[_CPC % Goal]&lt;0.999,-1,
+	    If('PB_RCL_Scorecard_Update_Metrics'[CPC %]/'PB_RCL_Scorecard_Update_Metrics'[_CPC % Goal]&lt;1,0,1)
+    )
+)
+; 
+CREATE KPI CURRENTCUBE.[CPC %] AS Measures.[CPC %], ASSOCIATED_MEASURE_GROUP = 'PB_RCL_Scorecard_Update_Metrics', GOAL = Measures.[_CPC % Goal], STATUS = Measures.[_CPC % Status], STATUS_GRAPHIC = 'Three Symbols UnCircled Colored';
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>CPC %</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+              </Commands>
+              <CalculationProperties>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Percentage" Accuracy="2" xmlns="" />
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Copay Goal]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'0.00 %;-0.00 %;0.00 %'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Percentage" Accuracy="2" xmlns="" />
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Past Time Goal]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'0.00 %;-0.00 %;0.00 %'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Percentage" Accuracy="2" xmlns="" />
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Elig/Reg Denial Goal]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'0.00 %;-0.00 %;0.00 %'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Percentage" Accuracy="2" xmlns="" />
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[No Show Goal]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'0.00 %;-0.00 %;0.00 %'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Percentage" Accuracy="2" xmlns="" />
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Utilzation %]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'0.00 %;-0.00 %;0.00 %'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Denial Avoidance Target]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Bad Debt Avoidance Target]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Clin Doc Target]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Charge Capture Target]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Payment Variance Target]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Denial Avoidance YTD]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Bad Debt Avoidance YTD]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Clin Doc YTD]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Charge Capture YTD]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[Payment Variance YTD]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>Kpi</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Percentage" Accuracy="2" xmlns="" />
+                      </Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiStatusType</Name>
+                      <Value>LinearReversed</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdType</Name>
+                      <Value>Percentage</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdOrdering</Name>
+                      <Value>Ascending</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdCount</Name>
+                      <Value>2</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThreshold_0</Name>
+                      <Value>100</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThreshold_1</Name>
+                      <Value>100.1</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>ValueDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>StatusDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TrendDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalMeasure</Name>
+                      <Value>Past Time Goal</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalMeasureTableName</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[PTF %]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'0.00 %;-0.00 %;0.00 %'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportMdx</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>PTF %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[_PTF % Goal]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportMdx</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>PTF %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[_PTF % Status]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportKpi</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>PTF %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>KPIs.[PTF %]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>Kpi</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Percentage" Accuracy="2" xmlns="" />
+                      </Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiStatusType</Name>
+                      <Value>LinearReversed</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdType</Name>
+                      <Value>Percentage</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdOrdering</Name>
+                      <Value>Ascending</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdCount</Name>
+                      <Value>2</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThreshold_0</Name>
+                      <Value>100</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThreshold_1</Name>
+                      <Value>100.1</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>ValueDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>StatusDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TrendDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalMeasure</Name>
+                      <Value>Elig/Reg Denial Goal</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalMeasureTableName</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[E/R %]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'0.00 %;-0.00 %;0.00 %'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportMdx</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>E/R %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[_E/R % Goal]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportMdx</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>E/R %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[_E/R % Status]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportKpi</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>E/R %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>KPIs.[E/R %]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>Kpi</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Percentage" Accuracy="2" xmlns="" />
+                      </Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiStatusType</Name>
+                      <Value>LinearReversed</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdType</Name>
+                      <Value>Percentage</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdOrdering</Name>
+                      <Value>Ascending</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdCount</Name>
+                      <Value>2</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThreshold_0</Name>
+                      <Value>100</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThreshold_1</Name>
+                      <Value>100.1</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>ValueDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>StatusDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TrendDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalMeasure</Name>
+                      <Value>No Show Goal</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalMeasureTableName</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[NS %]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'0.00 %;-0.00 %;0.00 %'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportMdx</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>NS %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[_NS % Goal]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportMdx</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>NS %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[_NS % Status]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportKpi</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>NS %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>KPIs.[NS %]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>Kpi</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Percentage" Accuracy="2" xmlns="" />
+                      </Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiStatusType</Name>
+                      <Value>Linear</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdType</Name>
+                      <Value>Percentage</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdOrdering</Name>
+                      <Value>Ascending</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThresholdCount</Name>
+                      <Value>2</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThreshold_0</Name>
+                      <Value>99.9</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>KpiThreshold_1</Name>
+                      <Value>100</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>ValueDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>StatusDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TrendDescription</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalMeasure</Name>
+                      <Value>Copay Goal</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>GoalMeasureTableName</Name>
+                      <Value>PB_RCL_Scorecard_Update_Metrics</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[CPC %]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'0.00 %;-0.00 %;0.00 %'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportMdx</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>CPC %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[_CPC % Goal]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportMdx</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>CPC %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[_CPC % Status]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>SupportKpi</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectType</Name>
+                      <Value>Measure</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>MainObjectName</Name>
+                      <Value>CPC %</Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>KPIs.[CPC %]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <CalculationReference>Measures.[__No measures defined]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+              </CalculationProperties>
+            </MdxScript>
+          </MdxScripts>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Cube>
+      </Cubes>
+      <DataSources>
+        <DataSource xsi:type="RelationalDataSource">
+          <ID>7ce5541d-8422-4678-8d69-819b2d99348d</ID>
+          <Name>ClarityCHPUtil</Name>
+          <Annotations>
+            <Annotation>
+              <Name>ConnectionEditUISource</Name>
+              <Value>SqlServer</Value>
+            </Annotation>
+          </Annotations>
+          <ConnectionString>Provider=SQLNCLI11;Data Source=mdcoap100715\sql2014;Initial Catalog=ClarityCHPUtil;Integrated Security=SSPI;Persist Security Info=false</ConnectionString>
+          <ImpersonationInfo>
+            <ImpersonationMode>ImpersonateAccount</ImpersonationMode>
+            <Account>mdco\plow004</Account>
+          </ImpersonationInfo>
+          <Timeout>PT0S</Timeout>
+        </DataSource>
+      </DataSources>
+      <DataSourceViews>
+        <DataSourceView>
+          <ID>Sandbox</ID>
+          <Name>Sandbox</Name>
+          <DataSourceID>7ce5541d-8422-4678-8d69-819b2d99348d</DataSourceID>
+          <Schema>
+            <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+              <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:Locale="en-US">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="PB_RCL_Scorecard_Update_Metrics_b9a1db0b-dbe5-43bd-9dc0-a8e1139da714" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="PB_RCL_Scorecard_Update_Metrics" msprop:DbTableName="PB_RCL_Scorecard_Update_Metrics" msprop:TableType="View" msprop:Description="PB_RCL_Scorecard_Update_Metrics" msprop:QueryDefinition="select * from PB_RCL_Scorecard_Update_Metrics">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Month_Number" msprop:DbColumnName="Month_Number" msprop:FriendlyName="Month_Number" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Month_Name" msprop:DbColumnName="Month_Name" msprop:FriendlyName="Month_Name" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Region" msprop:DbColumnName="Region" msprop:FriendlyName="Region" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Co-Pay_x0020_Collections_x0020__x0025_" msprop:DbColumnName="Co-Pay Collections %" msprop:FriendlyName="Co-Pay Collections" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Past_x0020_Time_x0020_Filing_x0020_Denials" msprop:DbColumnName="Past Time Filing Denials" msprop:FriendlyName="Past Time Filing Denials" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Eligibility_x002F_Registration_x0020_Denials" msprop:DbColumnName="Eligibility/Registration Denials" msprop:FriendlyName="EligibilityRegistration Denials" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Open_x0020_Encounters_x0020_31-90_x0020_Days" msprop:DbColumnName="Open Encounters 31-90 Days" msprop:FriendlyName="Open Encounters 31-90 Days" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Open_x0020_Encounters_x0020_91-365_x0020_Days" msprop:DbColumnName="Open Encounters 91-365 Days" msprop:FriendlyName="Open Encounters 91-365 Days" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="No_x0020_Show_x0020__x0025_" msprop:DbColumnName="No Show %" msprop:FriendlyName="No Show" type="xs:decimal" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="PB_RCL_Scorecard_ECC_06c984ec-8c0f-4a97-8e46-837c810a946f" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="PB_RCL_Scorecard_ECC" msprop:DbTableName="PB_RCL_Scorecard_ECC" msprop:TableType="View" msprop:Description="PB_RCL_Scorecard_ECC" msprop:QueryDefinition="select * from claritychputil.rpt.pb_rcl_scorecard_ecc">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Utilizing" msprop:DbColumnName="Utilizing" msprop:FriendlyName="Utilizing" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Not_x0020_Utilizing" msprop:DbColumnName="Not Utilizing" msprop:FriendlyName="Not Utilizing" type="xs:decimal" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="PB_RCL_Scorecard_Initiatives_3e18b58d-074e-42ae-89d8-ae2a3b63a015" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="PB_RCL_Scorecard_Initiatives" msprop:DbTableName="PB_RCL_Scorecard_Initiatives" msprop:TableType="View" msprop:Description="PB_RCL_Scorecard_Initiatives" msprop:QueryDefinition="select * from claritychputil.rpt.PB_RCL_Scorecard_Initiatives">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Region" msprop:DbColumnName="Region" msprop:FriendlyName="Region" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Denial_x0020_Avoidance" msprop:DbColumnName="Denial Avoidance" msprop:FriendlyName="Denial Avoidance" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Bad_x0020_Debt_x0020_Avoidance" msprop:DbColumnName="Bad Debt Avoidance" msprop:FriendlyName="Bad Debt Avoidance" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Clinical_x0020_Doc_x0020_Improvement" msprop:DbColumnName="Clinical Doc Improvement" msprop:FriendlyName="Clinical Doc Improvement" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Charge_x0020_Capture" msprop:DbColumnName="Charge Capture" msprop:FriendlyName="Charge Capture" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="Payment_x0020_Variance" msprop:DbColumnName="Payment Variance" msprop:FriendlyName="Payment Variance" type="xs:decimal" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:schema>
+            <NewDataSet xmlns="" />
+          </Schema>
+        </DataSourceView>
+      </DataSourceViews>
+      <Roles>
+        <Role>
+          <ID>Role</ID>
+          <Name>Users</Name>
+          <Members>
+            <Member>
+              <Name>MDCO\Corp-EPIC_Clarity_PBUsers</Name>
+              <Sid>S-1-5-21-448539723-1085031214-725345543-311518</Sid>
+            </Member>
+            <Member>
+              <Name>MDCO\Corp-EPIC_Clarity_Reporting_Group</Name>
+              <Sid>S-1-5-21-448539723-1085031214-725345543-141188</Sid>
+            </Member>
+          </Members>
+        </Role>
+      </Roles>
+      <DatabasePermissions>
+        <DatabasePermission>
+          <ID>DatabasePermission</ID>
+          <Name>DatabasePermission</Name>
+          <RoleID>Role</RoleID>
+          <Read>Allowed</Read>
+        </DatabasePermission>
+      </DatabasePermissions>
+    </Database>
+  </ObjectDefinition>
+</Alter>

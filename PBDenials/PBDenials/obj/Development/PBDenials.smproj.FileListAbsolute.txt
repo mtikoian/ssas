@@ -1,0 +1,6 @@
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBDenials\PBDenials\bin\Model.asdatabase
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBDenials\PBDenials\bin\Model.deploymenttargets
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBDenials\PBDenials\bin\Model.deploymentoptions
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBDenials\PBDenials\obj\Development\Model.asdatabase
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBDenials\PBDenials\obj\Development\Model.deploymentoptions
+C:\Users\plow004\Dropbox\Professional Billing\Cubes\PBDenials\PBDenials\obj\Development\Model.deploymenttargets

@@ -1,0 +1,2570 @@
+<Alter AllowCreate="true" ObjectExpansion="ExpandFull" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <Object>
+    <DatabaseID>SemanticModel</DatabaseID>
+  </Object>
+  <ObjectDefinition>
+    <Database xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400">
+      <ID>SemanticModel</ID>
+      <Name>SemanticModel</Name>
+      <Annotations>
+        <Annotation>
+          <Name>ClientCompatibilityLevel</Name>
+          <Value>300</Value>
+        </Annotation>
+      </Annotations>
+      <ddl200:CompatibilityLevel>1103</ddl200:CompatibilityLevel>
+      <ddl200_200:StorageEngineUsed>InMemory</ddl200_200:StorageEngineUsed>
+      <Language>1033</Language>
+      <DataSourceImpersonationInfo>
+        <ImpersonationMode>Default</ImpersonationMode>
+      </DataSourceImpersonationInfo>
+      <Dimensions>
+        <Dimension>
+          <ID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</ID>
+          <Name>PB_Reimbursement</Name>
+          <Annotations>
+            <Annotation>
+              <Name>TableWidgetSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>QueryEditorSerialization</Name>
+            </Annotation>
+            <Annotation>
+              <Name>IsQueryEditorUsed</Name>
+              <Value>True</Value>
+            </Annotation>
+          </Annotations>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
+          <ErrorConfiguration>
+            <KeyNotFound>IgnoreError</KeyNotFound>
+            <KeyDuplicate>ReportAndStop</KeyDuplicate>
+            <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+          </ErrorConfiguration>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <Language>1033</Language>
+          <UnknownMemberName>Unknown</UnknownMemberName>
+          <Attributes>
+            <Attribute>
+              <ID>RowNumber</ID>
+              <Name>RowNumber</Name>
+              <Type valuens="ddl200_200">RowNumber</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <DataSize>4</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ddl200_200:RowNumberBinding" />
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ddl200_200:RowNumberBinding" />
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>YEAR-MONTH</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>YEAR-MONTH</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>SERVICE DATE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>SERVICE DATE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>REGION</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>REGION</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>LOCATION</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>LOCATION</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DEPARTMENT</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DEPARTMENT</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>SPECIALTY</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>SPECIALTY</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PLACE OF SERVICE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PLACE OF SERVICE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>POS TYPE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>POS TYPE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROCEDURE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROCEDURE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PAYOR</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PAYOR</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PLAN</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PLAN</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>FINIANCIAL CLASS</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>FINIANCIAL CLASS</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROVIDER</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROVIDER</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PAYMENT ID</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PAYMENT ID</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>ALLOWED</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>ALLOWED</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PAID</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PAID</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>COPAY</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>COPAY</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>CO-INSURANCE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>CO-INSURANCE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>COORDINATION OF BENEFITS</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>COORDINATION OF BENEFITS</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>DEDUCTIBLE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>DEDUCTIBLE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>EXPECTED</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>EXPECTED</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>MODIFIER 1</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>MODIFIER 1</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>MODIFIER 2</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>MODIFIER 2</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>MODIFIER 3</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>MODIFIER 3</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>MODIFIER 4</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>MODIFIER 4</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>CLAIM STATUS</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>CLAIM STATUS</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>INVOICE STATUS</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>INVOICE STATUS</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROVIDER TYPE</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROVIDER TYPE</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>BILLED</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>BILLED</Name>
+                </AttributeRelationship>
+                <AttributeRelationship>
+                  <AttributeID>PROC QUANTITY</AttributeID>
+                  <OverrideBehavior>None</OverrideBehavior>
+                  <Name>PROC QUANTITY</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>YEAR-MONTH</ID>
+              <Name>YEAR-MONTH</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>YEAR-MONTH</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>YEAR-MONTH</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>SERVICE DATE</ID>
+              <Name>SERVICE DATE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>SERVICE_x0020_DATE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>SERVICE_x0020_DATE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>REGION</ID>
+              <Name>REGION</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>REGION</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>REGION</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>LOCATION</ID>
+              <Name>LOCATION</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>LOCATION</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>LOCATION</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>DEPARTMENT</ID>
+              <Name>DEPARTMENT</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>DEPARTMENT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>DEPARTMENT</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>SPECIALTY</ID>
+              <Name>SPECIALTY</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>SPECIALTY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>SPECIALTY</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PLACE OF SERVICE</ID>
+              <Name>PLACE OF SERVICE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>PLACE_x0020_OF_x0020_SERVICE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>PLACE_x0020_OF_x0020_SERVICE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>POS TYPE</ID>
+              <Name>POS TYPE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>POS_x0020_TYPE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>POS_x0020_TYPE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PROCEDURE</ID>
+              <Name>PROCEDURE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>PROCEDURE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>PROCEDURE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PAYOR</ID>
+              <Name>PAYOR</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>PAYOR</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>PAYOR</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PLAN</ID>
+              <Name>PLAN</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>PLAN</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>PLAN</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>FINIANCIAL CLASS</ID>
+              <Name>FINIANCIAL CLASS</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>FINIANCIAL_x0020_CLASS</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>FINIANCIAL_x0020_CLASS</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PROVIDER</ID>
+              <Name>PROVIDER</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>PROVIDER</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>PROVIDER</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PAYMENT ID</ID>
+              <Name>PAYMENT ID</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>PAYMENT_x0020_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>PAYMENT_x0020_ID</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>ALLOWED</ID>
+              <Name>ALLOWED</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>ALLOWED</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>ALLOWED</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PAID</ID>
+              <Name>PAID</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>PAID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>PAID</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>COPAY</ID>
+              <Name>COPAY</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>COPAY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>COPAY</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>CO-INSURANCE</ID>
+              <Name>CO-INSURANCE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>CO-INSURANCE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>CO-INSURANCE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>COORDINATION OF BENEFITS</ID>
+              <Name>COORDINATION OF BENEFITS</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>COORDINATION_x0020_OF_x0020_BENEFITS</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>COORDINATION_x0020_OF_x0020_BENEFITS</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>DEDUCTIBLE</ID>
+              <Name>DEDUCTIBLE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>DEDUCTIBLE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>DEDUCTIBLE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="General" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>EXPECTED</ID>
+              <Name>EXPECTED</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>EXPECTED</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>EXPECTED</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>MODIFIER 1</ID>
+              <Name>MODIFIER 1</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>MODIFIER_x0020_1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>MODIFIER_x0020_1</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>MODIFIER 2</ID>
+              <Name>MODIFIER 2</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>MODIFIER_x0020_2</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>MODIFIER_x0020_2</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>MODIFIER 3</ID>
+              <Name>MODIFIER 3</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>MODIFIER_x0020_3</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>MODIFIER_x0020_3</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>MODIFIER 4</ID>
+              <Name>MODIFIER 4</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>MODIFIER_x0020_4</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>MODIFIER_x0020_4</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>CLAIM STATUS</ID>
+              <Name>CLAIM STATUS</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>CLAIM_x0020_STATUS</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>CLAIM_x0020_STATUS</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="Text" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>INVOICE STATUS</ID>
+              <Name>INVOICE STATUS</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>INVOICE_x0020_STATUS</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>INVOICE_x0020_STATUS</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>PROVIDER TYPE</ID>
+              <Name>PROVIDER TYPE</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>32768</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>PROVIDER_x0020_TYPE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>32768</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>PROVIDER_x0020_TYPE</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>BILLED</ID>
+              <Name>BILLED</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>BILLED</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>BILLED</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <Annotations>
+                <Annotation>
+                  <Name>Format</Name>
+                  <Value>
+                    <Format Format="NumberDecimal" Accuracy="2" xmlns="" />
+                  </Value>
+                </Annotation>
+              </Annotations>
+              <ID>PROC QUANTITY</ID>
+              <Name>PROC QUANTITY</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Double</DataType>
+                  <DataSize>-1</DataSize>
+                  <NullProcessing>Preserve</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    <ColumnID>PROC_x0020_QUANTITY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>-1</DataSize>
+                <NullProcessing>ZeroOrBlank</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                  <ColumnID>PROC_x0020_QUANTITY</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+              <ddl300_300:FormatString>0.00</ddl300_300:FormatString>
+            </Attribute>
+          </Attributes>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Dimension>
+      </Dimensions>
+      <Cubes>
+        <Cube>
+          <ID>Model</ID>
+          <Name>Model</Name>
+          <Annotations>
+            <Annotation>
+              <Name>DefaultMeasure</Name>
+              <Value>__No measures defined</Value>
+            </Annotation>
+          </Annotations>
+          <Language>1033</Language>
+          <Dimensions>
+            <Dimension>
+              <ID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</ID>
+              <Name>PB_Reimbursement</Name>
+              <DimensionID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>RowNumber</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>YEAR-MONTH</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SERVICE DATE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>REGION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>LOCATION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DEPARTMENT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SPECIALTY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PLACE OF SERVICE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>POS TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROCEDURE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PAYOR</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PLAN</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FINIANCIAL CLASS</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROVIDER</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PAYMENT ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ALLOWED</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PAID</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>COPAY</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CO-INSURANCE</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>COORDINATION OF BENEFITS</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DEDUCTIBLE</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>EXPECTED</AttributeID>
+                  <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MODIFIER 1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MODIFIER 2</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MODIFIER 3</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MODIFIER 4</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CLAIM STATUS</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>INVOICE STATUS</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROVIDER TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>BILLED</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROC QUANTITY</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <CubePermissions>
+            <CubePermission>
+              <ID>CubePermission</ID>
+              <Name>CubePermission</Name>
+              <RoleID>Role</RoleID>
+              <Read>Allowed</Read>
+              <ReadSourceData>None</ReadSourceData>
+            </CubePermission>
+          </CubePermissions>
+          <MeasureGroups>
+            <MeasureGroup>
+              <ID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</ID>
+              <Name>PB_Reimbursement</Name>
+              <Measures>
+                <Measure>
+                  <ID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</ID>
+                  <Name>_Count PB_Reimbursement</Name>
+                  <AggregateFunction>Count</AggregateFunction>
+                  <DataType>BigInt</DataType>
+                  <Source>
+                    <DataType>BigInt</DataType>
+                    <DataSize>8</DataSize>
+                    <Source xsi:type="RowBinding">
+                      <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                </Measure>
+              </Measures>
+              <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+              <ErrorConfiguration>
+                <KeyNotFound>IgnoreError</KeyNotFound>
+                <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+              </ErrorConfiguration>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="DegenerateMeasureGroupDimension">
+                  <CubeDimensionID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>RowNumber</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement</TableID>
+                            <ColumnID>RowNumber</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>YEAR-MONTH</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>YEAR-MONTH</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>SERVICE DATE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>SERVICE_x0020_DATE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>REGION</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>REGION</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>LOCATION</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>LOCATION</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DEPARTMENT</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>DEPARTMENT</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>SPECIALTY</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>SPECIALTY</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PLACE OF SERVICE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>PLACE_x0020_OF_x0020_SERVICE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>POS TYPE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>POS_x0020_TYPE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROCEDURE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>PROCEDURE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PAYOR</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>PAYOR</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PLAN</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>PLAN</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>FINIANCIAL CLASS</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>FINIANCIAL_x0020_CLASS</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROVIDER</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>PROVIDER</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PAYMENT ID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>PAYMENT_x0020_ID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>ALLOWED</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>ALLOWED</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PAID</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>PAID</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>COPAY</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>COPAY</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>CO-INSURANCE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>CO-INSURANCE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>COORDINATION OF BENEFITS</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>COORDINATION_x0020_OF_x0020_BENEFITS</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>DEDUCTIBLE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>DEDUCTIBLE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>EXPECTED</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>EXPECTED</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>MODIFIER 1</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>MODIFIER_x0020_1</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>MODIFIER 2</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>MODIFIER_x0020_2</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>MODIFIER 3</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>MODIFIER_x0020_3</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>MODIFIER 4</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>MODIFIER_x0020_4</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>CLAIM STATUS</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>CLAIM_x0020_STATUS</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>INVOICE STATUS</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <InvalidXmlCharacters>Remove</InvalidXmlCharacters>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>INVOICE_x0020_STATUS</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROVIDER TYPE</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>32768</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>PROVIDER_x0020_TYPE</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>BILLED</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>BILLED</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                    <Attribute>
+                      <AttributeID>PROC QUANTITY</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Double</DataType>
+                          <DataSize>-1</DataSize>
+                          <NullProcessing>Preserve</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</TableID>
+                            <ColumnID>PROC_x0020_QUANTITY</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                    </Attribute>
+                  </Attributes>
+                  <ddl200_200:ShareDimensionStorage>Shared</ddl200_200:ShareDimensionStorage>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a</ID>
+                  <Name>PB_Reimbursement</Name>
+                  <Annotations>
+                    <Annotation>
+                      <Name>TableWidgetSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>TableWidgetSourceTable</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>QueryEditorSerialization</Name>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsQueryEditorUsed</Name>
+                      <Value>True</Value>
+                    </Annotation>
+                  </Annotations>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>9e323848-3669-482e-ac42-a7276731fa2c</DataSourceID>
+                    <QueryDefinition>exec ClarityCHPUtil.rpt.sp_PB_Reimbursement</QueryDefinition>
+                  </Source>
+                  <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                  <ErrorConfiguration>
+                    <KeyNotFound>IgnoreError</KeyNotFound>
+                    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+                    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+                  </ErrorConfiguration>
+                  <ProactiveCaching>
+                    <SilenceInterval>-PT1S</SilenceInterval>
+                    <Latency>-PT1S</Latency>
+                    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                    <Source xsi:type="ProactiveCachingInheritedBinding" />
+                  </ProactiveCaching>
+                </Partition>
+              </Partitions>
+              <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+              </ProactiveCaching>
+            </MeasureGroup>
+          </MeasureGroups>
+          <Source>
+            <DataSourceViewID>Sandbox</DataSourceViewID>
+          </Source>
+          <MdxScripts>
+            <MdxScript>
+              <ID>MdxScript</ID>
+              <Name>MdxScript</Name>
+              <Commands>
+                <Command>
+                  <Text>CALCULATE; 
+CREATE MEMBER CURRENTCUBE.Measures.[__No measures defined] AS 1; 
+ALTER CUBE CURRENTCUBE UPDATE DIMENSION Measures, Default_Member = [__No measures defined]; </Text>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_Reimbursement'[COPAY AMT]=sum([COPAY]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>COPAY AMT</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_Reimbursement</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_Reimbursement'[ALLOWED AMT]=sum([ALLOWED]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>ALLOWED AMT</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_Reimbursement</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_Reimbursement'[PAID AMT]=sum([PAID]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>PAID AMT</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_Reimbursement</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_Reimbursement'[CO-INSURANCE AMT]=sum([CO-INSURANCE]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>CO-INSURANCE AMT</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_Reimbursement</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_Reimbursement'[COB AMT]=sum([COORDINATION OF BENEFITS]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>COB AMT</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_Reimbursement</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_Reimbursement'[EXPECTED AMT]=sum([EXPECTED]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>EXPECTED AMT</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_Reimbursement</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_Reimbursement'[DEDUCTIBLE AMT]=sum([DEDUCTIBLE]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>DEDUCTIBLE AMT</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_Reimbursement</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_Reimbursement'[BILLED AMT]=sum([BILLED]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>BILLED AMT</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_Reimbursement</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+                <Command>
+                  <Text>----------------------------------------------------------
+-- PowerPivot measures command (do not modify manually) --
+----------------------------------------------------------
+
+
+CREATE MEASURE 'PB_Reimbursement'[PROCEDURE QUANTITY]=sum([PROC QUANTITY]);
+</Text>
+                  <Annotations>
+                    <Annotation>
+                      <Name>FullName</Name>
+                      <Value>PROCEDURE QUANTITY</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Table</Name>
+                      <Value>PB_Reimbursement</Value>
+                    </Annotation>
+                  </Annotations>
+                </Command>
+              </Commands>
+              <CalculationProperties>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[COPAY AMT]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[ALLOWED AMT]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[PAID AMT]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[CO-INSURANCE AMT]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[COB AMT]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[EXPECTED AMT]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[DEDUCTIBLE AMT]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="Currency" Accuracy="2" xmlns="">
+                          <Currency LCID="1033" DisplayName="$ English (United States)" Symbol="$" PositivePattern="0" NegativePattern="0" />
+                        </Format>
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[BILLED AMT]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'\$#,0.00;(\$#,0.00);\$#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <Annotations>
+                    <Annotation>
+                      <Name>Type</Name>
+                      <Value>User</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>IsPrivate</Name>
+                      <Value>False</Value>
+                    </Annotation>
+                    <Annotation>
+                      <Name>Format</Name>
+                      <Value>
+                        <Format Format="NumberDecimal" Accuracy="2" ThousandSeparator="True" xmlns="" />
+                      </Value>
+                    </Annotation>
+                  </Annotations>
+                  <CalculationReference>[PROCEDURE QUANTITY]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <FormatString>'#,0.00'</FormatString>
+                </CalculationProperty>
+                <CalculationProperty>
+                  <CalculationReference>Measures.[__No measures defined]</CalculationReference>
+                  <CalculationType>Member</CalculationType>
+                  <Visible>false</Visible>
+                </CalculationProperty>
+              </CalculationProperties>
+            </MdxScript>
+          </MdxScripts>
+          <StorageMode valuens="ddl200_200">InMemory</StorageMode>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+        </Cube>
+      </Cubes>
+      <DataSources>
+        <DataSource xsi:type="RelationalDataSource">
+          <ID>9e323848-3669-482e-ac42-a7276731fa2c</ID>
+          <Name>ClarityCHPUtil</Name>
+          <Annotations>
+            <Annotation>
+              <Name>ConnectionEditUISource</Name>
+              <Value>SqlServer</Value>
+            </Annotation>
+          </Annotations>
+          <ConnectionString>Provider=SQLNCLI11;Data Source=mdcoap100634\sql2014;Integrated Security=SSPI;Persist Security Info=false;Initial Catalog=ClarityCHPUtil</ConnectionString>
+          <ImpersonationInfo>
+            <ImpersonationMode>ImpersonateAccount</ImpersonationMode>
+            <Account>mdco\epic777</Account>
+          </ImpersonationInfo>
+          <Timeout>PT0S</Timeout>
+        </DataSource>
+      </DataSources>
+      <DataSourceViews>
+        <DataSourceView>
+          <ID>Sandbox</ID>
+          <Name>Sandbox</Name>
+          <DataSourceID>9e323848-3669-482e-ac42-a7276731fa2c</DataSourceID>
+          <Schema>
+            <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+              <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:Locale="en-US">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="PB_Reimbursement_dfdab969-a36c-4a13-8648-a3738d53054a" msdata:Locale="" msprop:IsLogical="True" msprop:FriendlyName="PB_Reimbursement" msprop:DbTableName="PB_Reimbursement" msprop:TableType="View" msprop:Description="PB_Reimbursement" msprop:QueryDefinition="exec ClarityCHPUtil.rpt.sp_PB_Reimbursement">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="YEAR-MONTH" msprop:DbColumnName="YEAR-MONTH" msprop:FriendlyName="YEAR-MONTH" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SERVICE_x0020_DATE" msprop:DbColumnName="SERVICE DATE" msprop:FriendlyName="SERVICE DATE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="REGION" msprop:DbColumnName="REGION" msprop:FriendlyName="REGION" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LOCATION" msprop:DbColumnName="LOCATION" msprop:FriendlyName="LOCATION" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DEPARTMENT" msprop:DbColumnName="DEPARTMENT" msprop:FriendlyName="DEPARTMENT" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SPECIALTY" msprop:DbColumnName="SPECIALTY" msprop:FriendlyName="SPECIALTY" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PLACE_x0020_OF_x0020_SERVICE" msprop:DbColumnName="PLACE OF SERVICE" msprop:FriendlyName="PLACE OF SERVICE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="POS_x0020_TYPE" msprop:DbColumnName="POS TYPE" msprop:FriendlyName="POS TYPE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PROCEDURE" msprop:DbColumnName="PROCEDURE" msprop:FriendlyName="PROCEDURE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PAYOR" msprop:DbColumnName="PAYOR" msprop:FriendlyName="PAYOR" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PLAN" msprop:DbColumnName="PLAN" msprop:FriendlyName="PLAN" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="FINIANCIAL_x0020_CLASS" msprop:DbColumnName="FINIANCIAL CLASS" msprop:FriendlyName="FINIANCIAL CLASS" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PROVIDER" msprop:DbColumnName="PROVIDER" msprop:FriendlyName="PROVIDER" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PAYMENT_x0020_ID" msprop:DbColumnName="PAYMENT ID" msprop:FriendlyName="PAYMENT ID" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ALLOWED" msprop:DbColumnName="ALLOWED" msprop:FriendlyName="ALLOWED" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="PAID" msprop:DbColumnName="PAID" msprop:FriendlyName="PAID" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="COPAY" msprop:DbColumnName="COPAY" msprop:FriendlyName="COPAY" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="CO-INSURANCE" msprop:DbColumnName="CO-INSURANCE" msprop:FriendlyName="CO-INSURANCE" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="COORDINATION_x0020_OF_x0020_BENEFITS" msprop:DbColumnName="COORDINATION OF BENEFITS" msprop:FriendlyName="COORDINATION OF BENEFITS" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="DEDUCTIBLE" msprop:DbColumnName="DEDUCTIBLE" msprop:FriendlyName="DEDUCTIBLE" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="EXPECTED" msprop:DbColumnName="EXPECTED" msprop:FriendlyName="EXPECTED" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="MODIFIER_x0020_1" msprop:DbColumnName="MODIFIER 1" msprop:FriendlyName="MODIFIER 1" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MODIFIER_x0020_2" msprop:DbColumnName="MODIFIER 2" msprop:FriendlyName="MODIFIER 2" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MODIFIER_x0020_3" msprop:DbColumnName="MODIFIER 3" msprop:FriendlyName="MODIFIER 3" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MODIFIER_x0020_4" msprop:DbColumnName="MODIFIER 4" msprop:FriendlyName="MODIFIER 4" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CLAIM_x0020_STATUS" msprop:DbColumnName="CLAIM STATUS" msprop:FriendlyName="CLAIM STATUS" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="INVOICE_x0020_STATUS" msprop:DbColumnName="INVOICE STATUS" msprop:FriendlyName="INVOICE STATUS" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PROVIDER_x0020_TYPE" msprop:DbColumnName="PROVIDER TYPE" msprop:FriendlyName="PROVIDER TYPE" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="32768" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="BILLED" msprop:DbColumnName="BILLED" msprop:FriendlyName="BILLED" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="PROC_x0020_QUANTITY" msprop:DbColumnName="PROC QUANTITY" msprop:FriendlyName="PROC QUANTITY" type="xs:decimal" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:schema>
+            <NewDataSet xmlns="" />
+          </Schema>
+        </DataSourceView>
+      </DataSourceViews>
+      <Roles>
+        <Role>
+          <ID>Role</ID>
+          <Name>Users</Name>
+          <Members>
+            <Member>
+              <Name>MDCO\Corp-EPIC_Clarity_PBUsers</Name>
+              <Sid>S-1-5-21-448539723-1085031214-725345543-311518</Sid>
+            </Member>
+            <Member>
+              <Name>MDCO\Corp-EPIC_Clarity_Reporting_Group</Name>
+              <Sid>S-1-5-21-448539723-1085031214-725345543-141188</Sid>
+            </Member>
+          </Members>
+        </Role>
+      </Roles>
+      <DatabasePermissions>
+        <DatabasePermission>
+          <ID>DatabasePermission</ID>
+          <Name>DatabasePermission</Name>
+          <RoleID>Role</RoleID>
+          <Read>Allowed</Read>
+        </DatabasePermission>
+      </DatabasePermissions>
+    </Database>
+  </ObjectDefinition>
+</Alter>

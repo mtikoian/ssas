@@ -1,0 +1,6 @@
+U:\Professional Billing\Tabular Cubes\PB Adjustments\PB Adjustments\bin\Model.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Adjustments\PB Adjustments\bin\Model.deploymenttargets
+U:\Professional Billing\Tabular Cubes\PB Adjustments\PB Adjustments\bin\Model.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Adjustments\PB Adjustments\obj\Development\Model.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Adjustments\PB Adjustments\obj\Development\Model.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Adjustments\PB Adjustments\obj\Development\Model.deploymenttargets

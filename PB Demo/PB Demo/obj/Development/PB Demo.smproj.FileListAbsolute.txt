@@ -1,0 +1,6 @@
+U:\Professional Billing\Tabular Cubes\PB Demo\PB Demo\bin\Model.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Demo\PB Demo\bin\Model.deploymenttargets
+U:\Professional Billing\Tabular Cubes\PB Demo\PB Demo\bin\Model.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Demo\PB Demo\obj\Development\Model.asdatabase
+U:\Professional Billing\Tabular Cubes\PB Demo\PB Demo\obj\Development\Model.deploymentoptions
+U:\Professional Billing\Tabular Cubes\PB Demo\PB Demo\obj\Development\Model.deploymenttargets
