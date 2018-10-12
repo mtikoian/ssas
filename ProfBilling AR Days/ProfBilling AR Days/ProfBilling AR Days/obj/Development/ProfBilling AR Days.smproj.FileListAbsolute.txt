@@ -5,3 +5,10 @@ C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling AR Days\ProfBil
 C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\obj\Development\Model.asdatabase
 C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\obj\Development\Model.deploymentoptions
 C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\obj\Development\Model.deploymenttargets
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\bin\Model.asdatabase
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\bin\Model.deploymenttargets
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\bin\Model.deploymentoptions
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\obj\Development\ProfBilling AR Days.smproj.CoreCompileInputs.cache
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\obj\Development\Model.asdatabase
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\obj\Development\Model.deploymentoptions
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling AR Days\ProfBilling AR Days\ProfBilling AR Days\obj\Development\Model.deploymenttargets

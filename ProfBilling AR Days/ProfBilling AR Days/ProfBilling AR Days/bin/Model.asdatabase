@@ -412,7 +412,7 @@
           {
             "name": "AR Days",
             "expression": "IFERROR('AR Days'[AR Aging]/[Charge],0)",
-            "formatString": "0.00 %;-0.00 %;0.00 %"
+            "formatString": "0.00"
           }
         ],
         "annotations": [
