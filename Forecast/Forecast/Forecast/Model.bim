@@ -1,0 +1,528 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Date",
+        "columns": [
+          {
+            "name": "CALENDAR_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "DAY_OF_WEEK",
+            "dataType": "string",
+            "sourceColumn": "DAY_OF_WEEK",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "WEEK_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEK_ENDING_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "WEEK_ENDING_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "LAST_FRIDAY_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "LAST_FRIDAY_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "MONTH_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "DAY_OF_MONTH",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NAME",
+            "dataType": "string",
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "MONTH_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "QUARTER_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "QUARTER_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DAY_OF_YEAR",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DTE",
+            "dataType": "int64",
+            "sourceColumn": "EPIC_DTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DAT",
+            "dataType": "int64",
+            "sourceColumn": "EPIC_DAT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "INSTANT_AT_MIDNIGHT",
+            "dataType": "double",
+            "sourceColumn": "INSTANT_AT_MIDNIGHT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OCCURRENCE_IN_MONTH",
+            "dataType": "int64",
+            "sourceColumn": "OCCURRENCE_IN_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TOMORROW_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "TOMORROW_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEKEND_YN",
+            "dataType": "string",
+            "sourceColumn": "WEEKEND_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "QUARTER_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "QUARTER_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "QUARTER_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "SAME_DAY_YEAR_AGO",
+            "dataType": "dateTime",
+            "sourceColumn": "SAME_DAY_YEAR_AGO",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "PREV_DAY_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "PREV_DAY_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "LEAP_YEAR_YN",
+            "dataType": "string",
+            "sourceColumn": "LEAP_YEAR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_THE_WEEK_C",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_THE_WEEK_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_OF_THE_WEEK",
+            "dataType": "int64",
+            "sourceColumn": "YEAR_OF_THE_WEEK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "YEAR_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "MONTH_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "YEAR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "MONTH_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CALENDAR_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "CALENDAR_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QTR_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "QTR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "WEEK_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "WEEK_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "WEEK_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_WEEK_INDEX",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_WEEK_INDEX",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "HOLIDAY_YN",
+            "dataType": "string",
+            "sourceColumn": "HOLIDAY_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_QUARTER",
+            "dataType": "string",
+            "sourceColumn": "YEAR_QUARTER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH_STR",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_STR",
+            "dataType": "string",
+            "sourceColumn": "QUARTER_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BUS_DAY_CT",
+            "dataType": "int64",
+            "sourceColumn": "BUS_DAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEKDAY_CT",
+            "dataType": "int64",
+            "sourceColumn": "WEEKDAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "USA_FISCAL_YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "USA_FISCAL_YEAR_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "USA_FISCAL_YEAR_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "USA_FISCAL_YEAR_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "YEAR_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_END_YN",
+            "dataType": "string",
+            "sourceColumn": "MONTH_END_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WHICH_DAYS_C",
+            "dataType": "int64",
+            "sourceColumn": "WHICH_DAYS_C",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                "*",
+                "from DATE_DIMENSION ",
+                "where CALENDAR_DT >= '7/1/2018'"
+              ],
+              "dataSource": "clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  "*",
+                  "from DATE_DIMENSION ",
+                  "where CALENDAR_DT >= '7/1/2018'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              "*",
+              "from DATE_DIMENSION ",
+              "where CALENDAR_DT >= '7/1/2018'"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Date"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              "*",
+              "from DATE_DIMENSION ",
+              "where CALENDAR_DT >= '7/1/2018'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Payments",
+        "columns": [
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "MONTH_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CALENDAR_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "AMOUNT",
+            "sourceProviderType": "Decimal"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Payments",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                " date.YEAR",
+                ",date.MONTH_NUMBER",
+                ",date.CALENDAR_DT",
+                ",dep.DEPARTMENT_ID",
+                ",arpb_tx.AMOUNT * -1 as AMOUNT",
+                "",
+                "from DATE_DIMENSION date",
+                "left outer join ARPB_TRANSACTIONS arpb_tx on date.CALENDAR_DT = arpb_tx.POST_DATE",
+                "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+                "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "where arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)",
+                "and arpb_tx.TX_TYPE_C = 2",
+                "and eap.PROC_CODE in ('1000','1001','1002')",
+                "and arpb_tx.POST_DATE >= '7/1/2018'",
+                "and arpb_tx.POST_DATE <= '9/30/2018'",
+                "and dep.DEPARTMENT_ID = '19390067'"
+              ],
+              "dataSource": "clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " date.YEAR",
+                  ",date.MONTH_NUMBER",
+                  ",date.CALENDAR_DT",
+                  ",dep.DEPARTMENT_ID",
+                  ",arpb_tx.AMOUNT * -1 as AMOUNT",
+                  "",
+                  "from DATE_DIMENSION date",
+                  "left outer join ARPB_TRANSACTIONS arpb_tx on date.CALENDAR_DT = arpb_tx.POST_DATE",
+                  "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "where arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)",
+                  "and arpb_tx.TX_TYPE_C = 2",
+                  "and eap.PROC_CODE in ('1000','1001','1002')",
+                  "and arpb_tx.POST_DATE >= '7/1/2018'",
+                  "and arpb_tx.POST_DATE <= '9/30/2018'",
+                  "and dep.DEPARTMENT_ID = '19390067'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " date.YEAR",
+              ",date.MONTH_NUMBER",
+              ",date.CALENDAR_DT",
+              ",dep.DEPARTMENT_ID",
+              ",arpb_tx.AMOUNT * -1 as AMOUNT",
+              "",
+              "from DATE_DIMENSION date",
+              "left outer join ARPB_TRANSACTIONS arpb_tx on date.CALENDAR_DT = arpb_tx.POST_DATE",
+              "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "where arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)",
+              "and arpb_tx.TX_TYPE_C = 2",
+              "and eap.PROC_CODE in ('1000','1001','1002')",
+              "and arpb_tx.POST_DATE >= '7/1/2018'",
+              "and arpb_tx.POST_DATE <= '9/30/2018'",
+              "and dep.DEPARTMENT_ID = '19390067'"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Payments"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " date.YEAR",
+              ",date.MONTH_NUMBER",
+              ",date.CALENDAR_DT",
+              ",dep.DEPARTMENT_ID",
+              ",arpb_tx.AMOUNT * -1 as AMOUNT",
+              "",
+              "from DATE_DIMENSION date",
+              "left outer join ARPB_TRANSACTIONS arpb_tx on date.CALENDAR_DT = arpb_tx.POST_DATE",
+              "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "where arpb_tx.SERVICE_AREA_ID in (11,13,16,17,18,19)",
+              "and arpb_tx.TX_TYPE_C = 2",
+              "and eap.PROC_CODE in ('1000','1001','1002')",
+              "and arpb_tx.POST_DATE >= '7/1/2018'",
+              "and arpb_tx.POST_DATE <= '9/30/2018'",
+              "and dep.DEPARTMENT_ID = '19390067'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

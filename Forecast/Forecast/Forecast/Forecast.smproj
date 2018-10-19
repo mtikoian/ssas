@@ -8,16 +8,16 @@
     <AssemblyName>MyAssemblyName</AssemblyName>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
     <OutputPath>bin\</OutputPath>
-    <Name>ProfBilling Transactions</Name>
+    <Name>Forecast</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Development' ">
     <OutputPath>bin\</OutputPath>
     <DeploymentServerName>mdcoap102867\tab</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
-    <DeploymentServerVersion>Version_13_0</DeploymentServerVersion>
-    <DeploymentServerDatabase>ProfBilling Transactions</DeploymentServerDatabase>
+    <DeploymentServerVersion>Unknown</DeploymentServerVersion>
+    <DeploymentServerDatabase>Forecast</DeploymentServerDatabase>
     <DeploymentServerCubeName>Model</DeploymentServerCubeName>
-    <DeploymentOptionProcessing>Full</DeploymentOptionProcessing>
+    <DeploymentOptionProcessing>Default</DeploymentOptionProcessing>
     <DeploymentOptionTransactionalDeployment>False</DeploymentOptionTransactionalDeployment>
     <DeploymentOptionADALCache>Default</DeploymentOptionADALCache>
     <DeploymentOptionDirectQueryMode>InMemory</DeploymentOptionDirectQueryMode>
@@ -27,7 +27,7 @@
     <DeploymentServerName>mdcoap102867\tab</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
     <DeploymentServerVersion>Unknown</DeploymentServerVersion>
-    <DeploymentServerDatabase>ProfBilling Transactions</DeploymentServerDatabase>
+    <DeploymentServerDatabase>Forecast</DeploymentServerDatabase>
     <DeploymentServerCubeName>Model</DeploymentServerCubeName>
     <DeploymentOptionProcessing>Default</DeploymentOptionProcessing>
     <DeploymentOptionTransactionalDeployment>False</DeploymentOptionTransactionalDeployment>

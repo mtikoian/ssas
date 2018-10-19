@@ -5,3 +5,10 @@ C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Review\P
 C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Review\ProfBilling Charge Review\obj\Development\Model.asdatabase
 C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Review\ProfBilling Charge Review\obj\Development\Model.deploymentoptions
 C:\Users\plow004\OneDrive\Mercy Health\Tabular Cubes\ProfBilling Charge Review\ProfBilling Charge Review\obj\Development\Model.deploymenttargets
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling Charge Review\ProfBilling Charge Review\bin\Model.asdatabase
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling Charge Review\ProfBilling Charge Review\bin\Model.deploymenttargets
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling Charge Review\ProfBilling Charge Review\bin\Model.deploymentoptions
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling Charge Review\ProfBilling Charge Review\obj\Development\ProfBilling Charge Review.smproj.CoreCompileInputs.cache
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling Charge Review\ProfBilling Charge Review\obj\Development\Model.asdatabase
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling Charge Review\ProfBilling Charge Review\obj\Development\Model.deploymentoptions
+C:\Users\plow004\OneDrive\GitHub\ssas\ProfBilling Charge Review\ProfBilling Charge Review\obj\Development\Model.deploymenttargets
