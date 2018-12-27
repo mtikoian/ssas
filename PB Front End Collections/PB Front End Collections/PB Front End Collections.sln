@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{6870E480-7721-4708-BFB8-9AE898AA21B3}") = "PB Front End Collections", "PB Front End Collections\PB Front End Collections.smproj", "{8CE414BB-95B2-4C99-9E03-51BA72086E22}"
 EndProject
@@ -18,6 +18,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5F1709F0-C0C0-4649-81FE-E676B56CB1A0}
+		SolutionGuid = {91D05E0E-872F-40C3-8DDA-B49BB1AD56CA}
 	EndGlobalSection
 EndGlobal

@@ -34,37 +34,6 @@
             "sourceProviderType": "Decimal"
           },
           {
-            "name": "CONTACT DATE",
-            "dataType": "dateTime",
-            "sourceColumn": "CONTACT_DATE",
-            "formatString": "Short Date",
-            "sourceProviderType": "Date",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
-              }
-            ]
-          },
-          {
-            "name": "APPT STATUS",
-            "dataType": "string",
-            "sourceColumn": "APPT_STATUS",
-            "sourceProviderType": "VarChar"
-          },
-          {
-            "name": "ENC TYPE",
-            "dataType": "string",
-            "sourceColumn": "ENC_TYPE",
-            "sourceProviderType": "VarChar"
-          },
-          {
-            "name": "DEPARTMENT",
-            "dataType": "string",
-            "sourceColumn": "DEPARTMENT_NAME",
-            "sourceProviderType": "VarChar"
-          },
-          {
             "name": "SPECIALTY",
             "dataType": "string",
             "sourceColumn": "SPECIALTY",
@@ -177,6 +146,24 @@
             "sourceColumn": "REGION"
           },
           {
+            "name": "APPT STATUS",
+            "dataType": "string",
+            "sourceColumn": "APPT_STATUS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ENC TYPE",
+            "dataType": "string",
+            "sourceColumn": "ENC_TYPE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DEPARTMENT",
+            "dataType": "string",
+            "sourceColumn": "DEPARTMENT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
             "name": "MONTH-YEAR",
             "dataType": "string",
             "sourceColumn": "MONTHNAME_YEAR",
@@ -186,6 +173,19 @@
             "name": "YEAR_MONTH",
             "dataType": "string",
             "sourceColumn": "YEAR_MONTH"
+          },
+          {
+            "name": "CONTACT DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "CONTACT_DATE",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -483,6 +483,16 @@
             ]
           },
           {
+            "name": "COPAY RATE",
+            "expression": "IFERROR([COPAY COLLECTED]/[COPAY DUE],0)",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "TOTAL RATE",
+            "expression": "IFERROR(([COPAY COLLECTED] + [OTHER PAYMENTS])/([COPAY DUE]+[TOTAL BALANCE]),0)",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
             "name": "OTHER PAYMENTS",
             "expression": "sum('Front End Collections'[PATIENT_PAYMENT])",
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
@@ -494,18 +504,8 @@
             ]
           },
           {
-            "name": "COPAY RATE",
-            "expression": "IFERROR([COPAY COLLECTED]/[COPAY DUE],0)",
-            "formatString": "0.00 %;-0.00 %;0.00 %"
-          },
-          {
             "name": "OTHER PAYMENT RATE",
             "expression": "IFERROR([OTHER PAYMENTS]/[TOTAL BALANCE],0)",
-            "formatString": "0.00 %;-0.00 %;0.00 %"
-          },
-          {
-            "name": "TOTAL RATE",
-            "expression": "IFERROR(([COPAY COLLECTED] + [OTHER PAYMENTS])/([COPAY DUE]+[TOTAL BALANCE]),0)",
             "formatString": "0.00 %;-0.00 %;0.00 %"
           }
         ],
@@ -750,12 +750,6 @@
         "name": "Daily Balances",
         "columns": [
           {
-            "name": "ACCOUNT",
-            "dataType": "double",
-            "sourceColumn": "ACCOUNT_ID",
-            "sourceProviderType": "Decimal"
-          },
-          {
             "name": "PATIENT_BALANCE",
             "dataType": "decimal",
             "isHidden": true,
@@ -782,6 +776,12 @@
                 "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "ACCOUNT",
+            "dataType": "double",
+            "sourceColumn": "ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
           },
           {
             "name": "UPDATE DATE",
@@ -902,19 +902,6 @@
         "name": "Projection",
         "columns": [
           {
-            "name": "CONTACT DATE",
-            "dataType": "dateTime",
-            "sourceColumn": "CONTACT_DATE",
-            "formatString": "Short Date",
-            "sourceProviderType": "Date",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
-              }
-            ]
-          },
-          {
             "name": "ACCOUNT",
             "dataType": "string",
             "sourceColumn": "ACCOUNT",
@@ -927,12 +914,6 @@
             "sourceProviderType": "VarChar"
           },
           {
-            "name": "DEPARTMENT",
-            "dataType": "string",
-            "sourceColumn": "DEPARTMENT_NAME",
-            "sourceProviderType": "VarChar"
-          },
-          {
             "name": "SPECIALTY",
             "dataType": "string",
             "sourceColumn": "SPECIALTY",
@@ -942,12 +923,6 @@
             "name": "APPOINTMENT_STATUS",
             "dataType": "string",
             "sourceColumn": "APPOINTMENT_STATUS",
-            "sourceProviderType": "VarChar"
-          },
-          {
-            "name": "ENC TYPE",
-            "dataType": "string",
-            "sourceColumn": "ENCOUNTER TYPE",
             "sourceProviderType": "VarChar"
           },
           {
@@ -1006,6 +981,31 @@
               ",'Projection'[REGION]",
               ")",
               ""
+            ]
+          },
+          {
+            "name": "DEPARTMENT",
+            "dataType": "string",
+            "sourceColumn": "DEPARTMENT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ENC TYPE",
+            "dataType": "string",
+            "sourceColumn": "ENCOUNTER TYPE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CONTACT DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "CONTACT_DATE",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
             ]
           }
         ],
@@ -1214,6 +1214,344 @@
               "and enc.SERV_AREA_ID in (11,13,16,17,18,19)",
               "and enc.CONTACT_DATE >= @startdate ",
               "and enc.CONTACT_DATE <= @enddate</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dashboard",
+        "columns": [
+          {
+            "name": "PAYMENT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PAYMENT"
+          },
+          {
+            "name": "DEPARTMENT ID",
+            "dataType": "int64",
+            "sourceColumn": "DEPARTMENT ID"
+          },
+          {
+            "name": "DEPARTMENT",
+            "dataType": "string",
+            "sourceColumn": "DEPARTMENT"
+          },
+          {
+            "name": "LOCATION ID",
+            "dataType": "double",
+            "sourceColumn": "LOCATION ID"
+          },
+          {
+            "name": "LOCATION",
+            "dataType": "string",
+            "sourceColumn": "LOCATION"
+          },
+          {
+            "name": "MARKET_ID",
+            "dataType": "string",
+            "sourceColumn": "MARKET_ID"
+          },
+          {
+            "name": "MARKET",
+            "dataType": "string",
+            "sourceColumn": "MARKET"
+          },
+          {
+            "name": "YEAR MONTH",
+            "dataType": "int64",
+            "sourceColumn": "YEAR MONTH"
+          },
+          {
+            "name": "MONTHLY GOALS",
+            "dataType": "double",
+            "sourceColumn": "MONTHLY GOALS"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dashboard",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "declare @end_date as date = EPIC_UTIL.EFN_DIN('me');",
+                "",
+                "with goals as ",
+                "(",
+                "select ",
+                " distinct",
+                " goals.DEPARTMENT_ID",
+                ",goals.MONTH_YEAR",
+                ",goals.MONTHLY_GOAL",
+                "from ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
+                "left join DATE_DIMENSION date on date.YEAR_MONTH = goals.MONTH_YEAR",
+                "where date.MONTH_NUMBER <= month(getdate())",
+                "and date.YEAR <= year(getdate())",
+                "-- and goals.DEPARTMENT_ID = 19151112",
+                "),",
+                "",
+                "payments as",
+                "(",
+                "select",
+                " arpb_tx.DEPARTMENT_ID",
+                ",date.YEAR_MONTH_STR",
+                ",date.YEAR_MONTH",
+                ",sum(case when arpb_tx.VOID_DATE = arpb_tx.POST_DATE then 0 else arpb_tx.AMOUNT * -1 end) as PAYMENT",
+                "from ARPB_TRANSACTIONS arpb_tx",
+                "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+                "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+                "where arpb_tx.SERVICE_AREA_ID in (19)",
+                "and arpb_tx.TX_TYPE_C = 2",
+                "and eap.PROC_CODE in ('1000','1001','1002')",
+                "and arpb_tx.POST_DATE >= '10/1/2018'",
+                "--and arpb_tx.DEPARTMENT_ID = 19151112",
+                "group by",
+                " arpb_tx.DEPARTMENT_ID",
+                ",date.YEAR_MONTH_STR",
+                ",date.YEAR_MONTH",
+                ")",
+                "",
+                "select ",
+                " goals.DEPARTMENT_ID as 'DEPARTMENT ID'",
+                ",dep.DEPARTMENT_NAME as DEPARTMENT",
+                ",loc.LOC_ID as 'LOCATION ID'",
+                ",loc.LOC_NAME as LOCATION",
+                ",sa.RPT_GRP_TEN as MARKET_ID",
+                ",upper(sa.NAME) as MARKET",
+                ",goals.MONTH_YEAR as 'YEAR MONTH'",
+                ",coalesce(payments.PAYMENT,0) as PAYMENT",
+                ",goals.MONTHLY_GOAL as 'MONTHLY GOALS'",
+                "",
+                "from goals",
+                "left join payments on payments.DEPARTMENT_ID = goals.DEPARTMENT_ID and payments.YEAR_MONTH = goals.MONTH_YEAR",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
+                "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "order by goals.DEPARTMENT_ID",
+                ",goals.MONTH_YEAR"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @end_date as date = EPIC_UTIL.EFN_DIN('me');",
+                  "",
+                  "with goals as ",
+                  "(",
+                  "select ",
+                  " distinct",
+                  " goals.DEPARTMENT_ID",
+                  ",goals.MONTH_YEAR",
+                  ",goals.MONTHLY_GOAL",
+                  "from ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
+                  "left join DATE_DIMENSION date on date.YEAR_MONTH = goals.MONTH_YEAR",
+                  "where date.MONTH_NUMBER <= month(getdate())",
+                  "and date.YEAR <= year(getdate())",
+                  "-- and goals.DEPARTMENT_ID = 19151112",
+                  "),",
+                  "",
+                  "payments as",
+                  "(",
+                  "select",
+                  " arpb_tx.DEPARTMENT_ID",
+                  ",date.YEAR_MONTH_STR",
+                  ",date.YEAR_MONTH",
+                  ",sum(case when arpb_tx.VOID_DATE = arpb_tx.POST_DATE then 0 else arpb_tx.AMOUNT * -1 end) as PAYMENT",
+                  "from ARPB_TRANSACTIONS arpb_tx",
+                  "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+                  "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+                  "where arpb_tx.SERVICE_AREA_ID in (19)",
+                  "and arpb_tx.TX_TYPE_C = 2",
+                  "and eap.PROC_CODE in ('1000','1001','1002')",
+                  "and arpb_tx.POST_DATE >= '10/1/2018'",
+                  "--and arpb_tx.DEPARTMENT_ID = 19151112",
+                  "group by",
+                  " arpb_tx.DEPARTMENT_ID",
+                  ",date.YEAR_MONTH_STR",
+                  ",date.YEAR_MONTH",
+                  ")",
+                  "",
+                  "select ",
+                  " goals.DEPARTMENT_ID as 'DEPARTMENT ID'",
+                  ",dep.DEPARTMENT_NAME as DEPARTMENT",
+                  ",loc.LOC_ID as 'LOCATION ID'",
+                  ",loc.LOC_NAME as LOCATION",
+                  ",sa.RPT_GRP_TEN as MARKET_ID",
+                  ",upper(sa.NAME) as MARKET",
+                  ",goals.MONTH_YEAR as 'YEAR MONTH'",
+                  ",coalesce(payments.PAYMENT,0) as PAYMENT",
+                  ",goals.MONTHLY_GOAL as 'MONTHLY GOALS'",
+                  "",
+                  "from goals",
+                  "left join payments on payments.DEPARTMENT_ID = goals.DEPARTMENT_ID and payments.YEAR_MONTH = goals.MONTH_YEAR",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "order by goals.DEPARTMENT_ID",
+                  ",goals.MONTH_YEAR</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Monthly Goal",
+            "expression": "sum(Dashboard[MONTHLY GOALS])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Payments",
+            "expression": "sum(Dashboard[PAYMENT])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Collection Rate",
+            "expression": "IFERROR([Payments]/[Monthly Goal],\"Unknown\")",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "declare @end_date as date = EPIC_UTIL.EFN_DIN('me');",
+              "",
+              "with goals as ",
+              "(",
+              "select ",
+              " distinct",
+              " goals.DEPARTMENT_ID",
+              ",goals.MONTH_YEAR",
+              ",goals.MONTHLY_GOAL",
+              "from ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
+              "left join DATE_DIMENSION date on date.YEAR_MONTH = goals.MONTH_YEAR",
+              "where date.MONTH_NUMBER <= month(getdate())",
+              "and date.YEAR <= year(getdate())",
+              "-- and goals.DEPARTMENT_ID = 19151112",
+              "),",
+              "",
+              "payments as",
+              "(",
+              "select",
+              " arpb_tx.DEPARTMENT_ID",
+              ",date.YEAR_MONTH_STR",
+              ",date.YEAR_MONTH",
+              ",sum(case when arpb_tx.VOID_DATE = arpb_tx.POST_DATE then 0 else arpb_tx.AMOUNT * -1 end) as PAYMENT",
+              "from ARPB_TRANSACTIONS arpb_tx",
+              "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+              "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+              "where arpb_tx.SERVICE_AREA_ID in (19)",
+              "and arpb_tx.TX_TYPE_C = 2",
+              "and eap.PROC_CODE in ('1000','1001','1002')",
+              "and arpb_tx.POST_DATE >= '10/1/2018'",
+              "--and arpb_tx.DEPARTMENT_ID = 19151112",
+              "group by",
+              " arpb_tx.DEPARTMENT_ID",
+              ",date.YEAR_MONTH_STR",
+              ",date.YEAR_MONTH",
+              ")",
+              "",
+              "select ",
+              " goals.DEPARTMENT_ID as 'DEPARTMENT ID'",
+              ",dep.DEPARTMENT_NAME as DEPARTMENT",
+              ",loc.LOC_ID as 'LOCATION ID'",
+              ",loc.LOC_NAME as LOCATION",
+              ",sa.RPT_GRP_TEN as MARKET_ID",
+              ",upper(sa.NAME) as MARKET",
+              ",goals.MONTH_YEAR as 'YEAR MONTH'",
+              ",coalesce(payments.PAYMENT,0) as PAYMENT",
+              ",goals.MONTHLY_GOAL as 'MONTHLY GOALS'",
+              "",
+              "from goals",
+              "left join payments on payments.DEPARTMENT_ID = goals.DEPARTMENT_ID and payments.YEAR_MONTH = goals.MONTH_YEAR",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "order by goals.DEPARTMENT_ID",
+              ",goals.MONTH_YEAR"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dashboard"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @end_date as date = EPIC_UTIL.EFN_DIN('me');",
+              "",
+              "with goals as ",
+              "(",
+              "select ",
+              " distinct",
+              " goals.DEPARTMENT_ID",
+              ",goals.MONTH_YEAR",
+              ",goals.MONTHLY_GOAL",
+              "from ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
+              "left join DATE_DIMENSION date on date.YEAR_MONTH = goals.MONTH_YEAR",
+              "where date.MONTH_NUMBER <= month(getdate())",
+              "and date.YEAR <= year(getdate())",
+              "-- and goals.DEPARTMENT_ID = 19151112",
+              "),",
+              "",
+              "payments as",
+              "(",
+              "select",
+              " arpb_tx.DEPARTMENT_ID",
+              ",date.YEAR_MONTH_STR",
+              ",date.YEAR_MONTH",
+              ",sum(case when arpb_tx.VOID_DATE = arpb_tx.POST_DATE then 0 else arpb_tx.AMOUNT * -1 end) as PAYMENT",
+              "from ARPB_TRANSACTIONS arpb_tx",
+              "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+              "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+              "where arpb_tx.SERVICE_AREA_ID in (19)",
+              "and arpb_tx.TX_TYPE_C = 2",
+              "and eap.PROC_CODE in ('1000','1001','1002')",
+              "and arpb_tx.POST_DATE >= '10/1/2018'",
+              "--and arpb_tx.DEPARTMENT_ID = 19151112",
+              "group by",
+              " arpb_tx.DEPARTMENT_ID",
+              ",date.YEAR_MONTH_STR",
+              ",date.YEAR_MONTH",
+              ")",
+              "",
+              "select ",
+              " goals.DEPARTMENT_ID as 'DEPARTMENT ID'",
+              ",dep.DEPARTMENT_NAME as DEPARTMENT",
+              ",loc.LOC_ID as 'LOCATION ID'",
+              ",loc.LOC_NAME as LOCATION",
+              ",sa.RPT_GRP_TEN as MARKET_ID",
+              ",upper(sa.NAME) as MARKET",
+              ",goals.MONTH_YEAR as 'YEAR MONTH'",
+              ",coalesce(payments.PAYMENT,0) as PAYMENT",
+              ",goals.MONTHLY_GOAL as 'MONTHLY GOALS'",
+              "",
+              "from goals",
+              "left join payments on payments.DEPARTMENT_ID = goals.DEPARTMENT_ID and payments.YEAR_MONTH = goals.MONTH_YEAR",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "order by goals.DEPARTMENT_ID",
+              ",goals.MONTH_YEAR</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
             ]
           }
         ]
