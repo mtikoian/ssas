@@ -1,0 +1,1370 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Hospital Denial Variance</ID>
+  <Name>HB Denials and Variances</Name>
+  <CreatedTimestamp>2018-02-23T00:58:15.96Z</CreatedTimestamp>
+  <LastSchemaUpdate>2018-02-23T00:58:15.96Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-9072" scrolltop="-4065" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="5900" y="16484" backcolor="16185078" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="V_CUBE_F_HB_DENIAL_VARIANCE" left="-7864" top="-3202" logicalid="4" controlid="1" masterid="0" hint1="0" hint2="0" width="6138" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000fa17000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_V_CUBE_F_HB_DENIAL_VARIANCE" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="V_CUBE_F_HB_TRANSACTION" left="-5323" top="3220" logicalid="5" controlid="2" masterid="0" hint1="0" hint2="0" width="6218" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a00004a18000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_V_CUBE_F_HB_TRANSACTION" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="-6195" top="1498" logicalid="6" controlid="3" masterid="0" hint1="0" hint2="0" width="3381" height="2222" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="1973790" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[V_CUBE_F_HB_DENIAL_VARIANCE-V_CUBE_F_HB_TRANSACTION]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="1" sourceattachpoint="0" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="-4964" y="3220" />
+              <point x="-4964" y="1927" />
+              <point x="-3114" y="1927" />
+              <point x="-3114" y="2198" />
+              <point x="-5895" y="2198" />
+              <point x="-5895" y="1798" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-9072</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4065</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-7864</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-3202</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="15" xmlns="">
+          <Shapes NodeWidth="162">
+            <Shape Id="BDC ID" Expanded="true">
+              <Attributes>
+                <Attribute Id="BDC ID" />
+                <Attribute Id="CLAIM PRINT ID" />
+                <Attribute Id="CLAIM FORM TYPE" />
+                <Attribute Id="Clinical Root Cause" />
+                <Attribute Id="COST CENTER" />
+                <Attribute Id="CPT CODE" />
+                <Attribute Id="Record Category" />
+                <Attribute Id="External Reason Code" />
+                <Attribute Id="Follow-up Stage" />
+                <Attribute Id="Invoice Number" />
+                <Attribute Id="FIRST DENIAL ON BUCKET YN" />
+                <Attribute Id="FIRST DENIAL ON HAR YN" />
+                <Attribute Id="Is Preventable" />
+                <Attribute Id="LAST STATUS BEFORE COMPLETION" />
+                <Attribute Id="Owning Area" />
+                <Attribute Id="Partial Zero Pay" />
+                <Attribute Id="PROVIDER NAME" />
+                <Attribute Id="Recovery Type" />
+                <Attribute Id="REVENUE CODE" />
+                <Attribute Id="Root Cause" />
+                <Attribute Id="Record Source" />
+                <Attribute Id="Source Area" />
+                <Attribute Id="SOURCE DEPARTMENT" />
+                <Attribute Id="SOURCE USER" />
+                <Attribute Id="Record Type" />
+                <Attribute Id="CLAIM TYPE OF BILL" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Record Status" Expanded="true">
+              <Attributes>
+                <Attribute Id="Record Status" />
+              </Attributes>
+              <Position x="227" y="20" />
+            </Shape>
+            <Shape Id="Open Closed" Expanded="false">
+              <Attributes>
+                <Attribute Id="Open Closed" />
+              </Attributes>
+              <Position x="435" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2019-01-14T22:34:08.146667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>EpicStandardDSV</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration>
+    <KeyNotFound>IgnoreError</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>BDC ID</ID>
+      <Name>BDC ID</Name>
+      <Description>The unique ID of the denial or variance record.</Description>
+      <Usage>Key</Usage>
+      <EstimatedCount>498138</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>BDC_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>LINE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>BDC_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Record Type</AttributeID>
+          <Name>Record Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Record Category</AttributeID>
+          <Name>Record Category</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Record Status</AttributeID>
+          <Name>Record Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Invoice Number</AttributeID>
+          <Name>Invoice Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>External Reason Code</AttributeID>
+          <Name>External Reason Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Record Source</AttributeID>
+          <Name>Record Source</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Source Area</AttributeID>
+          <Name>Source Area</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Owning Area</AttributeID>
+          <Name>Owning Area</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Root Cause</AttributeID>
+          <Name>Root Cause</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Clinical Root Cause</AttributeID>
+          <Name>Clinical Root Cause</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Follow-up Stage</AttributeID>
+          <Name>Follow-up Stage</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Recovery Type</AttributeID>
+          <Name>Recovery Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Is Preventable</AttributeID>
+          <Name>Is Preventable</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Partial Zero Pay</AttributeID>
+          <Name>Partial Zero Pay</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>LAST STATUS BEFORE COMPLETION</AttributeID>
+          <Name>Last Status Before Completion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>FIRST DENIAL ON BUCKET YN</AttributeID>
+          <Name>Is First Bucket Denial</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>FIRST DENIAL ON HAR YN</AttributeID>
+          <Name>Is First HAR Denial</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>SOURCE DEPARTMENT</AttributeID>
+          <Name>Source Department</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>SOURCE USER</AttributeID>
+          <Name>Source User</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>CLAIM TYPE OF BILL</AttributeID>
+          <Name>Type of Bill</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>CLAIM FORM TYPE</AttributeID>
+          <Name>Claim Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>CLAIM PRINT ID</AttributeID>
+          <Name>Claim Print ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>CPT CODE</AttributeID>
+          <Name>CPT Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>REVENUE CODE</AttributeID>
+          <Name>Revenue Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>COST CENTER</AttributeID>
+          <Name>Primary Charge Cost Center</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>SERVICE DEPARTMENT</AttributeID>
+          <Name>Primary Charge Service Department</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>SERVICE PROVIDER</AttributeID>
+          <Name>Primary Charge Service Provider</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>CHARGE CODE DISPLAY</AttributeID>
+          <Name>Primary Charge</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>CHARGE CODE</AttributeID>
+          <Name>Primary Charge Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>TRANSACTION POST DATE</AttributeID>
+          <Name>Primary Charge Post Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>SERVICE DATE</AttributeID>
+          <Name>Primary Charge Service Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>PRIM TX ID</AttributeID>
+          <Name>Primary Charge Transaction ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>LINE ON EOB TYPE</AttributeID>
+          <Name>Line on EOB Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>RESOLUTION CATEGORY</AttributeID>
+          <Name>Resolution Category</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>IS TAKEBACK YN</AttributeID>
+          <Name>Is Takeback</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>FINAL DIAGNOSIS ID</AttributeID>
+          <Name>Final Diagnosis ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>CLAIM AUTH NUM</AttributeID>
+          <Name>Claim Authorization Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>BILLING PROV ID</AttributeID>
+          <Name>Billing Provider ID</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Record Type</ID>
+      <Name>Type</Name>
+      <Description>The record type - either Denial, Underpayment, or Overpayment.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>BDC_TYPE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>BDC_TYPE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Record Category</ID>
+      <Name>Denial Category</Name>
+      <Description>The category associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>BDC_CATEGORY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>BDC_CATEGORY</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Open Closed</ID>
+      <Name>Open or Closed</Name>
+      <Description>Indicates whether the record has an overall status of 'Open' or 'Closed'. </Description>
+      <EstimatedCount>2</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>6</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>OPEN_CLOSED</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>6</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>OPEN_CLOSED</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Record Status</ID>
+      <Name>Status</Name>
+      <Description>The status of the record.</Description>
+      <EstimatedCount>10</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>BDC_STATUS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>BDC_STATUS</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Open Closed</AttributeID>
+          <Name>Open Closed</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Invoice Number</ID>
+      <Name>Invoice Number</Name>
+      <Description>The invoice number associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>INVOICE_NUMBER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>INVOICE_NUMBER</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>External Reason Code</ID>
+      <Name>External Reason Code</Name>
+      <Description>The external reason code associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>EXTERNAL_REASON_CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>EXTERNAL_REASON_CODE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Record Source</ID>
+      <Name>Source</Name>
+      <Description>The source of the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>BDC_SOURCE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>BDC_SOURCE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Source Area</ID>
+      <Name>Source Area</Name>
+      <Description>The source area associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>SOURCE_AREA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>SOURCE_AREA</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Owning Area</ID>
+      <Name>Owning Area</Name>
+      <Description>The owning area associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>OWNING_AREA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>OWNING_AREA</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Root Cause</ID>
+      <Name>Root Cause</Name>
+      <Description>The root cause associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>ROOT_CAUSE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>ROOT_CAUSE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Clinical Root Cause</ID>
+      <Name>Clinical Root Cause</Name>
+      <Description>The clinical root cause associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>CLINICAL_ROOT_CAUSE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>CLINICAL_ROOT_CAUSE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Follow-up Stage</ID>
+      <Name>Follow-up Stage</Name>
+      <Description>The follow-up stage associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>FOLLOW_UP_STAGE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>FOLLOW_UP_STAGE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Recovery Type</ID>
+      <Name>Recovery Type</Name>
+      <Description>The recovery type associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>RECOVERY_TYPE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>RECOVERY_TYPE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Is Preventable</ID>
+      <Name>Is Preventable</Name>
+      <Description>Indicates whether or not the denial could have been prevented by a user or a process.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>11</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>PREVENTABLE_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>11</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>PREVENTABLE_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Partial Zero Pay</ID>
+      <Name>Partial Zero Pay</Name>
+      <Description>Indicates whether a denial record was zero pay or partial pay, based on whether there was an associated, non-zero dollar source payment.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>11</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>PARTIAL_ZERO_PAY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>11</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>PARTIAL_ZERO_PAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>LAST STATUS BEFORE COMPLETION</ID>
+      <Name>Last Status Before Closed</Name>
+      <Description>The status of the record before it was closed.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>LAST_STATUS_BEFORE_COMPLETION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>LAST_STATUS_BEFORE_COMPLETION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>FIRST DENIAL ON BUCKET YN</ID>
+      <Name>Is First Bucket Denial</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>FIRST_DENIAL_ON_BUCKET_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>3</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>FIRST_DENIAL_ON_BUCKET_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>FIRST DENIAL ON HAR YN</ID>
+      <Name>Is First HAR Denial</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>FIRST_DENIAL_ON_HAR_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>3</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>FIRST_DENIAL_ON_HAR_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>SOURCE DEPARTMENT</ID>
+      <Name>Source Department</Name>
+      <Description>The source department associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>SOURCE_DEPARTMENT_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>SOURCE_LOCATION_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>SOURCE_DEPARTMENT</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>SOURCE USER</ID>
+      <Name>Source User</Name>
+      <Description>The source user associated with the record.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>18</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>SOURCE_USER_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>275</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>SOURCE_USER</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>CLAIM TYPE OF BILL</ID>
+      <Name>Type of Bill</Name>
+      <Description>The type of bill associated with the claim.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>CLAIM_TYPE_OF_BILL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>CLAIM_TYPE_OF_BILL</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Claim Detail</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>CLAIM FORM TYPE</ID>
+      <Name>Claim Type</Name>
+      <Description>The form type associated with the claim.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>CLAIM_FORM_TYPE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>CLAIM_FORM_TYPE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Claim Detail</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>CLAIM PRINT ID</ID>
+      <Name>Claim Print ID</Name>
+      <Description>The denied claim ID that has a matching invoice to the denied payment.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>CLAIM_PRINT_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>CLAIM_PRINT_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Claim Detail</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>CPT CODE</ID>
+      <Name>CPT Code</Name>
+      <Description>The CPT code associated with the line level denial.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>CPT_CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>CPT_CODE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>REVENUE CODE</ID>
+      <Name>Revenue Code</Name>
+      <Description>The revenue code associated with the line level denial.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>184</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>REVENUE_CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>184</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>REVENUE_CODE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>COST CENTER</ID>
+      <Name>Primary Charge Cost Center</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>267</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+            <ColumnID>COST_CENTER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>267</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+          <ColumnID>COST_CENTER</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>SERVICE DEPARTMENT</ID>
+      <Name>Primary Charge Service Department</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+            <ColumnID>SERVICE_DEPARTMENT</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+          <ColumnID>SERVICE_DEPARTMENT</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>SERVICE PROVIDER</ID>
+      <Name>Primary Charge Service Provider</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>221</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+            <ColumnID>SERVICE_PROVIDER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>221</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+          <ColumnID>SERVICE_PROVIDER</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>CHARGE CODE DISPLAY</ID>
+      <Name>Primary Charge Procedure</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>143</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+            <ColumnID>CHARGE_CODE_DISPLAY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>143</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+          <ColumnID>CHARGE_CODE_DISPLAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>CHARGE CODE</ID>
+      <Name>Primary Charge Code</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+            <ColumnID>CHARGE_CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+          <ColumnID>CHARGE_CODE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>TRANSACTION POST DATE</ID>
+      <Name>Primary Charge Post Date</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+            <ColumnID>TRANSACTION_POST_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>21</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+          <ColumnID>TRANSACTION_POST_DATE_DISPLAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>SERVICE DATE</ID>
+      <Name>Primary Charge Service Date</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+            <ColumnID>SERVICE_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>21</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+          <ColumnID>SERVICE_DATE_DISPLAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>PRIM TX ID</ID>
+      <Name>Primary Charge Transaction ID</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>PRIM_TX_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_TRANSACTION</TableID>
+          <ColumnID>TRANSACTION_ID_DISPLAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>Line Level</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>LINE ON EOB TYPE</ID>
+      <Name>Line on EOB Type</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>13</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>LINE_ON_EOB_TYPE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>13</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>LINE_ON_EOB_TYPE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>RESOLUTION CATEGORY</ID>
+      <Name>Resolution Category</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>RESOLUTION_CATEGORY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>RESOLUTION_CATEGORY</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>IS TAKEBACK YN</ID>
+      <Name>Is Takeback</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>IS_TAKEBACK_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>3</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>IS_TAKEBACK_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>FINAL DIAGNOSIS ID</ID>
+      <Name>Final Diagnosis ID</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>FINAL_DIAGNOSIS_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>FINAL_DIAGNOSIS_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>CLAIM AUTH NUM</ID>
+      <Name>Claim Authorization Number</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>CLAIM_AUTH_NUM</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>CLAIM_AUTH_NUM</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Claim Detail</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>BILLING PROV ID</ID>
+      <Name>Billing Provider ID</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>18</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+            <ColumnID>BILLING_PROV_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>18</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_DENIAL_VARIANCE</TableID>
+          <ColumnID>BILLING_PROV_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>Hierarchy</ID>
+      <Name>Open Closed - Status</Name>
+      <Levels>
+        <Level>
+          <ID>Open Closed</ID>
+          <Name>Open Closed</Name>
+          <SourceAttributeID>Open Closed</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Record Status</ID>
+          <Name>Record Status</Name>
+          <SourceAttributeID>Record Status</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

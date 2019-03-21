@@ -234,8 +234,8 @@
                 ",loc.LOC_ID",
                 ",dep.DEPARTMENT_NAME",
                 ",dep.SPECIALTY",
-                ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
-                ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
+                ",case when zbg.name in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
+                ",case when zbg.name in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
                 ",case when PATIENT_BALANCE < 0 then 0 else PATIENT_BALANCE end as PB_BALANCE",
                 ",case when HB_SELFPAY_BALANCE < 0 then 0 else HB_SELFPAY_BALANCE end as HB_BALANCE",
                 ",ROW_NUMBER() OVER(PARTITION BY enc.ACCOUNT_ID, enc.CONTACT_DATE ORDER BY enc.PAT_ENC_CSN_ID ASC) as ROW#",
@@ -247,6 +247,8 @@
                 "left join ZC_DISP_ENC_TYPE enc_type on enc_type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
                 "left join ZC_APPT_STATUS appt_status on appt_status.APPT_STATUS_C = enc.APPT_STATUS_C",
                 "left join CLARITY_PRC prc on prc.PRC_ID = enc.APPT_PRC_ID",
+                "left join CLARITY_PRC_2 prc2 on prc2.PRC_ID = prc.PRC_ID",
+                "left join ZC_BENEFIT_GROUP zbg on zbg.BENEFIT_GROUP_C = prc2.BENEFIT_GROUP_C",
                 "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
                 "left join DATE_DIMENSION date on date.CALENDAR_DT = enc.CONTACT_DATE",
                 "",
@@ -351,8 +353,8 @@
                   ",loc.LOC_ID",
                   ",dep.DEPARTMENT_NAME",
                   ",dep.SPECIALTY",
-                  ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
-                  ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
+                  ",case when zbg.name in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
+                  ",case when zbg.name in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
                   ",case when PATIENT_BALANCE < 0 then 0 else PATIENT_BALANCE end as PB_BALANCE",
                   ",case when HB_SELFPAY_BALANCE < 0 then 0 else HB_SELFPAY_BALANCE end as HB_BALANCE",
                   ",ROW_NUMBER() OVER(PARTITION BY enc.ACCOUNT_ID, enc.CONTACT_DATE ORDER BY enc.PAT_ENC_CSN_ID ASC) as ROW#",
@@ -364,6 +366,8 @@
                   "left join ZC_DISP_ENC_TYPE enc_type on enc_type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
                   "left join ZC_APPT_STATUS appt_status on appt_status.APPT_STATUS_C = enc.APPT_STATUS_C",
                   "left join CLARITY_PRC prc on prc.PRC_ID = enc.APPT_PRC_ID",
+                  "left join CLARITY_PRC_2 prc2 on prc2.PRC_ID = prc.PRC_ID",
+                  "left join ZC_BENEFIT_GROUP zbg on zbg.BENEFIT_GROUP_C = prc2.BENEFIT_GROUP_C",
                   "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
                   "left join DATE_DIMENSION date on date.CALENDAR_DT = enc.CONTACT_DATE",
                   "",
@@ -428,17 +432,6 @@
         ],
         "measures": [
           {
-            "name": "TOTAL BALANCE",
-            "expression": "[PB BALANCE]+[HB BALANCE]",
-            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
-              }
-            ]
-          },
-          {
             "name": "COPAY COLLECTED",
             "expression": "sum('Front End Collections'[COPAY_COLLECTED])",
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
@@ -472,24 +465,13 @@
             ]
           },
           {
-            "name": "HB BALANCE",
-            "expression": "sum('Front End Collections'[HB_BALANCE])",
-            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
-              }
-            ]
-          },
-          {
             "name": "COPAY RATE",
             "expression": "IFERROR([COPAY COLLECTED]/[COPAY DUE],0)",
             "formatString": "0.00 %;-0.00 %;0.00 %"
           },
           {
             "name": "TOTAL RATE",
-            "expression": "IFERROR(([COPAY COLLECTED] + [OTHER PAYMENTS])/([COPAY DUE]+[TOTAL BALANCE]),0)",
+            "expression": "IFERROR(([COPAY COLLECTED] + [OTHER PAYMENTS])/([COPAY DUE]+[PB BALANCE]),0)",
             "formatString": "0.00 %;-0.00 %;0.00 %"
           },
           {
@@ -505,7 +487,7 @@
           },
           {
             "name": "OTHER PAYMENT RATE",
-            "expression": "IFERROR([OTHER PAYMENTS]/[TOTAL BALANCE],0)",
+            "expression": "IFERROR([OTHER PAYMENTS]/[PB BALANCE],0)",
             "formatString": "0.00 %;-0.00 %;0.00 %"
           }
         ],
@@ -553,8 +535,8 @@
               ",loc.LOC_ID",
               ",dep.DEPARTMENT_NAME",
               ",dep.SPECIALTY",
-              ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
-              ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
+              ",case when zbg.name in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
+              ",case when zbg.name in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
               ",case when PATIENT_BALANCE < 0 then 0 else PATIENT_BALANCE end as PB_BALANCE",
               ",case when HB_SELFPAY_BALANCE < 0 then 0 else HB_SELFPAY_BALANCE end as HB_BALANCE",
               ",ROW_NUMBER() OVER(PARTITION BY enc.ACCOUNT_ID, enc.CONTACT_DATE ORDER BY enc.PAT_ENC_CSN_ID ASC) as ROW#",
@@ -566,6 +548,8 @@
               "left join ZC_DISP_ENC_TYPE enc_type on enc_type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
               "left join ZC_APPT_STATUS appt_status on appt_status.APPT_STATUS_C = enc.APPT_STATUS_C",
               "left join CLARITY_PRC prc on prc.PRC_ID = enc.APPT_PRC_ID",
+              "left join CLARITY_PRC_2 prc2 on prc2.PRC_ID = prc.PRC_ID",
+              "left join ZC_BENEFIT_GROUP zbg on zbg.BENEFIT_GROUP_C = prc2.BENEFIT_GROUP_C",
               "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
               "left join DATE_DIMENSION date on date.CALENDAR_DT = enc.CONTACT_DATE",
               "",
@@ -672,8 +656,8 @@
               ",loc.LOC_ID",
               ",dep.DEPARTMENT_NAME",
               ",dep.SPECIALTY",
-              ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
-              ",case when prc.benefit_group in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
+              ",case when zbg.name in ('Office Visit','PB Copay','Copay') then enc.COPAY_COLLECTED else 0 end as COPAY_COLLECTED",
+              ",case when zbg.name in ('Office Visit','PB Copay','Copay') then enc.COPAY_DUE else 0 end as COPAY_DUE",
               ",case when PATIENT_BALANCE < 0 then 0 else PATIENT_BALANCE end as PB_BALANCE",
               ",case when HB_SELFPAY_BALANCE < 0 then 0 else HB_SELFPAY_BALANCE end as HB_BALANCE",
               ",ROW_NUMBER() OVER(PARTITION BY enc.ACCOUNT_ID, enc.CONTACT_DATE ORDER BY enc.PAT_ENC_CSN_ID ASC) as ROW#",
@@ -685,6 +669,8 @@
               "left join ZC_DISP_ENC_TYPE enc_type on enc_type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
               "left join ZC_APPT_STATUS appt_status on appt_status.APPT_STATUS_C = enc.APPT_STATUS_C",
               "left join CLARITY_PRC prc on prc.PRC_ID = enc.APPT_PRC_ID",
+              "left join CLARITY_PRC_2 prc2 on prc2.PRC_ID = prc.PRC_ID",
+              "left join ZC_BENEFIT_GROUP zbg on zbg.BENEFIT_GROUP_C = prc2.BENEFIT_GROUP_C",
               "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
               "left join DATE_DIMENSION date on date.CALENDAR_DT = enc.CONTACT_DATE",
               "",
@@ -1016,8 +1002,8 @@
             "source": {
               "query": [
                 "declare @startdate date  = dateadd(d,0,datediff(d,0,getdate())) ---7 days ago",
-                "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7); ---yesterday",
-                "",
+                "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7) ---yesterday",
+                "\t\t,@lastdate date = dateadd(d,0,datediff(d,0,getdate())+1); ---8 days ago",
                 "select",
                 " enc.CONTACT_DATE",
                 ",coalesce(cast(enc.ACCOUNT_ID as nvarchar),'UKNOWN ACCOUNT') as ACCOUNT",
@@ -1035,7 +1021,20 @@
                 "from PAT_ENC enc",
                 "left join PAT_ENC_2 enc2 on enc2.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID",
                 "left join ZC_APPT_STATUS stat on stat.APPT_STATUS_C = enc.APPT_STATUS_C",
-                "left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and enc.CONTACT_DATE >= @startdate",
+                "--left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID",
+                "left join ",
+                "(select",
+                "*",
+                "from",
+                "(",
+                "select ",
+                "*",
+                ",RowNum = ROW_NUMBER() OVER(PARTITION BY ACCOUNT_ID ORDER BY UPDATE_DATE DESC) ",
+                "from CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal",
+                ")a",
+                "",
+                "where rownum = 1) bal on bal.account_id = enc.account_id",
+                "",
                 "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
                 "left join ZC_DISP_ENC_TYPE type on type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
                 "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
@@ -1055,8 +1054,8 @@
                 "name": "QueryEditorSerialization",
                 "value": [
                   "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @startdate date  = dateadd(d,0,datediff(d,0,getdate())) ---7 days ago",
-                  "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7); ---yesterday",
-                  "",
+                  "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7) ---yesterday",
+                  "\t\t,@lastdate date = dateadd(d,0,datediff(d,0,getdate())+1); ---8 days ago",
                   "select",
                   " enc.CONTACT_DATE",
                   ",coalesce(cast(enc.ACCOUNT_ID as nvarchar),'UKNOWN ACCOUNT') as ACCOUNT",
@@ -1074,7 +1073,20 @@
                   "from PAT_ENC enc",
                   "left join PAT_ENC_2 enc2 on enc2.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID",
                   "left join ZC_APPT_STATUS stat on stat.APPT_STATUS_C = enc.APPT_STATUS_C",
-                  "left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and enc.CONTACT_DATE >= @startdate",
+                  "--left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID",
+                  "left join ",
+                  "(select",
+                  "*",
+                  "from",
+                  "(",
+                  "select ",
+                  "*",
+                  ",RowNum = ROW_NUMBER() OVER(PARTITION BY ACCOUNT_ID ORDER BY UPDATE_DATE DESC) ",
+                  "from CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal",
+                  ")a",
+                  "",
+                  "where rownum = 1) bal on bal.account_id = enc.account_id",
+                  "",
                   "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
                   "left join ZC_DISP_ENC_TYPE type on type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
                   "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
@@ -1142,8 +1154,8 @@
             "name": "_TM_ExtProp_QueryDefinition",
             "value": [
               "declare @startdate date  = dateadd(d,0,datediff(d,0,getdate())) ---7 days ago",
-              "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7); ---yesterday",
-              "",
+              "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7) ---yesterday",
+              "\t\t,@lastdate date = dateadd(d,0,datediff(d,0,getdate())+1); ---8 days ago",
               "select",
               " enc.CONTACT_DATE",
               ",coalesce(cast(enc.ACCOUNT_ID as nvarchar),'UKNOWN ACCOUNT') as ACCOUNT",
@@ -1161,7 +1173,20 @@
               "from PAT_ENC enc",
               "left join PAT_ENC_2 enc2 on enc2.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID",
               "left join ZC_APPT_STATUS stat on stat.APPT_STATUS_C = enc.APPT_STATUS_C",
-              "left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and enc.CONTACT_DATE >= @startdate",
+              "--left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID",
+              "left join ",
+              "(select",
+              "*",
+              "from",
+              "(",
+              "select ",
+              "*",
+              ",RowNum = ROW_NUMBER() OVER(PARTITION BY ACCOUNT_ID ORDER BY UPDATE_DATE DESC) ",
+              "from CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal",
+              ")a",
+              "",
+              "where rownum = 1) bal on bal.account_id = enc.account_id",
+              "",
               "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
               "left join ZC_DISP_ENC_TYPE type on type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
               "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
@@ -1183,8 +1208,8 @@
             "name": "QueryEditorSerialization",
             "value": [
               "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @startdate date  = dateadd(d,0,datediff(d,0,getdate())) ---7 days ago",
-              "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7); ---yesterday",
-              "",
+              "\t\t,@enddate date = dateadd(d,0,datediff(d,0,getdate())+7) ---yesterday",
+              "\t\t,@lastdate date = dateadd(d,0,datediff(d,0,getdate())+1); ---8 days ago",
               "select",
               " enc.CONTACT_DATE",
               ",coalesce(cast(enc.ACCOUNT_ID as nvarchar),'UKNOWN ACCOUNT') as ACCOUNT",
@@ -1202,7 +1227,20 @@
               "from PAT_ENC enc",
               "left join PAT_ENC_2 enc2 on enc2.PAT_ENC_CSN_ID = enc.PAT_ENC_CSN_ID",
               "left join ZC_APPT_STATUS stat on stat.APPT_STATUS_C = enc.APPT_STATUS_C",
-              "left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID and enc.CONTACT_DATE >= @startdate",
+              "--left join CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal on bal.ACCOUNT_ID = enc.ACCOUNT_ID",
+              "left join ",
+              "(select",
+              "*",
+              "from",
+              "(",
+              "select ",
+              "*",
+              ",RowNum = ROW_NUMBER() OVER(PARTITION BY ACCOUNT_ID ORDER BY UPDATE_DATE DESC) ",
+              "from CLARITYCHPUTIL.rpt.PB_DAILY_ACCOUNT_PATIENT_BALANCE bal",
+              ")a",
+              "",
+              "where rownum = 1) bal on bal.account_id = enc.account_id",
+              "",
               "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = enc.DEPARTMENT_ID",
               "left join ZC_DISP_ENC_TYPE type on type.DISP_ENC_TYPE_C = enc.ENC_TYPE_C",
               "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
@@ -1219,117 +1257,135 @@
         ]
       },
       {
-        "name": "Dashboard",
+        "name": "Payments",
         "columns": [
           {
-            "name": "PAYMENT",
-            "dataType": "double",
-            "isHidden": true,
-            "sourceColumn": "PAYMENT"
-          },
-          {
-            "name": "DEPARTMENT ID",
-            "dataType": "int64",
-            "sourceColumn": "DEPARTMENT ID"
-          },
-          {
-            "name": "DEPARTMENT",
+            "name": "REGION ID",
             "dataType": "string",
-            "sourceColumn": "DEPARTMENT"
+            "isHidden": true,
+            "sourceColumn": "REGION ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REGION",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "REGION",
+            "sourceProviderType": "VarChar"
           },
           {
             "name": "LOCATION ID",
             "dataType": "double",
-            "sourceColumn": "LOCATION ID"
+            "isHidden": true,
+            "sourceColumn": "LOCATION ID",
+            "sourceProviderType": "Decimal"
           },
           {
             "name": "LOCATION",
             "dataType": "string",
-            "sourceColumn": "LOCATION"
+            "isHidden": true,
+            "sourceColumn": "LOCATION",
+            "sourceProviderType": "VarChar"
           },
           {
-            "name": "MARKET_ID",
-            "dataType": "string",
-            "sourceColumn": "MARKET_ID"
-          },
-          {
-            "name": "MARKET",
-            "dataType": "string",
-            "sourceColumn": "MARKET"
-          },
-          {
-            "name": "YEAR MONTH",
-            "dataType": "int64",
-            "sourceColumn": "YEAR MONTH"
-          },
-          {
-            "name": "MONTHLY GOALS",
+            "name": "DEPARTMENT ID",
             "dataType": "double",
-            "sourceColumn": "MONTHLY GOALS"
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DEPARTMENT",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "USER ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "USER ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "USER",
+            "dataType": "string",
+            "sourceColumn": "USER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PAYMENT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PAYMENT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RPT_GRP_SIX",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RPT_GRP_SIX",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "YEAR_MONTH"
           }
         ],
         "partitions": [
           {
-            "name": "Dashboard",
+            "name": "Payments",
             "dataView": "full",
             "source": {
               "query": [
-                "declare @end_date as date = EPIC_UTIL.EFN_DIN('me');",
-                "",
-                "with goals as ",
-                "(",
                 "select ",
-                " distinct",
-                " goals.DEPARTMENT_ID",
-                ",goals.MONTH_YEAR",
-                ",goals.MONTHLY_GOAL",
-                "from ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals",
-                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
-                "left join DATE_DIMENSION date on date.YEAR_MONTH = goals.MONTH_YEAR",
-                "where date.MONTH_NUMBER <= month(getdate())",
-                "and date.YEAR <= year(getdate())",
-                "-- and goals.DEPARTMENT_ID = 19151112",
-                "),",
+                " date.YEAR_MONTH",
+                ",sa.RPT_GRP_TEN as 'REGION ID'",
+                ",upper(sa.NAME) as 'REGION'",
+                ",loc.LOC_ID as 'LOCATION ID'",
+                ",loc.lOC_NAME as 'LOCATION'",
+                ",dep.DEPARTMENT_ID as 'DEPARTMENT ID'",
+                ",dep.DEPARTMENT_NAME as 'DEPARTMENT'",
+                ",emp.USER_ID as 'USER ID'",
+                ",emp.NAME as 'USER'",
+                ",arpb_tx.AMOUNT * -1 as 'PAYMENT'",
+                ",loc.RPT_GRP_SIX",
                 "",
-                "payments as",
-                "(",
-                "select",
-                " arpb_tx.DEPARTMENT_ID",
-                ",date.YEAR_MONTH_STR",
-                ",date.YEAR_MONTH",
-                ",sum(case when arpb_tx.VOID_DATE = arpb_tx.POST_DATE then 0 else arpb_tx.AMOUNT * -1 end) as PAYMENT",
                 "from ARPB_TRANSACTIONS arpb_tx",
                 "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
                 "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+                "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "left join CLARITY_EMP emp on emp.USER_ID = arpb_tx.USER_ID",
+                "",
                 "where arpb_tx.SERVICE_AREA_ID in (19)",
                 "and arpb_tx.TX_TYPE_C = 2",
                 "and eap.PROC_CODE in ('1000','1001','1002')",
-                "and arpb_tx.POST_DATE >= '10/1/2018'",
-                "--and arpb_tx.DEPARTMENT_ID = 19151112",
-                "group by",
-                " arpb_tx.DEPARTMENT_ID",
-                ",date.YEAR_MONTH_STR",
-                ",date.YEAR_MONTH",
-                ")",
-                "",
-                "select ",
-                " goals.DEPARTMENT_ID as 'DEPARTMENT ID'",
-                ",dep.DEPARTMENT_NAME as DEPARTMENT",
-                ",loc.LOC_ID as 'LOCATION ID'",
-                ",loc.LOC_NAME as LOCATION",
-                ",sa.RPT_GRP_TEN as MARKET_ID",
-                ",upper(sa.NAME) as MARKET",
-                ",goals.MONTH_YEAR as 'YEAR MONTH'",
-                ",coalesce(payments.PAYMENT,0) as PAYMENT",
-                ",goals.MONTHLY_GOAL as 'MONTHLY GOALS'",
-                "",
-                "from goals",
-                "left join payments on payments.DEPARTMENT_ID = goals.DEPARTMENT_ID and payments.YEAR_MONTH = goals.MONTH_YEAR",
-                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
-                "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
-                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
-                "order by goals.DEPARTMENT_ID",
-                ",goals.MONTH_YEAR"
+                "and date.YEAR_MONTH >= '201810'",
+                "and arpb_tx.DEPARTMENT_ID not in (19000001)",
+                "and arpb_tx.LOC_ID not in (",
+                "197100, ",
+                "197000, ",
+                "19106, ",
+                "19108, ",
+                "19000, ",
+                "193300, ",
+                "193200, ",
+                "193500, ",
+                "196100, ",
+                "196000, ",
+                "19137, ",
+                "195000, ",
+                "195100, ",
+                "195100, ",
+                "195400, ",
+                "195400, ",
+                "194000",
+                ")"
               ],
               "dataSource": "Clarity"
             },
@@ -1337,62 +1393,51 @@
               {
                 "name": "QueryEditorSerialization",
                 "value": [
-                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @end_date as date = EPIC_UTIL.EFN_DIN('me');",
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " date.YEAR_MONTH",
+                  ",sa.RPT_GRP_TEN as 'REGION ID'",
+                  ",upper(sa.NAME) as 'REGION'",
+                  ",loc.LOC_ID as 'LOCATION ID'",
+                  ",loc.lOC_NAME as 'LOCATION'",
+                  ",dep.DEPARTMENT_ID as 'DEPARTMENT ID'",
+                  ",dep.DEPARTMENT_NAME as 'DEPARTMENT'",
+                  ",emp.USER_ID as 'USER ID'",
+                  ",emp.NAME as 'USER'",
+                  ",arpb_tx.AMOUNT * -1 as 'PAYMENT'",
+                  ",loc.RPT_GRP_SIX",
                   "",
-                  "with goals as ",
-                  "(",
-                  "select ",
-                  " distinct",
-                  " goals.DEPARTMENT_ID",
-                  ",goals.MONTH_YEAR",
-                  ",goals.MONTHLY_GOAL",
-                  "from ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals",
-                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
-                  "left join DATE_DIMENSION date on date.YEAR_MONTH = goals.MONTH_YEAR",
-                  "where date.MONTH_NUMBER <= month(getdate())",
-                  "and date.YEAR <= year(getdate())",
-                  "-- and goals.DEPARTMENT_ID = 19151112",
-                  "),",
-                  "",
-                  "payments as",
-                  "(",
-                  "select",
-                  " arpb_tx.DEPARTMENT_ID",
-                  ",date.YEAR_MONTH_STR",
-                  ",date.YEAR_MONTH",
-                  ",sum(case when arpb_tx.VOID_DATE = arpb_tx.POST_DATE then 0 else arpb_tx.AMOUNT * -1 end) as PAYMENT",
                   "from ARPB_TRANSACTIONS arpb_tx",
                   "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
                   "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "left join CLARITY_EMP emp on emp.USER_ID = arpb_tx.USER_ID",
+                  "",
                   "where arpb_tx.SERVICE_AREA_ID in (19)",
                   "and arpb_tx.TX_TYPE_C = 2",
                   "and eap.PROC_CODE in ('1000','1001','1002')",
-                  "and arpb_tx.POST_DATE >= '10/1/2018'",
-                  "--and arpb_tx.DEPARTMENT_ID = 19151112",
-                  "group by",
-                  " arpb_tx.DEPARTMENT_ID",
-                  ",date.YEAR_MONTH_STR",
-                  ",date.YEAR_MONTH",
-                  ")",
-                  "",
-                  "select ",
-                  " goals.DEPARTMENT_ID as 'DEPARTMENT ID'",
-                  ",dep.DEPARTMENT_NAME as DEPARTMENT",
-                  ",loc.LOC_ID as 'LOCATION ID'",
-                  ",loc.LOC_NAME as LOCATION",
-                  ",sa.RPT_GRP_TEN as MARKET_ID",
-                  ",upper(sa.NAME) as MARKET",
-                  ",goals.MONTH_YEAR as 'YEAR MONTH'",
-                  ",coalesce(payments.PAYMENT,0) as PAYMENT",
-                  ",goals.MONTHLY_GOAL as 'MONTHLY GOALS'",
-                  "",
-                  "from goals",
-                  "left join payments on payments.DEPARTMENT_ID = goals.DEPARTMENT_ID and payments.YEAR_MONTH = goals.MONTH_YEAR",
-                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
-                  "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
-                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
-                  "order by goals.DEPARTMENT_ID",
-                  ",goals.MONTH_YEAR</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  "and date.YEAR_MONTH >= '201810'",
+                  "and arpb_tx.DEPARTMENT_ID not in (19000001)",
+                  "and arpb_tx.LOC_ID not in (",
+                  "197100, ",
+                  "197000, ",
+                  "19106, ",
+                  "19108, ",
+                  "19000, ",
+                  "193300, ",
+                  "193200, ",
+                  "193500, ",
+                  "196100, ",
+                  "196000, ",
+                  "19137, ",
+                  "195000, ",
+                  "195100, ",
+                  "195100, ",
+                  "195400, ",
+                  "195400, ",
+                  "194000",
+                  ")</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
                 ]
               }
             ]
@@ -1400,8 +1445,8 @@
         ],
         "measures": [
           {
-            "name": "Monthly Goal",
-            "expression": "sum(Dashboard[MONTHLY GOALS])",
+            "name": "PAYMENTS",
+            "expression": "sum(Payments[PAYMENT])",
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "annotations": [
               {
@@ -1409,152 +1454,563 @@
                 "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
               }
             ]
-          },
-          {
-            "name": "Payments",
-            "expression": "sum(Dashboard[PAYMENT])",
-            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Collection Rate",
-            "expression": "IFERROR([Payments]/[Monthly Goal],\"Unknown\")",
-            "formatString": "0.00 %;-0.00 %;0.00 %"
           }
         ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
             "value": [
-              "declare @end_date as date = EPIC_UTIL.EFN_DIN('me');",
-              "",
-              "with goals as ",
-              "(",
               "select ",
-              " distinct",
-              " goals.DEPARTMENT_ID",
-              ",goals.MONTH_YEAR",
-              ",goals.MONTHLY_GOAL",
-              "from ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals",
-              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
-              "left join DATE_DIMENSION date on date.YEAR_MONTH = goals.MONTH_YEAR",
-              "where date.MONTH_NUMBER <= month(getdate())",
-              "and date.YEAR <= year(getdate())",
-              "-- and goals.DEPARTMENT_ID = 19151112",
-              "),",
+              " date.YEAR_MONTH",
+              ",sa.RPT_GRP_TEN as 'REGION ID'",
+              ",upper(sa.NAME) as 'REGION'",
+              ",loc.LOC_ID as 'LOCATION ID'",
+              ",loc.lOC_NAME as 'LOCATION'",
+              ",dep.DEPARTMENT_ID as 'DEPARTMENT ID'",
+              ",dep.DEPARTMENT_NAME as 'DEPARTMENT'",
+              ",emp.USER_ID as 'USER ID'",
+              ",emp.NAME as 'USER'",
+              ",arpb_tx.AMOUNT * -1 as 'PAYMENT'",
+              ",loc.RPT_GRP_SIX",
               "",
-              "payments as",
-              "(",
-              "select",
-              " arpb_tx.DEPARTMENT_ID",
-              ",date.YEAR_MONTH_STR",
-              ",date.YEAR_MONTH",
-              ",sum(case when arpb_tx.VOID_DATE = arpb_tx.POST_DATE then 0 else arpb_tx.AMOUNT * -1 end) as PAYMENT",
               "from ARPB_TRANSACTIONS arpb_tx",
               "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
               "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+              "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_EMP emp on emp.USER_ID = arpb_tx.USER_ID",
+              "",
               "where arpb_tx.SERVICE_AREA_ID in (19)",
               "and arpb_tx.TX_TYPE_C = 2",
               "and eap.PROC_CODE in ('1000','1001','1002')",
-              "and arpb_tx.POST_DATE >= '10/1/2018'",
-              "--and arpb_tx.DEPARTMENT_ID = 19151112",
-              "group by",
-              " arpb_tx.DEPARTMENT_ID",
-              ",date.YEAR_MONTH_STR",
-              ",date.YEAR_MONTH",
-              ")",
-              "",
-              "select ",
-              " goals.DEPARTMENT_ID as 'DEPARTMENT ID'",
-              ",dep.DEPARTMENT_NAME as DEPARTMENT",
-              ",loc.LOC_ID as 'LOCATION ID'",
-              ",loc.LOC_NAME as LOCATION",
-              ",sa.RPT_GRP_TEN as MARKET_ID",
-              ",upper(sa.NAME) as MARKET",
-              ",goals.MONTH_YEAR as 'YEAR MONTH'",
-              ",coalesce(payments.PAYMENT,0) as PAYMENT",
-              ",goals.MONTHLY_GOAL as 'MONTHLY GOALS'",
-              "",
-              "from goals",
-              "left join payments on payments.DEPARTMENT_ID = goals.DEPARTMENT_ID and payments.YEAR_MONTH = goals.MONTH_YEAR",
-              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
-              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
-              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
-              "order by goals.DEPARTMENT_ID",
-              ",goals.MONTH_YEAR"
+              "and date.YEAR_MONTH >= '201810'",
+              "and arpb_tx.DEPARTMENT_ID not in (19000001)",
+              "and arpb_tx.LOC_ID not in (",
+              "197100, ",
+              "197000, ",
+              "19106, ",
+              "19108, ",
+              "19000, ",
+              "193300, ",
+              "193200, ",
+              "193500, ",
+              "196100, ",
+              "196000, ",
+              "19137, ",
+              "195000, ",
+              "195100, ",
+              "195100, ",
+              "195400, ",
+              "195400, ",
+              "194000",
+              ")"
             ]
           },
           {
             "name": "_TM_ExtProp_DbTableName",
-            "value": "Dashboard"
+            "value": "Payments"
           },
           {
             "name": "QueryEditorSerialization",
             "value": [
-              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>declare @end_date as date = EPIC_UTIL.EFN_DIN('me');",
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " date.YEAR_MONTH",
+              ",sa.RPT_GRP_TEN as 'REGION ID'",
+              ",upper(sa.NAME) as 'REGION'",
+              ",loc.LOC_ID as 'LOCATION ID'",
+              ",loc.lOC_NAME as 'LOCATION'",
+              ",dep.DEPARTMENT_ID as 'DEPARTMENT ID'",
+              ",dep.DEPARTMENT_NAME as 'DEPARTMENT'",
+              ",emp.USER_ID as 'USER ID'",
+              ",emp.NAME as 'USER'",
+              ",arpb_tx.AMOUNT * -1 as 'PAYMENT'",
+              ",loc.RPT_GRP_SIX",
               "",
-              "with goals as ",
-              "(",
-              "select ",
-              " distinct",
-              " goals.DEPARTMENT_ID",
-              ",goals.MONTH_YEAR",
-              ",goals.MONTHLY_GOAL",
-              "from ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals",
-              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
-              "left join DATE_DIMENSION date on date.YEAR_MONTH = goals.MONTH_YEAR",
-              "where date.MONTH_NUMBER <= month(getdate())",
-              "and date.YEAR <= year(getdate())",
-              "-- and goals.DEPARTMENT_ID = 19151112",
-              "),",
-              "",
-              "payments as",
-              "(",
-              "select",
-              " arpb_tx.DEPARTMENT_ID",
-              ",date.YEAR_MONTH_STR",
-              ",date.YEAR_MONTH",
-              ",sum(case when arpb_tx.VOID_DATE = arpb_tx.POST_DATE then 0 else arpb_tx.AMOUNT * -1 end) as PAYMENT",
               "from ARPB_TRANSACTIONS arpb_tx",
               "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
               "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+              "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_EMP emp on emp.USER_ID = arpb_tx.USER_ID",
+              "",
               "where arpb_tx.SERVICE_AREA_ID in (19)",
               "and arpb_tx.TX_TYPE_C = 2",
               "and eap.PROC_CODE in ('1000','1001','1002')",
-              "and arpb_tx.POST_DATE >= '10/1/2018'",
-              "--and arpb_tx.DEPARTMENT_ID = 19151112",
-              "group by",
-              " arpb_tx.DEPARTMENT_ID",
-              ",date.YEAR_MONTH_STR",
-              ",date.YEAR_MONTH",
-              ")",
-              "",
-              "select ",
-              " goals.DEPARTMENT_ID as 'DEPARTMENT ID'",
-              ",dep.DEPARTMENT_NAME as DEPARTMENT",
-              ",loc.LOC_ID as 'LOCATION ID'",
-              ",loc.LOC_NAME as LOCATION",
-              ",sa.RPT_GRP_TEN as MARKET_ID",
-              ",upper(sa.NAME) as MARKET",
-              ",goals.MONTH_YEAR as 'YEAR MONTH'",
-              ",coalesce(payments.PAYMENT,0) as PAYMENT",
-              ",goals.MONTHLY_GOAL as 'MONTHLY GOALS'",
-              "",
-              "from goals",
-              "left join payments on payments.DEPARTMENT_ID = goals.DEPARTMENT_ID and payments.YEAR_MONTH = goals.MONTH_YEAR",
-              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = goals.DEPARTMENT_ID",
-              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
-              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
-              "order by goals.DEPARTMENT_ID",
-              ",goals.MONTH_YEAR</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              "and date.YEAR_MONTH >= '201810'",
+              "and arpb_tx.DEPARTMENT_ID not in (19000001)",
+              "and arpb_tx.LOC_ID not in (",
+              "197100, ",
+              "197000, ",
+              "19106, ",
+              "19108, ",
+              "19000, ",
+              "193300, ",
+              "193200, ",
+              "193500, ",
+              "196100, ",
+              "196000, ",
+              "19137, ",
+              "195000, ",
+              "195100, ",
+              "195100, ",
+              "195400, ",
+              "195400, ",
+              "194000",
+              ")</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
             ]
           }
         ]
+      },
+      {
+        "name": "Goals",
+        "columns": [
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "int64",
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "MONTH_YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTHLY_GOAL",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "MONTHLY_GOAL",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BUS_DAYS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "BUS_DAYS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DAILY_GOAL",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DAILY_GOAL",
+            "sourceProviderType": "Decimal"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Goals",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "with dates as",
+                "(",
+                "select distinct",
+                "date.YEAR_MONTH",
+                ",date.MONTHNAME_YEAR",
+                "",
+                "from DATE_DIMENSION date",
+                "where YEAR_MONTH >= '201810'",
+                "and calendar_dt <= getdate() -1 ",
+                "),",
+                "",
+                "goals as ",
+                "(",
+                "select ",
+                "* ",
+                "from dates",
+                "left join ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals on goals.MONTH_YEAR = dates.YEAR_MONTH",
+                "",
+                ")",
+                "",
+                "select ",
+                " DEPARTMENT_ID, MONTH_YEAR, MONTHLY_GOAL, BUS_DAYS, DAILY_GOAL",
+                "from goals"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>with dates as",
+                  "(",
+                  "select distinct",
+                  "date.YEAR_MONTH",
+                  ",date.MONTHNAME_YEAR",
+                  "",
+                  "from DATE_DIMENSION date",
+                  "where YEAR_MONTH >= '201810'",
+                  "and calendar_dt <= getdate() -1 ",
+                  "),",
+                  "",
+                  "goals as ",
+                  "(",
+                  "select ",
+                  "* ",
+                  "from dates",
+                  "left join ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals on goals.MONTH_YEAR = dates.YEAR_MONTH",
+                  "",
+                  ")",
+                  "",
+                  "select ",
+                  " DEPARTMENT_ID, MONTH_YEAR, MONTHLY_GOAL, BUS_DAYS, DAILY_GOAL",
+                  "from goals</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "MONTHLY GOAL",
+            "expression": "sum(Goals[MONTHLY_GOAL])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "with dates as",
+              "(",
+              "select distinct",
+              "date.YEAR_MONTH",
+              ",date.MONTHNAME_YEAR",
+              "",
+              "from DATE_DIMENSION date",
+              "where YEAR_MONTH >= '201810'",
+              "and calendar_dt <= getdate() -1 ",
+              "),",
+              "",
+              "goals as ",
+              "(",
+              "select ",
+              "* ",
+              "from dates",
+              "left join ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals on goals.MONTH_YEAR = dates.YEAR_MONTH",
+              "",
+              ")",
+              "",
+              "select ",
+              " DEPARTMENT_ID, MONTH_YEAR, MONTHLY_GOAL, BUS_DAYS, DAILY_GOAL",
+              "from goals"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Goals"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>with dates as",
+              "(",
+              "select distinct",
+              "date.YEAR_MONTH",
+              ",date.MONTHNAME_YEAR",
+              "",
+              "from DATE_DIMENSION date",
+              "where YEAR_MONTH >= '201810'",
+              "and calendar_dt <= getdate() -1 ",
+              "),",
+              "",
+              "goals as ",
+              "(",
+              "select ",
+              "* ",
+              "from dates",
+              "left join ClarityCHPUtil.rpt.PB_FRONT_DESK_GOALS goals on goals.MONTH_YEAR = dates.YEAR_MONTH",
+              "",
+              ")",
+              "",
+              "select ",
+              " DEPARTMENT_ID, MONTH_YEAR, MONTHLY_GOAL, BUS_DAYS, DAILY_GOAL",
+              "from goals</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Departments",
+        "columns": [
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DEPARTMENT_NAME",
+            "dataType": "string",
+            "sourceColumn": "DEPARTMENT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "LOC_NAME",
+            "dataType": "string",
+            "sourceColumn": "LOC_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REGION_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "REGION_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REGION",
+            "dataType": "string",
+            "sourceColumn": "REGION",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Departments",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select distinct ",
+                " dep.DEPARTMENT_ID",
+                ",dep.DEPARTMENT_NAME",
+                ",loc.LOC_ID",
+                ",loc.LOC_NAME",
+                ",sa.RPT_GRP_TEN as REGION_ID",
+                ",upper(sa.NAME) as REGION",
+                "from ARPB_TRANSACTIONS arpb_tx",
+                "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+                "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+                "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "left join CLARITY_EMP emp on emp.USER_ID = arpb_tx.USER_ID",
+                "",
+                "where arpb_tx.SERVICE_AREA_ID in (19)",
+                "and arpb_tx.TX_TYPE_C = 2",
+                "and eap.PROC_CODE in ('1000','1001','1002')",
+                "and date.YEAR_MONTH >= '201810'",
+                "",
+                "order by dep.DEPARTMENT_ID"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select distinct ",
+                  " dep.DEPARTMENT_ID",
+                  ",dep.DEPARTMENT_NAME",
+                  ",loc.LOC_ID",
+                  ",loc.LOC_NAME",
+                  ",sa.RPT_GRP_TEN as REGION_ID",
+                  ",upper(sa.NAME) as REGION",
+                  "from ARPB_TRANSACTIONS arpb_tx",
+                  "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+                  "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "left join CLARITY_EMP emp on emp.USER_ID = arpb_tx.USER_ID",
+                  "",
+                  "where arpb_tx.SERVICE_AREA_ID in (19)",
+                  "and arpb_tx.TX_TYPE_C = 2",
+                  "and eap.PROC_CODE in ('1000','1001','1002')",
+                  "and date.YEAR_MONTH >= '201810'",
+                  "",
+                  "order by dep.DEPARTMENT_ID</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select distinct ",
+              " dep.DEPARTMENT_ID",
+              ",dep.DEPARTMENT_NAME",
+              ",loc.LOC_ID",
+              ",loc.LOC_NAME",
+              ",sa.RPT_GRP_TEN as REGION_ID",
+              ",upper(sa.NAME) as REGION",
+              "from ARPB_TRANSACTIONS arpb_tx",
+              "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+              "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+              "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_EMP emp on emp.USER_ID = arpb_tx.USER_ID",
+              "",
+              "where arpb_tx.SERVICE_AREA_ID in (19)",
+              "and arpb_tx.TX_TYPE_C = 2",
+              "and eap.PROC_CODE in ('1000','1001','1002')",
+              "and date.YEAR_MONTH >= '201810'",
+              "",
+              "order by dep.DEPARTMENT_ID"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Departments"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select distinct ",
+              " dep.DEPARTMENT_ID",
+              ",dep.DEPARTMENT_NAME",
+              ",loc.LOC_ID",
+              ",loc.LOC_NAME",
+              ",sa.RPT_GRP_TEN as REGION_ID",
+              ",upper(sa.NAME) as REGION",
+              "from ARPB_TRANSACTIONS arpb_tx",
+              "left join CLARITY_EAP eap on eap.PROC_ID = arpb_tx.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = arpb_tx.DEPARTMENT_ID",
+              "left join DATE_DIMENSION date on date.CALENDAR_DT = arpb_tx.POST_DATE",
+              "left join CLARITY_LOC loc on loc.LOC_ID = arpb_tx.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_EMP emp on emp.USER_ID = arpb_tx.USER_ID",
+              "",
+              "where arpb_tx.SERVICE_AREA_ID in (19)",
+              "and arpb_tx.TX_TYPE_C = 2",
+              "and eap.PROC_CODE in ('1000','1001','1002')",
+              "and date.YEAR_MONTH >= '201810'",
+              "",
+              "order by dep.DEPARTMENT_ID</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "columns": [
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select distinct",
+                "date.YEAR_MONTH",
+                ",date.MONTHNAME_YEAR",
+                "",
+                "from DATE_DIMENSION date",
+                "where YEAR_MONTH >= '201810'",
+                "and calendar_dt <= getdate()-1"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select distinct",
+                  "date.YEAR_MONTH",
+                  ",date.MONTHNAME_YEAR",
+                  "",
+                  "from DATE_DIMENSION date",
+                  "where YEAR_MONTH >= '201810'",
+                  "and calendar_dt <= getdate()-1</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select distinct",
+              "date.YEAR_MONTH",
+              ",date.MONTHNAME_YEAR",
+              "",
+              "from DATE_DIMENSION date",
+              "where YEAR_MONTH >= '201810'",
+              "and calendar_dt <= getdate()-1"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Date"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select distinct",
+              "date.YEAR_MONTH",
+              ",date.MONTHNAME_YEAR",
+              "",
+              "from DATE_DIMENSION date",
+              "where YEAR_MONTH >= '201810'",
+              "and calendar_dt <= getdate()-1</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "4bfc6b00-356f-4188-a57e-93d6639ade60",
+        "fromTable": "Payments",
+        "fromColumn": "DEPARTMENT ID",
+        "toTable": "Departments",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "b7a9b1c3-24e3-40ed-b335-e573205e5874",
+        "fromTable": "Goals",
+        "fromColumn": "DEPARTMENT_ID",
+        "toTable": "Departments",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "b05e88d6-59a0-4f9d-98a5-2c718bad725d",
+        "fromTable": "Payments",
+        "fromColumn": "YEAR_MONTH",
+        "toTable": "Date",
+        "toColumn": "YEAR_MONTH"
+      },
+      {
+        "name": "303b371d-8394-4974-94a3-f7a44d3fa2ad",
+        "fromTable": "Goals",
+        "fromColumn": "YEAR_MONTH",
+        "toTable": "Date",
+        "toColumn": "YEAR_MONTH"
       }
     ],
     "roles": [

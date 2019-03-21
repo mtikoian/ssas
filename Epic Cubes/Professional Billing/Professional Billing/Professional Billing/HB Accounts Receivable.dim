@@ -1,0 +1,1319 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>V CUBE F HB AR HISTORY</ID>
+  <Name>HB Accounts Receivable</Name>
+  <CreatedTimestamp>2018-02-23T00:58:15.96Z</CreatedTimestamp>
+  <LastSchemaUpdate>2018-02-23T00:58:15.96Z</LastSchemaUpdate>
+  <Description>Details relating to HB accounts receivable buckets.</Description>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5589" scrolltop="3695" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="13547" y="13256" backcolor="16185078" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="V_CUBE_F_HB_AR_HISTORY" left="-4531" top="4120" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="6668" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a00000c1a000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_V_CUBE_F_HB_AR_HISTORY" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-5589</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>3695</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-4531</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>4120</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="177">
+            <Shape Id="Bucket ID" Expanded="true">
+              <Attributes>
+                <Attribute Id="Bucket ID" />
+                <Attribute Id="Account Status" />
+                <Attribute Id="Agency Assign Age" />
+                <Attribute Id="Agency Assign Date" />
+                <Attribute Id="AR DATE" />
+                <Attribute Id="AR DATE RANGE" />
+                <Attribute Id="Assigned Agency" />
+                <Attribute Id="BUCKET BALANCE STATUS" />
+                <Attribute Id="Bucket Credit or Debit" />
+                <Attribute Id="BUCKET STATUS" />
+                <Attribute Id="Bucket Type" />
+                <Attribute Id="Claim Form Type" />
+                <Attribute Id="Collection Status" />
+                <Attribute Id="Discharge Age" />
+                <Attribute Id="Discharge Date" />
+                <Attribute Id="First Claim Age" />
+                <Attribute Id="First Claim Date" />
+                <Attribute Id="First External Claim Age" />
+                <Attribute Id="First External Claim Date" />
+                <Attribute Id="First Full Statement Age" />
+                <Attribute Id="First Full Statement Date" />
+                <Attribute Id="First Payor Age" />
+                <Attribute Id="First Payor Date" />
+                <Attribute Id="First Statement Age" />
+                <Attribute Id="First Statement Date" />
+                <Attribute Id="HAR Credit or Debit" />
+                <Attribute Id="IS OUTSOURCED YN" />
+                <Attribute Id="Last Claim Age" />
+                <Attribute Id="Last Claim Date" />
+                <Attribute Id="Last External Claim Age" />
+                <Attribute Id="Last External Claim Date" />
+                <Attribute Id="Last Payor Age" />
+                <Attribute Id="Last Payor Date" />
+                <Attribute Id="PRIMARY PRODUCT TYPE" />
+                <Attribute Id="RESPONSIBLE PRODUCT TYPE" />
+                <Attribute Id="Self-pay Cycle Start Age" />
+                <Attribute Id="Self-pay Cycle Start Date" />
+                <Attribute Id="Self-pay Level" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="RESPONSIBLE FIN CLASS" Expanded="false">
+              <Attributes>
+                <Attribute Id="RESPONSIBLE FIN CLASS" />
+              </Attributes>
+              <Position x="246" y="20" />
+            </Shape>
+            <Shape Id="RESPONSIBLE PAYOR" Expanded="false">
+              <Attributes>
+                <Attribute Id="RESPONSIBLE PAYOR" />
+              </Attributes>
+              <Position x="246" y="68" />
+            </Shape>
+            <Shape Id="RESPONSIBLE PLAN" Expanded="false">
+              <Attributes>
+                <Attribute Id="RESPONSIBLE PLAN" />
+              </Attributes>
+              <Position x="246" y="116" />
+            </Shape>
+            <Shape Id="PRIMARY PAYOR" Expanded="false">
+              <Attributes>
+                <Attribute Id="PRIMARY PAYOR" />
+              </Attributes>
+              <Position x="246" y="164" />
+            </Shape>
+            <Shape Id="PRIMARY PLAN" Expanded="false">
+              <Attributes>
+                <Attribute Id="PRIMARY PLAN" />
+              </Attributes>
+              <Position x="246" y="212" />
+            </Shape>
+            <Shape Id="PRIMARY FIN CLASS" Expanded="false">
+              <Attributes>
+                <Attribute Id="PRIMARY FIN CLASS" />
+              </Attributes>
+              <Position x="246" y="260" />
+            </Shape>
+            <Shape Id="Account Class" Expanded="false">
+              <Attributes>
+                <Attribute Id="Account Class" />
+              </Attributes>
+              <Position x="246" y="308" />
+            </Shape>
+            <Shape Id="Account Base Class" Expanded="false">
+              <Attributes>
+                <Attribute Id="Account Base Class" />
+              </Attributes>
+              <Position x="246" y="356" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2019-01-14T22:39:43.38Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>EpicStandardDSV</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration>
+    <KeyNotFound>IgnoreError</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>Bucket ID</ID>
+      <Name>Bucket ID</Name>
+      <Description>The unique ID of the liability bucket for this snapshot entry.</Description>
+      <Usage>Key</Usage>
+      <EstimatedCount>6017307</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>BUCKET_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>AR_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>BUCKET_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Discharge Date</AttributeID>
+          <Name>Discharge Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>First Claim Date</AttributeID>
+          <Name>First Claim Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Last Claim Date</AttributeID>
+          <Name>Last Claim Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>First External Claim Date</AttributeID>
+          <Name>First External Claim Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Last External Claim Date</AttributeID>
+          <Name>Last External Claim Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>First Payor Date</AttributeID>
+          <Name>First Payor Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Last Payor Date</AttributeID>
+          <Name>Last Payor Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>First Statement Date</AttributeID>
+          <Name>First Statement Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>First Full Statement Date</AttributeID>
+          <Name>First Full Statement Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Self-pay Cycle Start Date</AttributeID>
+          <Name>Self-pay Cycle Start Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Agency Assign Date</AttributeID>
+          <Name>Agency Assign Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Account Base Class</AttributeID>
+          <Name>Account Base Class</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Account Class</AttributeID>
+          <Name>Account Class</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Account Status</AttributeID>
+          <Name>Account Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Bucket Type</AttributeID>
+          <Name>Bucket Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Collection Status</AttributeID>
+          <Name>Collection Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Self-pay Level</AttributeID>
+          <Name>Self-pay Level</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Assigned Agency</AttributeID>
+          <Name>Assigned Agency</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Claim Form Type</AttributeID>
+          <Name>Claim Form Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>HAR Credit or Debit</AttributeID>
+          <Name>HAR Credit or Debit</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Bucket Credit or Debit</AttributeID>
+          <Name>Bucket Credit or Debit</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>AR DATE</AttributeID>
+          <Name>AR Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>IS OUTSOURCED YN</AttributeID>
+          <Name>Is Outsourced</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>AR DATE RANGE</AttributeID>
+          <Name>AR Date Range</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>BUCKET STATUS</AttributeID>
+          <Name>Bucket Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>BUCKET BALANCE STATUS</AttributeID>
+          <Name>Bucket Balance Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>PRIMARY FIN CLASS</AttributeID>
+          <Name>Primary Financial Class</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>PRIMARY PLAN</AttributeID>
+          <Name>Primary Plan</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>PRIMARY PRODUCT TYPE</AttributeID>
+          <Name>Primary Product Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>PRIMARY PAYOR</AttributeID>
+          <Name>Primary Payor</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>RESPONSIBLE PLAN</AttributeID>
+          <Name>Responsible Plan</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>RESPONSIBLE PRODUCT TYPE</AttributeID>
+          <Name>Responsible Product Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>RESPONSIBLE PAYOR</AttributeID>
+          <Name>Responsible Payor</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>RESPONSIBLE FIN CLASS</AttributeID>
+          <Name>Responsible Financial Class</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyDisplayFolder>Bucket Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Discharge Date</ID>
+      <Name>Discharge Date</Name>
+      <Description>The discharge date of the hospital account that was valid for this snapshot date range.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>DISCHARGE_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>DISCHARGE_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>First Claim Date</ID>
+      <Name>First Claim Date</Name>
+      <Description>The date the first claim for the liability bucket was accepted.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>FIRST_CLAIM_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>FIRST_CLAIM_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Last Claim Date</ID>
+      <Name>Last Claim Date</Name>
+      <Description>The last claim date of the bucket  for this snapshot date range.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>LAST_CLAIM_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>LAST_CLAIM_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>First External Claim Date</ID>
+      <Name>First External Claim Date</Name>
+      <Description>This column contains the date that the first external claim that is associated with this liability bucket was sent out.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>FIRST_EXT_CLAIM_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>FIRST_EXT_CLAIM_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Last External Claim Date</ID>
+      <Name>Last External Claim Date</Name>
+      <Description>The last external claim sent date of the bucket  for this snapshot date range.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>LAST_EXT_CLAIM_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>LAST_EXT_CLAIM_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>First Payor Date</ID>
+      <Name>First Payor Received Date</Name>
+      <Description>Stores the date on which the first claim for the associated liability bucket was received by a payor.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>FIRST_PAYOR_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>FIRST_PAYOR_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Last Payor Date</ID>
+      <Name>Last Payor Received Date</Name>
+      <Description>The last payor received date of the bucket  for this snapshot date range.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>LAST_PAYOR_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>LAST_PAYOR_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>First Statement Date</ID>
+      <Name>First Statement Date</Name>
+      <Description>The date that the first statement (non-demand) was sent for the hospital account.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>FIRST_STATEMENT_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>FIRST_STATEMENT_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>First Full Statement Date</ID>
+      <Name>First Full Statement Date</Name>
+      <Description>This field contains the date of the first non-demand enterprise statement to be sent where the remaining account balance is completely self-pay.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>FIRST_FULL_STATEMENT_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>FIRST_FULL_STATEMENT_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Self-pay Cycle Start Date</ID>
+      <Name>Self-Pay Cycle Start Date</Name>
+      <Description>The self-pay follow-up cycle start date that was valid for this snapshot date range.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>SP_CYCLE_START_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>SP_CYCLE_START_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Agency Assign Date</ID>
+      <Name>Agency Assign Date</Name>
+      <Description>The collection agency assign date that was valid for this snapshot date range.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>AGENCY_ASSIGN_DATE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>AGENCY_ASSIGN_DATE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Account Base Class</ID>
+      <Name>Account Base Class</Name>
+      <Description>The account base class of the hospital account at the time of the snapshot.</Description>
+      <EstimatedCount>3</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>ACCOUNT_BASE_CLASS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>ACCOUNT_BASE_CLASS</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>HAR Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Account Class</ID>
+      <Name>Account Class</Name>
+      <Description>The account class of the hospital account at the time of the snapshot.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>ACCOUNT_CLASS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>ACCOUNT_CLASS</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>HAR Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Account Status</ID>
+      <Name>Account Status</Name>
+      <Description>The billing status of the hospital account at the time of the snapshot.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>ACCOUNT_STATUS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>ACCOUNT_STATUS</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>HAR Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Bucket Type</ID>
+      <Name>Bucket Type</Name>
+      <Description>The type of the liability bucket. </Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>BUCKET_TYPE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>BUCKET_TYPE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Bucket Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Collection Status</ID>
+      <Name>Collection Status</Name>
+      <Description>The status of the account if it is in collections.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>COLLECTION_STATUS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>COLLECTION_STATUS</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>HAR Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Self-pay Level</ID>
+      <Name>Self-Pay Level</Name>
+      <Description>The self-pay follow-up level for a hospital account</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>SELFPAY_LEVEL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>SELFPAY_LEVEL</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>HAR Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Assigned Agency</ID>
+      <Name>Assigned Agency</Name>
+      <Description>The collection agency that was selected when the hospital account was sent to bad debt, sent to external agency A/R, or outsourced.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>120</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>ASSIGNED_AGENCY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>120</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>ASSIGNED_AGENCY</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>HAR Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Claim Form Type</ID>
+      <Name>Claim Form Type</Name>
+      <Description>The claim type of the bucket for this snapshot date range.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>CLAIM_FORM_TYPE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>CLAIM_FORM_TYPE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Bucket Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>HAR Credit or Debit</ID>
+      <Name>HAR Credit or Debit</Name>
+      <Description>Indicates whether the associated HAR has a credit or a debit balance.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>6</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>HAR_CREDIT_DEBIT</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>6</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>HAR_CREDIT_DEBIT</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>HAR Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Bucket Credit or Debit</ID>
+      <Name>Bucket Credit or Debit</Name>
+      <Description>Indicates whether the bucket has a credit or a debit balance.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>6</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>BUCKET_CREDIT_DEBIT</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>6</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>BUCKET_CREDIT_DEBIT</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Bucket Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>AR DATE</ID>
+      <Name>HB Aging Date</Name>
+      <Description>The date of the AR snapshot.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>AR_DATE_DISPLAY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>AR_DATE_DISPLAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Dates</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>IS OUTSOURCED YN</ID>
+      <Name>Is Outsourced</Name>
+      <Description>Indicates whether the account balance was outsourced for this snapshot date range.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>IS_OUTSOURCED_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>3</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>IS_OUTSOURCED_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>HAR Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>AR DATE RANGE</ID>
+      <Name>AR Date Range</Name>
+      <Description>Indicates whether a row is part of the current AR or from a previous month's historical AR.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>23</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>AR_DATE_RANGE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>23</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>AR_DATE_RANGE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>BUCKET STATUS</ID>
+      <Name>Bucket Status</Name>
+      <Description>The bucket status for the associated liability bucket on a particular aging date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>BUCKET_STATUS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>BUCKET_STATUS</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Bucket Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>BUCKET BALANCE STATUS</ID>
+      <Name>Bucket Balance Status</Name>
+      <Description>The calculated balance status on the liability bucket for a particular aging date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>BUCKET_BALANCE_STATUS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>BUCKET_BALANCE_STATUS</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Bucket Attributes</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>PRIMARY FIN CLASS</ID>
+      <Name>Primary Financial Class</Name>
+      <Description>The primary financial class associated with the account for this snapshot date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>PRIMARY_FIN_CLASS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>PRIMARY_FIN_CLASS</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Primary Coverage</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>PRIMARY PLAN</ID>
+      <Name>Primary Plan</Name>
+      <Description>The primary plan associated with the account for this snapshot date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>73</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>PRIMARY_PLAN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>73</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>PRIMARY_PLAN</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Primary Coverage</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>PRIMARY PRODUCT TYPE</ID>
+      <Name>Primary Product Type</Name>
+      <Description>The primary plan product type associated with the account for this snapshot date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>PRIMARY_PRODUCT_TYPE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>PRIMARY_PRODUCT_TYPE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Primary Coverage</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>PRIMARY PAYOR</ID>
+      <Name>Primary Payor</Name>
+      <Description>The primary payor associated with the account for this snapshot date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>113</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>PRIMARY_PAYOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>113</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>PRIMARY_PAYOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Primary Coverage</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>RESPONSIBLE PLAN</ID>
+      <Name>Responsible Plan</Name>
+      <Description>The plan responsible for the outstanding balance for this snapshot date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>73</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>RESPONSIBLE_PLAN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>73</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>RESPONSIBLE_PLAN</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Responsible Coverage</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>RESPONSIBLE PRODUCT TYPE</ID>
+      <Name>Responsible Product Type</Name>
+      <Description>The plan product type responsible for the outstanding balance for this snapshot date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>RESPONSIBLE_PRODUCT_TYPE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>RESPONSIBLE_PRODUCT_TYPE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Responsible Coverage</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>RESPONSIBLE PAYOR</ID>
+      <Name>Responsible Payor</Name>
+      <Description>The payor responsible for the outstanding balance for this snapshot date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>113</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>RESPONSIBLE_PAYOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>113</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>RESPONSIBLE_PAYOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Responsible Coverage</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>RESPONSIBLE FIN CLASS</ID>
+      <Name>Responsible Financial Class</Name>
+      <Description>The financial class responsible for the outstanding balance for this snapshot date.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+            <ColumnID>RESPONSIBLE_FIN_CLASS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_F_HB_AR_HISTORY</TableID>
+          <ColumnID>RESPONSIBLE_FIN_CLASS</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Responsible Coverage</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>Hierarchy</ID>
+      <Name>Base Class - Class</Name>
+      <Levels>
+        <Level>
+          <ID>Account Base Class</ID>
+          <Name>Account Base Class</Name>
+          <SourceAttributeID>Account Base Class</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Account Class</ID>
+          <Name>Account Class</Name>
+          <SourceAttributeID>Account Class</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Hierarchy 1</ID>
+      <Name>Responsible Financial Class - Payor - Plan</Name>
+      <Levels>
+        <Level>
+          <ID>Responsible Financial Class</ID>
+          <Name>Responsible Financial Class</Name>
+          <SourceAttributeID>RESPONSIBLE FIN CLASS</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Responsible Payor</ID>
+          <Name>Responsible Payor</Name>
+          <SourceAttributeID>RESPONSIBLE PAYOR</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Responsible Plan</ID>
+          <Name>Responsible Plan</Name>
+          <SourceAttributeID>RESPONSIBLE PLAN</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Hierarchy 2</ID>
+      <Name>Primary Financial Class - Payor - Plan</Name>
+      <Levels>
+        <Level>
+          <ID>Primary Financial Class</ID>
+          <Name>Primary Financial Class</Name>
+          <SourceAttributeID>PRIMARY FIN CLASS</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Primary Payor</ID>
+          <Name>Primary Payor</Name>
+          <SourceAttributeID>PRIMARY PAYOR</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Primary Plan</ID>
+          <Name>Primary Plan</Name>
+          <SourceAttributeID>PRIMARY PLAN</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Hierarchy 3</ID>
+      <Name>Aging Date</Name>
+      <Levels>
+        <Level>
+          <ID>Aging Date</ID>
+          <Name>Aging Date</Name>
+          <SourceAttributeID>AR DATE</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,1187 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "CHP Clarity Prod",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\SQLpbi-svc",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Post Date",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "CALENDAR_DT",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                " dd.CALENDAR_DT",
+                ",dd.YEAR_MONTH",
+                ",dd.MONTHNAME_YEAR",
+                "",
+                "from DATE_DIMENSION dd",
+                "",
+                "where dd.CALENDAR_DT >= '1/1/2018'",
+                "and dd.CALENDAR_DT <= getdate() - 1"
+              ],
+              "dataSource": "CHP Clarity Prod"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " dd.CALENDAR_DT",
+                  ",dd.YEAR_MONTH",
+                  ",dd.MONTHNAME_YEAR",
+                  "",
+                  "from DATE_DIMENSION dd",
+                  "",
+                  "where dd.CALENDAR_DT >= '1/1/2018'",
+                  "and dd.CALENDAR_DT <= getdate() - 1</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Month - Day",
+            "levels": [
+              {
+                "name": "MONTHNAME_YEAR",
+                "ordinal": 0,
+                "column": "MONTHNAME_YEAR"
+              },
+              {
+                "name": "CALENDAR_DT",
+                "ordinal": 1,
+                "column": "CALENDAR_DT"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " dd.CALENDAR_DT",
+              ",dd.YEAR_MONTH",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2018'",
+              "and dd.CALENDAR_DT <= getdate() - 1"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Date"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " dd.CALENDAR_DT",
+              ",dd.YEAR_MONTH",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2018'",
+              "and dd.CALENDAR_DT <= getdate() - 1</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Transactions",
+        "columns": [
+          {
+            "name": "DETAIL_TYPE",
+            "dataType": "int64",
+            "sourceColumn": "DETAIL_TYPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "POST_DATE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "POST_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "AMOUNT",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DEPT_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "DEPT_ID"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "LOC_ID"
+          },
+          {
+            "name": "SERV_AREA_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "SERV_AREA_ID"
+          },
+          {
+            "name": "PROC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PROC_ID"
+          },
+          {
+            "name": "BILLING_PROVIDER_ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "BILLING_PROVIDER_ID"
+          },
+          {
+            "name": "ORIGINAL_FIN_CLASS",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ORIGINAL_FIN_CLASS"
+          },
+          {
+            "name": "TX_ID",
+            "dataType": "double",
+            "sourceColumn": "TX_ID"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Transactions 2018",
+            "source": {
+              "query": [
+                "select ",
+                " tdl.POST_DATE",
+                ",tdl.DETAIL_TYPE",
+                ",tdl.DEPT_ID",
+                ",tdl.LOC_ID",
+                ",tdl.SERV_AREA_ID",
+                ",tdl.PROC_ID",
+                ",tdl.AMOUNT",
+                ",tdl.BILLING_PROVIDER_ID",
+                ",tdl.ORIGINAL_FIN_CLASS",
+                "",
+                "from CLARITY_TDL_TRAN tdl",
+                "",
+                "where tdl.POST_DATE >= '1/1/2018'",
+                "and tdl.POST_DATE <= '12/31/2018'",
+                "and tdl.DETAIL_TYPE <= 33",
+                "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "CHP Clarity Prod"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " tdl.POST_DATE",
+                  ",tdl.DETAIL_TYPE",
+                  ",tdl.DEPT_ID",
+                  ",tdl.LOC_ID",
+                  ",tdl.SERV_AREA_ID",
+                  ",tdl.PROC_ID",
+                  ",tdl.AMOUNT",
+                  ",tdl.BILLING_PROVIDER_ID",
+                  ",tdl.ORIGINAL_FIN_CLASS",
+                  "",
+                  "from CLARITY_TDL_TRAN tdl",
+                  "",
+                  "where tdl.POST_DATE >= '1/1/2018'",
+                  "and tdl.POST_DATE <= '12/31/2018'",
+                  "and tdl.DETAIL_TYPE <= 33",
+                  "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Transactions 2019",
+            "mode": "import",
+            "source": {
+              "query": [
+                "select ",
+                " tdl.POST_DATE",
+                ",tdl.DETAIL_TYPE",
+                ",tdl.DEPT_ID",
+                ",tdl.LOC_ID",
+                ",tdl.SERV_AREA_ID",
+                ",tdl.PROC_ID",
+                ",tdl.AMOUNT",
+                ",tdl.BILLING_PROVIDER_ID",
+                ",tdl.ORIGINAL_FIN_CLASS",
+                "",
+                "from CLARITY_TDL_TRAN tdl",
+                "",
+                "where tdl.POST_DATE >= '1/1/2019'",
+                "and tdl.POST_DATE <= '12/31/2019'",
+                "and tdl.DETAIL_TYPE <= 33",
+                "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "CHP Clarity Prod"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " tdl.POST_DATE",
+                  ",tdl.DETAIL_TYPE",
+                  ",tdl.DEPT_ID",
+                  ",tdl.LOC_ID",
+                  ",tdl.SERV_AREA_ID",
+                  ",tdl.PROC_ID",
+                  ",tdl.AMOUNT",
+                  ",tdl.BILLING_PROVIDER_ID",
+                  ",tdl.ORIGINAL_FIN_CLASS",
+                  "",
+                  "from CLARITY_TDL_TRAN tdl",
+                  "",
+                  "where tdl.POST_DATE >= '1/1/2019'",
+                  "and tdl.POST_DATE <= '12/31/2019'",
+                  "and tdl.DETAIL_TYPE <= 33",
+                  "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Transactions 2017",
+            "mode": "import",
+            "source": {
+              "query": [
+                "select ",
+                " tdl.POST_DATE",
+                ",tdl.DETAIL_TYPE",
+                ",tdl.DEPT_ID",
+                ",tdl.LOC_ID",
+                ",tdl.SERV_AREA_ID",
+                ",tdl.PROC_ID",
+                ",tdl.AMOUNT",
+                ",tdl.BILLING_PROVIDER_ID",
+                ",tdl.ORIGINAL_FIN_CLASS",
+                "",
+                "from CLARITY_TDL_TRAN tdl",
+                "",
+                "where tdl.POST_DATE >= '1/1/2017'",
+                "and tdl.POST_DATE <= '12/31/2017'",
+                "and tdl.DETAIL_TYPE <= 33",
+                "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "CHP Clarity Prod"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " tdl.POST_DATE",
+                  ",tdl.DETAIL_TYPE",
+                  ",tdl.DEPT_ID",
+                  ",tdl.LOC_ID",
+                  ",tdl.SERV_AREA_ID",
+                  ",tdl.PROC_ID",
+                  ",tdl.AMOUNT",
+                  ",tdl.BILLING_PROVIDER_ID",
+                  ",tdl.ORIGINAL_FIN_CLASS",
+                  "",
+                  "from CLARITY_TDL_TRAN tdl",
+                  "",
+                  "where tdl.POST_DATE >= '1/1/2017'",
+                  "and tdl.POST_DATE <= '12/31/2017'",
+                  "and tdl.DETAIL_TYPE <= 33",
+                  "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Charges",
+            "description": "Includes Charges less Voids",
+            "expression": [
+              "",
+              "VAR charges =",
+              "    FILTER (",
+              "        ALL ( Transactions[DETAIL_TYPE] ),",
+              "        Transactions[DETAIL_TYPE] = 1",
+              "            || Transactions[DETAIL_TYPE] = 10",
+              "    )",
+              "RETURN",
+              "    CALCULATE ( Transactions[Total Amount], charges )"
+            ],
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Payments",
+            "expression": [
+              "",
+              "VAR payments =",
+              "    FILTER (",
+              "        ALL ( Transactions[DETAIL_TYPE] ),",
+              "        Transactions[DETAIL_TYPE] = 2",
+              "            || Transactions[DETAIL_TYPE] = 5",
+              "            || Transactions[DETAIL_TYPE] = 11",
+              "            || Transactions[DETAIL_TYPE] = 20",
+              "            || Transactions[DETAIL_TYPE] = 22",
+              "            || Transactions[DETAIL_TYPE] = 32",
+              "            || Transactions[DETAIL_TYPE] = 33",
+              "    )",
+              "RETURN",
+              "    CALCULATE ( Transactions[Total Amount] * -1, payments )"
+            ],
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Net Revenue",
+            "expression": [
+              "",
+              "VAR netrev =",
+              "    FILTER (",
+              "        ALL ( Transactions[DETAIL_TYPE] ),",
+              "        Transactions[DETAIL_TYPE] = 1",
+              "            || Transactions[DETAIL_TYPE] = 10",
+              "            || Transactions[DETAIL_TYPE] = 3",
+              "            || Transactions[DETAIL_TYPE] = 12",
+              "            || Transactions[DETAIL_TYPE] = 4",
+              "            || Transactions[DETAIL_TYPE] = 6",
+              "            || Transactions[DETAIL_TYPE] = 13",
+              "            || Transactions[DETAIL_TYPE] = 21",
+              "            || Transactions[DETAIL_TYPE] = 23",
+              "            || Transactions[DETAIL_TYPE] = 30",
+              "            || Transactions[DETAIL_TYPE] = 31",
+              "    )",
+              "RETURN",
+              "    CALCULATE ( Transactions[Total Amount] , netrev )"
+            ],
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Net Revenue 3 Month Avg",
+            "expression": [
+              "",
+              "('Transactions'[Net Revenue] (DATESBETWEEN('Post Date'[CALENDAR_DT],",
+              "STARTOFMONTH(DATEADD('Post Date'[CALENDAR_DT],-3,MONTH)),",
+              "ENDOFMONTH(DATEADD('Post Date'[CALENDAR_DT],-1,MONTH))))/3)"
+            ],
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Amount",
+            "expression": "sum(Transactions[AMOUNT])",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " tdl.POST_DATE",
+              ",tdl.TX_ID",
+              ",tdl.DETAIL_TYPE",
+              ",tdl.DEPT_ID",
+              ",tdl.LOC_ID",
+              ",tdl.SERV_AREA_ID",
+              ",tdl.PROC_ID",
+              ",tdl.AMOUNT",
+              ",tdl.BILLING_PROVIDER_ID",
+              ",tdl.ORIGINAL_FIN_CLASS",
+              "",
+              "from CLARITY_TDL_TRAN tdl",
+              "",
+              "where tdl.POST_DATE >= '1/1/2018'",
+              "and tdl.POST_DATE <= '12/31/2018'",
+              "and tdl.DETAIL_TYPE <= 33",
+              "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Clarity TDL Tran"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " tdl.POST_DATE",
+              ",tdl.TX_ID",
+              ",tdl.DETAIL_TYPE",
+              ",tdl.DEPT_ID",
+              ",tdl.LOC_ID",
+              ",tdl.SERV_AREA_ID",
+              ",tdl.PROC_ID",
+              ",tdl.AMOUNT",
+              ",tdl.BILLING_PROVIDER_ID",
+              ",tdl.ORIGINAL_FIN_CLASS",
+              "",
+              "from CLARITY_TDL_TRAN tdl",
+              "",
+              "where tdl.POST_DATE >= '1/1/2018'",
+              "and tdl.POST_DATE <= '12/31/2018'",
+              "and tdl.DETAIL_TYPE <= 33",
+              "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Departments",
+        "columns": [
+          {
+            "name": "Department ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Department ID"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Department"
+          },
+          {
+            "name": "Department GL",
+            "dataType": "string",
+            "sourceColumn": "Department GL"
+          },
+          {
+            "name": "Location ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Location ID"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Location"
+          },
+          {
+            "name": "Location GL",
+            "dataType": "string",
+            "sourceColumn": "Location GL"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Region"
+          },
+          {
+            "name": "Market",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Market"
+          },
+          {
+            "name": "Organization",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Organization"
+          },
+          {
+            "name": "Cost Center",
+            "dataType": "string",
+            "sourceColumn": "Cost Center"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Departments",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " dep.DEPARTMENT_ID as 'Department ID'",
+                ",dep.DEPARTMENT_NAME as 'Department'",
+                ",dep.GL_PREFIX as 'Department GL'",
+                ",loc.LOC_ID as 'Location ID'",
+                ",loc.LOC_NAME as 'Location'",
+                ",loc.GL_PREFIX as 'Location GL'",
+                ",upper(coalesce(pm.MARKET,sa.NAME)) as 'Market'",
+                ",upper(sa.NAME) as 'Region'",
+                ",case when dep.SERV_AREA_ID in (11,13,16,17,18,19) then 'MERCY' else 'AFFILIATE' end as 'Organization'",
+                ",loc.GL_PREFIX + ' - ' + dep.GL_PREFIX as 'Cost Center'",
+                " ",
+                "from CLARITY_DEP dep",
+                "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "left join ClarityCHPUtil.rpt.PROFBILLING_MARKET pm on pm.LOC_ID = loc.LOC_ID",
+                "",
+                "where dep.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "CHP Clarity Prod"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " dep.DEPARTMENT_ID as 'Department ID'",
+                  ",dep.DEPARTMENT_NAME as 'Department'",
+                  ",dep.GL_PREFIX as 'Department GL'",
+                  ",loc.LOC_ID as 'Location ID'",
+                  ",loc.LOC_NAME as 'Location'",
+                  ",loc.GL_PREFIX as 'Location GL'",
+                  ",upper(coalesce(pm.MARKET,sa.NAME)) as 'Market'",
+                  ",upper(sa.NAME) as 'Region'",
+                  ",case when dep.SERV_AREA_ID in (11,13,16,17,18,19) then 'MERCY' else 'AFFILIATE' end as 'Organization'",
+                  ",loc.GL_PREFIX + ' - ' + dep.GL_PREFIX as 'Cost Center'",
+                  " ",
+                  "from CLARITY_DEP dep",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "left join ClarityCHPUtil.rpt.PROFBILLING_MARKET pm on pm.LOC_ID = loc.LOC_ID",
+                  "",
+                  "where dep.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Region - Location - Department",
+            "levels": [
+              {
+                "name": "Region",
+                "ordinal": 0,
+                "column": "Region"
+              },
+              {
+                "name": "Location",
+                "ordinal": 2,
+                "column": "Location"
+              },
+              {
+                "name": "Department",
+                "ordinal": 3,
+                "column": "Department"
+              },
+              {
+                "name": "Market",
+                "ordinal": 1,
+                "column": "Market"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " dep.DEPARTMENT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",loc.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",upper(coalesce(pm.MARKET,sa.NAME)) as 'Market'",
+              ",upper(sa.NAME) as 'Region'",
+              ",case when dep.SERV_AREA_ID in (11,13,16,17,18,19) then 'MERCY' else 'AFFILIATE' end as 'Organization'",
+              ",loc.GL_PREFIX + ' - ' + dep.GL_PREFIX as 'Cost Center'",
+              " ",
+              "from CLARITY_DEP dep",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join ClarityCHPUtil.rpt.PROFBILLING_MARKET pm on pm.LOC_ID = loc.LOC_ID",
+              "",
+              "where dep.SERV_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Departments"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " dep.DEPARTMENT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",loc.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",upper(coalesce(pm.MARKET,sa.NAME)) as 'Market'",
+              ",upper(sa.NAME) as 'Region'",
+              ",case when dep.SERV_AREA_ID in (11,13,16,17,18,19) then 'MERCY' else 'AFFILIATE' end as 'Organization'",
+              ",loc.GL_PREFIX + ' - ' + dep.GL_PREFIX as 'Cost Center'",
+              " ",
+              "from CLARITY_DEP dep",
+              "left join CLARITY_LOC loc on loc.LOC_ID = dep.REV_LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join ClarityCHPUtil.rpt.PROFBILLING_MARKET pm on pm.LOC_ID = loc.LOC_ID",
+              "",
+              "where dep.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Organization Structure",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "DEPARTMENT_ID",
+            "dataType": "double",
+            "sourceColumn": "DEPARTMENT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Market_ID",
+            "dataType": "int64",
+            "sourceColumn": "Market_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Market_Name",
+            "dataType": "string",
+            "sourceColumn": "Market_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Market_Description",
+            "dataType": "string",
+            "sourceColumn": "Market_Description",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region_ID",
+            "dataType": "int64",
+            "sourceColumn": "Region_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Region_Name",
+            "dataType": "string",
+            "sourceColumn": "Region_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region_Description",
+            "dataType": "string",
+            "sourceColumn": "Region_Description",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Facility_Type_ID",
+            "dataType": "int64",
+            "sourceColumn": "Facility_Type_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Facility_Type_Name",
+            "dataType": "string",
+            "sourceColumn": "Facility_Type_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Facility_Type_Description",
+            "dataType": "string",
+            "sourceColumn": "Facility_Type_Description",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Ownership_ID",
+            "dataType": "int64",
+            "sourceColumn": "Ownership_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Ownership_Name",
+            "dataType": "string",
+            "sourceColumn": "Ownership_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Ownership_Description",
+            "dataType": "string",
+            "sourceColumn": "Ownership_Description",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Company_ID",
+            "dataType": "int64",
+            "sourceColumn": "Company_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Company_Name",
+            "dataType": "string",
+            "sourceColumn": "Company_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Company_Description",
+            "dataType": "string",
+            "sourceColumn": "Company_Description",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Organization Structure",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select *",
+                "from ClarityCHPUtil.rpt.ORGANIZATION_STRUCTURE"
+              ],
+              "dataSource": "CHP Clarity Prod"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+                  "from ClarityCHPUtil.rpt.ORGANIZATION_STRUCTURE</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select *",
+              "from ClarityCHPUtil.rpt.ORGANIZATION_STRUCTURE"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Organization Structure"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+              "from ClarityCHPUtil.rpt.ORGANIZATION_STRUCTURE</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Procedure",
+        "columns": [
+          {
+            "name": "PROC_ID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "PROC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Procedure",
+            "dataType": "string",
+            "sourceColumn": "Procedure"
+          },
+          {
+            "name": "Procedure Desc",
+            "dataType": "string",
+            "sourceColumn": "Procedure Desc"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Procedure",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                "",
+                " eap.PROC_ID",
+                ",eap.PROC_CODE as 'Procedure'",
+                ",eap.PROC_NAME as 'Procedure Desc'",
+                "",
+                "from CLARITY_EAP eap"
+              ],
+              "dataSource": "CHP Clarity Prod"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  "",
+                  " eap.PROC_ID",
+                  ",eap.PROC_CODE as 'Procedure'",
+                  ",eap.PROC_NAME as 'Procedure Desc'",
+                  "",
+                  "from CLARITY_EAP eap</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              "",
+              " eap.PROC_ID",
+              ",eap.PROC_CODE as 'Procedure'",
+              ",eap.PROC_NAME as 'Procedure Desc'",
+              "",
+              "from CLARITY_EAP eap"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Procedure"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              "",
+              " eap.PROC_ID",
+              ",eap.PROC_CODE as 'Procedure'",
+              ",eap.PROC_NAME as 'Procedure Desc'",
+              "",
+              "from CLARITY_EAP eap</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Billing Provider",
+        "columns": [
+          {
+            "name": "Billing Provider ID",
+            "dataType": "string",
+            "sourceColumn": "Billing Provider ID"
+          },
+          {
+            "name": "Billing Provider",
+            "dataType": "string",
+            "sourceColumn": "Billing Provider"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Provider",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                "",
+                " ser.PROV_ID as 'Billing Provider ID'",
+                ",ser.PROV_NAME as 'Billing Provider'",
+                "",
+                "from CLARITY_SER ser"
+              ],
+              "dataSource": "CHP Clarity Prod"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  "",
+                  " ser.PROV_ID as 'Billing Provider ID'",
+                  ",ser.PROV_NAME as 'Billing Provider'",
+                  "",
+                  "from CLARITY_SER ser</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              "",
+              " ser.PROV_ID as 'Billing Provider ID'",
+              ",ser.PROV_NAME as 'Billing Provider'",
+              "",
+              "from CLARITY_SER ser"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Provider"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              "",
+              " ser.PROV_ID as 'Billing Provider ID'",
+              ",ser.PROV_NAME as 'Billing Provider'",
+              "",
+              "from CLARITY_SER ser</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Original Financial Class",
+        "columns": [
+          {
+            "name": "FINANCIAL_CLASS",
+            "dataType": "string",
+            "sourceColumn": "FINANCIAL_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "FINANCIAL_CLASS_NAME",
+            "dataType": "string",
+            "sourceColumn": "FINANCIAL_CLASS_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Financial Class Group",
+            "dataType": "string",
+            "sourceColumn": "Financial Class Group"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Original Financial Class",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                "",
+                " fc.FINANCIAL_CLASS",
+                ",fc.FINANCIAL_CLASS_NAME",
+                ",case when FINANCIAL_CLASS_NAME in ('Medicare','Medicare Managed') then 'Medicare'",
+                "          when FINANCIAL_CLASS_NAME in ('Medicaid','Medicaid Managed','Pending Medicaid') then 'Medicaid'",
+                "          when FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then 'Blue Cross'",
+                "          when FINANCIAL_CLASS_NAME in ('Commercial','Managed Care') then 'Commercial'",
+                "          when FINANCIAL_CLASS_NAME in ('Self-Pay') then 'Self-Pay'",
+                "          when replace(FINANCIAL_CLASS_NAME, '''', '') in ('Workers Comp') then 'Workers Comp'",
+                "          else 'Other' end as 'Financial Class Group'",
+                "",
+                "from CLARITY_FC fc"
+              ],
+              "dataSource": "CHP Clarity Prod"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  "",
+                  " fc.FINANCIAL_CLASS",
+                  ",fc.FINANCIAL_CLASS_NAME",
+                  ",case when FINANCIAL_CLASS_NAME in ('Medicare','Medicare Managed') then 'Medicare'",
+                  "          when FINANCIAL_CLASS_NAME in ('Medicaid','Medicaid Managed','Pending Medicaid') then 'Medicaid'",
+                  "          when FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then 'Blue Cross'",
+                  "          when FINANCIAL_CLASS_NAME in ('Commercial','Managed Care') then 'Commercial'",
+                  "          when FINANCIAL_CLASS_NAME in ('Self-Pay') then 'Self-Pay'",
+                  "          when replace(FINANCIAL_CLASS_NAME, '''', '') in ('Workers Comp') then 'Workers Comp'",
+                  "          else 'Other' end as 'Financial Class Group'",
+                  "",
+                  "from CLARITY_FC fc</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              "",
+              " fc.FINANCIAL_CLASS",
+              ",fc.FINANCIAL_CLASS_NAME",
+              ",case when FINANCIAL_CLASS_NAME in ('Medicare','Medicare Managed') then 'Medicare'",
+              "          when FINANCIAL_CLASS_NAME in ('Medicaid','Medicaid Managed','Pending Medicaid') then 'Medicaid'",
+              "          when FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then 'Blue Cross'",
+              "          when FINANCIAL_CLASS_NAME in ('Commercial','Managed Care') then 'Commercial'",
+              "          when FINANCIAL_CLASS_NAME in ('Self-Pay') then 'Self-Pay'",
+              "          when replace(FINANCIAL_CLASS_NAME, '''', '') in ('Workers Comp') then 'Workers Comp'",
+              "          else 'Other' end as 'Financial Class Group'",
+              "",
+              "from CLARITY_FC fc"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Original Financial Class"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              "",
+              " fc.FINANCIAL_CLASS",
+              ",fc.FINANCIAL_CLASS_NAME",
+              ",case when FINANCIAL_CLASS_NAME in ('Medicare','Medicare Managed') then 'Medicare'",
+              "          when FINANCIAL_CLASS_NAME in ('Medicaid','Medicaid Managed','Pending Medicaid') then 'Medicaid'",
+              "          when FINANCIAL_CLASS_NAME in ('BX Traditional','BX Managed') then 'Blue Cross'",
+              "          when FINANCIAL_CLASS_NAME in ('Commercial','Managed Care') then 'Commercial'",
+              "          when FINANCIAL_CLASS_NAME in ('Self-Pay') then 'Self-Pay'",
+              "          when replace(FINANCIAL_CLASS_NAME, '''', '') in ('Workers Comp') then 'Workers Comp'",
+              "          else 'Other' end as 'Financial Class Group'",
+              "",
+              "from CLARITY_FC fc</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "0f4eccae-8319-4300-9e5b-f1bf90ce7535",
+        "fromTable": "Transactions",
+        "fromColumn": "POST_DATE",
+        "toTable": "Post Date",
+        "toColumn": "CALENDAR_DT"
+      },
+      {
+        "name": "1d20383d-6585-4600-a0cc-c02d046826c7",
+        "fromTable": "Transactions",
+        "fromColumn": "DEPT_ID",
+        "toTable": "Departments",
+        "toColumn": "Department ID"
+      },
+      {
+        "name": "6ade2d6b-fc6a-447e-895b-338a862f91a1",
+        "fromTable": "Transactions",
+        "fromColumn": "DEPT_ID",
+        "toTable": "Organization Structure",
+        "toColumn": "DEPARTMENT_ID"
+      },
+      {
+        "name": "4484a799-1614-410a-bd6d-937412c478ff",
+        "fromTable": "Transactions",
+        "fromColumn": "PROC_ID",
+        "toTable": "Procedure",
+        "toColumn": "PROC_ID"
+      },
+      {
+        "name": "9eaa3fd9-66db-4059-954a-541df8f7504d",
+        "fromTable": "Transactions",
+        "fromColumn": "BILLING_PROVIDER_ID",
+        "toTable": "Billing Provider",
+        "toColumn": "Billing Provider ID"
+      },
+      {
+        "name": "2728f03a-ab3e-4ff6-8fec-489780b633e6",
+        "fromTable": "Transactions",
+        "fromColumn": "ORIGINAL_FIN_CLASS",
+        "toTable": "Original Financial Class",
+        "toColumn": "FINANCIAL_CLASS"
+      }
+    ],
+    "roles": [
+      {
+        "name": "PB Users",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

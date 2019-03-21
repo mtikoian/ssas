@@ -1,0 +1,588 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>V CUBE D AGING BUCKETS</ID>
+  <Name>Aging Bucket</Name>
+  <CreatedTimestamp>2018-02-23T00:58:15.946667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2018-02-23T00:58:15.946667Z</LastSchemaUpdate>
+  <Description>Details related to aging buckets.</Description>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1137" scrolltop="265" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6615" y="7126" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900180380100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="V_CUBE_D_AGING_BUCKETS" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="6377" height="4419" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000c0000e918000043110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_V_CUBE_D_AGING_BUCKETS" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1137</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>265</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="167">
+            <Shape Id="Age Key" Expanded="true">
+              <Attributes>
+                <Attribute Id="Age Key" />
+                <Attribute Id="AGE KEY 90 DAY" />
+                <Attribute Id="AGE BUCKET HB CUSTOM" />
+                <Attribute Id="AGE BUCKET HB PROFILE" />
+                <Attribute Id="AGE BUCKET PB CUSTOM" />
+                <Attribute Id="AGE BUCKET 30 DAY PB" />
+                <Attribute Id="Is Aged Over 60 Days" />
+                <Attribute Id="Is Aged Over 90 Days" />
+                <Attribute Id="Is Aged Over 120 Days" />
+                <Attribute Id="Is Aged Over 150 Days" />
+                <Attribute Id="Is Aged Over 180 Days" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="15 Day Aging Bucket" Expanded="true">
+              <Attributes>
+                <Attribute Id="15 Day Aging Bucket" />
+                <Attribute Id="30 Day Aging Bucket" />
+              </Attributes>
+              <Position x="233" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2019-01-14T22:19:56.803333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>EpicStandardDSV</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration>
+    <KeyNotFound>IgnoreError</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>IgnoreError</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown Aging Bucket</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>Age Key</ID>
+      <Name>Age</Name>
+      <Description>The unique identifier of the aging bucket row. This column can be used for sorting the buckets according to their age.</Description>
+      <Usage>Key</Usage>
+      <EstimatedCount>735</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_KEY_NAME</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Is Aged Over 90 Days</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Is Aged Over  90 Days</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Is Aged Over 150 Days</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Is Aged Over 150 Days</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Is Aged Over 180 Days</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Is Aged Over 180 Days</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>15 Day Aging Bucket</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Aging Bucket - 15 Day</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Is Aged Over 120 Days</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Is Aged Over 120 Days</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Is Aged Over 60 Days</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Is Aged Over  60 Days</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>AGE BUCKET HB CUSTOM</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Aging Bucket – HB Custom</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>AGE BUCKET HB PROFILE</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Aging Bucket – HB Profile</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>AGE BUCKET PB CUSTOM</AttributeID>
+          <Name>Aging Bucket - PB Custom</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>AGE BUCKET 30 DAY PB</AttributeID>
+          <Name>Aging Bucket</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>AGE KEY 90 DAY</AttributeID>
+          <Name>Aging Bucket - 90 Day</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>AGE KEY HB DENIAL</AttributeID>
+          <Name>Aging Bucket - HB Denial Custom</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>AGE KEY PB DENIAL</AttributeID>
+          <Name>Aging Bucket - PB Denial Custom</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>15 Day Aging Bucket</ID>
+      <Name>Aging Bucket - 15 Day</Name>
+      <Description>The 15 day aging bucket for this row.</Description>
+      <EstimatedCount>53</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY_15_DAY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_BUCKET_15_DAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>30 Day Aging Bucket</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Aging Bucket - 30 Day</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Other Buckets</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>30 Day Aging Bucket</ID>
+      <Name>Aging Bucket - 30 Day</Name>
+      <Description>The 30 day aging bucket for this row.</Description>
+      <EstimatedCount>29</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY_30_DAY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_BUCKET_30_DAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Other Buckets</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Is Aged Over 60 Days</ID>
+      <Name>Is Aged Over  60 Days</Name>
+      <Description>Indicates whether records for this row are aged more than 60 days.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>OVER_60_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>3</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>OVER_60_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Flags</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Is Aged Over 90 Days</ID>
+      <Name>Is Aged Over  90 Days</Name>
+      <Description>Indicates whether records for this row are aged more than 90 days.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>OVER_90_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>3</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>OVER_90_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Flags</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Is Aged Over 120 Days</ID>
+      <Name>Is Aged Over 120 Days</Name>
+      <Description>Indicates whether records for this row are aged more than 120 days.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>OVER_120_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>3</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>OVER_120_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Flags</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Is Aged Over 150 Days</ID>
+      <Name>Is Aged Over 150 Days</Name>
+      <Description>Indicates whether records for this row are aged more than 150 days.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>OVER_150_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>3</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>OVER_150_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Flags</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Is Aged Over 180 Days</ID>
+      <Name>Is Aged Over 180 Days</Name>
+      <Description>Indicates whether records for this row are aged more than 180 days.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>OVER_180_YN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>3</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>OVER_180_YN</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Flags</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>AGE BUCKET HB CUSTOM</ID>
+      <Name>Aging Bucket – HB Custom</Name>
+      <Description>The custom aging bucket for this row.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY_HB_CUSTOM</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>27</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_BUCKET_HB_CUSTOM</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>AGE BUCKET HB PROFILE</ID>
+      <Name>Aging Bucket – HB Profile</Name>
+      <Description>The HB profile aging bucket for this row. </Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY_HB_PROFILE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>27</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_BUCKET_HB_PROFILE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>AGE BUCKET PB CUSTOM</ID>
+      <Name>Aging Bucket - PB Custom</Name>
+      <Description>The custom aging bucket for this row.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY_PB_CUSTOM</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>27</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_BUCKET_PB_CUSTOM</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>AGE BUCKET 30 DAY PB</ID>
+      <Name>Aging Bucket - PB Profile</Name>
+      <Description>The standard PB aging bucket. </Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY_PB_PROFILE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>27</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_BUCKET_PB_PROFILE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>AGE KEY 90 DAY</ID>
+      <Name>Aging Bucket - 90 Day</Name>
+      <EstimatedCount>13</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY_90_DAY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>18</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_BUCKET_90_DAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Other Buckets</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>AGE KEY HB DENIAL</ID>
+      <Name>Aging Bucket - HB Denial Custom</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY_HB_DENIAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>24</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_BUCKET_HB_DENIAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>AGE KEY PB DENIAL</ID>
+      <Name>Aging Bucket - PB Denial Custom</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+            <ColumnID>AGE_KEY_PB_DENIAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>27</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_AGING_BUCKETS</TableID>
+          <ColumnID>AGE_BUCKET_PB_DENIAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

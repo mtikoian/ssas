@@ -1,0 +1,522 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>V CUBE D PROCEDURE</ID>
+  <Name>Procedure</Name>
+  <CreatedTimestamp>2018-02-23T00:58:15.993333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2018-02-23T00:58:15.993333Z</LastSchemaUpdate>
+  <Description>Details relating to procedures.</Description>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2189" scrolltop="-4882" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10028" y="21590" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="V_CUBE_D_PROCEDURE" left="-403" top="-2884" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="6006" height="10318" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000761700004e280000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_V_CUBE_D_PROCEDURE" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-2189</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4882</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-403</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-2884</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="153">
+            <Shape Id="PROCEDURE ID" Expanded="false">
+              <Attributes>
+                <Attribute Id="PROCEDURE ID" />
+                <Attribute Id="PROCEDURE CATEGORY" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="SELFPAY INSURANCE INDICATOR" Expanded="false">
+              <Attributes>
+                <Attribute Id="SELFPAY INSURANCE INDICATOR" />
+              </Attributes>
+              <Position x="216" y="20" />
+            </Shape>
+            <Shape Id="PROCEDURE GROUP" Expanded="false">
+              <Attributes>
+                <Attribute Id="PROCEDURE GROUP" />
+              </Attributes>
+              <Position x="216" y="68" />
+            </Shape>
+            <Shape Id="DEBIT OR CREDIT" Expanded="false">
+              <Attributes>
+                <Attribute Id="DEBIT OR CREDIT" />
+              </Attributes>
+              <Position x="216" y="116" />
+            </Shape>
+            <Shape Id="ADJUSTMENT CATEGORY" Expanded="false">
+              <Attributes>
+                <Attribute Id="ADJUSTMENT CATEGORY" />
+              </Attributes>
+              <Position x="216" y="164" />
+            </Shape>
+            <Shape Id="REVENUE CODE" Expanded="false">
+              <Attributes>
+                <Attribute Id="REVENUE CODE" />
+              </Attributes>
+              <Position x="216" y="212" />
+            </Shape>
+            <Shape Id="BILLING CATEGORY" Expanded="false">
+              <Attributes>
+                <Attribute Id="BILLING CATEGORY" />
+              </Attributes>
+              <Position x="216" y="260" />
+            </Shape>
+            <Shape Id="PROCEDURE TYPE" Expanded="false">
+              <Attributes>
+                <Attribute Id="PROCEDURE TYPE" />
+              </Attributes>
+              <Position x="216" y="308" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2019-01-14T22:10:30.116667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>EpicStandardDSV</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration>
+    <KeyNotFound>IgnoreError</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown Procedure</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>PROCEDURE ID</ID>
+      <Name>Procedure</Name>
+      <Description>The procedure.</Description>
+      <Usage>Key</Usage>
+      <EstimatedCount>32511</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>PROCEDURE_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>255</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>PROCEDURE_DISPLAY_NAME</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>PROCEDURE CATEGORY</AttributeID>
+          <Name>Procedure Category</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>PROCEDURE TYPE</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Procedure Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>BILLING CATEGORY</AttributeID>
+          <Name>Billing Category</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>REVENUE CODE</AttributeID>
+          <Name>Revenue Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>ADJUSTMENT CATEGORY</AttributeID>
+          <Name>Adjustment Category</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>DEBIT OR CREDIT</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Debit or Credit</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>PROCEDURE GROUP</AttributeID>
+          <Name>Procedure Group</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>SELFPAY INSURANCE INDICATOR</AttributeID>
+          <Name>Self-pay or Insurance</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>PROCEDURE CODE</AttributeID>
+          <Name>Procedure Code</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>PROCEDURE CATEGORY</ID>
+      <Name>Procedure Category</Name>
+      <Description>The procedure category of the procedure.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>PROCEDURE_CATEGORY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>PROCEDURE_CATEGORY</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>PROCEDURE TYPE</ID>
+      <Name>Procedure Type</Name>
+      <Description>The procedure type of the procedure.</Description>
+      <EstimatedCount>4</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>PROCEDURE_TYPE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>PROCEDURE_TYPE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>BILLING CATEGORY</ID>
+      <Name>Billing Category</Name>
+      <Description>The billing category for the procedure.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>BILLING_CATEGORY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>BILLING_CATEGORY</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>REVENUE CODE</ID>
+      <Name>Revenue Code</Name>
+      <Description>The revenue summary code of the procedure.</Description>
+      <EstimatedCount>199</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>REVENUE_CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>REVENUE_CODE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ADJUSTMENT CATEGORY</ID>
+      <Name>Adjustment Category</Name>
+      <Description>The adjustment category for the procedure.</Description>
+      <EstimatedCount>15</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>ADJUSTMENT_CATEGORY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>ADJUSTMENT_CATEGORY</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>DEBIT OR CREDIT</ID>
+      <Name>Debit or Credit</Name>
+      <Description>Indicates whether the procedure is a debit or credit.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>DEBIT_OR_CREDIT</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>DEBIT_OR_CREDIT</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>PROCEDURE GROUP</ID>
+      <Name>Procedure Group</Name>
+      <Description>The procedure group of the procedure.</Description>
+      <EstimatedCount>114</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>PROCEDURE_GROUP</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>PROCEDURE_GROUP</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>SELFPAY INSURANCE INDICATOR</ID>
+      <Name>Self-pay or Insurance</Name>
+      <Description>Indicates whether the procedure is self-pay or insurance.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>254</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>SELFPAY_INSURANCE_INDICATOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>254</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>SELFPAY_INSURANCE_INDICATOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>PROCEDURE CODE</ID>
+      <Name>Procedure Code</Name>
+      <Description>The procedure code of the procedure.</Description>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Trimming>None</Trimming>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+            <ColumnID>PROCEDURE_CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Trimming>None</Trimming>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_V_CUBE_D_PROCEDURE</TableID>
+          <ColumnID>PROCEDURE_CODE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>Hierarchy</ID>
+      <Name>Procedure Type - Procedure</Name>
+      <Levels>
+        <Level>
+          <ID>Procedure Type</ID>
+          <Name>Procedure Type</Name>
+          <SourceAttributeID>PROCEDURE TYPE</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Procedure</ID>
+          <Name>Procedure</Name>
+          <SourceAttributeID>PROCEDURE ID</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Hierarchy 1</ID>
+      <Name>Procedure Group - Procedure</Name>
+      <Levels>
+        <Level>
+          <ID>Procedure Group</ID>
+          <Name>Procedure Group</Name>
+          <SourceAttributeID>PROCEDURE GROUP</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Procedure</ID>
+          <Name>Procedure</Name>
+          <SourceAttributeID>PROCEDURE ID</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Hierarchy 2</ID>
+      <Name>Adjustment Category - Procedure</Name>
+      <Levels>
+        <Level>
+          <ID>Adjustment Category</ID>
+          <Name>Adjustment Category</Name>
+          <SourceAttributeID>ADJUSTMENT CATEGORY</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Procedure</ID>
+          <Name>Procedure</Name>
+          <SourceAttributeID>PROCEDURE ID</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Hierarchy 3</ID>
+      <Name>Revenue Code - Billing Category - Procedure</Name>
+      <Levels>
+        <Level>
+          <ID>Revenue Code</ID>
+          <Name>Revenue Code</Name>
+          <SourceAttributeID>REVENUE CODE</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Billing Category</ID>
+          <Name>Billing Category</Name>
+          <SourceAttributeID>BILLING CATEGORY</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Procedure</ID>
+          <Name>Procedure</Name>
+          <SourceAttributeID>PROCEDURE ID</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

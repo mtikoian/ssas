@@ -1,0 +1,1754 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Transactions",
+        "columns": [
+          {
+            "name": "Service Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Service Date",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "Post Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Post Date",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "Detail Type ID",
+            "dataType": "int64",
+            "sourceColumn": "Detail Type ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Detail Type",
+            "dataType": "string",
+            "sourceColumn": "Detail Type",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure Code",
+            "dataType": "string",
+            "sourceColumn": "Procedure Code",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure",
+            "dataType": "string",
+            "sourceColumn": "Procedure",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure GL Credit",
+            "dataType": "string",
+            "sourceColumn": "Procedure GL Credit",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure GL Debit",
+            "dataType": "string",
+            "sourceColumn": "Procedure GL Debit",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure Code - Matched",
+            "dataType": "string",
+            "sourceColumn": "Procedure Code - Matched",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure - Matched",
+            "dataType": "string",
+            "sourceColumn": "Procedure - Matched",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department ID",
+            "dataType": "double",
+            "sourceColumn": "Department ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department Specialty",
+            "dataType": "string",
+            "sourceColumn": "Department Specialty",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department GL",
+            "dataType": "string",
+            "sourceColumn": "Department GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location ID",
+            "dataType": "double",
+            "sourceColumn": "Location ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "sourceColumn": "Location",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location GL",
+            "dataType": "string",
+            "sourceColumn": "Location GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "string",
+            "sourceColumn": "Region ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Billing Provider ID",
+            "dataType": "string",
+            "sourceColumn": "Billing Provider ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Billing Provider",
+            "dataType": "string",
+            "sourceColumn": "Billing Provider",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Service Provider ID",
+            "dataType": "string",
+            "sourceColumn": "Service Provider ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Service Provider",
+            "dataType": "string",
+            "sourceColumn": "Service Provider",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Original FC",
+            "dataType": "string",
+            "sourceColumn": "Original FC",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Current FC",
+            "dataType": "string",
+            "sourceColumn": "Current FC",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Patient Amount",
+            "dataType": "double",
+            "sourceColumn": "Patient Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Insurance Amount",
+            "dataType": "double",
+            "sourceColumn": "Insurance Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Amount",
+            "dataType": "double",
+            "sourceColumn": "Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "type": "calculated",
+            "name": "Market",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('Transactions'[Location ID]",
+              ",11106,\"SPRINGFIELD\"",
+              ",11149,\"SPRINGFIELD\"",
+              ",11124,\"SPRINGFIELD\"",
+              ",19147,\"SPRINGFIELD\"",
+              ",18110,\"MRG\"",
+              ",19126,\"MRG\"",
+              ",18120,\"DEFIANCE\"",
+              ",18121,\"DEFIANCE\"",
+              ",19120,\"DEFIANCE\"",
+              ",19127,\"DEFIANCE\"",
+              ",19107,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19108,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19116,\"KENTUCKY - OTHER ENTITIES\"",
+              ",19118,\"KENTUCKY - OTHER ENTITIES\"",
+              ",'Transactions'[Region]",
+              ")",
+              "",
+              "",
+              ""
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "2017 Transactions",
+            "source": {
+              "query": [
+                "select",
+                " tdl.ORIG_SERVICE_DATE as 'Service Date'",
+                ",tdl.POST_DATE as 'Post Date'",
+                ",det.DETAIL_TYPE as 'Detail Type ID'",
+                ",det.NAME as 'Detail Type'",
+                ",eap.PROC_CODE as 'Procedure Code'",
+                ",eap.PROC_NAME as 'Procedure'",
+                ",eap.GL_NUM_CREDIT as 'Procedure GL Credit'",
+                ",eap.GL_NUM_DEBIT as 'Procedure GL Debit'",
+                ",eap_match.PROC_CODE as 'Procedure Code - Matched'",
+                ",eap_match.PROC_NAME as 'Procedure - Matched'",
+                ",tdl.DEPT_ID as 'Department ID'",
+                ",dep.DEPARTMENT_NAME as 'Department'",
+                ",dep.SPECIALTY as 'Department Specialty'",
+                ",dep.GL_PREFIX as 'Department GL'",
+                ",tdl.LOC_ID as 'Location ID'",
+                ",loc.LOC_NAME as 'Location'",
+                ",loc.GL_PREFIX as 'Location GL'",
+                ",sa.RPT_GRP_TEN as 'Region ID'",
+                ",upper(sa.NAME) as 'Region'",
+                ",ser_bill.PROV_ID as 'Billing Provider ID'",
+                ",ser_bill.PROV_NAME as 'Billing Provider'",
+                ",ser_perf.PROV_ID as 'Service Provider ID'",
+                ",ser_perf.PROV_NAME as 'Service Provider'",
+                ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+                ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+                ",tdl.PATIENT_AMOUNT as 'Patient Amount'",
+                ",tdl.INSURANCE_AMOUNT as 'Insurance Amount'",
+                ",tdl.AMOUNT as 'Amount'",
+                "",
+                "from CLARITY.dbo.CLARITY_TDL_TRAN tdl",
+                "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = tdl.DETAIL_TYPE",
+                "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+                "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = tdl.DEPT_ID",
+                "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = tdl.BILLING_PROVIDER_ID",
+                "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = tdl.PERFORMING_PROV_ID",
+                "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+                "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = tdl.CUR_FIN_CLASS",
+                "",
+                "where tdl.POST_DATE >= '01/1/2017'",
+                "and tdl.POST_DATE <= '12/31/2017'",
+                "and tdl.DETAIL_TYPE <= 33",
+                "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " tdl.ORIG_SERVICE_DATE as 'Service Date'",
+                  ",tdl.POST_DATE as 'Post Date'",
+                  ",det.DETAIL_TYPE as 'Detail Type ID'",
+                  ",det.NAME as 'Detail Type'",
+                  ",eap.PROC_CODE as 'Procedure Code'",
+                  ",eap.PROC_NAME as 'Procedure'",
+                  ",eap.GL_NUM_CREDIT as 'Procedure GL Credit'",
+                  ",eap.GL_NUM_DEBIT as 'Procedure GL Debit'",
+                  ",eap_match.PROC_CODE as 'Procedure Code - Matched'",
+                  ",eap_match.PROC_NAME as 'Procedure - Matched'",
+                  ",tdl.DEPT_ID as 'Department ID'",
+                  ",dep.DEPARTMENT_NAME as 'Department'",
+                  ",dep.SPECIALTY as 'Department Specialty'",
+                  ",dep.GL_PREFIX as 'Department GL'",
+                  ",tdl.LOC_ID as 'Location ID'",
+                  ",loc.LOC_NAME as 'Location'",
+                  ",loc.GL_PREFIX as 'Location GL'",
+                  ",sa.RPT_GRP_TEN as 'Region ID'",
+                  ",upper(sa.NAME) as 'Region'",
+                  ",ser_bill.PROV_ID as 'Billing Provider ID'",
+                  ",ser_bill.PROV_NAME as 'Billing Provider'",
+                  ",ser_perf.PROV_ID as 'Service Provider ID'",
+                  ",ser_perf.PROV_NAME as 'Service Provider'",
+                  ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+                  ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+                  ",tdl.PATIENT_AMOUNT as 'Patient Amount'",
+                  ",tdl.INSURANCE_AMOUNT as 'Insurance Amount'",
+                  ",tdl.AMOUNT as 'Amount'",
+                  "",
+                  "from CLARITY.dbo.CLARITY_TDL_TRAN tdl",
+                  "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = tdl.DETAIL_TYPE",
+                  "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+                  "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = tdl.DEPT_ID",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = tdl.BILLING_PROVIDER_ID",
+                  "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = tdl.PERFORMING_PROV_ID",
+                  "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+                  "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = tdl.CUR_FIN_CLASS",
+                  "",
+                  "where tdl.POST_DATE >= '01/1/2017'",
+                  "and tdl.POST_DATE <= '12/31/2017'",
+                  "and tdl.DETAIL_TYPE <= 33",
+                  "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2018 Transactions",
+            "mode": "import",
+            "source": {
+              "query": [
+                "select",
+                " tdl.ORIG_SERVICE_DATE as 'Service Date'",
+                ",tdl.POST_DATE as 'Post Date'",
+                ",det.DETAIL_TYPE as 'Detail Type ID'",
+                ",det.NAME as 'Detail Type'",
+                ",eap.PROC_CODE as 'Procedure Code'",
+                ",eap.PROC_NAME as 'Procedure'",
+                ",eap.GL_NUM_CREDIT as 'Procedure GL Credit'",
+                ",eap.GL_NUM_DEBIT as 'Procedure GL Debit'",
+                ",eap_match.PROC_CODE as 'Procedure Code - Matched'",
+                ",eap_match.PROC_NAME as 'Procedure - Matched'",
+                ",tdl.DEPT_ID as 'Department ID'",
+                ",dep.DEPARTMENT_NAME as 'Department'",
+                ",dep.SPECIALTY as 'Department Specialty'",
+                ",dep.GL_PREFIX as 'Department GL'",
+                ",tdl.LOC_ID as 'Location ID'",
+                ",loc.LOC_NAME as 'Location'",
+                ",loc.GL_PREFIX as 'Location GL'",
+                ",sa.RPT_GRP_TEN as 'Region ID'",
+                ",upper(sa.NAME) as 'Region'",
+                ",ser_bill.PROV_ID as 'Billing Provider ID'",
+                ",ser_bill.PROV_NAME as 'Billing Provider'",
+                ",ser_perf.PROV_ID as 'Service Provider ID'",
+                ",ser_perf.PROV_NAME as 'Service Provider'",
+                ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+                ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+                ",tdl.PATIENT_AMOUNT as 'Patient Amount'",
+                ",tdl.INSURANCE_AMOUNT as 'Insurance Amount'",
+                ",tdl.AMOUNT as 'Amount'",
+                "",
+                "from CLARITY.dbo.CLARITY_TDL_TRAN tdl",
+                "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = tdl.DETAIL_TYPE",
+                "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+                "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = tdl.DEPT_ID",
+                "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = tdl.BILLING_PROVIDER_ID",
+                "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = tdl.PERFORMING_PROV_ID",
+                "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+                "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = tdl.CUR_FIN_CLASS",
+                "",
+                "where tdl.POST_DATE >= '1/1/2018'",
+                "and tdl.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+                "and tdl.DETAIL_TYPE <= 33",
+                "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " tdl.ORIG_SERVICE_DATE as 'Service Date'",
+                  ",tdl.POST_DATE as 'Post Date'",
+                  ",det.DETAIL_TYPE as 'Detail Type ID'",
+                  ",det.NAME as 'Detail Type'",
+                  ",eap.PROC_CODE as 'Procedure Code'",
+                  ",eap.PROC_NAME as 'Procedure'",
+                  ",eap.GL_NUM_CREDIT as 'Procedure GL Credit'",
+                  ",eap.GL_NUM_DEBIT as 'Procedure GL Debit'",
+                  ",eap_match.PROC_CODE as 'Procedure Code - Matched'",
+                  ",eap_match.PROC_NAME as 'Procedure - Matched'",
+                  ",tdl.DEPT_ID as 'Department ID'",
+                  ",dep.DEPARTMENT_NAME as 'Department'",
+                  ",dep.SPECIALTY as 'Department Specialty'",
+                  ",dep.GL_PREFIX as 'Department GL'",
+                  ",tdl.LOC_ID as 'Location ID'",
+                  ",loc.LOC_NAME as 'Location'",
+                  ",loc.GL_PREFIX as 'Location GL'",
+                  ",sa.RPT_GRP_TEN as 'Region ID'",
+                  ",upper(sa.NAME) as 'Region'",
+                  ",ser_bill.PROV_ID as 'Billing Provider ID'",
+                  ",ser_bill.PROV_NAME as 'Billing Provider'",
+                  ",ser_perf.PROV_ID as 'Service Provider ID'",
+                  ",ser_perf.PROV_NAME as 'Service Provider'",
+                  ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+                  ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+                  ",tdl.PATIENT_AMOUNT as 'Patient Amount'",
+                  ",tdl.INSURANCE_AMOUNT as 'Insurance Amount'",
+                  ",tdl.AMOUNT as 'Amount'",
+                  "",
+                  "from CLARITY.dbo.CLARITY_TDL_TRAN tdl",
+                  "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = tdl.DETAIL_TYPE",
+                  "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+                  "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = tdl.DEPT_ID",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = tdl.BILLING_PROVIDER_ID",
+                  "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = tdl.PERFORMING_PROV_ID",
+                  "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+                  "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = tdl.CUR_FIN_CLASS",
+                  "",
+                  "where tdl.POST_DATE >= '1/1/2018'",
+                  "and tdl.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101)",
+                  "and tdl.DETAIL_TYPE <= 33",
+                  "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Amount",
+            "expression": "sum(Transactions[Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "isHidden": true,
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Charges",
+            "expression": [
+              "",
+              "VAR Charges =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Detail Type ID] = 1",
+              "            || 'Transactions'[Detail Type ID] = 10",
+              "    )",
+              "RETURN",
+              "    CALCULATE ('Transactions'[Total Amount], Charges )"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charges",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Current Charges",
+            "expression": [
+              "",
+              "var dates = FILTER('Transactions','Transactions'[Service Date] = 'Transactions'[Post Date])",
+              "",
+              "RETURN CALCULATE([Charges],Dates)",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charges",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Late Charges",
+            "expression": "[Charges]-[Current Charges]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charges",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Medicare",
+            "expression": [
+              "",
+              "",
+              "var Medicare = FILTER('Transactions',",
+              "        'Transactions'[Original FC]= \"MEDICARE\"",
+              "            || 'Transactions'[Original FC] = \"MEDICARE MANAGED\"",
+              "    )",
+              "",
+              "RETURN CALCULATE('Transactions'[Charges],Medicare)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charges",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Medicaid",
+            "expression": [
+              "",
+              "",
+              "var Medicaid = FILTER('Transactions',",
+              "        'Transactions'[Original FC] = \"MEDICAID\"",
+              "            || 'Transactions'[Original FC] = \"MEDICAID MANAGED\"",
+              "    )",
+              "",
+              "RETURN CALCULATE('Transactions'[Charges],Medicaid)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charges",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Commercial",
+            "expression": [
+              "",
+              "",
+              "var Commercial = FILTER('Transactions',",
+              "        'Transactions'[Original FC] = \"COMMERCIAL\"",
+              "            || 'Transactions'[Original FC] = \"MANAGED CARE\"",
+              "    )",
+              "",
+              "RETURN CALCULATE('Transactions'[Charges],Commercial)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charges",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Blue Cross",
+            "expression": [
+              "",
+              "",
+              "var BlueCross = FILTER('Transactions',",
+              "        'Transactions'[Original FC] = \"BX TRADITIONAL\"",
+              "            || 'Transactions'[Original FC] = \"BX MANAGED\"",
+              "    )",
+              "",
+              "RETURN CALCULATE('Transactions'[Charges],BlueCross)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charges",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Other",
+            "expression": [
+              "",
+              "",
+              "var Other = FILTER('Transactions',",
+              "        'Transactions'[Original FC] = \"Other\"",
+              "    )",
+              "",
+              "RETURN CALCULATE('Transactions'[Charges],Other)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charges",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Self Pay",
+            "expression": [
+              "",
+              "",
+              "var SelfPay = FILTER('Transactions',",
+              "        'Transactions'[Original FC] = \"SELF-PAY\"",
+              "    )",
+              "",
+              "RETURN CALCULATE('Transactions'[Charges],SelfPay)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charges",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Payments",
+            "expression": [
+              "",
+              "VAR Payments =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Detail Type ID] = 2",
+              "            || 'Transactions'[Detail Type ID]  = 5",
+              "            || 'Transactions'[Detail Type ID]  = 11",
+              "            || 'Transactions'[Detail Type ID]  = 20",
+              "            || 'Transactions'[Detail Type ID]  = 22",
+              "            || 'Transactions'[Detail Type ID]  = 32",
+              "            || 'Transactions'[Detail Type ID]  = 33",
+              "    )",
+              "",
+              "RETURN",
+              "    CALCULATE ('Transactions'[Total Amount],Payments)*-1",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Payments",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Insurance Payments",
+            "expression": [
+              "",
+              "VAR Payments =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Detail Type ID] = 2",
+              "            || 'Transactions'[Detail Type ID] = 5",
+              "            || 'Transactions'[Detail Type ID] = 11",
+              "            || 'Transactions'[Detail Type ID] = 20",
+              "            || 'Transactions'[Detail Type ID] = 22",
+              "            || 'Transactions'[Detail Type ID] = 32",
+              "            || 'Transactions'[Detail Type ID] = 33",
+              "    )",
+              "",
+              "RETURN",
+              "    CALCULATE ( sum('Transactions'[Insurance Amount]), Payments)*-1"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Payments",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Patient Payments",
+            "expression": [
+              "",
+              "VAR Payments =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Detail Type ID] = 2",
+              "            || 'Transactions'[Detail Type ID] = 5",
+              "            || 'Transactions'[Detail Type ID] = 11",
+              "            || 'Transactions'[Detail Type ID] = 20",
+              "            || 'Transactions'[Detail Type ID] = 22",
+              "            || 'Transactions'[Detail Type ID] = 32",
+              "            || 'Transactions'[Detail Type ID] = 33",
+              "    )",
+              "",
+              "RETURN",
+              "    CALCULATE ( sum('Transactions'[Patient Amount]), Payments)*-1"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Payments",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Adjustments",
+            "expression": [
+              "",
+              "VAR Adjustments =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Detail Type ID] = 3",
+              "            || 'Transactions'[Detail Type ID]= 4",
+              "            || 'Transactions'[Detail Type ID] = 6",
+              "            || 'Transactions'[Detail Type ID] = 12",
+              "            || 'Transactions'[Detail Type ID]= 13",
+              "            || 'Transactions'[Detail Type ID] = 21",
+              "            || 'Transactions'[Detail Type ID] = 23",
+              "            || 'Transactions'[Detail Type ID] = 30",
+              "            || 'Transactions'[Detail Type ID] = 31",
+              "    )",
+              "",
+              "RETURN",
+              "    CALCULATE ('Transactions'[Total Amount],Adjustments)*-1"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Adjustments",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Credit Adjustments",
+            "expression": [
+              "",
+              "VAR Adjustments =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Detail Type ID] = 4",
+              "            || 'Transactions'[Detail Type ID] = 6",
+              "            || 'Transactions'[Detail Type ID] = 13",
+              "            || 'Transactions'[Detail Type ID] = 21",
+              "            || 'Transactions'[Detail Type ID] = 23",
+              "            || 'Transactions'[Detail Type ID] = 30",
+              "            || 'Transactions'[Detail Type ID] = 31",
+              "    )",
+              "",
+              "RETURN",
+              "    CALCULATE ('Transactions'[Total Amount], Adjustments)*-1"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Adjustments",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Debit Adjustments",
+            "expression": [
+              "",
+              "VAR Adjustments =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Detail Type ID] = 3",
+              "            || 'Transactions'[Detail Type ID] = 12",
+              "    )",
+              "",
+              "RETURN",
+              "    CALCULATE ('Transactions'[Total Amount], Adjustments)*-1"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Adjustments",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Net Revenue",
+            "expression": [
+              "",
+              "var NetRevenue =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Detail Type ID]= 1",
+              "            || 'Transactions'[Detail Type ID] = 3",
+              "            || 'Transactions'[Detail Type ID] = 4",
+              "            || 'Transactions'[Detail Type ID] = 6",
+              "            || 'Transactions'[Detail Type ID] = 10",
+              "            || 'Transactions'[Detail Type ID] = 12",
+              "            || 'Transactions'[Detail Type ID] = 13",
+              "            || 'Transactions'[Detail Type ID] = 21",
+              "            || 'Transactions'[Detail Type ID] = 23",
+              "            || 'Transactions'[Detail Type ID] = 30",
+              "            || 'Transactions'[Detail Type ID] = 31",
+              "    )",
+              "",
+              "RETURN CALCULATE('Transactions'[Total Amount],NetRevenue)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Revenue",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Bad Debt",
+            "expression": [
+              "",
+              "VAR DetailType =",
+              "    FILTER ( 'Transactions', 'Transactions'[Detail Type ID] <= 13 )",
+              "VAR Proc =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Procedure GL Credit] = \"BAD\"",
+              "            || 'Transactions'[Procedure GL Credit] = \"BADRECOVERY\"",
+              "            || 'Transactions'[Procedure GL Debit] = \"BAD\"",
+              "            || 'Transactions'[Procedure GL Debit] = \"BADRECOVERY\"",
+              "    )",
+              "RETURN",
+              "    CALCULATE ( 'Transactions'[Total Amount], DetailType, Proc) * -1"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Bad Debt",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Charity",
+            "expression": [
+              "",
+              "VAR DetailType =",
+              "    FILTER ( 'Transactions', 'Transactions'[Detail Type ID] <= 13 )",
+              "VAR Proc =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Procedure GL Credit] = \"CHARITY\"",
+              "            || 'Transactions'[Procedure GL Debit] = \"CHARITY\"",
+              "    )",
+              "RETURN",
+              "    CALCULATE ( 'Transactions'[Total Amount], DetailType, Proc ) * -1",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Charity",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Final Denial",
+            "expression": [
+              "",
+              "VAR DetailType =",
+              "    FILTER ( 'Transactions','Transactions'[Detail Type ID] <= 33 )",
+              "VAR Proc =",
+              "    FILTER (",
+              "        'Transactions',",
+              "        'Transactions'[Procedure Code - Matched] = \"4017\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"4018\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"4019\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"4020\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"4021\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"3011\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"3012\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"3013\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"3014\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"3015\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"3018\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"3019\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"3052\"",
+              "            || 'Transactions'[Procedure Code - Matched] = \"5036\"",
+              ")",
+              "RETURN",
+              "    CALCULATE ( 'Transactions'[Total Amount], DetailType, Proc ) * -1",
+              ""
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Final Denial",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Bad Debt %",
+            "expression": [
+              "",
+              "",
+              "IFERROR(",
+              "    'Transactions'[Bad Debt]/'Transactions'[Charges],",
+              "    BLANK()",
+              "    )"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Bad Debt"
+          },
+          {
+            "name": "Charity %",
+            "expression": [
+              "",
+              "",
+              "IFERROR(",
+              "    'Transactions'[Charity]/'Transactions'[Charges],",
+              "    BLANK()",
+              "    )"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Charity"
+          },
+          {
+            "name": "Final Denial %",
+            "expression": [
+              "",
+              "",
+              "IFERROR(",
+              "    'Transactions'[Final Denial]/'Transactions'[Charges],",
+              "    BLANK()",
+              "    )"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Final Denial"
+          },
+          {
+            "name": "Net Collection %",
+            "expression": [
+              "IFERROR(",
+              "    'Transactions'[Payments]/Transactions[Net Revenue 3 Month Avg],",
+              "    BLANK()",
+              "    )"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Medicare %",
+            "expression": "[Medicare]/[Charges]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Charges"
+          },
+          {
+            "name": "Medicaid %",
+            "expression": "[Medicaid]/[Charges]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Charges"
+          },
+          {
+            "name": "Commercial %",
+            "expression": "[Commercial]/[Charges]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Charges"
+          },
+          {
+            "name": "Blue Cross %",
+            "expression": "[Blue Cross]/[Charges]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Charges"
+          },
+          {
+            "name": "Other %",
+            "expression": "  [Other]/[Charges]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Charges"
+          },
+          {
+            "name": "Self Pay %",
+            "expression": "[Self Pay]/[Charges]",
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "Charges"
+          },
+          {
+            "name": "Net Revenue 3 Month Avg",
+            "description": "Revenue",
+            "expression": [
+              "",
+              "('Transactions'[Net Revenue] (DATESBETWEEN('Date - Post'[CALENDAR_DT],",
+              "STARTOFMONTH(DATEADD('Date - Post'[CALENDAR_DT],-3,MONTH)),",
+              "ENDOFMONTH(DATEADD('Date - Post'[CALENDAR_DT],-1,MONTH))))/3)"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " tdl.ORIG_SERVICE_DATE as 'Service Date'",
+              ",tdl.POST_DATE as 'Post Date'",
+              ",det.DETAIL_TYPE as 'Detail Type ID'",
+              ",det.NAME as 'Detail Type'",
+              ",eap.PROC_CODE as 'Procedure Code'",
+              ",eap.PROC_NAME as 'Procedure'",
+              ",eap.GL_NUM_CREDIT as 'Procedure GL Credit'",
+              ",eap.GL_NUM_DEBIT as 'Procedure GL Debit'",
+              ",eap_match.PROC_CODE as 'Procedure Code - Matched'",
+              ",eap_match.PROC_NAME as 'Procedure - Matched'",
+              ",tdl.DEPT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.SPECIALTY as 'Department Specialty'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",tdl.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",ser_bill.PROV_ID as 'Billing Provider ID'",
+              ",ser_bill.PROV_NAME as 'Billing Provider'",
+              ",ser_perf.PROV_ID as 'Service Provider ID'",
+              ",ser_perf.PROV_NAME as 'Service Provider'",
+              ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+              ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+              ",tdl.PATIENT_AMOUNT as 'Patient Amount'",
+              ",tdl.INSURANCE_AMOUNT as 'Insurance Amount'",
+              ",tdl.AMOUNT as 'Amount'",
+              "",
+              "from CLARITY.dbo.CLARITY_TDL_TRAN tdl",
+              "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = tdl.DETAIL_TYPE",
+              "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+              "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = tdl.DEPT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = tdl.BILLING_PROVIDER_ID",
+              "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = tdl.PERFORMING_PROV_ID",
+              "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+              "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = tdl.CUR_FIN_CLASS",
+              "",
+              "where tdl.POST_DATE >= '12/1/2017'",
+              "and tdl.POST_DATE <= '5/31/2018'",
+              "and tdl.DETAIL_TYPE <= 33",
+              "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Transactions"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " tdl.ORIG_SERVICE_DATE as 'Service Date'",
+              ",tdl.POST_DATE as 'Post Date'",
+              ",det.DETAIL_TYPE as 'Detail Type ID'",
+              ",det.NAME as 'Detail Type'",
+              ",eap.PROC_CODE as 'Procedure Code'",
+              ",eap.PROC_NAME as 'Procedure'",
+              ",eap.GL_NUM_CREDIT as 'Procedure GL Credit'",
+              ",eap.GL_NUM_DEBIT as 'Procedure GL Debit'",
+              ",eap_match.PROC_CODE as 'Procedure Code - Matched'",
+              ",eap_match.PROC_NAME as 'Procedure - Matched'",
+              ",tdl.DEPT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.SPECIALTY as 'Department Specialty'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",tdl.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",ser_bill.PROV_ID as 'Billing Provider ID'",
+              ",ser_bill.PROV_NAME as 'Billing Provider'",
+              ",ser_perf.PROV_ID as 'Service Provider ID'",
+              ",ser_perf.PROV_NAME as 'Service Provider'",
+              ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+              ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+              ",tdl.PATIENT_AMOUNT as 'Patient Amount'",
+              ",tdl.INSURANCE_AMOUNT as 'Insurance Amount'",
+              ",tdl.AMOUNT as 'Amount'",
+              "",
+              "from CLARITY.dbo.CLARITY_TDL_TRAN tdl",
+              "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = tdl.DETAIL_TYPE",
+              "left join CLARITY_EAP eap on eap.PROC_ID = tdl.PROC_ID",
+              "left join CLARITY_EAP eap_match on eap_match.PROC_ID = tdl.MATCH_PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = tdl.DEPT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = tdl.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = tdl.BILLING_PROVIDER_ID",
+              "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = tdl.PERFORMING_PROV_ID",
+              "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = tdl.ORIGINAL_FIN_CLASS",
+              "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = tdl.CUR_FIN_CLASS",
+              "",
+              "where tdl.POST_DATE >= '12/1/2017'",
+              "and tdl.POST_DATE <= '5/31/2018'",
+              "and tdl.DETAIL_TYPE <= 33",
+              "and tdl.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Date - Post",
+        "columns": [
+          {
+            "name": "CALENDAR_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "CALENDAR_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "CALENDAR_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NAME",
+            "dataType": "string",
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date - Post",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select ",
+                " dd.CALENDAR_DT",
+                ",dd.CALENDAR_DT_STR",
+                ",dd.YEAR_MONTH",
+                ",dd.YEAR",
+                ",dd.MONTH_NAME",
+                ",dd.MONTHNAME_YEAR",
+                "",
+                "from CLARITY.dbo.DATE_DIMENSION dd",
+                "",
+                "where dd.CALENDAR_DT >= '1/1/2017'",
+                "and dd.CALENDAR_DT <= getdate()"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+                  " dd.CALENDAR_DT",
+                  ",dd.CALENDAR_DT_STR",
+                  ",dd.YEAR_MONTH",
+                  ",dd.YEAR",
+                  ",dd.MONTH_NAME",
+                  ",dd.MONTHNAME_YEAR",
+                  "",
+                  "from CLARITY.dbo.DATE_DIMENSION dd",
+                  "",
+                  "where dd.CALENDAR_DT >= '1/1/2017'",
+                  "and dd.CALENDAR_DT <= getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select ",
+              " dd.CALENDAR_DT",
+              ",dd.CALENDAR_DT_STR",
+              ",dd.YEAR_MONTH",
+              ",dd.YEAR",
+              ",dd.MONTH_NAME",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from CLARITY.dbo.DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate()"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Date - Post"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select ",
+              " dd.CALENDAR_DT",
+              ",dd.CALENDAR_DT_STR",
+              ",dd.YEAR_MONTH",
+              ",dd.YEAR",
+              ",dd.MONTH_NAME",
+              ",dd.MONTHNAME_YEAR",
+              "",
+              "from CLARITY.dbo.DATE_DIMENSION dd",
+              "",
+              "where dd.CALENDAR_DT >= '1/1/2017'",
+              "and dd.CALENDAR_DT <= getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Aging",
+        "columns": [
+          {
+            "name": "Service Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Service Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "Post Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Post Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "FIRST_STM_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "FIRST_STM_DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "Detail Type ID",
+            "dataType": "int64",
+            "sourceColumn": "Detail Type ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Detail Type",
+            "dataType": "string",
+            "sourceColumn": "Detail Type",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure Code",
+            "dataType": "string",
+            "sourceColumn": "Procedure Code",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Procedure",
+            "dataType": "string",
+            "sourceColumn": "Procedure",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department ID",
+            "dataType": "double",
+            "sourceColumn": "Department ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department Specialty",
+            "dataType": "string",
+            "sourceColumn": "Department Specialty",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department GL",
+            "dataType": "string",
+            "sourceColumn": "Department GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location ID",
+            "dataType": "double",
+            "sourceColumn": "Location ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "sourceColumn": "Location",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location GL",
+            "dataType": "string",
+            "sourceColumn": "Location GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "string",
+            "sourceColumn": "Region ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Billing Provider ID",
+            "dataType": "string",
+            "sourceColumn": "Billing Provider ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Billing Provider",
+            "dataType": "string",
+            "sourceColumn": "Billing Provider",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Service Provider ID",
+            "dataType": "string",
+            "sourceColumn": "Service Provider ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Service Provider",
+            "dataType": "string",
+            "sourceColumn": "Service Provider",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Original FC",
+            "dataType": "string",
+            "sourceColumn": "Original FC",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Current FC",
+            "dataType": "string",
+            "sourceColumn": "Current FC",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Patient Amount",
+            "dataType": "double",
+            "sourceColumn": "Patient Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Insurance Amount",
+            "dataType": "double",
+            "sourceColumn": "Insurance Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Amount",
+            "dataType": "double",
+            "sourceColumn": "Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "type": "calculated",
+            "name": "Market",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH('Aging'[Location ID]",
+              "",
+              ",11106,\"SPRINGFIELD\" ",
+              "",
+              ",11149,\"SPRINGFIELD\" ",
+              "",
+              ",11124,\"SPRINGFIELD\" ",
+              "",
+              ",19147,\"SPRINGFIELD\" ",
+              "",
+              ",18110,\"MRG\" ",
+              "",
+              ",19126,\"MRG\" ",
+              "",
+              ",18120,\"DEFIANCE\" ",
+              "",
+              ",18121,\"DEFIANCE\" ",
+              "",
+              ",19120,\"DEFIANCE\" ",
+              "",
+              ",19127,\"DEFIANCE\" ",
+              "",
+              ",19107,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19108,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19116,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",19118,\"KENTUCKY - OTHER ENTITIES\" ",
+              "",
+              ",'Aging'[Region]",
+              "",
+              ") ",
+              "",
+              " ",
+              "",
+              " ",
+              "",
+              " ",
+              "",
+              " "
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Aging",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "select",
+                " age.ORIG_SERVICE_DATE as 'Service Date'",
+                ",age.POST_DATE as 'Post Date'",
+                ",csd.FIRST_STM_DATE",
+                ",det.DETAIL_TYPE as 'Detail Type ID'",
+                ",det.NAME as 'Detail Type'",
+                ",eap.PROC_CODE as 'Procedure Code'",
+                ",eap.PROC_NAME as 'Procedure'",
+                ",age.DEPT_ID as 'Department ID'",
+                ",dep.DEPARTMENT_NAME as 'Department'",
+                ",dep.SPECIALTY as 'Department Specialty'",
+                ",dep.GL_PREFIX as 'Department GL'",
+                ",age.LOC_ID as 'Location ID'",
+                ",loc.LOC_NAME as 'Location'",
+                ",loc.GL_PREFIX as 'Location GL'",
+                ",sa.RPT_GRP_TEN as 'Region ID'",
+                ",upper(sa.NAME) as 'Region'",
+                ",ser_bill.PROV_ID as 'Billing Provider ID'",
+                ",ser_bill.PROV_NAME as 'Billing Provider'",
+                ",ser_perf.PROV_ID as 'Service Provider ID'",
+                ",ser_perf.PROV_NAME as 'Service Provider'",
+                ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+                ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+                ",age.PATIENT_AMOUNT as 'Patient Amount'",
+                ",age.INSURANCE_AMOUNT as 'Insurance Amount'",
+                ",age.AMOUNT as 'Amount'",
+                "",
+                "from CLARITY.dbo.CLARITY_TDL_AGE age",
+                "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = age.DETAIL_TYPE",
+                "left join CLARITY_EAP eap on eap.PROC_ID = age.PROC_ID",
+                "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+                "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+                "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = age.BILLING_PROVIDER_ID",
+                "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = age.PERFORMING_PROV_ID",
+                "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = age.ORIGINAL_FIN_CLASS",
+                "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = age.CUR_FIN_CLASS",
+                "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+                "",
+                "where age.POST_DATE >='1/1/2018'",
+                "and age.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101) ",
+                "and age.SERV_AREA_ID in (11,13,16,17,18,19)"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+                  " age.ORIG_SERVICE_DATE as 'Service Date'",
+                  ",age.POST_DATE as 'Post Date'",
+                  ",csd.FIRST_STM_DATE",
+                  ",det.DETAIL_TYPE as 'Detail Type ID'",
+                  ",det.NAME as 'Detail Type'",
+                  ",eap.PROC_CODE as 'Procedure Code'",
+                  ",eap.PROC_NAME as 'Procedure'",
+                  ",age.DEPT_ID as 'Department ID'",
+                  ",dep.DEPARTMENT_NAME as 'Department'",
+                  ",dep.SPECIALTY as 'Department Specialty'",
+                  ",dep.GL_PREFIX as 'Department GL'",
+                  ",age.LOC_ID as 'Location ID'",
+                  ",loc.LOC_NAME as 'Location'",
+                  ",loc.GL_PREFIX as 'Location GL'",
+                  ",sa.RPT_GRP_TEN as 'Region ID'",
+                  ",upper(sa.NAME) as 'Region'",
+                  ",ser_bill.PROV_ID as 'Billing Provider ID'",
+                  ",ser_bill.PROV_NAME as 'Billing Provider'",
+                  ",ser_perf.PROV_ID as 'Service Provider ID'",
+                  ",ser_perf.PROV_NAME as 'Service Provider'",
+                  ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+                  ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+                  ",age.PATIENT_AMOUNT as 'Patient Amount'",
+                  ",age.INSURANCE_AMOUNT as 'Insurance Amount'",
+                  ",age.AMOUNT as 'Amount'",
+                  "",
+                  "from CLARITY.dbo.CLARITY_TDL_AGE age",
+                  "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = age.DETAIL_TYPE",
+                  "left join CLARITY_EAP eap on eap.PROC_ID = age.PROC_ID",
+                  "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+                  "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+                  "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+                  "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = age.BILLING_PROVIDER_ID",
+                  "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = age.PERFORMING_PROV_ID",
+                  "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = age.ORIGINAL_FIN_CLASS",
+                  "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = age.CUR_FIN_CLASS",
+                  "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+                  "",
+                  "where age.POST_DATE >='1/1/2018'",
+                  "and age.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101) ",
+                  "and age.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total AR",
+            "expression": "sum(Aging[Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "AR3M",
+            "expression": [
+              " ('Transactions'[Charges] (DATESBETWEEN('Date - Post'[CALENDAR_DT],",
+              "STARTOFMONTH(DATEADD('Transactions'[Post Date],-2,MONTH)),",
+              "ENDOFMONTH(DATEADD('Transactions'[Post Date],0,MONTH)))))"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "AR3MCOUNT",
+            "expression": [
+              "datediff(STARTOFMONTH(DATEADD('Date - Post'[CALENDAR_DT],-2,MONTH)),",
+              "ENDOFMONTH(DATEADD('Date - Post'[CALENDAR_DT],0,MONTH)),day)+1"
+            ]
+          },
+          {
+            "name": "AR DAYS",
+            "expression": "IFERROR([Total AR]/([AR3M]/[AR3MCOUNT]),BLANK())",
+            "formatString": "0.00"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select",
+              " age.ORIG_SERVICE_DATE as 'Service Date'",
+              ",age.POST_DATE as 'Post Date'",
+              ",csd.FIRST_STM_DATE",
+              ",det.DETAIL_TYPE as 'Detail Type ID'",
+              ",det.NAME as 'Detail Type'",
+              ",eap.PROC_CODE as 'Procedure Code'",
+              ",eap.PROC_NAME as 'Procedure'",
+              ",age.DEPT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.SPECIALTY as 'Department Specialty'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",age.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",ser_bill.PROV_ID as 'Billing Provider ID'",
+              ",ser_bill.PROV_NAME as 'Billing Provider'",
+              ",ser_perf.PROV_ID as 'Service Provider ID'",
+              ",ser_perf.PROV_NAME as 'Service Provider'",
+              ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+              ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+              ",age.PATIENT_AMOUNT as 'Patient Amount'",
+              ",age.INSURANCE_AMOUNT as 'Insurance Amount'",
+              ",age.AMOUNT as 'Amount'",
+              "",
+              "from CLARITY.dbo.CLARITY_TDL_AGE age",
+              "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = age.DETAIL_TYPE",
+              "left join CLARITY_EAP eap on eap.PROC_ID = age.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = age.BILLING_PROVIDER_ID",
+              "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = age.PERFORMING_PROV_ID",
+              "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = age.ORIGINAL_FIN_CLASS",
+              "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = age.CUR_FIN_CLASS",
+              "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+              "",
+              "where age.POST_DATE >='1/1/2018'",
+              "and age.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101) ",
+              "and age.SERV_AREA_ID in (11,13,16,17,18,19)"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Aging"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select",
+              " age.ORIG_SERVICE_DATE as 'Service Date'",
+              ",age.POST_DATE as 'Post Date'",
+              ",csd.FIRST_STM_DATE",
+              ",det.DETAIL_TYPE as 'Detail Type ID'",
+              ",det.NAME as 'Detail Type'",
+              ",eap.PROC_CODE as 'Procedure Code'",
+              ",eap.PROC_NAME as 'Procedure'",
+              ",age.DEPT_ID as 'Department ID'",
+              ",dep.DEPARTMENT_NAME as 'Department'",
+              ",dep.SPECIALTY as 'Department Specialty'",
+              ",dep.GL_PREFIX as 'Department GL'",
+              ",age.LOC_ID as 'Location ID'",
+              ",loc.LOC_NAME as 'Location'",
+              ",loc.GL_PREFIX as 'Location GL'",
+              ",sa.RPT_GRP_TEN as 'Region ID'",
+              ",upper(sa.NAME) as 'Region'",
+              ",ser_bill.PROV_ID as 'Billing Provider ID'",
+              ",ser_bill.PROV_NAME as 'Billing Provider'",
+              ",ser_perf.PROV_ID as 'Service Provider ID'",
+              ",ser_perf.PROV_NAME as 'Service Provider'",
+              ",orig_fc.FINANCIAL_CLASS_NAME as 'Original FC'",
+              ",cur_fc.FINANCIAL_CLASS_NAME as 'Current FC'",
+              ",age.PATIENT_AMOUNT as 'Patient Amount'",
+              ",age.INSURANCE_AMOUNT as 'Insurance Amount'",
+              ",age.AMOUNT as 'Amount'",
+              "",
+              "from CLARITY.dbo.CLARITY_TDL_AGE age",
+              "left join ZC_DETAIL_TYPE det on det.DETAIL_TYPE = age.DETAIL_TYPE",
+              "left join CLARITY_EAP eap on eap.PROC_ID = age.PROC_ID",
+              "left join CLARITY_DEP dep on dep.DEPARTMENT_ID = age.DEPT_ID",
+              "left join CLARITY_LOC loc on loc.LOC_ID = age.LOC_ID",
+              "left join ZC_LOC_RPT_GRP_10 sa on sa.RPT_GRP_TEN = loc.RPT_GRP_TEN",
+              "left join CLARITY_SER ser_bill on ser_bill.PROV_ID = age.BILLING_PROVIDER_ID",
+              "left join CLARITY_SER ser_perf on ser_perf.PROV_ID = age.PERFORMING_PROV_ID",
+              "left join CLARITY_FC orig_fc on orig_fc.FINANCIAL_CLASS = age.ORIGINAL_FIN_CLASS",
+              "left join CLARITY_FC cur_fc on cur_fc.FINANCIAL_CLASS = age.CUR_FIN_CLASS",
+              "left join CLAIM_STMNT_DATE csd on csd.TX_ID = age.TX_ID",
+              "",
+              "where age.POST_DATE >='1/1/2018'",
+              "and age.POST_DATE <= CONVERT(varchar,dateadd(d,-(day(getdate())),getdate()),101) ",
+              "and age.SERV_AREA_ID in (11,13,16,17,18,19)</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "81eb991f-5459-482d-a751-c0d5c9eaa544",
+        "fromTable": "Transactions",
+        "fromColumn": "Post Date",
+        "toTable": "Date - Post",
+        "toColumn": "CALENDAR_DT"
+      },
+      {
+        "name": "883ea18d-81ee-4c9a-8ce8-4599c6bfcd90",
+        "fromTable": "Aging",
+        "fromColumn": "Post Date",
+        "toTable": "Date - Post",
+        "toColumn": "CALENDAR_DT"
+      }
+    ],
+    "roles": [
+      {
+        "name": "Role",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_Reporting_Group",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-141188"
+          },
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
