@@ -1,0 +1,526 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Clarity",
+        "connectionString": "Provider=SQLNCLI11;Data Source=clarityprodpri,60304;Initial Catalog=Clarity;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\SQLpbi-svc",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Departments",
+        "columns": [
+          {
+            "name": "Department ID",
+            "dataType": "int64",
+            "sourceColumn": "Department ID",
+            "formatString": "0",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Department Name",
+            "dataType": "string",
+            "sourceColumn": "Department Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department Display Name",
+            "dataType": "string",
+            "sourceColumn": "Department Display Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Department GL",
+            "dataType": "string",
+            "sourceColumn": "Department GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Location ID",
+            "formatString": "0",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Status",
+            "dataType": "int64",
+            "sourceColumn": "Status",
+            "formatString": "0"
+          },
+          {
+            "name": "Department Grouper ID",
+            "dataType": "int64",
+            "sourceColumn": "Department Grouper ID",
+            "formatString": "0"
+          },
+          {
+            "name": "Department Grouper Name",
+            "dataType": "string",
+            "sourceColumn": "Department Grouper Name"
+          },
+          {
+            "name": "Department Specialty",
+            "dataType": "string",
+            "sourceColumn": "Department Specialty"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Departments",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": [
+                "select *",
+                "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_D_DEPARTMENTS"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+                  "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_D_DEPARTMENTS</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select *",
+              "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_D_DEPARTMENTS"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Departments"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+              "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_D_DEPARTMENTS</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Locations",
+        "columns": [
+          {
+            "name": "Location ID",
+            "dataType": "int64",
+            "sourceColumn": "Location ID",
+            "formatString": "0",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Location Name",
+            "dataType": "string",
+            "sourceColumn": "Location Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location Display Name",
+            "dataType": "string",
+            "sourceColumn": "Location Display Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location GL",
+            "dataType": "string",
+            "sourceColumn": "Location GL",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Market Name",
+            "dataType": "string",
+            "sourceColumn": "Market Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "int64",
+            "sourceColumn": "Region ID",
+            "formatString": "0",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region Name",
+            "dataType": "string",
+            "sourceColumn": "Region Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region Display Name",
+            "dataType": "string",
+            "sourceColumn": "Region Display Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location Grouper ID",
+            "dataType": "int64",
+            "sourceColumn": "Location Grouper ID",
+            "formatString": "0"
+          },
+          {
+            "name": "Location Grouper Name",
+            "dataType": "string",
+            "sourceColumn": "Location Grouper Name"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Locations",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": [
+                "select *",
+                "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_D_LOCATIONS"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+                  "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_D_LOCATIONS</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select *",
+              "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_D_LOCATIONS"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Locations"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+              "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_D_LOCATIONS</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Transactions",
+        "columns": [
+          {
+            "name": "Transaction ID",
+            "dataType": "double",
+            "sourceColumn": "Transaction ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Transaction Number",
+            "dataType": "int64",
+            "sourceColumn": "Transaction Number",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Matched Transaction ID",
+            "dataType": "double",
+            "sourceColumn": "Matched Transaction ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Matched Transaction Type",
+            "dataType": "int64",
+            "sourceColumn": "Matched Transaction Type",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Department ID",
+            "dataType": "double",
+            "sourceColumn": "Department ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Location ID",
+            "dataType": "double",
+            "sourceColumn": "Location ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Service Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Service Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "Original Post Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Original Post Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "Post Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Post Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "Detail Type ID",
+            "dataType": "int64",
+            "sourceColumn": "Detail Type ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Active Amount",
+            "dataType": "double",
+            "sourceColumn": "Active Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Patient Amount",
+            "dataType": "double",
+            "sourceColumn": "Patient Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Insurance Amount",
+            "dataType": "double",
+            "sourceColumn": "Insurance Amount",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Invoice Number",
+            "dataType": "string",
+            "sourceColumn": "Invoice Number",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ORIGINAL_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIGINAL_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIGINAL_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "ORIGINAL_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_PAYOR_ID",
+            "dataType": "double",
+            "sourceColumn": "CUR_PAYOR_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "CUR_PLAN_ID",
+            "dataType": "double",
+            "sourceColumn": "CUR_PLAN_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIGINAL_FIN_CLASS",
+            "dataType": "string",
+            "sourceColumn": "ORIGINAL_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CUR_FIN_CLASS",
+            "dataType": "string",
+            "sourceColumn": "CUR_FIN_CLASS",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "POS_ID",
+            "dataType": "double",
+            "sourceColumn": "POS_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ACCOUNT_ID",
+            "dataType": "double",
+            "sourceColumn": "ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "INT_PAT_ID",
+            "dataType": "string",
+            "sourceColumn": "INT_PAT_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DX_ONE_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_ONE_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "DX_TWO_ID",
+            "dataType": "double",
+            "sourceColumn": "DX_TWO_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PROC_ID",
+            "dataType": "double",
+            "sourceColumn": "PROC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BILLING_PROVIDER_ID",
+            "dataType": "string",
+            "sourceColumn": "BILLING_PROVIDER_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PERFORMING_PROV_ID",
+            "dataType": "string",
+            "sourceColumn": "PERFORMING_PROV_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DEPT_ID",
+            "dataType": "double",
+            "sourceColumn": "DEPT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "double",
+            "sourceColumn": "LOC_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "ORIG_AMT",
+            "dataType": "double",
+            "sourceColumn": "ORIG_AMT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "RVU_WORK",
+            "dataType": "double",
+            "sourceColumn": "RVU_WORK",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MODIFIER_ONE",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_ONE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MODIFIER_TWO",
+            "dataType": "string",
+            "sourceColumn": "MODIFIER_TWO",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Transactions",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": [
+                "select *",
+                "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_F_TRANSACTIONS"
+              ],
+              "dataSource": "Clarity"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+                  "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_F_TRANSACTIONS</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Amount",
+            "expression": "sum(Transactions[Active Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select *",
+              "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_F_TRANSACTIONS"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Transactions"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select *",
+              "from ClarityCHPUtil.rpt.V_MH_PB_CUBE_F_TRANSACTIONS</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "55d35483-dc9e-4b57-a54c-7fb9fd75e791",
+        "fromTable": "Transactions",
+        "fromColumn": "Department ID",
+        "toTable": "Departments",
+        "toColumn": "Department ID"
+      },
+      {
+        "name": "c9dc7691-d0c2-4766-b6cd-655a2c12c255",
+        "fromTable": "Transactions",
+        "fromColumn": "Location ID",
+        "toTable": "Locations",
+        "toColumn": "Location ID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

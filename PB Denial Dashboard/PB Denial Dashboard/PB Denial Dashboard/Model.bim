@@ -1,0 +1,732 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "ClarityCHPUtil",
+        "connectionString": "Provider=SQLNCLI11.1;Data Source=clarityprodpri,60304;Persist Security Info=False;Integrated Security=SSPI;Initial Catalog=ClarityCHPUtil",
+        "impersonationMode": "impersonateAccount",
+        "account": "mdco\\epic777",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "PB_Denial_Dashboard",
+        "columns": [
+          {
+            "name": "MATCH_CHG_TX_ID",
+            "dataType": "double",
+            "sourceColumn": "MATCH_CHG_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "PAT_ID",
+            "dataType": "string",
+            "sourceColumn": "PAT_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "ACCOUNT_ID",
+            "dataType": "double",
+            "sourceColumn": "ACCOUNT_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "MATCH_CHG_TX_NUM",
+            "dataType": "int64",
+            "sourceColumn": "MATCH_CHG_TX_NUM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DEPT_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "DEPT_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "LOC_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "LOC_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MATCH_CHG_ORIG_AMT",
+            "dataType": "double",
+            "sourceColumn": "MATCH_CHG_ORIG_AMT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "BILLING_PROV_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "BILLING_PROV_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CPT_CODE",
+            "dataType": "string",
+            "sourceColumn": "CPT_CODE",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PAYMENT_POST_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "PAYMENT_POST_DATE",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "PAYMENT_TX_ID",
+            "dataType": "double",
+            "sourceColumn": "PAYMENT_TX_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "INVOICE_NUM",
+            "dataType": "string",
+            "sourceColumn": "INVOICE_NUM",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "EOB_CODES",
+            "dataType": "string",
+            "sourceColumn": "EOB_CODES",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REMIT_ACTION_NAME",
+            "dataType": "string",
+            "sourceColumn": "REMIT_ACTION_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REMIT_CODE_CAT_NAME",
+            "dataType": "string",
+            "sourceColumn": "REMIT_CODE_CAT_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REMIT_CODE_TYPE_NAME",
+            "dataType": "string",
+            "sourceColumn": "REMIT_CODE_TYPE_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DENIAL_CODES",
+            "dataType": "string",
+            "sourceColumn": "DENIAL_CODES",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PAYOR_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "PAYOR_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PAYOR_FIN_CLASS_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "PAYOR_FIN_CLASS_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PLAN_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "PLAN_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "NON_PRIMARY_YN",
+            "dataType": "string",
+            "sourceColumn": "NON_PRIMARY_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "EOB_ICN",
+            "dataType": "string",
+            "sourceColumn": "EOB_ICN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SERV_AREA_ID",
+            "dataType": "double",
+            "sourceColumn": "SERV_AREA_ID",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "REMIT_ACTION",
+            "dataType": "string",
+            "sourceColumn": "REMIT_ACTION",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REMIT_CODE_TYPE_C",
+            "dataType": "string",
+            "sourceColumn": "REMIT_CODE_TYPE_C",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REMIT_AMOUNT",
+            "dataType": "double",
+            "sourceColumn": "REMIT_AMOUNT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "SERVICE_DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "SERVICE_DATE",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "sourceColumn": "Location",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SOURCE_AREA_NAME",
+            "dataType": "string",
+            "sourceColumn": "SOURCE_AREA_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BILL_AREA_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "BILL_AREA_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "FIN_SUBDIV_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "FIN_SUBDIV_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "FIN_DIV_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "FIN_DIV_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "POS_NM_WID",
+            "dataType": "string",
+            "sourceColumn": "POS_NM_WID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PREVENTABLE_YN",
+            "dataType": "string",
+            "sourceColumn": "PREVENTABLE_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "LOC_ID",
+            "dataType": "string",
+            "sourceColumn": "LOC_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "MONTH_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "REGION",
+            "dataType": "string",
+            "sourceColumn": "REGION",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Reason Code",
+            "dataType": "string",
+            "sourceColumn": "Reason Code",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH"
+          },
+          {
+            "name": "SERVICE LINE",
+            "dataType": "string",
+            "sourceColumn": "SERVICE LINE"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PB_Denial_Dashboard",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": "execute ClarityCHPUtil.rpt.sp_PB_Denial_Dashboard",
+              "dataSource": "ClarityCHPUtil"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>execute ClarityCHPUtil.rpt.sp_PB_Denial_Dashboard</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Denied Amount",
+            "expression": "sum(PB_Denial_Dashboard[REMIT_AMOUNT])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Count",
+            "expression": "count(PB_Denial_Dashboard[MATCH_CHG_TX_ID])",
+            "formatString": "#,0"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "execute ClarityCHPUtil.rpt.sp_PB_Denial_Dashboard"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "PB_Denial_Dashboard"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>execute ClarityCHPUtil.rpt.sp_PB_Denial_Dashboard</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "CALENDAR_DT",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "CALENDAR_DT",
+            "formatString": "Short Date",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "DAY_OF_WEEK",
+            "dataType": "string",
+            "sourceColumn": "DAY_OF_WEEK",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "WEEK_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEK_ENDING_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "WEEK_ENDING_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "LAST_FRIDAY_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "LAST_FRIDAY_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "MONTH_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "DAY_OF_MONTH",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MONTH_NAME",
+            "dataType": "string",
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "MONTH_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "QUARTER_NUMBER",
+            "dataType": "int64",
+            "sourceColumn": "QUARTER_NUMBER",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DAY_OF_YEAR",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DTE",
+            "dataType": "int64",
+            "sourceColumn": "EPIC_DTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EPIC_DAT",
+            "dataType": "int64",
+            "sourceColumn": "EPIC_DAT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "INSTANT_AT_MIDNIGHT",
+            "dataType": "double",
+            "sourceColumn": "INSTANT_AT_MIDNIGHT",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "YEAR",
+            "dataType": "int64",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OCCURRENCE_IN_MONTH",
+            "dataType": "int64",
+            "sourceColumn": "OCCURRENCE_IN_MONTH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TOMORROW_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "TOMORROW_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_MONTH",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEKEND_YN",
+            "dataType": "string",
+            "sourceColumn": "WEEKEND_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "QUARTER_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "QUARTER_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "QUARTER_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "SAME_DAY_YEAR_AGO",
+            "dataType": "dateTime",
+            "sourceColumn": "SAME_DAY_YEAR_AGO",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "PREV_DAY_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "PREV_DAY_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "LEAP_YEAR_YN",
+            "dataType": "string",
+            "sourceColumn": "LEAP_YEAR_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_THE_WEEK_C",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_THE_WEEK_C",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_OF_THE_WEEK",
+            "dataType": "int64",
+            "sourceColumn": "YEAR_OF_THE_WEEK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "YEAR_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "MONTH_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "YEAR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTH_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "MONTH_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "CALENDAR_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "CALENDAR_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QTR_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "QTR_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WEEK_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "WEEK_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "WEEK_BEGIN_DT_STR",
+            "dataType": "string",
+            "sourceColumn": "WEEK_BEGIN_DT_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DAY_OF_WEEK_INDEX",
+            "dataType": "int64",
+            "sourceColumn": "DAY_OF_WEEK_INDEX",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "HOLIDAY_YN",
+            "dataType": "string",
+            "sourceColumn": "HOLIDAY_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "MONTHNAME_YEAR",
+            "dataType": "string",
+            "sourceColumn": "MONTHNAME_YEAR",
+            "sortByColumn": "YEAR_MONTH",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_QUARTER",
+            "dataType": "string",
+            "sourceColumn": "YEAR_QUARTER",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "YEAR_MONTH_STR",
+            "dataType": "string",
+            "sourceColumn": "YEAR_MONTH_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "QUARTER_STR",
+            "dataType": "string",
+            "sourceColumn": "QUARTER_STR",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "BUS_DAY_CT",
+            "dataType": "int64",
+            "sourceColumn": "BUS_DAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WEEKDAY_CT",
+            "dataType": "int64",
+            "sourceColumn": "WEEKDAY_CT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "USA_FISCAL_YEAR_BEGIN_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "USA_FISCAL_YEAR_BEGIN_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "USA_FISCAL_YEAR_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "USA_FISCAL_YEAR_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "YEAR_END_DT",
+            "dataType": "dateTime",
+            "sourceColumn": "YEAR_END_DT",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "MONTH_END_YN",
+            "dataType": "string",
+            "sourceColumn": "MONTH_END_YN",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WHICH_DAYS_C",
+            "dataType": "int64",
+            "sourceColumn": "WHICH_DAYS_C",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": [
+                "select * from Clarity.dbo.DATE_DIMENSION ",
+                "where calendar_dt >= '1/1/2018'",
+                "and calendar_dt < getdate()"
+              ],
+              "dataSource": "ClarityCHPUtil"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select * from Clarity.dbo.DATE_DIMENSION ",
+                  "where calendar_dt >= '1/1/2018'",
+                  "and calendar_dt < getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "select * from Clarity.dbo.DATE_DIMENSION ",
+              "where calendar_dt >= '1/1/2018'",
+              "and calendar_dt < getdate()"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Date"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>select * from Clarity.dbo.DATE_DIMENSION ",
+              "where calendar_dt >= '1/1/2018'",
+              "and calendar_dt < getdate()</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "19c403ef-a2d7-41b0-986b-11af4e9bc17b",
+        "fromTable": "PB_Denial_Dashboard",
+        "fromColumn": "PAYMENT_POST_DATE",
+        "toTable": "Date",
+        "toColumn": "CALENDAR_DT"
+      }
+    ],
+    "roles": [
+      {
+        "name": "Users",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          },
+          {
+            "memberName": "MDCO\\Corp-EPIC_Clarity_Reporting_Group",
+            "memberId": "S-1-5-21-448539723-1085031214-725345543-141188"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
