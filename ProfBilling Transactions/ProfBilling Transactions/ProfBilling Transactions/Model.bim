@@ -236,6 +236,7 @@
           {
             "name": "2017 Transactions",
             "source": {
+              "type": "query",
               "query": [
                 "select",
                 " tdl.ORIG_SERVICE_DATE as 'Service Date'",
@@ -344,6 +345,7 @@
             "name": "2018 Transactions",
             "mode": "import",
             "source": {
+              "type": "query",
               "query": [
                 "select",
                 " tdl.ORIG_SERVICE_DATE as 'Service Date'",
@@ -1183,6 +1185,7 @@
             "name": "Date - Post",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": [
                 "select ",
                 " dd.CALENDAR_DT",
@@ -1472,6 +1475,7 @@
             "name": "Aging",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": [
                 "select",
                 " age.ORIG_SERVICE_DATE as 'Service Date'",
@@ -1739,6 +1743,17 @@
           {
             "memberName": "MDCO\\Corp-EPIC_Clarity_PBUsers",
             "memberId": "S-1-5-21-448539723-1085031214-725345543-311518"
+          }
+        ]
+      },
+      {
+        "name": "External",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "plowman.ds@gmail.com",
+            "memberId": "plowman.ds@gmail.com",
+            "identityProvider": "AzureAD"
           }
         ]
       }
